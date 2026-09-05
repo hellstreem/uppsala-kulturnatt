@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Uppsala Kulturnatt 2026</title>
+    <meta name="description" content="Hitta evenemang under Uppsala Kulturnatt 2026. Sök, filtrera och spara dina favoriter." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#12323d" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://uppsalakulturnatt.com/" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Uppsala Kulturnatt 2026" />
+    <meta property="og:description" content="Hitta evenemang under Uppsala Kulturnatt 2026. Sök, filtrera och spara dina favoriter." />
+    <meta property="og:url" content="https://uppsalakulturnatt.com/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Uppsala Kulturnatt 2026" />
+    <meta name="twitter:description" content="Hitta evenemang under Uppsala Kulturnatt 2026. Sök, filtrera och spara dina favoriter." />
+    <meta name="twitter:url" content="https://uppsalakulturnatt.com/" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <a class="site-title" href="./"><img class="site-logo" src="uppsala-skyline.svg" alt="" />Uppsala Kulturnatt 2026</a>
+        <div class="top-actions">
+          <button id="info-button" class="info-button" type="button" aria-label="Visa information" title="Information"><i class="fa-solid fa-circle-info" aria-hidden="true"></i></button>
+          <button id="finished-visibility-toggle" class="finished-visibility-toggle" type="button" aria-label="Dölj avslutade evenemang" aria-pressed="false" title="Dölj avslutade evenemang"><i class="fa-solid fa-eye" aria-hidden="true"></i></button>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Byt till ljust läge" title="Byt till ljust läge"><i class="fa-solid fa-sun" aria-hidden="true"></i></button>
+          <div class="user-menu-container">
+            <button id="login-button" class="user-button" type="button" aria-label="Logga in" aria-expanded="false" aria-haspopup="menu" title="Logga in"><i class="fa-regular fa-user" aria-hidden="true"></i></button>
+            <div id="user-menu" class="user-menu" role="menu" hidden>
+              <button id="logout-button" type="button" role="menuitem">Logga ut</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <dialog id="info-dialog" class="info-dialog" aria-labelledby="info-dialog-title">
+      <div class="info-dialog-content">
+        <div class="info-dialog-header">
+          <h2 id="info-dialog-title">Om denna sajt</h2>
+          <button id="info-close" class="info-close" type="button" aria-label="Stäng information" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <p>Här kan du söka bland evenemang under Uppsala Kulturnatt 2026, filtrera programmet och spara favoriter.</p>
+        <p>Logga in om du vill synka dina favoriter mellan flera enheter.</p>
+        <p>Ambitionen är att vara en enklare sajt för att hitta evenemang både före och under Uppsala Kulturnatt. Bland annat listas alla inslag under ett evenemang som egna evenemang.</p>
+        <p>Kontakt: hstream@gmail.com</p>
+      </div>
+    </dialog>
+    <dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-dialog-title">
+      <form id="auth-form" method="dialog" class="auth-form">
+        <div class="auth-dialog-header">
+          <h2 id="auth-dialog-title">Logga in</h2>
+          <button class="auth-close" type="button" value="cancel" aria-label="Stäng inloggning" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <p class="auth-help">Logga in med ditt Google-konto eller med e-post och lösenord för att spara favoriter om du använder flera enheter.</p>
+        <button id="google-login-button" class="google-login-button" type="button"><i class="fa-brands fa-google" aria-hidden="true"></i> Fortsätt med Google</button>
+        <div class="auth-divider">eller</div>
+        <label>E-post<input id="auth-email" type="email" autocomplete="email" required /></label>
+        <label>Lösenord<input id="auth-password" type="password" autocomplete="current-password" minlength="6" required /></label>
+        <p id="auth-message" class="auth-message" role="status" aria-live="polite"></p>
+        <div class="auth-email-actions">
+          <button type="submit" name="action" value="sign-in">Logga in</button>
+          <button type="submit" name="action" value="register">Skapa konto</button>
+        </div>
+      </form>
+    </dialog>
+    <aside id="sync-alert" class="sync-alert" role="status" hidden><a id="sync-login-link" href="#login">Logga in</a> för att spara favoriter</aside>
+    <header>
+      <div class="view-controls">
+        <select id="tab-select" class="tabs-select" aria-label="Välj vy">
+          <option id="tab-program" value="program" title="Alla (0 st)" selected>&#128197; Alla (0)</option>
+          <option id="tab-cancelled" value="cancelled" title="Inställda evenemang (0 st)">&#128683; Inställda evenemang (0)</option>
+          <option id="tab-favorites" value="favorites" title="Favoritevenemang (0 st)">&#11088; Favoriter (0)</option>
+          <option id="tab-live" value="live" title="Pågående evenemang (0 st)">&#128336; Pågående (0)</option>
+          <option id="tab-recent" value="recent" title="Just startade evenemang (0 st)">&#9194; Just startade (0)</option>
+          <option id="tab-soon" value="soon" title="Strax startade evenemang (0 st)">&#9193; Startar strax (0)</option>
+          <option id="tab-later" value="later" title="Senare startade evenemang (0 st)">&#8987; Startar senare (0)</option>
+          <option id="tab-finished" value="finished" title="Avslutade evenemang (0 st)">&#9989; Avslutade (0)</option>
+          <option id="tab-unfinished" value="unfinished" title="Ej avslutade evenemang (0 st)">&#9711; Ej avslutade (0)</option>
+        </select>
+        <button id="show-filters" class="clear-search" type="button" aria-label="Visa filter" title="Visa filter" aria-expanded="false" aria-pressed="false">
+          <span id="show-filters-label"><i class="fa-solid fa-filter" aria-hidden="true"></i></span> <span id="filter-count" hidden></span>
+        </button>
+        <div class="search-row">
+          <label class="search-field">
+            <input id="event-search" type="search" placeholder="Sök titel eller plats" autocomplete="off" />
+          </label>
+        </div>
+        <div class="filter-header">
+          <div id="selected-filters" class="selected-filters" aria-live="polite"></div>
+          <button id="clear-filters" class="clear-filter-link" type="button" disabled>Rensa filter</button>
+        </div>
+      </div>
+    </header>
+    <div class="page-content">
+      <dialog id="filter-search-section" class="filter-search-section" aria-labelledby="filter-dialog-title">
+        <div class="filter-search-section-inner">
+          <div class="filter-dialog-header">
+            <h2 id="filter-dialog-title">Filter</h2>
+            <button id="close-filters" class="filter-dialog-close" type="button" aria-label="Stäng filter" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+          </div>
+          <section id="filter-panel" class="filter-panel" aria-label="Filter">
+            <div class="primary-filters">
+              <label><input id="children-filter" type="checkbox" /> Barn</label>
+              <label><input id="adults-filter" type="checkbox" /> Vuxna</label>
+              <label><input id="free-filter" type="checkbox" /> Gratis</label>
+              <label><input id="paid-filter" type="checkbox" /> Kostar</label>
+            </div>
+            <div class="filters">
+              <div class="multi-filter">
+                <details id="category-menu" class="filter-menu">
+                  <summary id="category-summary">Alla kategorier</summary>
+                  <div id="category-options" class="filter-options">
+                    <label><input type="checkbox" value="all" checked /> Alla kategorier</label>
+                  </div>
+                </details>
+              </div>
+              <div class="multi-filter">
+                <details id="language-menu" class="filter-menu">
+                  <summary id="language-summary">Alla språk</summary>
+                  <div id="language-options" class="filter-options">
+                    <label><input type="checkbox" value="all" checked /> Alla språk</label>
+                  </div>
+                </details>
+              </div>
+              <div class="multi-filter">
+                <details id="accessibility-menu" class="filter-menu">
+                  <summary id="accessibility-summary">All tillgänglighet</summary>
+                  <div id="accessibility-options" class="filter-options">
+                    <label><input type="checkbox" value="all" checked /> All tillgänglighet</label>
+                  </div>
+                </details>
+              </div>
+              <div class="multi-filter">
+                <details id="location-menu" class="filter-menu">
+                  <summary id="location-summary">Alla platser</summary>
+                  <div id="location-options" class="filter-options">
+                    <label><input type="checkbox" value="all" checked /> Alla platser</label>
+                  </div>
+                </details>
+              </div>
+              <div class="time-filters">
+                <select id="from-filter" aria-label="Från timme">
+                  <option value="">Från</option>
+                </select>
+                <select id="to-filter" aria-label="Till timme">
+                  <option value="">Till</option>
+                </select>
+              </div>
+            </div>
+          </section>
+          <div class="filter-dialog-footer">
+            <button id="close-filters-bottom" class="filter-dialog-close-bottom" type="button">Stäng</button>
+          </div>
+        </div>
+      </dialog>
+
+      <main>
+        <div id="status">Loading events…</div>
+        <div class="list-subheader-row">
+          <h1 id="active-tab-heading" class="list-subheader">Alla evenemang</h1>
+          <div id="program-sort-controls" class="program-sort-controls" aria-label="Sortera program">
+            <span>Sortering:</span>
+            <button id="program-sort-start" class="sort-option active" type="button" aria-pressed="true">Starttid</button>
+            <span aria-hidden="true">|</span>
+            <button id="program-sort-seen" class="sort-option" type="button" aria-pressed="false">Nyast</button>
+          </div>
+        </div>
+        <div id="list" class="list"></div>
+      </main>
+    </div>
+
+    <script src="globals.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

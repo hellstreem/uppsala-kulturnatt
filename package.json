@@ -1,0 +1,32 @@
+{
+  "name": "uppsala-kulturnatt",
+  "version": "0.0.10",
+  "description": "CLI and web application to fetch events from Uppsala Kulturnatt API",
+  "author": {
+    "name": "Hstream",
+    "email": "hstream@gmail.com"
+  },
+  "main": "dist/cli/fetchEvents.js",
+  "scripts": {
+    "build": "tsc && node scripts/prepareDeploy.js",
+    "createEvents": "tsx src/cli/createEvents.ts",
+    "createFilters": "tsx src/cli/createFilters.ts",
+    "createSubEvents": "tsx src/cli/createSubEvents.ts",
+    "getSubEvents": "tsx src/cli/getSubEvents.ts",
+    "mergeEvents": "tsx src/cli/mergeEvents.ts",
+    "finalizeEvents": "tsx src/cli/finalizeEvents.ts",
+    "packEvents": "tsx src/cli/packEvents.ts",
+    "farmEvents": "tsx src/cli/farmEvents.ts",
+    "farmLooper": "tsx src/cli/farmLooper.ts",
+    "start": "node scripts/startServer.js"
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^3.12.7",
+    "typescript": "^4.9.5"
+  }
+}
