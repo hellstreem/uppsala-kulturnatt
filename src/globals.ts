@@ -2,7 +2,7 @@
 export const GLOBAL_START_DATE = '2026-09-12';
 export const MINIMUM_FETCHED_EVENTS = 400;
 export const MINIMUM_FETCHED_CATEGORIES = 8;
-export const FARM_INTERVAL_BEFORE_START_DATE = '10m';
+export const FARM_INTERVAL_BEFORE_START_DATE = '120m';
 export const FARM_INTERVAL_ON_START_DATE = '15m';
 export const RATE_LIMIT_MS = 1500;
 

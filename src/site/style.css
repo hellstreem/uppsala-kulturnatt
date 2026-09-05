@@ -936,7 +936,7 @@ main {
 }
 
 #status {
-  margin: 0;
+  margin: 0 0 10px 0;
   color: var(--muted);
 }
 
@@ -956,6 +956,47 @@ main {
   color: var(--text);
   font-size: 1.25rem;
   font-weight: 700;
+}
+
+.list-heading-group {
+  min-width: 0;
+}
+
+.shared-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 3px;
+  padding-left: 8px;
+  border-left: 3px solid var(--accent-2);
+  margin-bottom: 10px;
+}
+
+.shared-meta[hidden] {
+  display: none;
+}
+
+.shared-description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.25;
+}
+
+.remove-shared {
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--detail-bg);
+  color: var(--input-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1.1;
+}
+
+.remove-shared[hidden] {
+  display: none;
 }
 
 .program-sort-controls {
@@ -1104,6 +1145,10 @@ main {
 
 .card.cancelled {
   background: #7f1d1d;
+}
+
+.card.shared-card {
+  border: 1px solid var(--accent-2);
 }
 
 .card.finished {
