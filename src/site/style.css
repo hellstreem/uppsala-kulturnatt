@@ -132,7 +132,7 @@ main,
 
 header {
   position: sticky;
-  top: 38px;
+  top: 46px;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -149,23 +149,25 @@ header {
   z-index: 3;
   margin: 0;
   background: var(--topbar-bg);
-  box-shadow: 0 2px 10px var(--card-shadow);
+  border-bottom: 1px solid var(--topbar-divider);
+  box-shadow: 0 3px 12px var(--card-shadow);
 }
 
 .top-bar-inner {
+  min-height: 46px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: min(100%, 960px);
   margin-inline: auto;
-  padding: 4px;
+  padding: 7px 10px;
 }
 
 .site-title {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  margin: 5px;
+  margin: 0;
   font-size: 1rem;
   font-weight: 700;
   color: var(--topbar-text);
@@ -185,7 +187,7 @@ header {
 .top-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .info-button,
@@ -333,15 +335,20 @@ header {
 }
 
 @media (max-width: 420px) {
+  header {
+    top: 46px;
+  }
+
   .top-bar-inner {
+    min-height: 46px;
     gap: 4px;
-    padding: 3px;
+    padding: 5px 6px;
   }
 
   .site-title {
     gap: 4px;
     margin: 3px 2px;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
 
   .site-logo {
