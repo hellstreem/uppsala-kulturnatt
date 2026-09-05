@@ -1,6 +1,6 @@
 export function packEvents(events: any[], filters: any) {
   const outEvents = JSON.parse(JSON.stringify(events || []));
-  const unusedPackedEventFields = ['aboutEnglish', 'aboutShort', 'aboutShortEnglish', 'city', 'created', 'locationId', 'parentEventId', 'postalCode', 'price', 'status', 'titleEnglish'];
+  const unusedPackedEventFields = ['aboutEnglish', 'aboutShort', 'aboutShortEnglish', 'city', 'created', 'locationId', 'parentEventId', 'postalCode', 'price', 'status', 'titleEnglish', 'url'];
 
   function extractNamesFromEvent(val: any): string[] {
     if (!val && val !== 0) return [];
@@ -46,8 +46,25 @@ export function packEvents(events: any[], filters: any) {
     for (const field of unusedPackedEventFields) delete event[field];
   }
 
+  function removeEmptyValues(value: any): any {
+    if (Array.isArray(value)) {
+      const items = value.map(removeEmptyValues).filter((item) => item !== undefined);
+      return items.length > 0 ? items : undefined;
+    }
+    if (value && typeof value === 'object') {
+      const entries = Object.entries(value)
+        .map(([key, item]) => [key, removeEmptyValues(item)] as const)
+        .filter(([, item]) => item !== undefined);
+      return entries.length > 0 ? Object.fromEntries(entries) : undefined;
+    }
+    if (value === null || value === undefined || value === '') return undefined;
+    return value;
+  }
+
+  const compactEvents = outEvents.map(removeEmptyValues).filter(Boolean);
+
   return {
-    events: outEvents,
+    events: compactEvents,
     categories,
     languages,
     locations,

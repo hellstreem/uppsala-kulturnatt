@@ -377,6 +377,11 @@ function setStatus(message = '') {
 
 function normalizeEvent(event) {
   event.favoriteId = idFor(event);
+  event.url = event.id ? `https://kulturnatten.uppsala.se/program/event/?externalId=${event.id}` : '';
+  event.categoryNames = Array.isArray(event.categoryNames) ? event.categoryNames : [];
+  event.languageNames = Array.isArray(event.languageNames) ? event.languageNames : [];
+  event.locationNames = Array.isArray(event.locationNames) ? event.locationNames : [];
+  event.accessibilityNames = Array.isArray(event.accessibilityNames) ? event.accessibilityNames : [];
   event.startMs = eventStartTime(event);
   event.endMs = eventEndTime(event);
   event.startMinutes = clockMinutes(event.start || event.startTime || event.startTimeText || event.time);
