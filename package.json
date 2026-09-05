@@ -1,6 +1,6 @@
 {
   "name": "uppsala-kulturnatt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI and web application to fetch events from Uppsala Kulturnatt API",
   "author": {
     "name": "Hstream",
