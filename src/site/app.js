@@ -6,6 +6,7 @@ const $header = document.querySelector('header');
 const $status = document.getElementById('status');
 const $appVersion = document.getElementById('app-version');
 const $activeTabHeading = document.getElementById('active-tab-heading');
+const $listSubheaderRow = document.querySelector('.list-subheader-row');
 const $programSortControls = document.getElementById('program-sort-controls');
 const $programSortStart = document.getElementById('program-sort-start');
 const $programSortSeen = document.getElementById('program-sort-seen');
@@ -229,7 +230,7 @@ function shareTextForFavorites(events, favorites) {
     const starLabel = rating === 1 ? 'stjärna' : 'stjärnor';
     return `${start}-${end}\n${title} (${rating} ${starLabel})\n${location}\n\n${event.url || ''}`;
   });
-  const userName = firebaseUser?.displayName?.trim() || firebaseUser?.email?.trim() || 'Någon';
+  const userName = firebaseUser?.displayName?.trim() || 'Någon';
   return [`${userName} vill dela sina favoritevenemang på Uppsala Kulturnatt 2026 med dig.`, ...eventText, 'Hitta dina egna favoriter på https://uppsalakulturnatt.com/.'].join('\n\n');
 }
 
@@ -459,12 +460,15 @@ function updateAuthenticationUi(user) {
     return;
   }
 
-  $loginButton.setAttribute('aria-label', `Konto: ${user.displayName || user.email || 'användare'}`);
-  $loginButton.title = `Inloggad som ${user.displayName || user.email || 'användare'}`;
-  if (user.photoURL) {
+  const profile = user.providerData?.find((provider) => provider.providerId === 'google.com') || user.providerData?.[0];
+  const displayName = user.displayName || profile?.displayName || user.email || 'användare';
+  const photoURL = user.photoURL || profile?.photoURL;
+  $loginButton.setAttribute('aria-label', `Konto: ${displayName}`);
+  $loginButton.title = `Inloggad som ${displayName}`;
+  if (photoURL) {
     const image = document.createElement('img');
     image.className = 'user-avatar';
-    image.src = user.photoURL;
+    image.src = photoURL;
     image.alt = '';
     image.addEventListener(
       'error',
@@ -585,10 +589,10 @@ function updateTabCounts() {
   tabs.soon.title = `Evenemang som startar strax (${soonCount} st)`;
   tabs.later.textContent = `\u23F3 Startar senare (${laterCount})`;
   tabs.later.title = `Evenemang som startar senare (${laterCount} st)`;
+  tabs.unfinished.textContent = `\u26AB Ej avslutade (${unfinishedCount})`;
+  tabs.unfinished.title = `Ej avslutade evenemang (${unfinishedCount} st)`;
   tabs.finished.textContent = `\u2705 Avslutade (${finishedCount})`;
   tabs.finished.title = `Avslutade evenemang (${finishedCount} st)`;
-  tabs.unfinished.textContent = `\u25EF Ej avslutade (${unfinishedCount})`;
-  tabs.unfinished.title = `Ej avslutade evenemang (${unfinishedCount} st)`;
 }
 
 function coordinatesToMapQuery(coordinates) {
@@ -1117,7 +1121,7 @@ function renderList(events, favorites = loadFavorites()) {
     const timeLabel = document.createElement('span');
     timeLabel.textContent = timeText;
 
-    const eventStatus = ev.isCancelled ? '(INSTÄLLD)' : isFinished ? '(AVSLUTAD)' : null;
+    const eventStatus = ev.isCancelled ? '(INSTÄLLT)' : isFinished ? '(AVSLUTAT)' : null;
     if (eventStatus) {
       const statusLabel = document.createElement('span');
       statusLabel.className = 'event-status';
@@ -1182,6 +1186,7 @@ function renderList(events, favorites = loadFavorites()) {
       star.type = 'button';
       star.className = 'star';
       star.setAttribute('aria-label', `${value} ${value === 1 ? 'stjärna' : 'stjärnor'}`);
+      star.title = `Betygsätt med ${value} ${value === 1 ? 'stjärna' : 'stjärnor'}`;
       star.setAttribute('aria-pressed', String(rating === value));
       star.classList.toggle('inactive', value > rating);
       star.innerHTML = value <= rating ? '<i class="fa-solid fa-star" aria-hidden="true"></i>' : '<i class="fa-sharp fa-regular fa-star" aria-hidden="true"></i>';
@@ -1194,6 +1199,24 @@ function renderList(events, favorites = loadFavorites()) {
         setActive(activeTab);
       });
       ratingControl.appendChild(star);
+    }
+    if (rating > 0) {
+      const removeFavorite = document.createElement('button');
+      removeFavorite.type = 'button';
+      removeFavorite.className = 'favorite-remove';
+      removeFavorite.setAttribute('aria-label', `Ta bort ${eventTitle} från favoriter`);
+      removeFavorite.title = 'Ta bort favorit';
+      removeFavorite.innerHTML = '<i class="fa-solid fa-trash-can" aria-hidden="true"></i>';
+      removeFavorite.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (!window.confirm('Vill du ta bort evenemanget från dina favoriter?')) return;
+        const current = loadFavorites();
+        delete current[myid];
+        saveFavorites(current);
+        updateTabCounts();
+        setActive(activeTab);
+      });
+      ratingControl.appendChild(removeFavorite);
     }
     titleGroup.appendChild(ratingControl);
     titleLine.title = `${timeText} ${titleText.textContent}`;
@@ -1224,7 +1247,7 @@ function renderList(events, favorites = loadFavorites()) {
       }
     };
     card.addEventListener('click', (event) => {
-      if (event.target.closest('a, .star')) return;
+      if (event.target.closest('a, .star, .favorite-remove')) return;
       toggleDetails();
     });
     card.addEventListener('keydown', (event) => {
@@ -1343,6 +1366,9 @@ $logoutButton.addEventListener('click', async () => {
   }
 });
 $authClose.addEventListener('click', () => $authDialog.close());
+$authDialog.addEventListener('click', (event) => {
+  if (event.target === $authDialog) $authDialog.close();
+});
 $authForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (!(await ensureFirebaseAuthentication())) return;
@@ -1497,7 +1523,7 @@ for (const filter of multiFilters) {
 
 async function main() {
   try {
-    setStatus('Loading...');
+    setStatus('Hämtar evenemang…');
     populateHourFilter($fromFilter);
     populateHourFilter($toFilter);
     const res = await fetch(DATA_PATH);
@@ -1515,6 +1541,7 @@ async function main() {
     updateTabCounts();
     setStatus();
     setActive('program');
+    $listSubheaderRow.hidden = false;
   } catch (err) {
     setStatus('Failed to load events: ' + (err && err.message ? err.message : String(err)));
     console.error(err);

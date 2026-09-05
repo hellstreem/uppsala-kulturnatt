@@ -507,14 +507,15 @@ header {
 
 .google-login-button {
   width: 100%;
-  background: var(--accent);
-  color: var(--active-tab-text);
-  border-color: var(--accent);
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
 }
 
 .google-login-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
   box-shadow: 0 2px 6px var(--card-shadow);
-  filter: brightness(1.05);
 }
 
 .auth-email-actions button:not(:first-child):hover,
@@ -525,7 +526,7 @@ header {
 
 .auth-email-actions button:focus-visible,
 .google-login-button:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid #93c5fd;
   outline-offset: 2px;
 }
 
@@ -946,6 +947,10 @@ main {
   margin: 0px 0 10px 0;
 }
 
+.list-subheader-row[hidden] {
+  display: none;
+}
+
 .list-subheader {
   margin: 0;
   color: var(--text);
@@ -1106,7 +1111,8 @@ main {
 }
 
 body[data-theme='light'] .card.cancelled {
-  background: #fee2e2;
+  background: #fecaca;
+  border: 1px solid #991b1b;
 }
 
 .card + .card {
@@ -1193,7 +1199,7 @@ body[data-theme='light'] .card.cancelled {
 .favorite-rating {
   display: inline-flex;
   align-items: center;
-  gap: 1px;
+  gap: 2px;
   margin-left: 0;
 }
 
@@ -1219,7 +1225,7 @@ body[data-theme='light'] .card.cancelled {
 }
 
 .star.inactive {
-  color: var(--star-inactive);
+  color: var(--muted);
 }
 
 .star i {
@@ -1227,6 +1233,35 @@ body[data-theme='light'] .card.cancelled {
   width: 1em;
   height: 1em;
   line-height: 1;
+}
+
+.favorite-remove {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin-left: 7px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  line-height: 1;
+}
+
+.favorite-remove:hover,
+.favorite-remove:focus-visible {
+  color: var(--accent-2);
+  opacity: 1;
+}
+
+.favorite-remove:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
 }
 
 .event-details {

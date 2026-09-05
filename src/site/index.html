@@ -68,7 +68,7 @@
           <h2 id="auth-dialog-title">Logga in</h2>
           <button class="auth-close" type="button" value="cancel" aria-label="Stäng inloggning" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
-        <p class="auth-help">Logga in med ditt Google-konto eller med e-post och lösenord för att spara favoriter om du använder flera enheter.</p>
+        <p class="auth-help">Logga in med ditt Google-konto eller med e-post för att spara favoriter om du använder flera enheter.</p>
         <button id="google-login-button" class="google-login-button" type="button"><i class="fa-brands fa-google" aria-hidden="true"></i> Fortsätt med Google</button>
         <div class="auth-divider">eller</div>
         <label>E-post<input id="auth-email" type="email" autocomplete="email" required /></label>
@@ -89,7 +89,7 @@
         <p class="share-help">Kopiera texten och klistra in den där du vill dela dina favoritevenemang.</p>
         <p id="share-empty" class="share-help" hidden>Du har inga favoritevenemang att dela ännu.</p>
         <textarea id="share-text" class="share-text" readonly aria-label="Text att dela"></textarea>
-        <button id="share-copy" class="share-copy-button" type="button">Kopiera</button>
+        <button id="share-copy" class="share-copy-button" type="button">Kopiera text</button>
         <p id="share-message" class="share-message" role="status" aria-live="polite"></p>
       </div>
     </dialog>
@@ -104,8 +104,8 @@
           <option id="tab-recent" value="recent" title="Just startade evenemang (0 st)">&#9194; Just startade (0)</option>
           <option id="tab-soon" value="soon" title="Strax startade evenemang (0 st)">&#9193; Startar strax (0)</option>
           <option id="tab-later" value="later" title="Senare startade evenemang (0 st)">&#8987; Startar senare (0)</option>
+          <option id="tab-unfinished" value="unfinished" title="Ej avslutade evenemang (0 st)">&#9899; Ej avslutade (0)</option>
           <option id="tab-finished" value="finished" title="Avslutade evenemang (0 st)">&#9989; Avslutade (0)</option>
-          <option id="tab-unfinished" value="unfinished" title="Ej avslutade evenemang (0 st)">&#9711; Ej avslutade (0)</option>
         </select>
         <button id="show-filters" class="clear-search" type="button" aria-label="Visa filter" title="Visa filter" aria-expanded="false" aria-pressed="false">
           <span id="show-filters-label"><i class="fa-solid fa-filter" aria-hidden="true"></i></span> <span id="filter-count" hidden></span>
@@ -185,8 +185,8 @@
       </dialog>
 
       <main>
-        <div id="status">Loading events…</div>
-        <div class="list-subheader-row">
+        <div id="status">Hämtar evenemang…</div>
+        <div class="list-subheader-row" hidden>
           <h1 id="active-tab-heading" class="list-subheader">Alla evenemang</h1>
           <div id="program-sort-controls" class="program-sort-controls" aria-label="Sortera program">
             <span>Sortera:</span>
