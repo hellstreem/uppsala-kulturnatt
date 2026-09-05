@@ -4,6 +4,7 @@ let debugEnabled = new URL(window.location.href).searchParams.get('debug') === '
 
 const $header = document.querySelector('header');
 const $status = document.getElementById('status');
+const $appVersion = document.getElementById('app-version');
 const $activeTabHeading = document.getElementById('active-tab-heading');
 const $programSortControls = document.getElementById('program-sort-controls');
 const $programSortStart = document.getElementById('program-sort-start');
@@ -68,6 +69,7 @@ const multiFilters = [
 let allEvents = [];
 let activeTab = 'program';
 let programSortMode = 'start';
+let favoritesSortMode = 'start';
 let hideFinishedEvents = false;
 let firebaseAuth = null;
 let firebaseUser = null;
@@ -77,6 +79,8 @@ let cloudSyncTimer = null;
 updateDebugMode();
 const RECENT_EVENT_WINDOW_MS = 15 * 60 * 1000;
 const SOON_EVENT_WINDOW_MS = 45 * 60 * 1000;
+
+if ($appVersion && typeof APP_VERSION === 'string') $appVersion.textContent = APP_VERSION;
 
 window.addEventListener('pageshow', updateDebugMode);
 
@@ -178,8 +182,21 @@ function sortProgramEvents(events) {
   return events.slice().sort(programSortMode === 'updated' ? compareByUpdatedSortKey : compareByStartTime);
 }
 
+function sortFavoriteEvents(events, favorites) {
+  return events.slice().sort((firstEvent, secondEvent) => {
+    if (favoritesSortMode === 'stars') {
+      const ratingDiff = numericSortValue(favorites[secondEvent.favoriteId]) - numericSortValue(favorites[firstEvent.favoriteId]);
+      if (ratingDiff !== 0) return ratingDiff;
+    }
+    return compareByStartTime(firstEvent, secondEvent);
+  });
+}
+
 function updateProgramSortControls() {
-  const sortingByStart = programSortMode === 'start';
+  const isFavorites = activeTab === 'favorites';
+  const sortingByStart = (isFavorites ? favoritesSortMode : programSortMode) === 'start';
+  $programSortControls.setAttribute('aria-label', isFavorites ? 'Sortera favoriter' : 'Sortera program');
+  $programSortSeen.textContent = isFavorites ? 'Stjärnor' : 'Nyast';
   $programSortStart.classList.toggle('active', sortingByStart);
   $programSortStart.setAttribute('aria-pressed', String(sortingByStart));
   $programSortSeen.classList.toggle('active', !sortingByStart);
@@ -282,13 +299,19 @@ function idFor(e) {
 function loadFavorites() {
   try {
     const raw = localStorage.getItem('favorites');
-    return raw ? JSON.parse(raw) : [];
+    return normalizeFavorites(raw ? JSON.parse(raw) : {});
   } catch (e) {
-    return [];
+    return {};
   }
 }
-function saveFavorites(arr) {
-  localStorage.setItem('favorites', JSON.stringify(arr));
+function normalizeFavorites(value) {
+  if (Array.isArray(value)) return Object.fromEntries(value.map((id) => [id, 1]));
+  if (!value || typeof value !== 'object') return {};
+  return Object.fromEntries(Object.entries(value).filter(([, rating]) => Number.isInteger(rating) && rating >= 1 && rating <= 3));
+}
+
+function saveFavorites(favorites) {
+  localStorage.setItem('favorites', JSON.stringify(normalizeFavorites(favorites)));
   scheduleCloudSettingsSync();
 }
 
@@ -317,7 +340,7 @@ function localSettings() {
 
 function applySettings(settings) {
   if (settings && (settings.theme === 'light' || settings.theme === 'dark')) setTheme(settings.theme, false);
-  if (settings && Array.isArray(settings.favorites)) localStorage.setItem('favorites', JSON.stringify(settings.favorites));
+  if (settings && settings.favorites) localStorage.setItem('favorites', JSON.stringify(normalizeFavorites(settings.favorites)));
   if (settings && typeof settings.hideFinishedEvents === 'boolean') {
     hideFinishedEvents = settings.hideFinishedEvents;
     localStorage.setItem('hideFinishedEvents', String(hideFinishedEvents));
@@ -343,9 +366,10 @@ async function syncSettingsWithFirebase() {
     const local = localSettings();
     const remote = snapshot.exists ? snapshot.data() : null;
     if (remote) {
+      const remoteFavorites = normalizeFavorites(remote.favorites);
       applySettings({
         ...remote,
-        favorites: [...new Set([...(Array.isArray(remote.favorites) ? remote.favorites : []), ...local.favorites])],
+        favorites: { ...remoteFavorites, ...local.favorites },
       });
     }
     await settingsDocument.set(localSettings(), { merge: true });
@@ -458,7 +482,7 @@ function scheduleFirebaseIdleLoad() {
 
 function updateTabCounts() {
   const favorites = loadFavorites();
-  const favoriteIds = new Set(favorites);
+  const favoriteIds = new Set(Object.keys(favorites));
   const now = eventCurrentTime();
   let activeCount = 0;
   let cancelledCount = 0;
@@ -491,7 +515,7 @@ function updateTabCounts() {
   tabs.cancelled.textContent = `\u{1F6AB} Inställda (${cancelledCount})`;
   tabs.cancelled.title = `Inställda evenemang (${cancelledCount} st)`;
   tabs.favorites.textContent = `\u2B50 Favoriter (${favoriteCount})`;
-  tabs.favorites.title = `Favoritevenemang (${favoriteCount} st)`;
+  tabs.favorites.title = `Favoriter (${favoriteCount} st)`;
   tabs.live.textContent = `\u{1F550} Pågående (${liveCount})`;
   tabs.live.title = `Pågående evenemang (${liveCount} st)`;
   tabs.recent.textContent = `\u23EA Startat nyss (${recentCount})`;
@@ -639,10 +663,6 @@ function createCategoryChip(category) {
     addCategoryFilter(category);
   });
   return tag;
-}
-
-function setFavoriteIcon(star, isFavorite) {
-  star.innerHTML = isFavorite ? '<i class="fa-solid fa-star" aria-hidden="true"></i>' : '<i class="fa-sharp fa-regular fa-star" aria-hidden="true"></i>';
 }
 
 function updateClearFiltersButton() {
@@ -1015,7 +1035,6 @@ function renderList(events, favorites = loadFavorites()) {
     $list.innerHTML = '<div class="no-events">Inga evenemang</div>';
     return;
   }
-  const favoriteIds = new Set(favorites);
   const fragment = document.createDocumentFragment();
   let openCard = null;
   for (const ev of events) {
@@ -1091,37 +1110,31 @@ function renderList(events, favorites = loadFavorites()) {
       tags.appendChild(createCategoryChip(category));
     }
 
-    const star = document.createElement('span');
-    star.className = 'star';
-    star.setAttribute('role', 'button');
-    star.tabIndex = 0;
-    star.setAttribute('aria-label', 'Toggle favorite');
     const myid = ev.favoriteId;
-    const active = favoriteIds.has(myid);
-    setFavoriteIcon(star, active);
-    star.setAttribute('aria-pressed', String(active));
-    if (!active) star.classList.add('inactive');
-    star.onclick = (event) => {
-      event.stopPropagation();
-      const cur = loadFavorites();
-      const i = cur.indexOf(myid);
-      if (i === -1) cur.push(myid);
-      else cur.splice(i, 1);
-      saveFavorites(cur);
-      updateTabCounts();
-      const isFavorite = cur.includes(myid);
-      setFavoriteIcon(star, isFavorite);
-      star.classList.toggle('inactive', !isFavorite);
-      star.setAttribute('aria-pressed', String(isFavorite));
-    };
-    star.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
+    const rating = favorites[myid] || 0;
+    const ratingControl = document.createElement('span');
+    ratingControl.className = 'favorite-rating';
+    ratingControl.setAttribute('role', 'group');
+    ratingControl.setAttribute('aria-label', 'Betygsätt favorit');
+    for (let value = 1; value <= 3; value += 1) {
+      const star = document.createElement('button');
+      star.type = 'button';
+      star.className = 'star';
+      star.setAttribute('aria-label', `${value} ${value === 1 ? 'stjärna' : 'stjärnor'}`);
+      star.setAttribute('aria-pressed', String(rating === value));
+      star.classList.toggle('inactive', value > rating);
+      star.innerHTML = value <= rating ? '<i class="fa-solid fa-star" aria-hidden="true"></i>' : '<i class="fa-sharp fa-regular fa-star" aria-hidden="true"></i>';
+      star.addEventListener('click', (event) => {
         event.stopPropagation();
-        star.click();
-      }
-    });
-    titleGroup.appendChild(star);
+        const current = loadFavorites();
+        current[myid] = value;
+        saveFavorites(current);
+        updateTabCounts();
+        setActive(activeTab);
+      });
+      ratingControl.appendChild(star);
+    }
+    titleGroup.appendChild(ratingControl);
     titleLine.title = `${timeText} ${titleText.textContent}`;
 
     let details = null;
@@ -1181,9 +1194,10 @@ function setActive(tab) {
   activeTab = tab;
   $tabSelect.value = tab;
   $activeTabHeading.textContent = `${tabIcon(tab)} ${tabTooltip(tab)}`;
-  $programSortControls.hidden = tab !== 'program';
+  $programSortControls.hidden = tab !== 'program' && tab !== 'favorites';
+  updateProgramSortControls();
   const favs = loadFavorites();
-  const favoriteIds = new Set(favs);
+  const favoriteIds = new Set(Object.keys(favs));
   const now = eventCurrentTime();
   let events = [];
   if (tab === 'program') {
@@ -1191,7 +1205,10 @@ function setActive(tab) {
   } else if (tab === 'cancelled') {
     events = allEvents.filter((event) => event.isCancelled);
   } else if (tab === 'favorites') {
-    events = allEvents.filter((event) => favoriteIds.has(event.favoriteId));
+    events = sortFavoriteEvents(
+      allEvents.filter((event) => favoriteIds.has(event.favoriteId)),
+      favs,
+    );
   } else if (tab === 'live') {
     events = liveEvents(allEvents, now);
   } else if (tab === 'recent') {
@@ -1292,14 +1309,16 @@ $googleLoginButton.addEventListener('click', async () => {
   }
 });
 $programSortStart.addEventListener('click', () => {
-  programSortMode = 'start';
+  if (activeTab === 'favorites') favoritesSortMode = 'start';
+  else programSortMode = 'start';
   updateProgramSortControls();
-  setActive('program');
+  setActive(activeTab);
 });
 $programSortSeen.addEventListener('click', () => {
-  programSortMode = 'updated';
+  if (activeTab === 'favorites') favoritesSortMode = 'stars';
+  else programSortMode = 'updated';
   updateProgramSortControls();
-  setActive('program');
+  setActive(activeTab);
 });
 $showFilters.addEventListener('click', () => {
   if ($filterSearchSection.open) {

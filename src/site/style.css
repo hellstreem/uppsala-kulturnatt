@@ -269,6 +269,14 @@ header {
   line-height: 1.35;
 }
 
+.info-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
 .info-close {
   display: inline-flex;
   align-items: center;
@@ -1029,7 +1037,11 @@ body[data-theme='light'] .card.cancelled {
 }
 
 .event-title-group {
-  display: inline;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 6px;
+  row-gap: 4px;
 }
 
 .secondary {
@@ -1073,14 +1085,25 @@ body[data-theme='light'] .card.cancelled {
   outline-offset: 2px;
 }
 
+.favorite-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  margin-left: 0;
+}
+
 .star {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   align-self: center;
-  margin-left: 6px;
   color: var(--accent);
   cursor: pointer;
+  font: inherit;
   font-size: 0.95rem;
   line-height: 1;
 }

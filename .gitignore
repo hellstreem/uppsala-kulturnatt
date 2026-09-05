@@ -18,3 +18,5 @@ Thumbs.db
 data/*
 !data/historic.json
 !data/packedEvents.json
+
+src/site/version.js

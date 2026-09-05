@@ -47,8 +47,19 @@
         </div>
         <p>Här kan du söka bland evenemang under Uppsala Kulturnatt 2026, filtrera programmet och spara favoriter.</p>
         <p>Logga in om du vill synka dina favoriter mellan flera enheter.</p>
-        <p>Ambitionen är att vara en enklare sajt för att hitta evenemang både före och under Uppsala Kulturnatt. Bland annat listas alla inslag under ett evenemang som egna evenemang.</p>
-        <p>Kontakt: hstream@gmail.com</p>
+        <p>Ambitionen är att vara en enklare sajt för att hitta evenemang både före och under Uppsala Kulturnatt.</p>
+        <ul class="info-list">
+          <li>Markera favoritevenemang (1-3 stjärnor)</li>
+          <li>Dela favoriter med vänner</li>
+          <li>Synkronisera favoriter mellan desktop och mobil</li>
+          <li>Filtrera och sök evenemang</li>
+          <li>Visa pågående, just startade, strax startade, senare startade, och ej avslutade evenemang</li>
+          <li>Inslag under ett evenemang listas som egna evenemang</li>
+        </ul>
+        <p>
+          Version: <span id="app-version">Utveckling</span> <br />
+          Källa: <a href="https://kulturnatten.uppsala.se/" target="_blank" rel="noopener noreferrer">kulturnatten.uppsala.se</a> <br />Kontakt: hstream@gmail.com
+        </p>
       </div>
     </dialog>
     <dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-dialog-title">
@@ -75,7 +86,7 @@
         <select id="tab-select" class="tabs-select" aria-label="Välj vy">
           <option id="tab-program" value="program" title="Alla (0 st)" selected>&#128197; Alla (0)</option>
           <option id="tab-cancelled" value="cancelled" title="Inställda evenemang (0 st)">&#128683; Inställda evenemang (0)</option>
-          <option id="tab-favorites" value="favorites" title="Favoritevenemang (0 st)">&#11088; Favoriter (0)</option>
+          <option id="tab-favorites" value="favorites" title="Favoriter (0 st)">&#11088; Favoriter (0)</option>
           <option id="tab-live" value="live" title="Pågående evenemang (0 st)">&#128336; Pågående (0)</option>
           <option id="tab-recent" value="recent" title="Just startade evenemang (0 st)">&#9194; Just startade (0)</option>
           <option id="tab-soon" value="soon" title="Strax startade evenemang (0 st)">&#9193; Startar strax (0)</option>
@@ -176,6 +187,7 @@
     </div>
 
     <script src="globals.js"></script>
+    <script src="version.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
