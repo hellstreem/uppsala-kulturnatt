@@ -935,7 +935,7 @@ main {
 .list-subheader-row {
   display: flex;
   align-items: baseline;
-  gap: 18px;
+  gap: 8px;
   margin: 0px 0 10px 0;
 }
 
@@ -958,6 +958,29 @@ main {
   display: none;
 }
 
+.share-favorites {
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--detail-bg);
+  color: var(--input-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1.1;
+  margin-left: 16px;
+}
+
+.share-favorites[hidden] {
+  display: none;
+}
+
+.share-favorites:focus-visible,
+.share-copy-button:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
 .sort-option {
   padding: 0;
   border: 0;
@@ -971,6 +994,81 @@ main {
 .sort-option.active {
   color: var(--text);
   text-decoration: none;
+}
+
+.share-dialog {
+  width: min(calc(100% - 24px), 420px);
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--text);
+  box-shadow: 0 18px 50px var(--card-shadow);
+  overflow: hidden;
+}
+
+.share-dialog::backdrop {
+  background: rgba(2, 6, 23, 0.65);
+}
+
+.share-dialog-content {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+.share-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: -14px -14px 0;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--detail-bg);
+}
+
+.share-dialog-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.share-help,
+.share-message {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.share-text {
+  width: 100%;
+  min-height: 12rem;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--detail-bg);
+  color: var(--input-text);
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  padding: 8px;
+}
+
+.share-copy-button {
+  justify-self: start;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--detail-bg);
+  color: var(--input-text);
+  cursor: pointer;
+  font: inherit;
+}
+
+.share-copy-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .list {

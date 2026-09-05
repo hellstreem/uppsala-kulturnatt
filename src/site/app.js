@@ -9,6 +9,13 @@ const $activeTabHeading = document.getElementById('active-tab-heading');
 const $programSortControls = document.getElementById('program-sort-controls');
 const $programSortStart = document.getElementById('program-sort-start');
 const $programSortSeen = document.getElementById('program-sort-seen');
+const $shareFavorites = document.getElementById('share-favorites');
+const $shareDialog = document.getElementById('share-dialog');
+const $shareClose = document.getElementById('share-close');
+const $shareEmpty = document.getElementById('share-empty');
+const $shareText = document.getElementById('share-text');
+const $shareCopy = document.getElementById('share-copy');
+const $shareMessage = document.getElementById('share-message');
 const $infoButton = document.getElementById('info-button');
 const $infoDialog = document.getElementById('info-dialog');
 const $infoClose = document.getElementById('info-close');
@@ -196,11 +203,58 @@ function updateProgramSortControls() {
   const isFavorites = activeTab === 'favorites';
   const sortingByStart = (isFavorites ? favoritesSortMode : programSortMode) === 'start';
   $programSortControls.setAttribute('aria-label', isFavorites ? 'Sortera favoriter' : 'Sortera program');
+  $shareFavorites.hidden = !isFavorites;
   $programSortSeen.textContent = isFavorites ? 'Stjärnor' : 'Nyast';
   $programSortStart.classList.toggle('active', sortingByStart);
   $programSortStart.setAttribute('aria-pressed', String(sortingByStart));
   $programSortSeen.classList.toggle('active', !sortingByStart);
   $programSortSeen.setAttribute('aria-pressed', String(!sortingByStart));
+}
+
+function favoriteEvents(favorites = loadFavorites()) {
+  const favoriteIds = new Set(Object.keys(favorites));
+  return sortFavoriteEvents(
+    allEvents.filter((event) => favoriteIds.has(event.favoriteId)),
+    favorites,
+  );
+}
+
+function shareTextForFavorites(events, favorites) {
+  const eventText = events.map((event) => {
+    const title = event.title || event.name || event.displayName || 'Untitled';
+    const location = event.locationAlias || 'Okänd plats';
+    const start = formatLocalClockTime(event.startTime || event.start || event.startTimeText || event.time || '');
+    const end = formatLocalClockTime(event.endTime || event.end || event.endTimeText || '');
+    const rating = favorites[event.favoriteId];
+    const starLabel = rating === 1 ? 'stjärna' : 'stjärnor';
+    return `${start}-${end}\n${title} (${rating} ${starLabel})\n${location}\n\n${event.url || ''}`;
+  });
+  const userName = firebaseUser?.displayName?.trim() || firebaseUser?.email?.trim() || 'Någon';
+  return [`${userName} vill dela sina favoritevenemang på Uppsala Kulturnatt 2026 med dig.`, ...eventText, 'Hitta dina egna favoriter på https://uppsalakulturnatt.com/.'].join('\n\n');
+}
+
+function updateShareDialog() {
+  const favorites = loadFavorites();
+  const events = favoriteEvents(favorites);
+  const count = events.length;
+  const shareText = count > 0 ? shareTextForFavorites(events, favorites) : '';
+  $shareEmpty.hidden = count > 0;
+  $shareText.value = shareText;
+  $shareText.disabled = count === 0;
+  $shareCopy.disabled = count === 0;
+  $shareMessage.textContent = '';
+}
+
+async function copyFavorites() {
+  if ($shareCopy.disabled) return;
+  try {
+    await navigator.clipboard.writeText($shareText.value);
+  } catch (error) {
+    $shareText.focus();
+    $shareText.select();
+    document.execCommand('copy');
+  }
+  $shareMessage.textContent = 'Favoriterna kopierades.';
 }
 
 function eventsInWindow(events, fromTime, toTime) {
@@ -412,6 +466,13 @@ function updateAuthenticationUi(user) {
     image.className = 'user-avatar';
     image.src = user.photoURL;
     image.alt = '';
+    image.addEventListener(
+      'error',
+      () => {
+        $loginButton.replaceChildren(Object.assign(document.createElement('i'), { className: 'fa-solid fa-user-check', ariaHidden: 'true' }));
+      },
+      { once: true },
+    );
     $loginButton.append(image);
   } else {
     $loginButton.append(Object.assign(document.createElement('i'), { className: 'fa-solid fa-user-check', ariaHidden: 'true' }));
@@ -1197,7 +1258,6 @@ function setActive(tab) {
   $programSortControls.hidden = tab !== 'program' && tab !== 'favorites';
   updateProgramSortControls();
   const favs = loadFavorites();
-  const favoriteIds = new Set(Object.keys(favs));
   const now = eventCurrentTime();
   let events = [];
   if (tab === 'program') {
@@ -1205,10 +1265,7 @@ function setActive(tab) {
   } else if (tab === 'cancelled') {
     events = allEvents.filter((event) => event.isCancelled);
   } else if (tab === 'favorites') {
-    events = sortFavoriteEvents(
-      allEvents.filter((event) => favoriteIds.has(event.favoriteId)),
-      favs,
-    );
+    events = favoriteEvents(favs);
   } else if (tab === 'live') {
     events = liveEvents(allEvents, now);
   } else if (tab === 'recent') {
@@ -1229,6 +1286,16 @@ function setActive(tab) {
 }
 
 $tabSelect.addEventListener('change', () => setActive($tabSelect.value));
+$shareFavorites.addEventListener('click', () => {
+  updateShareDialog();
+  $shareDialog.showModal();
+  requestAnimationFrame(() => $shareClose.focus());
+});
+$shareClose.addEventListener('click', () => $shareDialog.close());
+$shareDialog.addEventListener('click', (event) => {
+  if (event.target === $shareDialog) $shareDialog.close();
+});
+$shareCopy.addEventListener('click', copyFavorites);
 $infoButton.addEventListener('click', () => {
   $infoDialog.showModal();
   requestAnimationFrame(() => $infoClose.focus());

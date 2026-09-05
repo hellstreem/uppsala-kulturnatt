@@ -80,6 +80,19 @@
         </div>
       </form>
     </dialog>
+    <dialog id="share-dialog" class="share-dialog" aria-labelledby="share-dialog-title">
+      <div class="share-dialog-content">
+        <div class="share-dialog-header">
+          <h2 id="share-dialog-title">Dela favoriter</h2>
+          <button id="share-close" class="info-close" type="button" aria-label="Stäng delning" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <p class="share-help">Kopiera texten och klistra in den där du vill dela dina favoritevenemang.</p>
+        <p id="share-empty" class="share-help" hidden>Du har inga favoritevenemang att dela ännu.</p>
+        <textarea id="share-text" class="share-text" readonly aria-label="Text att dela"></textarea>
+        <button id="share-copy" class="share-copy-button" type="button">Kopiera</button>
+        <p id="share-message" class="share-message" role="status" aria-live="polite"></p>
+      </div>
+    </dialog>
     <aside id="sync-alert" class="sync-alert" role="status" hidden><a id="sync-login-link" href="#login">Logga in</a> för att spara favoriter</aside>
     <header>
       <div class="view-controls">
@@ -176,11 +189,12 @@
         <div class="list-subheader-row">
           <h1 id="active-tab-heading" class="list-subheader">Alla evenemang</h1>
           <div id="program-sort-controls" class="program-sort-controls" aria-label="Sortera program">
-            <span>Sortering:</span>
+            <span>Sortera:</span>
             <button id="program-sort-start" class="sort-option active" type="button" aria-pressed="true">Starttid</button>
             <span aria-hidden="true">|</span>
             <button id="program-sort-seen" class="sort-option" type="button" aria-pressed="false">Nyast</button>
           </div>
+          <button id="share-favorites" class="share-favorites" type="button" hidden>Dela</button>
         </div>
         <div id="list" class="list"></div>
       </main>
