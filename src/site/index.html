@@ -74,6 +74,16 @@
         <button id="error-close" type="button">Stäng</button>
       </div>
     </dialog>
+    <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-dialog-title" aria-describedby="confirm-dialog-message">
+      <form id="confirm-form" method="dialog" class="confirm-dialog-content">
+        <h2 id="confirm-dialog-title">Bekräfta</h2>
+        <p id="confirm-dialog-message"></p>
+        <div class="confirm-dialog-actions">
+          <button id="confirm-cancel" type="submit" value="cancel">Nej</button>
+          <button id="confirm-accept" type="submit" value="accept">Ja</button>
+        </div>
+      </form>
+    </dialog>
     <dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-dialog-title">
       <form id="auth-form" method="dialog" class="auth-form">
         <div class="auth-dialog-header">

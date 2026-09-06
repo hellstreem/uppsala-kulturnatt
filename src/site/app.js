@@ -10,6 +10,10 @@ const $tabInformation = document.getElementById('tab-information');
 const $errorDialog = document.getElementById('error-dialog');
 const $errorMessage = document.getElementById('error-message');
 const $errorClose = document.getElementById('error-close');
+const $confirmDialog = document.getElementById('confirm-dialog');
+const $confirmForm = document.getElementById('confirm-form');
+const $confirmMessage = document.getElementById('confirm-dialog-message');
+const $confirmCancel = document.getElementById('confirm-cancel');
 const $listSubheaderRow = document.querySelector('.list-subheader-row');
 const $removeShared = document.getElementById('remove-shared');
 const $programSortControls = document.getElementById('program-sort-controls');
@@ -335,6 +339,20 @@ function updateShareNameGate() {
 function getShareName() {
   const name = localStorage.getItem('shareOwnerName')?.trim() || firebaseUser?.displayName?.trim() || '';
   return name === 'Någon' ? '' : name;
+}
+
+function confirmAction(message) {
+  return new Promise((resolve) => {
+    $confirmMessage.textContent = message;
+    $confirmDialog.returnValue = 'cancel';
+    const handleClose = () => {
+      $confirmDialog.removeEventListener('close', handleClose);
+      resolve($confirmDialog.returnValue === 'accept');
+    };
+    $confirmDialog.addEventListener('close', handleClose);
+    $confirmDialog.showModal();
+    requestAnimationFrame(() => $confirmCancel.focus());
+  });
 }
 
 async function saveShareName() {
@@ -1592,9 +1610,9 @@ function renderList(events, favorites = loadFavorites()) {
       removeFavoriteButton.setAttribute('aria-label', `Ta bort ${eventTitle} från favoriter`);
       removeFavoriteButton.title = 'Ta bort favorit';
       removeFavoriteButton.innerHTML = '<i class="fa-solid fa-trash-can" aria-hidden="true"></i>';
-      removeFavoriteButton.addEventListener('click', (event) => {
+      removeFavoriteButton.addEventListener('click', async (event) => {
         event.stopPropagation();
-        if (!window.confirm('Vill du ta bort evenemanget från dina favoriter?')) return;
+        if (!(await confirmAction('Vill du ta bort evenemanget från dina favoriter?'))) return;
         removeFavorite(myid);
         updateTabCounts();
         setActive(activeTab);
@@ -1772,8 +1790,8 @@ $shareName.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') saveShareName();
 });
 $shareName.addEventListener('input', updateShareNameGate);
-$removeShared.addEventListener('click', () => {
-  if (!window.confirm(`Vill du ta bort ${sharedOwnerName}s delade favoriter från den här vyn?`)) return;
+$removeShared.addEventListener('click', async () => {
+  if (!(await confirmAction(`Vill du ta bort ${sharedOwnerName}s delade favoriter från den här vyn?`))) return;
   const sharedUserId = activeTab.startsWith('shared:') ? activeTab.slice('shared:'.length) : sharedPageId;
   if (sharedUserId) {
     sharedUsers = sharedUsers.filter((user) => user.id !== sharedUserId);
@@ -1797,6 +1815,9 @@ $infoDialog.addEventListener('click', (event) => {
 $errorClose.addEventListener('click', () => $errorDialog.close());
 $errorDialog.addEventListener('click', (event) => {
   if (event.target === $errorDialog) $errorDialog.close();
+});
+$confirmDialog.addEventListener('click', (event) => {
+  if (event.target === $confirmDialog) $confirmDialog.close('cancel');
 });
 $finishedVisibilityToggle.addEventListener('click', () => {
   hideFinishedEvents = !hideFinishedEvents;
