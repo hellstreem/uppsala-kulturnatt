@@ -1453,6 +1453,14 @@ body[data-theme='light'] .card.cancelled {
     opacity 150ms ease;
 }
 
+.facebook-search-link {
+  margin-left: 6px;
+}
+
+.google-search-link {
+  margin-left: 3px;
+}
+
 .facebook-search-link:hover,
 .google-search-link:hover {
   background-color: var(--filter-control-hover-bg);

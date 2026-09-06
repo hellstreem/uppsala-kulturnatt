@@ -594,6 +594,7 @@ function reportSettingsSyncError(operation, error) {
     message: error?.message || String(error),
     error,
   });
+  setStatus();
   showError('Inställningarna kunde inte synkroniseras med din användarprofil. Ladda om sidan och försök igen. Om problemet kvarstår, rensa webbplatsdata och försök på nytt.');
 }
 
@@ -1725,7 +1726,6 @@ $removeShared.addEventListener('click', () => {
 $shareLinkCopy.addEventListener('click', copyShareLink);
 $infoButton.addEventListener('click', () => {
   $infoDialog.showModal();
-  requestAnimationFrame(() => $infoClose.focus());
 });
 $infoClose.addEventListener('click', () => $infoDialog.close());
 $infoDialog.addEventListener('click', (event) => {
