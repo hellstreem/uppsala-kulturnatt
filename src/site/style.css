@@ -1443,6 +1443,18 @@ body[data-theme='light'] .chip {
   outline-offset: 2px;
 }
 
+.search-links {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 3px;
+  margin-left: 6px;
+}
+
+.search-links.is-new-line {
+  margin-left: 0;
+}
+
 .facebook-search-link,
 .spotify-search-link,
 .youtube-search-link,
@@ -1460,16 +1472,6 @@ body[data-theme='light'] .chip {
   transition:
     background-color 150ms ease,
     opacity 150ms ease;
-}
-
-.facebook-search-link {
-  margin-left: 6px;
-}
-
-.spotify-search-link,
-.youtube-search-link,
-.google-search-link {
-  margin-left: 3px;
 }
 
 .facebook-search-link:hover,

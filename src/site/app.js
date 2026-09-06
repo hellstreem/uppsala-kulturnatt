@@ -1488,7 +1488,12 @@ function renderList(events, favorites = loadFavorites()) {
       tags.appendChild(createCategoryChip(category));
     }
     if (SHOW_CATEGORIES_IN_LIST && categoryNames.length > 0) {
-      const searchTitle = eventTitle.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim();
+      const searchTitle = eventTitle
+        .replace(/\([^)]*\)/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      const searchLinks = document.createElement('span');
+      searchLinks.className = 'search-links';
 
       const facebookSearchLink = document.createElement('a');
       facebookSearchLink.className = 'facebook-search-link';
@@ -1498,7 +1503,7 @@ function renderList(events, favorites = loadFavorites()) {
       facebookSearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på Facebook`);
       facebookSearchLink.title = 'Sök på Facebook';
       facebookSearchLink.innerHTML = '<i class="fa-brands fa-facebook-f" aria-hidden="true"></i>';
-      tags.appendChild(facebookSearchLink);
+      searchLinks.appendChild(facebookSearchLink);
 
       const spotifySearchLink = document.createElement('a');
       spotifySearchLink.className = 'spotify-search-link';
@@ -1508,7 +1513,7 @@ function renderList(events, favorites = loadFavorites()) {
       spotifySearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på Spotify`);
       spotifySearchLink.title = 'Sök på Spotify';
       spotifySearchLink.innerHTML = '<i class="fa-brands fa-spotify" aria-hidden="true"></i>';
-      tags.appendChild(spotifySearchLink);
+      searchLinks.appendChild(spotifySearchLink);
 
       const youtubeSearchLink = document.createElement('a');
       youtubeSearchLink.className = 'youtube-search-link';
@@ -1518,7 +1523,7 @@ function renderList(events, favorites = loadFavorites()) {
       youtubeSearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på YouTube`);
       youtubeSearchLink.title = 'Sök på YouTube';
       youtubeSearchLink.innerHTML = '<i class="fa-brands fa-youtube" aria-hidden="true"></i>';
-      tags.appendChild(youtubeSearchLink);
+      searchLinks.appendChild(youtubeSearchLink);
 
       const googleSearchLink = document.createElement('a');
       googleSearchLink.className = 'google-search-link';
@@ -1528,7 +1533,8 @@ function renderList(events, favorites = loadFavorites()) {
       googleSearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på Google`);
       googleSearchLink.title = 'Sök på Google';
       googleSearchLink.innerHTML = '<i class="fa-brands fa-google" aria-hidden="true"></i>';
-      tags.appendChild(googleSearchLink);
+      searchLinks.appendChild(googleSearchLink);
+      tags.appendChild(searchLinks);
     }
 
     const myid = ev.favoriteId;
@@ -1626,6 +1632,15 @@ function renderList(events, favorites = loadFavorites()) {
     fragment.appendChild(card);
   }
   $list.appendChild(fragment);
+  updateSearchLinkMargins();
+}
+
+function updateSearchLinkMargins() {
+  for (const searchLinks of $list.querySelectorAll('.search-links')) {
+    const previousElement = searchLinks.previousElementSibling;
+    const isNewLine = previousElement && searchLinks.offsetTop > previousElement.offsetTop;
+    searchLinks.classList.toggle('is-new-line', Boolean(isNewLine));
+  }
 }
 
 function setActive(tab) {
@@ -1877,6 +1892,7 @@ $filterSearchSection.addEventListener('click', (event) => {
 });
 window.addEventListener('resize', () => {
   if ($filterSearchSection.open) positionFiltersDialog();
+  updateSearchLinkMargins();
 });
 $search.addEventListener('input', () => {
   updateClearFiltersButton();
