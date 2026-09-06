@@ -5,6 +5,7 @@
   --muted: #9aa4b2;
   --accent: #ffd166;
   --accent-2: #06b6d4;
+  --shared-card-border: #0e7490;
   --active-tab-bg: #f2c14e;
   --border: rgba(255, 255, 255, 0.2);
   --border-subtle: rgba(255, 255, 255, 0.12);
@@ -31,6 +32,7 @@ body[data-theme='light'] {
   --muted: #64748b;
   --accent: #f59e0b;
   --accent-2: #0891b2;
+  --shared-card-border: #0891b2;
   --active-tab-bg: #fde68a;
   --border: rgba(15, 23, 42, 0.2);
   --border-subtle: rgba(15, 23, 42, 0.12);
@@ -1234,7 +1236,18 @@ main {
 }
 
 .card.shared-card {
-  border: 1px solid var(--accent-2);
+  border: 1px solid var(--shared-card-border);
+}
+
+.shared-card-label {
+  align-self: stretch;
+  margin: -6px -6px 2px;
+  padding: 3px 6px;
+  background: var(--shared-card-border);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: normal;
+  line-height: 1.1;
 }
 
 .card.finished {

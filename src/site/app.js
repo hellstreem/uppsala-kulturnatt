@@ -97,6 +97,7 @@ let shareDocument = null;
 let shareUnsubscribe = null;
 let sharedFavorites = null;
 let sharedOwnerName = 'Någon';
+let missingSharedId = null;
 const sharedPageId = new URL(window.location.href).searchParams.get('share');
 const pendingShareId = sessionStorage.getItem('pendingShareId');
 const requestedShareId = sharedPageId || pendingShareId;
@@ -104,7 +105,14 @@ if (sharedPageId) {
   sessionStorage.setItem('pendingShareId', sharedPageId);
   window.location.replace(`${window.location.pathname}${window.location.hash}`);
 }
-let sharedUsers = JSON.parse(localStorage.getItem('sharedUsers') || '[]');
+let sharedUsers = (() => {
+  try {
+    const saved = JSON.parse(localStorage.getItem('sharedUsers') || '[]');
+    return Array.isArray(saved) ? saved.filter((user) => user?.id) : [];
+  } catch (error) {
+    return [];
+  }
+})();
 let cloudSyncTimer = null;
 let shareId = localStorage.getItem('shareId');
 if (!shareId) {
@@ -298,11 +306,11 @@ function updateShareNameGate() {
 }
 
 function getShareName() {
-  const name = firebaseUser?.displayName?.trim() || localStorage.getItem('shareOwnerName')?.trim() || '';
+  const name = localStorage.getItem('shareOwnerName')?.trim() || firebaseUser?.displayName?.trim() || '';
   return name === 'Någon' ? '' : name;
 }
 
-function saveShareName() {
+async function saveShareName() {
   const name = $shareName.value.trim();
   if (!name || name === 'Någon') {
     $shareName.focus();
@@ -310,7 +318,12 @@ function saveShareName() {
     return;
   }
   localStorage.setItem('shareOwnerName', name);
-  scheduleCloudSettingsSync();
+  try {
+    await Promise.all([settingsDocument?.set({ name }, { merge: true }), publishSharedFavorites()]);
+  } catch (error) {
+    console.error('Firebase share name sync failed:', error);
+    $shareMessage.textContent = 'Namnet kunde inte synkroniseras till Firebase.';
+  }
   updateShareDialog();
 }
 
@@ -471,7 +484,7 @@ function removeFavorite(id) {
 }
 
 function shareOwnerName() {
-  return firebaseUser?.displayName?.trim() || firebaseUser?.email?.trim() || localStorage.getItem('shareOwnerName')?.trim() || 'Någon';
+  return localStorage.getItem('shareOwnerName')?.trim() || firebaseUser?.displayName?.trim() || firebaseUser?.email?.trim() || 'Någon';
 }
 
 function rememberSharedUser(id, name) {
@@ -509,10 +522,24 @@ async function subscribeToSharedFavorites(id) {
     let firstSnapshot = true;
     shareUnsubscribe = document.onSnapshot((snapshot) => {
       if (!snapshot.exists) {
-        reject(new Error('Delade favoriter hittades inte'));
+        missingSharedId = id;
+        const savedUser = sharedUsers.find((user) => user.id === id);
+        const ownerName = savedUser?.name || sharedOwnerName || 'Någon';
+        sharedUsers = sharedUsers.filter((user) => user.id !== id);
+        localStorage.setItem('sharedUsers', JSON.stringify(sharedUsers));
+        const sharedTab = tabs[`shared:${id}`];
+        sharedTab?.remove();
+        delete tabs[`shared:${id}`];
+        $list.hidden = true;
+        $listSubheaderRow.hidden = true;
+        scheduleCloudSettingsSync();
+        const error = new Error(`Delade favoriter ${ownerName} hittades inte`);
+        setStatus(error.message);
+        reject(error);
         return;
       }
       const shared = snapshot.data();
+      missingSharedId = null;
       sharedFavorites = normalizeFavorites(shared.favorites);
       sharedOwnerName = shared.ownerName || 'Någon';
       rememberSharedUser(id, sharedOwnerName);
@@ -567,7 +594,13 @@ function applySettings(settings) {
     localStorage.setItem('shareOwnerName', settings.name.trim());
   }
   if (settings && Array.isArray(settings.sharedUsers)) {
-    sharedUsers = settings.sharedUsers.filter((user) => user?.id).map((user) => ({ id: user.id, name: user.name || 'Någon' }));
+    const usersById = new Map(sharedUsers.map((user) => [user.id, user]));
+    settings.sharedUsers
+      .filter((user) => user?.id)
+      .forEach((user) => {
+        usersById.set(user.id, { id: user.id, name: user.name || 'Någon' });
+      });
+    sharedUsers = Array.from(usersById.values());
     localStorage.setItem('sharedUsers', JSON.stringify(sharedUsers));
     sharedUsers.forEach((user) => addSharedTab(user.id, user.name));
   }
@@ -632,7 +665,7 @@ function updateAuthenticationUi(user) {
   if (!user || user.isAnonymous) {
     $loginButton.setAttribute('aria-label', 'Logga in');
     $loginButton.title = 'Logga in';
-    $loginButton.append(Object.assign(document.createElement('i'), { className: user?.isAnonymous ? 'fa-solid fa-user-clock' : 'fa-regular fa-user', ariaHidden: 'true' }));
+    $loginButton.append(Object.assign(document.createElement('i'), { className: 'fa-regular fa-user', ariaHidden: 'true' }));
     return;
   }
 
@@ -1296,6 +1329,13 @@ function renderList(events, favorites = loadFavorites()) {
     card.tabIndex = 0;
     card.setAttribute('role', 'button');
 
+    if (activeTab === 'shared' || activeTab.startsWith('shared:')) {
+      const sharedLabel = document.createElement('div');
+      sharedLabel.className = 'shared-card-label';
+      sharedLabel.textContent = 'Delad favorit';
+      card.appendChild(sharedLabel);
+    }
+
     const timeLine = document.createElement('div');
     timeLine.className = 'line time-line';
 
@@ -1473,6 +1513,10 @@ function setActive(tab) {
     shareUnsubscribe?.();
     shareUnsubscribe = null;
   }
+  if (!missingSharedId) {
+    $list.hidden = false;
+    $listSubheaderRow.hidden = false;
+  }
   activeTab = tab;
   $tabSelect.value = tab;
   $activeTabHeading.textContent = `${tabIcon(tab)} ${tabTooltip(tab)}`;
@@ -1513,8 +1557,12 @@ $tabSelect.addEventListener('change', async () => {
   const tab = $tabSelect.value;
   if (tab.startsWith('shared:')) {
     const id = tab.slice('shared:'.length);
-    await subscribeToSharedFavorites(id);
-    setActive(tab);
+    try {
+      await subscribeToSharedFavorites(id);
+      setActive(tab);
+    } catch (error) {
+      setStatus(error?.message || 'Delade favoriter kunde inte laddas.');
+    }
     return;
   }
   setActive(tab);
@@ -1781,7 +1829,7 @@ async function main() {
     sharedUsers.forEach((user) => addSharedTab(user.id, user.name));
     setStatus();
     setActive('program');
-    $listSubheaderRow.hidden = false;
+    if (!missingSharedId) $listSubheaderRow.hidden = false;
   } catch (err) {
     setStatus('Failed to load events: ' + (err && err.message ? err.message : String(err)));
     console.error(err);
