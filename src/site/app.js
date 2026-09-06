@@ -587,6 +587,16 @@ function showError(message = '') {
   if (!$errorDialog.open) $errorDialog.showModal();
 }
 
+function reportSettingsSyncError(operation, error) {
+  console.error('Firebase settings sync failed:', {
+    operation,
+    code: error?.code || 'unknown',
+    message: error?.message || String(error),
+    error,
+  });
+  showError('Inställningarna kunde inte synkroniseras med din användarprofil. Ladda om sidan och försök igen. Om problemet kvarstår, rensa webbplatsdata och försök på nytt.');
+}
+
 function normalizeEvent(event) {
   event.favoriteId = idFor(event);
   event.url = event.id ? `https://kulturnatten.uppsala.se/program/event/?externalId=${event.id}` : '';
@@ -654,8 +664,7 @@ function scheduleCloudSettingsSync() {
         mergeFields: settingsMergeFields(settings),
       })
       .catch((error) => {
-        console.error('Firebase settings sync failed:', error);
-        showError('Inställningarna kunde inte synkroniseras till Firebase.');
+        reportSettingsSyncError('write user settings', error);
       });
 
     publishSharedFavorites().catch((error) => {
@@ -667,35 +676,44 @@ function scheduleCloudSettingsSync() {
 async function syncSettingsWithFirebase() {
   if (!settingsDocument) return;
 
-  try {
-    const snapshot = await settingsDocument.get();
-    const local = localSettings();
-    const remote = snapshot.exists ? snapshot.data() : null;
+  const maxAttempts = 3;
+  for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+    let operation = 'read user settings';
+    try {
+      const snapshot = await settingsDocument.get();
+      const local = localSettings();
+      const remote = snapshot.exists ? snapshot.data() : null;
 
-    if (remote) {
-      const remoteFavorites = normalizeFavorites(remote.favorites);
-      const removedFavorites = loadRemovedFavorites();
-      const mergedFavorites = Object.fromEntries(Object.entries(remoteFavorites).filter(([id]) => !removedFavorites[id]));
+      if (remote) {
+        const remoteFavorites = normalizeFavorites(remote.favorites);
+        const removedFavorites = loadRemovedFavorites();
+        const mergedFavorites = Object.fromEntries(Object.entries(remoteFavorites).filter(([id]) => !removedFavorites[id]));
 
-      applySettings({
-        ...remote,
-        favorites: { ...mergedFavorites, ...local.favorites },
+        applySettings({
+          ...remote,
+          favorites: { ...mergedFavorites, ...local.favorites },
+        });
+      }
+
+      const settings = localSettings();
+
+      operation = 'write user settings';
+      await settingsDocument.set(settings, {
+        mergeFields: settingsMergeFields(settings),
       });
+
+      localStorage.removeItem('removedFavorites');
+      await publishSharedFavorites();
+      updateTabCounts();
+      setActive(activeTab);
+      return;
+    } catch (error) {
+      if (attempt === maxAttempts - 1) {
+        reportSettingsSyncError(operation, error);
+        return;
+      }
+      await new Promise((resolve) => window.setTimeout(resolve, 500 * 2 ** attempt));
     }
-
-    const settings = localSettings();
-
-    await settingsDocument.set(settings, {
-      mergeFields: settingsMergeFields(settings),
-    });
-
-    localStorage.removeItem('removedFavorites');
-    await publishSharedFavorites();
-    updateTabCounts();
-    setActive(activeTab);
-  } catch (error) {
-    console.error('Firebase settings sync failed:', error);
-    showError('Inställningarna kunde inte synkroniseras till Firebase.');
   }
 }
 
