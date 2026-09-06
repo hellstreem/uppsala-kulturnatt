@@ -1486,6 +1486,27 @@ function renderList(events, favorites = loadFavorites()) {
     for (const category of SHOW_CATEGORIES_IN_LIST ? categoryNames : []) {
       tags.appendChild(createCategoryChip(category));
     }
+    if (SHOW_CATEGORIES_IN_LIST && categoryNames.length > 0) {
+      const facebookSearchLink = document.createElement('a');
+      facebookSearchLink.className = 'facebook-search-link';
+      facebookSearchLink.href = `https://www.facebook.com/search/top/?${new URLSearchParams({ q: eventTitle })}`;
+      facebookSearchLink.target = '_blank';
+      facebookSearchLink.rel = 'noopener noreferrer';
+      facebookSearchLink.setAttribute('aria-label', `Sök efter ${eventTitle} på Facebook`);
+      facebookSearchLink.title = 'Sök på Facebook';
+      facebookSearchLink.innerHTML = '<i class="fa-brands fa-facebook-f" aria-hidden="true"></i>';
+      tags.appendChild(facebookSearchLink);
+
+      const googleSearchLink = document.createElement('a');
+      googleSearchLink.className = 'google-search-link';
+      googleSearchLink.href = `https://www.google.com/search?${new URLSearchParams({ q: `${eventTitle} uppsala kulturnatt` })}`;
+      googleSearchLink.target = '_blank';
+      googleSearchLink.rel = 'noopener noreferrer';
+      googleSearchLink.setAttribute('aria-label', `Sök efter ${eventTitle} på Google`);
+      googleSearchLink.title = 'Sök på Google';
+      googleSearchLink.innerHTML = '<i class="fa-brands fa-google" aria-hidden="true"></i>';
+      tags.appendChild(googleSearchLink);
+    }
 
     const myid = ev.favoriteId;
     const rating = favorites[myid] || 0;
@@ -1600,7 +1621,7 @@ function setActive(tab) {
   const isSharedTab = tab === 'shared' || tab.startsWith('shared:');
   const sharedEventCount = Object.keys(sharedFavorites || {}).length;
   const tabInformation = isSharedTab
-    ? `${sharedOwnerName}s favoritevenemang (${sharedEventCount} st) som har delats med dig. Listan uppdateras automatiskt när ${sharedOwnerName} lägger till eller tar bort favoriter. Du hittar tillbaka hit via menyn ovan.`
+    ? `${sharedOwnerName}s favoritevenemang som har delats med dig. Listan uppdateras automatiskt när ${sharedOwnerName} lägger till eller tar bort favoriter. Du hittar tillbaka hit via menyn ovan.`
     : {
         program: 'Glöm inte att även titta på delevenemang i menyn ovan. Dessa programpunkter har identifierats i evenemangets beskrivning.',
         subevents: 'Nedan visas programpunkter som har identifierats i evenemangets beskrivning. Kategorin kan vara felaktig eftersom den baseras på texttolkning.',
@@ -1614,7 +1635,7 @@ function setActive(tab) {
   $tabInformation.textContent = tabInformation;
   $tabInformation.hidden = !tabInformation;
   $removeShared.hidden = !isSharedTab;
-  if (isSharedTab) $activeTabHeading.textContent = `\u{1F517} Delade favoritevenemang från ${sharedOwnerName}`;
+  if (isSharedTab) $activeTabHeading.textContent = `\u{1F517} Delade favoritevenemang från ${sharedOwnerName} (${sharedEventCount} st)`;
   updateProgramSortControls();
   const favs = loadFavorites();
   const now = eventCurrentTime();
