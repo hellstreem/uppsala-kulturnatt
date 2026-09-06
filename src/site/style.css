@@ -1427,6 +1427,13 @@ body[data-theme='light'] .card.cancelled {
   transition: background-color 150ms ease;
 }
 
+body[data-theme='light'] .chip {
+  background-color: #f4f8f9;
+  background-image: none;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #64748b;
+}
+
 .chip:hover {
   background-color: var(--filter-control-hover-bg);
 }
