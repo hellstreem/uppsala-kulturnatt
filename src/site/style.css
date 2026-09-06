@@ -1472,7 +1472,7 @@ body[data-theme='light'] .card.cancelled {
 .event-title-group {
   display: inline-flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   column-gap: 6px;
   row-gap: 4px;
 }

@@ -1763,7 +1763,7 @@ function setActive(tab) {
   const tabInformation = isSharedTab
     ? `${sharedOwnerName}s favoritevenemang som har delats med dig. Listan uppdateras automatiskt när ${sharedOwnerName} lägger till eller tar bort favoriter. Du hittar tillbaka hit via menyn ovan.`
     : {
-        program: 'Glöm inte att även titta på delevenemang i menyn ovan. Dessa programpunkter har identifierats i evenemangets beskrivning.',
+        program: 'Glöm inte att även titta på delevenemang i menyn ovan. Dessa programpunkter har identifierats i evenemangets beskrivning och gör det enklare att hitta favoritevenemang.',
         subevents: 'Nedan visas programpunkter som har identifierats i evenemangets beskrivning. Kategorin kan vara felaktig eftersom den baseras på texttolkning.',
         recent: 'Evenemang som har startat de senaste 15 minuterna.',
         soon: 'Evenemang som startar inom de närmaste 45 minuterna.',
