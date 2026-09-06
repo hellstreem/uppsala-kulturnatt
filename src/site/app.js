@@ -41,6 +41,7 @@ const $finishedVisibilityToggle = document.getElementById('finished-visibility-t
 const $themeToggle = document.getElementById('theme-toggle');
 const $loginButton = document.getElementById('login-button');
 const $userMenu = document.getElementById('user-menu');
+const $removeUserData = document.getElementById('remove-user-data');
 const $logoutButton = document.getElementById('logout-button');
 const $syncAlert = document.getElementById('sync-alert');
 const $syncLoginLink = document.getElementById('sync-login-link');
@@ -108,6 +109,7 @@ let shareUnsubscribe = null;
 let sharedFavorites = null;
 let sharedOwnerName = 'Någon';
 let missingSharedId = null;
+let isDeletingUserData = false;
 const sharedPageUrl = new URL(window.location.href);
 const sharedPageMatch = sharedPageUrl.pathname.match(/^\/share\/([^/]+)\/?$/);
 const sharedPageId = sharedPageMatch ? decodeURIComponent(sharedPageMatch[1]) : null;
@@ -797,6 +799,61 @@ function updateAuthenticationUi(user) {
   }
 }
 
+async function removeUserData() {
+  if (!firebaseAuth || !firebaseUser) return;
+  const confirmed = await confirmAction('Alla dina lokala och molnlagrade användardata, inklusive inloggningen, kommer att tas bort. Detta går inte att ångra. Vill du fortsätta?');
+  if (!confirmed) return;
+
+  const user = firebaseUser;
+  $removeUserData.disabled = true;
+  try {
+    const database = firebase.firestore();
+    const shareSnapshots = await database.collection('shares').where('ownerId', '==', user.uid).get();
+    const references = new Map(shareSnapshots.docs.map((snapshot) => [snapshot.ref.path, snapshot.ref]));
+    if (shareDocument) references.set(shareDocument.path, shareDocument);
+    if (settingsDocument) references.set(settingsDocument.path, settingsDocument);
+    const referenceList = Array.from(references.values());
+    for (let index = 0; index < referenceList.length; index += 450) {
+      const batch = database.batch();
+      referenceList.slice(index, index + 450).forEach((reference) => batch.delete(reference));
+      await batch.commit();
+    }
+
+    isDeletingUserData = true;
+    shareUnsubscribe?.();
+    shareUnsubscribe = null;
+    window.clearTimeout(cloudSyncTimer);
+    await user.delete();
+    await firebaseAuth.signOut().catch(() => {});
+
+    settingsDocument = null;
+    shareDocument = null;
+    sharedFavorites = null;
+    sharedOwnerName = 'Någon';
+    sharedUsers = [];
+    Object.keys(tabs)
+      .filter((tab) => tab.startsWith('shared:'))
+      .forEach((tab) => {
+        tabs[tab].remove();
+        delete tabs[tab];
+      });
+    updateAuthenticationUi(null);
+    $userMenu.hidden = true;
+    $loginButton.setAttribute('aria-expanded', 'false');
+    setActive('program');
+    updateTabCounts();
+    setStatus('Alla användardata har tagits bort.');
+    localStorage.clear();
+    sessionStorage.clear();
+  } catch (error) {
+    isDeletingUserData = false;
+    console.error('Removing user data failed:', error);
+    showError(`Användardata kunde inte tas bort: ${error?.message || error}`);
+  } finally {
+    $removeUserData.disabled = false;
+  }
+}
+
 function loadScript(src) {
   const existingScript = document.querySelector(`script[src="${src}"]`);
   if (existingScript) return Promise.resolve();
@@ -825,6 +882,10 @@ function initFirebaseAuthentication() {
     const database = firebase.firestore();
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (!user) {
+        if (isDeletingUserData) {
+          updateAuthenticationUi(null);
+          return;
+        }
         await firebaseAuth.signInAnonymously();
         return;
       }
@@ -1832,7 +1893,7 @@ $themeToggle.addEventListener('click', () => {
 });
 $loginButton.addEventListener('click', async () => {
   if (!(await ensureFirebaseAuthentication())) return;
-  if (firebaseUser && !firebaseUser.isAnonymous) {
+  if (firebaseUser) {
     const willOpen = $userMenu.hidden;
     $userMenu.hidden = !willOpen;
     $loginButton.setAttribute('aria-expanded', String(willOpen));
@@ -1859,6 +1920,7 @@ $logoutButton.addEventListener('click', async () => {
     showError(`Utloggningen misslyckades: ${error?.message || error}`);
   }
 });
+$removeUserData.addEventListener('click', removeUserData);
 $authClose.addEventListener('click', () => $authDialog.close());
 $authDialog.addEventListener('click', (event) => {
   if (event.target === $authDialog) $authDialog.close();

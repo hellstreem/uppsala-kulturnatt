@@ -495,7 +495,7 @@ header {
   z-index: 4;
   top: calc(100% + 4px);
   right: 0;
-  min-width: 7rem;
+  min-width: 12rem;
   padding: 4px;
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -513,12 +513,24 @@ header {
   cursor: pointer;
   font: inherit;
   text-align: left;
+  white-space: nowrap;
 }
 
 .user-menu button:hover,
 .user-menu button:focus-visible {
   background: var(--filter-control-hover-bg);
   outline: none;
+}
+
+.user-menu button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.user-menu #remove-user-data {
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .auth-dialog {
