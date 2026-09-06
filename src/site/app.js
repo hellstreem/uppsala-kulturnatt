@@ -1488,22 +1488,44 @@ function renderList(events, favorites = loadFavorites()) {
       tags.appendChild(createCategoryChip(category));
     }
     if (SHOW_CATEGORIES_IN_LIST && categoryNames.length > 0) {
+      const searchTitle = eventTitle.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim();
+
       const facebookSearchLink = document.createElement('a');
       facebookSearchLink.className = 'facebook-search-link';
-      facebookSearchLink.href = `https://www.facebook.com/search/top/?${new URLSearchParams({ q: eventTitle })}`;
+      facebookSearchLink.href = `https://www.facebook.com/search/top/?${new URLSearchParams({ q: searchTitle })}`;
       facebookSearchLink.target = '_blank';
       facebookSearchLink.rel = 'noopener noreferrer';
-      facebookSearchLink.setAttribute('aria-label', `Sök efter ${eventTitle} på Facebook`);
+      facebookSearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på Facebook`);
       facebookSearchLink.title = 'Sök på Facebook';
       facebookSearchLink.innerHTML = '<i class="fa-brands fa-facebook-f" aria-hidden="true"></i>';
       tags.appendChild(facebookSearchLink);
 
+      const spotifySearchLink = document.createElement('a');
+      spotifySearchLink.className = 'spotify-search-link';
+      spotifySearchLink.href = `https://open.spotify.com/search/${encodeURIComponent(searchTitle)}/artists`;
+      spotifySearchLink.target = '_blank';
+      spotifySearchLink.rel = 'noopener noreferrer';
+      spotifySearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på Spotify`);
+      spotifySearchLink.title = 'Sök på Spotify';
+      spotifySearchLink.innerHTML = '<i class="fa-brands fa-spotify" aria-hidden="true"></i>';
+      tags.appendChild(spotifySearchLink);
+
+      const youtubeSearchLink = document.createElement('a');
+      youtubeSearchLink.className = 'youtube-search-link';
+      youtubeSearchLink.href = `https://www.youtube.com/results?${new URLSearchParams({ search_query: searchTitle })}`;
+      youtubeSearchLink.target = '_blank';
+      youtubeSearchLink.rel = 'noopener noreferrer';
+      youtubeSearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på YouTube`);
+      youtubeSearchLink.title = 'Sök på YouTube';
+      youtubeSearchLink.innerHTML = '<i class="fa-brands fa-youtube" aria-hidden="true"></i>';
+      tags.appendChild(youtubeSearchLink);
+
       const googleSearchLink = document.createElement('a');
       googleSearchLink.className = 'google-search-link';
-      googleSearchLink.href = `https://www.google.com/search?${new URLSearchParams({ q: `${eventTitle} uppsala kulturnatt` })}`;
+      googleSearchLink.href = `https://www.google.com/search?${new URLSearchParams({ q: `${searchTitle} uppsala kulturnatt` })}`;
       googleSearchLink.target = '_blank';
       googleSearchLink.rel = 'noopener noreferrer';
-      googleSearchLink.setAttribute('aria-label', `Sök efter ${eventTitle} på Google`);
+      googleSearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på Google`);
       googleSearchLink.title = 'Sök på Google';
       googleSearchLink.innerHTML = '<i class="fa-brands fa-google" aria-hidden="true"></i>';
       tags.appendChild(googleSearchLink);

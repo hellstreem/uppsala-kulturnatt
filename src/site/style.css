@@ -1444,6 +1444,8 @@ body[data-theme='light'] .chip {
 }
 
 .facebook-search-link,
+.spotify-search-link,
+.youtube-search-link,
 .google-search-link {
   display: inline-flex;
   align-items: center;
@@ -1464,17 +1466,23 @@ body[data-theme='light'] .chip {
   margin-left: 6px;
 }
 
+.spotify-search-link,
+.youtube-search-link,
 .google-search-link {
   margin-left: 3px;
 }
 
 .facebook-search-link:hover,
+.spotify-search-link:hover,
+.youtube-search-link:hover,
 .google-search-link:hover {
   background-color: var(--filter-control-hover-bg);
   opacity: 1;
 }
 
 .facebook-search-link:focus-visible,
+.spotify-search-link:focus-visible,
+.youtube-search-link:focus-visible,
 .google-search-link:focus-visible {
   outline: 2px solid var(--accent-2);
   outline-offset: 2px;
