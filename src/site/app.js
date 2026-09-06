@@ -109,9 +109,10 @@ const sharedPageMatch = sharedPageUrl.pathname.match(/^\/share\/([^/]+)\/?$/);
 const sharedPageId = sharedPageMatch ? decodeURIComponent(sharedPageMatch[1]) : null;
 const pendingShareId = sessionStorage.getItem('pendingShareId');
 const requestedShareId = sharedPageId || pendingShareId;
-if (sharedPageId) {
-  sessionStorage.setItem('pendingShareId', sharedPageId);
-  window.location.replace(`/${sharedPageUrl.hash}`);
+const isSharePage = Boolean(sharedPageId);
+if (isSharePage) {
+  document.body.classList.add('share-loading');
+  $status.textContent = 'Hämtar delade favoriter...';
 }
 let sharedUsers = (() => {
   try {
@@ -577,8 +578,20 @@ async function subscribeToSharedFavorites(id) {
 }
 
 function setStatus(message = '') {
+  if (isSharePage && document.body.classList.contains('share-loading')) {
+    $status.textContent = 'Hämtar delade favoriter...';
+    $status.hidden = false;
+    return;
+  }
   $status.textContent = message;
   $status.hidden = !message;
+}
+
+function setShareLoading(loading) {
+  if (!isSharePage) return;
+  document.body.classList.toggle('share-loading', loading);
+  if (loading) setStatus('Hämtar delade favoriter...');
+  else setStatus();
 }
 
 function showError(message = '') {
@@ -783,6 +796,7 @@ function initFirebaseAuthentication() {
   if (typeof firebase === 'undefined' || typeof FIREBASE_CONFIG === 'undefined' || !FIREBASE_CONFIG) {
     $loginButton.disabled = true;
     $loginButton.title = 'Firebase är inte konfigurerat';
+    setShareLoading(false);
     return;
   }
 
@@ -799,16 +813,23 @@ function initFirebaseAuthentication() {
       if (user.displayName?.trim()) localStorage.setItem('shareOwnerName', user.displayName.trim());
       settingsDocument = user ? database.collection('users').doc(user.uid) : null;
       shareDocument = database.collection('shares').doc(shareId);
-      if (requestedShareId) {
-        await subscribeToSharedFavorites(requestedShareId);
-        sessionStorage.removeItem('pendingShareId');
+      try {
+        if (requestedShareId) {
+          await subscribeToSharedFavorites(requestedShareId);
+          sessionStorage.removeItem('pendingShareId');
+        }
+        if (user) await syncSettingsWithFirebase();
+      } catch (error) {
+        showError(error?.message || 'Delade favoriter kunde inte laddas.');
+      } finally {
+        setShareLoading(false);
       }
-      if (user) await syncSettingsWithFirebase();
     });
   } catch (error) {
     console.error('Firebase initialization failed:', error);
     $loginButton.disabled = true;
     $loginButton.title = 'Firebase kunde inte startas';
+    setShareLoading(false);
   }
 }
 
@@ -824,6 +845,7 @@ async function ensureFirebaseAuthentication() {
     console.error('Firebase scripts failed to load:', error);
     $loginButton.disabled = true;
     $loginButton.title = 'Firebase kunde inte laddas';
+    setShareLoading(false);
   }
   return Boolean(firebaseAuth);
 }
@@ -1728,7 +1750,10 @@ $tabSelect.addEventListener('change', async () => {
 $shareFavorites.addEventListener('click', () => {
   updateShareDialog();
   $shareDialog.showModal();
-  requestAnimationFrame(() => $shareClose.focus());
+  requestAnimationFrame(() => {
+    if (!$shareName.disabled && !$shareName.value.trim()) $shareName.focus();
+    else $shareClose.focus();
+  });
 });
 $shareClose.addEventListener('click', () => $shareDialog.close());
 $shareDialog.addEventListener('click', (event) => {
