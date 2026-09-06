@@ -17,7 +17,7 @@
     "finalizeEvents": "tsx src/cli/finalizeEvents.ts",
     "packEvents": "tsx src/cli/packEvents.ts",
     "farmEvents": "tsx src/cli/farmEvents.ts",
-    "farmLooper": "tsx src/cli/farmLooper.ts",
+    "farm": "tsx src/cli/farmLooper.ts",
     "start": "node scripts/startServer.js"
   },
   "dependencies": {
