@@ -1600,7 +1600,7 @@ function setActive(tab) {
   const isSharedTab = tab === 'shared' || tab.startsWith('shared:');
   const sharedEventCount = Object.keys(sharedFavorites || {}).length;
   const tabInformation = isSharedTab
-    ? `${sharedOwnerName}s ${sharedEventCount} favoritevenemang som har delats med dig. Listan uppdateras automatiskt när ${sharedOwnerName} lägger till eller tar bort favoriter. Du hittar tillbaka hit via menyn ovan.`
+    ? `${sharedOwnerName}s favoritevenemang (${sharedEventCount} st) som har delats med dig. Listan uppdateras automatiskt när ${sharedOwnerName} lägger till eller tar bort favoriter. Du hittar tillbaka hit via menyn ovan.`
     : {
         program: 'Glöm inte att även titta på delevenemang i menyn ovan. Dessa programpunkter har identifierats i evenemangets beskrivning.',
         subevents: 'Nedan visas programpunkter som har identifierats i evenemangets beskrivning. Kategorin kan vara felaktig eftersom den baseras på texttolkning.',
