@@ -6,13 +6,17 @@ const $header = document.querySelector('header');
 const $status = document.getElementById('status');
 const $appVersion = document.getElementById('app-version');
 const $activeTabHeading = document.getElementById('active-tab-heading');
+const $tabInformation = document.getElementById('tab-information');
+const $errorDialog = document.getElementById('error-dialog');
+const $errorMessage = document.getElementById('error-message');
+const $errorClose = document.getElementById('error-close');
 const $listSubheaderRow = document.querySelector('.list-subheader-row');
-const $sharedMeta = document.getElementById('shared-meta');
-const $sharedDescription = document.getElementById('shared-description');
 const $removeShared = document.getElementById('remove-shared');
 const $programSortControls = document.getElementById('program-sort-controls');
 const $programSortStart = document.getElementById('program-sort-start');
 const $programSortSeen = document.getElementById('program-sort-seen');
+const $sharedSortSeparator = document.getElementById('shared-sort-separator');
+const $programSortShared = document.getElementById('program-sort-shared');
 const $shareFavorites = document.getElementById('share-favorites');
 const $shareDialog = document.getElementById('share-dialog');
 const $shareName = document.getElementById('share-name');
@@ -63,6 +67,7 @@ const $selectedFilters = document.getElementById('selected-filters');
 const $tabSelect = document.getElementById('tab-select');
 const tabs = {
   program: document.getElementById('tab-program'),
+  subevents: document.getElementById('tab-subevents'),
   cancelled: document.getElementById('tab-cancelled'),
   favorites: document.getElementById('tab-favorites'),
   live: document.getElementById('tab-live'),
@@ -88,6 +93,7 @@ let allEvents = [];
 let activeTab = 'program';
 let programSortMode = 'start';
 let favoritesSortMode = 'start';
+let sharedFavoritesSortMode = 'start';
 let hideFinishedEvents = false;
 let firebaseAuth = null;
 let firebaseUser = null;
@@ -98,12 +104,14 @@ let shareUnsubscribe = null;
 let sharedFavorites = null;
 let sharedOwnerName = 'Någon';
 let missingSharedId = null;
-const sharedPageId = new URL(window.location.href).searchParams.get('share');
+const sharedPageUrl = new URL(window.location.href);
+const sharedPageMatch = sharedPageUrl.pathname.match(/^\/share\/([^/]+)\/?$/);
+const sharedPageId = sharedPageMatch ? decodeURIComponent(sharedPageMatch[1]) : null;
 const pendingShareId = sessionStorage.getItem('pendingShareId');
 const requestedShareId = sharedPageId || pendingShareId;
 if (sharedPageId) {
   sessionStorage.setItem('pendingShareId', sharedPageId);
-  window.location.replace(`${window.location.pathname}${window.location.hash}`);
+  window.location.replace(`/${sharedPageUrl.hash}`);
 }
 let sharedUsers = (() => {
   try {
@@ -235,25 +243,42 @@ function sortFavoriteEvents(events, favorites) {
   });
 }
 
-function updateProgramSortControls() {
-  const isFavorites = activeTab === 'favorites';
-  const sortingByStart = (isFavorites ? favoritesSortMode : programSortMode) === 'start';
-  $programSortControls.setAttribute('aria-label', isFavorites ? 'Sortera favoriter' : 'Sortera program');
-  $shareFavorites.hidden = !isFavorites;
-  $programSortSeen.textContent = isFavorites ? 'Stjärnor' : 'Nyast';
-  $programSortStart.classList.toggle('active', sortingByStart);
-  $programSortStart.setAttribute('aria-pressed', String(sortingByStart));
-  $programSortSeen.classList.toggle('active', !sortingByStart);
-  $programSortSeen.setAttribute('aria-pressed', String(!sortingByStart));
+function sortSharedFavoriteEvents(events, favorites, sharedFavorites) {
+  return events.slice().sort((firstEvent, secondEvent) => {
+    const sortRatings = sharedFavoritesSortMode === 'mine' ? favorites : sharedFavorites;
+    if (sharedFavoritesSortMode !== 'start') {
+      const firstRating = Number(sortRatings[firstEvent.favoriteId]);
+      const secondRating = Number(sortRatings[secondEvent.favoriteId]);
+      const firstHasRating = Number.isFinite(firstRating);
+      const secondHasRating = Number.isFinite(secondRating);
+      if (firstHasRating !== secondHasRating) return firstHasRating ? -1 : 1;
+      const ratingDiff = secondRating - firstRating;
+      if (ratingDiff !== 0) return ratingDiff;
+    }
+    return compareByStartTime(firstEvent, secondEvent);
+  });
 }
 
-function updateSharedViewHeader() {
+function updateProgramSortControls() {
+  const isFavorites = activeTab === 'favorites';
   const isShared = activeTab === 'shared' || activeTab.startsWith('shared:');
-  $sharedMeta.hidden = !isShared;
-  if (isShared) {
-    $activeTabHeading.textContent = `\u{1F517} ${sharedOwnerName}s favoriter`;
-    $sharedDescription.textContent = `${sharedOwnerName} delar den här listan med dig.`;
-  }
+  const sortMode = isShared ? sharedFavoritesSortMode : isFavorites ? favoritesSortMode : programSortMode;
+  $programSortControls.setAttribute('aria-label', isShared ? 'Sortera delade favoriter' : isFavorites ? 'Sortera favoriter' : 'Sortera program');
+  $programSortControls.hidden = !isShared && !isFavorites && activeTab !== 'program' && activeTab !== 'subevents';
+  $shareFavorites.hidden = !isFavorites;
+  $programSortSeen.textContent = isShared ? 'Betyg' : isFavorites ? 'Betyg' : 'Nyast';
+  $programSortSeen.hidden = false;
+  $sharedSortSeparator.hidden = !isShared;
+  $programSortShared.hidden = !isShared;
+  $programSortStart.classList.toggle('active', sortMode === 'start');
+  $programSortStart.setAttribute('aria-pressed', String(sortMode === 'start'));
+  const secondarySortMode = isShared ? 'mine' : isFavorites ? 'stars' : 'updated';
+  $programSortSeen.classList.toggle('active', sortMode === secondarySortMode);
+  $programSortSeen.setAttribute('aria-pressed', String(sortMode === secondarySortMode));
+  $programSortShared.classList.toggle('active', sortMode === 'owner');
+  $programSortShared.setAttribute('aria-pressed', String(sortMode === 'owner'));
+  $programSortStart.textContent = isShared ? 'Starttid' : 'Starttid';
+  $programSortShared.textContent = 'Delat betyg';
 }
 
 function favoriteEvents(favorites = loadFavorites()) {
@@ -275,7 +300,7 @@ function shareTextForFavorites(events, favorites) {
     return `${start}-${end}\n${title} (${rating} ${starLabel})\n${location}\n\n${event.url || ''}`;
   });
   const userName = getShareName() || 'Någon';
-  return [`${userName} vill dela sina favoritevenemang på Uppsala Kulturnatt 2026 med dig.`, ...eventText, 'Hitta dina egna favoriter på https://uppsalakulturnatt.com/.'].join('\n\n');
+  return [`${userName} har delat sina favoritevenemang från Uppsala Kulturnatt 2026 med dig.`, ...eventText, 'Hitta dina egna favoriter på https://uppsalakulturnatt.com/.'].join('\n\n');
 }
 
 function updateShareDialog() {
@@ -291,7 +316,7 @@ function updateShareDialog() {
   const count = events.length;
   const shareText = count > 0 ? shareTextForFavorites(events, favorites) : '';
   $shareEmpty.hidden = count > 0;
-  $shareLink.textContent = `${window.location.origin}/?share=${shareId}`;
+  $shareLink.textContent = `${window.location.origin}/share/${shareId}`;
   $shareText.value = shareText;
   $shareText.disabled = count === 0;
   $shareCopy.disabled = count === 0;
@@ -340,7 +365,7 @@ async function copyFavorites() {
 }
 
 async function copyShareLink() {
-  await navigator.clipboard.writeText(`${window.location.origin}/?share=${shareId}`);
+  await navigator.clipboard.writeText(`${window.location.origin}/share/${shareId}`);
   $shareMessage.textContent = 'Länken kopierades.';
 }
 
@@ -523,8 +548,7 @@ async function subscribeToSharedFavorites(id) {
     shareUnsubscribe = document.onSnapshot((snapshot) => {
       if (!snapshot.exists) {
         missingSharedId = id;
-        const savedUser = sharedUsers.find((user) => user.id === id);
-        const ownerName = savedUser?.name || sharedOwnerName || 'Någon';
+        if (sessionStorage.getItem('pendingShareId') === id) sessionStorage.removeItem('pendingShareId');
         sharedUsers = sharedUsers.filter((user) => user.id !== id);
         localStorage.setItem('sharedUsers', JSON.stringify(sharedUsers));
         const sharedTab = tabs[`shared:${id}`];
@@ -533,8 +557,9 @@ async function subscribeToSharedFavorites(id) {
         $list.hidden = true;
         $listSubheaderRow.hidden = true;
         scheduleCloudSettingsSync();
-        const error = new Error(`Delade favoriter ${ownerName} hittades inte`);
-        setStatus(error.message);
+        const sharedLinkUrl = sharedPageId ? sharedPageUrl.href : `${window.location.origin}/share/${encodeURIComponent(id)}`;
+        const error = new Error(`Kan inte hitta användare med delningslänk ${sharedLinkUrl}. Be om en ny länk och försök igen.`);
+        showError(error.message);
         reject(error);
         return;
       }
@@ -556,6 +581,12 @@ function setStatus(message = '') {
   $status.hidden = !message;
 }
 
+function showError(message = '') {
+  if (!message) return;
+  $errorMessage.textContent = message;
+  if (!$errorDialog.open) $errorDialog.showModal();
+}
+
 function normalizeEvent(event) {
   event.favoriteId = idFor(event);
   event.url = event.id ? `https://kulturnatten.uppsala.se/program/event/?externalId=${event.id}` : '';
@@ -567,7 +598,7 @@ function normalizeEvent(event) {
   event.endMs = eventEndTime(event);
   event.startMinutes = clockMinutes(event.start || event.startTime || event.startTimeText || event.time);
   event.endMinutes = eventEndClockMinutes(event);
-  event.searchText = [event.title, event.name, event.displayName, event.locationAlias, event.locationName, event.location].map((value) => String(value ?? '').toLocaleLowerCase('sv-SE')).join(' ');
+  event.searchText = [event.title, event.name, event.displayName, event.locationAlias, event.locationName, event.location, event.about].map((value) => String(value ?? '').toLocaleLowerCase('sv-SE')).join(' ');
   return event;
 }
 
@@ -624,7 +655,7 @@ function scheduleCloudSettingsSync() {
       })
       .catch((error) => {
         console.error('Firebase settings sync failed:', error);
-        setStatus('Inställningarna kunde inte synkroniseras till Firebase.');
+        showError('Inställningarna kunde inte synkroniseras till Firebase.');
       });
 
     publishSharedFavorites().catch((error) => {
@@ -664,7 +695,7 @@ async function syncSettingsWithFirebase() {
     setActive(activeTab);
   } catch (error) {
     console.error('Firebase settings sync failed:', error);
-    setStatus('Inställningarna kunde inte synkroniseras till Firebase.');
+    showError('Inställningarna kunde inte synkroniseras till Firebase.');
   }
 }
 
@@ -792,6 +823,7 @@ function updateTabCounts() {
   const favoriteIds = new Set(Object.keys(favorites));
   const now = eventCurrentTime();
   let activeCount = 0;
+  let subeventCount = 0;
   let cancelledCount = 0;
   let favoriteCount = 0;
   let liveCount = 0;
@@ -809,7 +841,8 @@ function updateTabCounts() {
     if (!isCancelled && !isFinished) unfinishedCount += 1;
 
     if (hideFinishedEvents && isFinished) continue;
-    if (!isCancelled) activeCount += 1;
+    if (!isCancelled && event.type === 'event') activeCount += 1;
+    if (!isCancelled && event.type === 'subEvent') subeventCount += 1;
     if (favoriteIds.has(event.favoriteId)) favoriteCount += 1;
     if (!isCancelled && Number.isFinite(event.startMs) && Number.isFinite(event.endMs) && event.startMs <= now && event.endMs >= now) liveCount += 1;
     if (!isCancelled && Number.isFinite(event.startMs) && event.startMs >= now - RECENT_EVENT_WINDOW_MS && event.startMs <= now) recentCount += 1;
@@ -817,8 +850,10 @@ function updateTabCounts() {
     if (!isCancelled && Number.isFinite(event.startMs) && event.startMs > now + SOON_EVENT_WINDOW_MS) laterCount += 1;
   }
 
-  tabs.program.textContent = `\u{1F4C5} Alla (${activeCount})`;
-  tabs.program.title = `Alla evenemang (${activeCount} st)`;
+  tabs.program.textContent = `\u{1F4C5} Evenemang (${activeCount})`;
+  tabs.program.title = `Evenemang (${activeCount} st)`;
+  tabs.subevents.textContent = `\u{1F4DD} Delevenemang (${subeventCount})`;
+  tabs.subevents.title = `Delevenemang (${subeventCount} st)`;
   tabs.cancelled.textContent = `\u{1F6AB} Inställda (${cancelledCount})`;
   tabs.cancelled.title = `Inställda evenemang (${cancelledCount} st)`;
   tabs.favorites.textContent = `\u2B50 Mina favoriter (${favoriteCount})`;
@@ -1544,20 +1579,42 @@ function setActive(tab) {
   $tabSelect.value = tab;
   $tabSelect.classList.toggle('is-shared', tab === 'shared' || tab.startsWith('shared:'));
   $activeTabHeading.textContent = `${tabIcon(tab)} ${tabTooltip(tab)}`;
-  updateSharedViewHeader();
-  $programSortControls.hidden = tab !== 'program' && tab !== 'favorites';
+  const isSharedTab = tab === 'shared' || tab.startsWith('shared:');
+  const sharedEventCount = Object.keys(sharedFavorites || {}).length;
+  const tabInformation = isSharedTab
+    ? `${sharedOwnerName}s ${sharedEventCount} favoritevenemang som har delats med dig. Listan uppdateras automatiskt när ${sharedOwnerName} lägger till eller tar bort favoriter. Du hittar tillbaka hit via menyn ovan.`
+    : {
+        program: 'Glöm inte att även titta på delevenemang i menyn ovan. Dessa programpunkter har identifierats i evenemangets beskrivning.',
+        subevents: 'Nedan visas programpunkter som har identifierats i evenemangets beskrivning. Kategorin kan vara felaktig eftersom den baseras på texttolkning.',
+        recent: 'Evenemang som har startat de senaste 15 minuterna.',
+        soon: 'Evenemang som startar inom de närmaste 45 minuterna.',
+        later: 'Evenemang som startar senare i dag.',
+        live: 'Evenemang som pågår just nu.',
+        favorites: 'Mina favoritevenemang, betygsatta med 1–3 stjärnor. Klicka på papperskorgen för att ta bort ett favoritval.',
+        unfinished: 'Evenemang som pågår eller ännu inte har startat.',
+      }[tab] || '';
+  $tabInformation.textContent = tabInformation;
+  $tabInformation.hidden = !tabInformation;
+  $removeShared.hidden = !isSharedTab;
+  if (isSharedTab) $activeTabHeading.textContent = `\u{1F517} Delade favoritevenemang från ${sharedOwnerName}`;
   updateProgramSortControls();
   const favs = loadFavorites();
   const now = eventCurrentTime();
   let events = [];
   if (tab === 'program') {
-    events = sortProgramEvents(allEvents.filter((event) => !event.isCancelled));
+    events = sortProgramEvents(allEvents.filter((event) => !event.isCancelled && event.type === 'event'));
+  } else if (tab === 'subevents') {
+    events = sortProgramEvents(allEvents.filter((event) => !event.isCancelled && event.type === 'subEvent'));
   } else if (tab === 'cancelled') {
     events = allEvents.filter((event) => event.isCancelled);
   } else if (tab === 'favorites') {
     events = favoriteEvents(favs);
   } else if (tab === 'shared' || tab.startsWith('shared:')) {
-    events = allEvents.filter((event) => sharedFavorites?.[event.favoriteId]);
+    events = sortSharedFavoriteEvents(
+      allEvents.filter((event) => sharedFavorites?.[event.favoriteId]),
+      favs,
+      sharedFavorites,
+    );
   } else if (tab === 'live') {
     events = liveEvents(allEvents, now);
   } else if (tab === 'recent') {
@@ -1585,7 +1642,7 @@ $tabSelect.addEventListener('change', async () => {
       await subscribeToSharedFavorites(id);
       setActive(tab);
     } catch (error) {
-      setStatus(error?.message || 'Delade favoriter kunde inte laddas.');
+      showError(error?.message || 'Delade favoriter kunde inte laddas.');
     }
     return;
   }
@@ -1635,6 +1692,10 @@ $infoClose.addEventListener('click', () => $infoDialog.close());
 $infoDialog.addEventListener('click', (event) => {
   if (event.target === $infoDialog) $infoDialog.close();
 });
+$errorClose.addEventListener('click', () => $errorDialog.close());
+$errorDialog.addEventListener('click', (event) => {
+  if (event.target === $errorDialog) $errorDialog.close();
+});
 $finishedVisibilityToggle.addEventListener('click', () => {
   hideFinishedEvents = !hideFinishedEvents;
   localStorage.setItem('hideFinishedEvents', String(hideFinishedEvents));
@@ -1672,7 +1733,7 @@ $logoutButton.addEventListener('click', async () => {
     $loginButton.setAttribute('aria-expanded', 'false');
   } catch (error) {
     console.error('Firebase sign-out failed:', error);
-    setStatus(`Utloggningen misslyckades: ${error?.message || error}`);
+    showError(`Utloggningen misslyckades: ${error?.message || error}`);
   }
 });
 $authClose.addEventListener('click', () => $authDialog.close());
@@ -1713,13 +1774,20 @@ $googleLoginButton.addEventListener('click', async () => {
 });
 $programSortStart.addEventListener('click', () => {
   if (activeTab === 'favorites') favoritesSortMode = 'start';
+  else if (activeTab === 'shared' || activeTab.startsWith('shared:')) sharedFavoritesSortMode = 'start';
   else programSortMode = 'start';
   updateProgramSortControls();
   setActive(activeTab);
 });
 $programSortSeen.addEventListener('click', () => {
   if (activeTab === 'favorites') favoritesSortMode = 'stars';
+  else if (activeTab === 'shared' || activeTab.startsWith('shared:')) sharedFavoritesSortMode = 'mine';
   else programSortMode = 'updated';
+  updateProgramSortControls();
+  setActive(activeTab);
+});
+$programSortShared.addEventListener('click', () => {
+  if (activeTab === 'shared' || activeTab.startsWith('shared:')) sharedFavoritesSortMode = 'owner';
   updateProgramSortControls();
   setActive(activeTab);
 });
@@ -1855,7 +1923,7 @@ async function main() {
     setActive('program');
     if (!missingSharedId) $listSubheaderRow.hidden = false;
   } catch (err) {
-    setStatus('Failed to load events: ' + (err && err.message ? err.message : String(err)));
+    showError('Failed to load events: ' + (err && err.message ? err.message : String(err)));
     console.error(err);
   }
 }

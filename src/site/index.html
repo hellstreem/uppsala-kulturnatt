@@ -45,21 +45,33 @@
           <h2 id="info-dialog-title">Om denna sajt</h2>
           <button id="info-close" class="info-close" type="button" aria-label="Stäng information" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
-        <p>Här kan du söka bland evenemang under Uppsala Kulturnatt 2026, filtrera programmet och spara favoriter.</p>
-        <p>Logga in om du vill synka dina favoriter mellan flera enheter.</p>
-        <p>Ambitionen är att vara en enklare sajt för att hitta evenemang både före och under Uppsala Kulturnatt.</p>
+        <p>Här kan du söka bland evenemangen under Uppsala Kulturnatt 2026, filtrera programmet och spara dina favoriter.</p>
+        <p>Logga in om du vill synkronisera favoriter mellan flera enheter.</p>
+        <p>Målet är att erbjuda en enkel och snabb sajt för att hitta evenemang både inför och under Uppsala Kulturnatt.</p>
+
         <ul class="info-list">
-          <li>Markera favoritevenemang (1-3 stjärnor)</li>
+          <li>Favoritevenemang (1–3 stjärnor)</li>
           <li>Dela favoriter med vänner</li>
-          <li>Synkronisera favoriter mellan desktop och mobil</li>
-          <li>Filtrera och sök evenemang</li>
-          <li>Visa pågående, just startade, strax startade, senare startade, och ej avslutade evenemang</li>
-          <li>Inslag under ett evenemang listas som egna evenemang</li>
+          <li>Synkronisera favoriter mellan dator och mobil</li>
+          <li>Filtrera och sök bland evenemang</li>
+          <li>Visa evenemang efter status: pågående, just startade, snart startande, senare i dag samt ännu inte avslutade</li>
+          <li>Delevenemang listas som egna evenemang när de identifieras i beskrivningen</li>
         </ul>
+
         <p>
-          Version: <span id="app-version">Utveckling</span> <br />
-          Källa: kulturnatten.uppsala.se <br />Kontakt: hstream@gmail.com
+          Version: <span id="app-version">Utveckling</span><br />
+          Källa: kulturnatten.uppsala.se<br />
+          Kontakt: hstream@gmail.com
         </p>
+      </div>
+    </dialog>
+    <dialog id="error-dialog" class="error-dialog" aria-labelledby="error-dialog-title">
+      <div class="error-dialog-content">
+        <div class="error-dialog-header">
+          <h2 id="error-dialog-title">Ett fel uppstod</h2>
+        </div>
+        <p id="error-message" role="alert"></p>
+        <button id="error-close" type="button">Stäng</button>
       </div>
     </dialog>
     <dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-dialog-title">
@@ -83,11 +95,11 @@
     <dialog id="share-dialog" class="share-dialog" aria-labelledby="share-dialog-title">
       <div class="share-dialog-content">
         <div class="share-dialog-header">
-          <h2 id="share-dialog-title">Dela favoriter</h2>
+          <h2 id="share-dialog-title">Dela med vänner</h2>
           <button id="share-close" class="info-close" type="button" aria-label="Stäng delning" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
         <div id="share-name-section" class="share-name-section">
-          <p class="share-help">Du behöver ange ett namn för att dela favoriter</p>
+          <p class="share-help">Du behöver ange ett namn för att dela favoriter.</p>
           <div class="share-name-actions">
             <input id="share-name" type="text" autocomplete="name" aria-label="Ditt namn" />
             <button id="share-name-edit" class="share-copy-button" type="button" hidden>Redigera</button>
@@ -96,12 +108,12 @@
         </div>
         <div id="share-content" class="share-content">
           <section class="share-block" aria-labelledby="share-link-label">
-            <p id="share-link-label" class="share-help">Använd denna länk för att enkelt dela dina favoriter med andra: <span class="share-link" id="share-link" aria-label="Länk till favoritevenemang"></span></p>
+            <p id="share-link-label" class="share-help">Använd denna länk för att dela dina favoriter: <span class="share-link" id="share-link" aria-label="Länk till favoritevenemang"></span></p>
 
             <button id="share-link-copy" class="share-copy-button" type="button">Kopiera länk</button>
           </section>
           <section class="share-block" aria-labelledby="share-text-label">
-            <p id="share-text-label" class="share-help">Du kan även kopiera texten nedan och klistra in den där du vill dela dina favoriter.</p>
+            <p id="share-text-label" class="share-help">Du kan också kopiera texten nedan och klistra in den där du vill dela dina favoriter.</p>
             <p id="share-empty" class="share-help" hidden>Du har inga favoritevenemang att dela ännu.</p>
             <textarea id="share-text" class="share-text" readonly aria-label="Text att dela"></textarea>
             <button id="share-copy" class="share-copy-button" type="button">Kopiera text</button>
@@ -114,7 +126,8 @@
     <header>
       <div class="view-controls">
         <select id="tab-select" class="tabs-select" aria-label="Välj vy">
-          <option id="tab-program" value="program" title="Alla (0 st)" selected>&#128197; Alla (0)</option>
+          <option id="tab-program" value="program" title="Evenemang (0 st)" selected>&#128197; Evenemang (0)</option>
+          <option id="tab-subevents" value="subevents" title="Delevenemang (0 st)">&#128221; Delevenemang (0)</option>
           <option id="tab-cancelled" value="cancelled" title="Inställda evenemang (0 st)">&#128683; Inställda evenemang (0)</option>
           <option id="tab-favorites" value="favorites" title="Mina favoriter (0 st)">&#11088; Mina favoriter (0)</option>
           <option id="tab-live" value="live" title="Pågående evenemang (0 st)">&#128336; Pågående (0)</option>
@@ -132,7 +145,7 @@
         </button>
         <div class="search-row">
           <label class="search-field">
-            <input id="event-search" type="search" placeholder="Sök titel eller plats" autocomplete="off" />
+            <input id="event-search" type="search" placeholder="Sök titel, plats eller beskrivning" autocomplete="off" />
           </label>
         </div>
         <div class="filter-header">
@@ -208,19 +221,23 @@
         <div id="status">Hämtar evenemang…</div>
         <div class="list-subheader-row" hidden>
           <div class="list-heading-group">
-            <h1 id="active-tab-heading" class="list-subheader">Alla evenemang</h1>
-            <div id="shared-meta" class="shared-meta" hidden>
-              <span id="shared-description" class="shared-description"></span>
-              <button id="remove-shared" class="remove-shared" type="button">Ta bort</button>
+            <div class="favorite-heading-row">
+              <h1 id="active-tab-heading" class="list-subheader">Alla evenemang</h1>
+              <div class="favorite-actions-row">
+                <div id="program-sort-controls" class="program-sort-controls" aria-label="Sortera program">
+                  <span>Sortera:</span>
+                  <button id="program-sort-start" class="sort-option active" type="button" aria-pressed="true">Starttid</button>
+                  <span aria-hidden="true">|</span>
+                  <button id="program-sort-seen" class="sort-option" type="button" aria-pressed="false">Nyast</button>
+                  <span id="shared-sort-separator" aria-hidden="true" hidden>|</span>
+                  <button id="program-sort-shared" class="sort-option" type="button" aria-pressed="false" hidden>Delat betyg</button>
+                </div>
+                <button id="share-favorites" class="share-favorites" type="button" hidden>Dela med vänner</button>
+                <button id="remove-shared" class="remove-shared" type="button" hidden>Ta bort</button>
+              </div>
             </div>
+            <div id="tab-information" class="tab-information" hidden></div>
           </div>
-          <div id="program-sort-controls" class="program-sort-controls" aria-label="Sortera program">
-            <span>Sortera:</span>
-            <button id="program-sort-start" class="sort-option active" type="button" aria-pressed="true">Starttid</button>
-            <span aria-hidden="true">|</span>
-            <button id="program-sort-seen" class="sort-option" type="button" aria-pressed="false">Nyast</button>
-          </div>
-          <button id="share-favorites" class="share-favorites" type="button" hidden>Dela</button>
         </div>
         <div id="list" class="list"></div>
       </main>
