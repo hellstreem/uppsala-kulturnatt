@@ -327,6 +327,7 @@ function updateShareDialog() {
 function updateShareNameGate() {
   const hasName = Boolean($shareName.value.trim() && $shareName.value.trim() !== 'Någon');
   $shareNameSave.disabled = !hasName;
+  $shareLinkCopy.disabled = !hasName;
   $shareContent.inert = !hasName;
   $shareContent.setAttribute('aria-hidden', String(!hasName));
 }
