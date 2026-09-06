@@ -7,6 +7,7 @@
   --accent-2: #06b6d4;
   --shared-card-border: #0e7490;
   --active-tab-bg: #f2c14e;
+  --shared-tab-bg: rgba(14, 116, 144, 0.4);
   --border: rgba(255, 255, 255, 0.2);
   --border-subtle: rgba(255, 255, 255, 0.12);
   --control-text: #eaf7ff;
@@ -34,6 +35,7 @@ body[data-theme='light'] {
   --accent-2: #0891b2;
   --shared-card-border: #0891b2;
   --active-tab-bg: #fde68a;
+  --shared-tab-bg: rgba(8, 145, 178, 0.25);
   --border: rgba(15, 23, 42, 0.2);
   --border-subtle: rgba(15, 23, 42, 0.12);
   --control-text: #0f172a;
@@ -586,6 +588,10 @@ header {
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 600;
+}
+
+.tabs-select option[value^='shared'] {
+  background-color: var(--shared-tab-bg);
 }
 
 .view-controls {

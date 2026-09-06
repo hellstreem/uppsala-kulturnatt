@@ -583,6 +583,10 @@ function localSettings() {
   return settings;
 }
 
+function settingsMergeFields(settings) {
+  return ['theme', 'favorites', 'hideFinishedEvents', 'sharedUsers', 'name'].filter((field) => Object.prototype.hasOwnProperty.call(settings, field));
+}
+
 function applySettings(settings) {
   if (settings && (settings.theme === 'light' || settings.theme === 'dark')) setTheme(settings.theme, false);
   if (settings && settings.favorites) localStorage.setItem('favorites', JSON.stringify(normalizeFavorites(settings.favorites)));
@@ -611,30 +615,49 @@ function scheduleCloudSettingsSync() {
   window.clearTimeout(cloudSyncTimer);
   cloudSyncTimer = window.setTimeout(() => {
     if (!settingsDocument) return;
-    settingsDocument.set(localSettings(), { mergeFields: ['theme', 'favorites', 'hideFinishedEvents', 'sharedUsers', 'name'] }).catch((error) => {
-      console.error('Firebase settings sync failed:', error);
-      setStatus('Inställningarna kunde inte synkroniseras till Firebase.');
+
+    const settings = localSettings();
+
+    settingsDocument
+      .set(settings, {
+        mergeFields: settingsMergeFields(settings),
+      })
+      .catch((error) => {
+        console.error('Firebase settings sync failed:', error);
+        setStatus('Inställningarna kunde inte synkroniseras till Firebase.');
+      });
+
+    publishSharedFavorites().catch((error) => {
+      console.error('Firebase share sync failed:', error);
     });
-    publishSharedFavorites().catch((error) => console.error('Firebase share sync failed:', error));
   }, 300);
 }
 
 async function syncSettingsWithFirebase() {
   if (!settingsDocument) return;
+
   try {
     const snapshot = await settingsDocument.get();
     const local = localSettings();
     const remote = snapshot.exists ? snapshot.data() : null;
+
     if (remote) {
       const remoteFavorites = normalizeFavorites(remote.favorites);
       const removedFavorites = loadRemovedFavorites();
       const mergedFavorites = Object.fromEntries(Object.entries(remoteFavorites).filter(([id]) => !removedFavorites[id]));
+
       applySettings({
         ...remote,
         favorites: { ...mergedFavorites, ...local.favorites },
       });
     }
-    await settingsDocument.set(localSettings(), { mergeFields: ['theme', 'favorites', 'hideFinishedEvents', 'sharedUsers', 'name'] });
+
+    const settings = localSettings();
+
+    await settingsDocument.set(settings, {
+      mergeFields: settingsMergeFields(settings),
+    });
+
     localStorage.removeItem('removedFavorites');
     await publishSharedFavorites();
     updateTabCounts();
@@ -1519,6 +1542,7 @@ function setActive(tab) {
   }
   activeTab = tab;
   $tabSelect.value = tab;
+  $tabSelect.classList.toggle('is-shared', tab === 'shared' || tab.startsWith('shared:'));
   $activeTabHeading.textContent = `${tabIcon(tab)} ${tabTooltip(tab)}`;
   updateSharedViewHeader();
   $programSortControls.hidden = tab !== 'program' && tab !== 'favorites';
