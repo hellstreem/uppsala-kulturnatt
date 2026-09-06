@@ -15,6 +15,10 @@ const $programSortStart = document.getElementById('program-sort-start');
 const $programSortSeen = document.getElementById('program-sort-seen');
 const $shareFavorites = document.getElementById('share-favorites');
 const $shareDialog = document.getElementById('share-dialog');
+const $shareName = document.getElementById('share-name');
+const $shareNameEdit = document.getElementById('share-name-edit');
+const $shareNameSave = document.getElementById('share-name-save');
+const $shareContent = document.getElementById('share-content');
 const $shareClose = document.getElementById('share-close');
 const $shareEmpty = document.getElementById('share-empty');
 const $shareText = document.getElementById('share-text');
@@ -49,6 +53,7 @@ const $paidFilter = document.getElementById('paid-filter');
 const $fromFilter = document.getElementById('from-filter');
 const $toFilter = document.getElementById('to-filter');
 const $showFilters = document.getElementById('show-filters');
+const $favoritesShortcut = document.getElementById('favorites-shortcut');
 const $showFiltersLabel = document.getElementById('show-filters-label');
 const $filterSearchSection = document.getElementById('filter-search-section');
 const $closeFilters = document.getElementById('close-filters');
@@ -261,11 +266,18 @@ function shareTextForFavorites(events, favorites) {
     const starLabel = rating === 1 ? 'stjärna' : 'stjärnor';
     return `${start}-${end}\n${title} (${rating} ${starLabel})\n${location}\n\n${event.url || ''}`;
   });
-  const userName = firebaseUser?.displayName?.trim() || 'Någon';
+  const userName = getShareName() || 'Någon';
   return [`${userName} vill dela sina favoritevenemang på Uppsala Kulturnatt 2026 med dig.`, ...eventText, 'Hitta dina egna favoriter på https://uppsalakulturnatt.com/.'].join('\n\n');
 }
 
 function updateShareDialog() {
+  const shareName = getShareName();
+  $shareName.value = shareName;
+  const hasSavedName = Boolean(shareName && shareName !== 'Någon');
+  $shareName.disabled = hasSavedName;
+  $shareNameEdit.hidden = !hasSavedName;
+  $shareNameSave.hidden = hasSavedName;
+  updateShareNameGate();
   const favorites = loadFavorites();
   const events = favoriteEvents(favorites);
   const count = events.length;
@@ -276,6 +288,30 @@ function updateShareDialog() {
   $shareText.disabled = count === 0;
   $shareCopy.disabled = count === 0;
   $shareMessage.textContent = '';
+}
+
+function updateShareNameGate() {
+  const hasName = Boolean($shareName.value.trim() && $shareName.value.trim() !== 'Någon');
+  $shareNameSave.disabled = !hasName;
+  $shareContent.inert = !hasName;
+  $shareContent.setAttribute('aria-hidden', String(!hasName));
+}
+
+function getShareName() {
+  const name = firebaseUser?.displayName?.trim() || localStorage.getItem('shareOwnerName')?.trim() || '';
+  return name === 'Någon' ? '' : name;
+}
+
+function saveShareName() {
+  const name = $shareName.value.trim();
+  if (!name || name === 'Någon') {
+    $shareName.focus();
+    $shareMessage.textContent = 'Ange ett giltigt namn för att fortsätta.';
+    return;
+  }
+  localStorage.setItem('shareOwnerName', name);
+  scheduleCloudSettingsSync();
+  updateShareDialog();
 }
 
 async function copyFavorites() {
@@ -1493,6 +1529,17 @@ $shareDialog.addEventListener('click', (event) => {
   if (event.target === $shareDialog) $shareDialog.close();
 });
 $shareCopy.addEventListener('click', copyFavorites);
+$shareNameSave.addEventListener('click', saveShareName);
+$shareNameEdit.addEventListener('click', () => {
+  $shareName.disabled = false;
+  $shareNameEdit.hidden = true;
+  $shareNameSave.hidden = false;
+  $shareName.focus();
+});
+$shareName.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') saveShareName();
+});
+$shareName.addEventListener('input', updateShareNameGate);
 $removeShared.addEventListener('click', () => {
   if (!window.confirm(`Vill du ta bort ${sharedOwnerName}s delade favoriter från den här vyn?`)) return;
   const sharedUserId = activeTab.startsWith('shared:') ? activeTab.slice('shared:'.length) : sharedPageId;
@@ -1616,6 +1663,7 @@ $showFilters.addEventListener('click', () => {
   $showFilters.setAttribute('aria-pressed', 'true');
   updateShowFiltersButton();
 });
+$favoritesShortcut.addEventListener('click', () => setActive('favorites'));
 $closeFilters.addEventListener('click', closeFilters);
 $closeFiltersBottom.addEventListener('click', closeFilters);
 $filterSearchSection.addEventListener('close', () => {

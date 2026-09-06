@@ -86,12 +86,27 @@
           <h2 id="share-dialog-title">Dela favoriter</h2>
           <button id="share-close" class="info-close" type="button" aria-label="Stäng delning" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
-        <p class="share-help">Kopiera texten och klistra in den där du vill dela dina favoritevenemang.</p>
-        <p id="share-empty" class="share-help" hidden>Du har inga favoritevenemang att dela ännu.</p>
-        <p class="share-help">Länk: <span id="share-link"></span></p>
-        <button id="share-link-copy" class="share-copy-button" type="button">Kopiera länk</button>
-        <textarea id="share-text" class="share-text" readonly aria-label="Text att dela"></textarea>
-        <button id="share-copy" class="share-copy-button" type="button">Kopiera text</button>
+        <div id="share-name-section" class="share-name-section">
+          <p class="share-help">Du behöver ange ett namn för att dela favoriter</p>
+          <div class="share-name-actions">
+            <input id="share-name" type="text" autocomplete="name" aria-label="Ditt namn" />
+            <button id="share-name-edit" class="share-copy-button" type="button" hidden>Redigera</button>
+            <button id="share-name-save" class="share-copy-button" type="button">Spara</button>
+          </div>
+        </div>
+        <div id="share-content" class="share-content">
+          <section class="share-block" aria-labelledby="share-link-label">
+            <p id="share-link-label" class="share-help">Använd denna länk för att enkelt dela dina favoriter med andra: <span class="share-link" id="share-link" aria-label="Länk till favoritevenemang"></span></p>
+
+            <button id="share-link-copy" class="share-copy-button" type="button">Kopiera länk</button>
+          </section>
+          <section class="share-block" aria-labelledby="share-text-label">
+            <p id="share-text-label" class="share-help">Du kan även kopiera texten nedan och klistra in den där du vill dela dina favoriter.</p>
+            <p id="share-empty" class="share-help" hidden>Du har inga favoritevenemang att dela ännu.</p>
+            <textarea id="share-text" class="share-text" readonly aria-label="Text att dela"></textarea>
+            <button id="share-copy" class="share-copy-button" type="button">Kopiera text</button>
+          </section>
+        </div>
         <p id="share-message" class="share-message" role="status" aria-live="polite"></p>
       </div>
     </dialog>
@@ -109,6 +124,9 @@
           <option id="tab-unfinished" value="unfinished" title="Ej avslutade evenemang (0 st)">&#9899; Ej avslutade (0)</option>
           <option id="tab-finished" value="finished" title="Avslutade evenemang (0 st)">&#9989; Avslutade (0)</option>
         </select>
+        <button id="favorites-shortcut" class="favorites-shortcut" type="button" aria-label="Visa mina favoriter" title="Visa mina favoriter">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+        </button>
         <button id="show-filters" class="clear-search" type="button" aria-label="Visa filter" title="Visa filter" aria-expanded="false" aria-pressed="false">
           <span id="show-filters-label"><i class="fa-solid fa-filter" aria-hidden="true"></i></span> <span id="filter-count" hidden></span>
         </button>
