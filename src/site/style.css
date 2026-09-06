@@ -688,6 +688,21 @@ header {
 @media (max-width: 640px) {
   .filter-search-section {
     transform: none;
+    max-height: calc(100dvh - 24px);
+    overflow: hidden;
+  }
+
+  .filter-search-section-inner {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100dvh - 24px);
+    overflow: hidden;
+  }
+
+  .filter-panel {
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow-y: auto;
   }
 }
 
