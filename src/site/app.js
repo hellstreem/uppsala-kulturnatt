@@ -139,6 +139,7 @@ let sharedUsers = (() => {
 let cloudSyncTimer = null;
 let actionAlertTimer = null;
 let sharedTabLoad = null;
+let firebaseSettingsWrite = Promise.resolve();
 let shareId = localStorage.getItem('shareId');
 if (!shareId) {
   shareId = typeof crypto?.randomUUID === 'function' ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
@@ -522,7 +523,7 @@ function saveFavorites(favorites) {
   Object.keys(normalized).forEach((id) => delete removed[id]);
   localStorage.setItem('favorites', JSON.stringify(normalized));
   localStorage.setItem('removedFavorites', JSON.stringify(removed));
-  scheduleCloudSettingsSync();
+  scheduleCloudSettingsSync(true);
 }
 
 function loadRemovedFavorites() {
@@ -593,7 +594,7 @@ async function subscribeToSharedFavorites(id, loadState = null) {
         delete tabs[`shared:${id}`];
         $list.hidden = true;
         $listSubheaderRow.hidden = true;
-        scheduleCloudSettingsSync();
+        scheduleCloudSettingsSync(true);
         const sharedLinkUrl = sharedPageId ? sharedPageUrl.href : `${window.location.origin}/share/${encodeURIComponent(id)}`;
         const error = new Error(`Kan inte hitta användare med delningslänk ${sharedLinkUrl}. Be om en ny länk och försök igen.`);
         showError(error.message);
@@ -607,6 +608,7 @@ async function subscribeToSharedFavorites(id, loadState = null) {
       const isNewSharedUser = !sharedUsers.some((user) => user.id === id);
       rememberSharedUser(id, sharedOwnerName);
       addSharedTab(id, sharedOwnerName);
+      if (isNewSharedUser) scheduleCloudSettingsSync(true);
       if (isNewSharedUser) showActionAlert(`Delade favoriter från ${sharedOwnerName} har lagts till i din profil.`);
       if (activeTab === `shared:${id}` || (firstSnapshot && requestedShareId === id)) setActive(`shared:${id}`);
       firstSnapshot = false;
@@ -731,25 +733,26 @@ function applySettings(settings) {
   updateFinishedVisibilityToggle();
 }
 
-function scheduleCloudSettingsSync() {
+function scheduleCloudSettingsSync(immediate = false) {
   window.clearTimeout(cloudSyncTimer);
-  cloudSyncTimer = window.setTimeout(() => {
-    if (!settingsDocument) return;
-
-    const settings = localSettings();
-
-    settingsDocument
-      .set(settings, {
-        mergeFields: settingsMergeFields(settings),
+  const write = () => {
+    if (!settingsDocument) return Promise.resolve();
+    firebaseSettingsWrite = firebaseSettingsWrite
+      .catch(() => {})
+      .then(async () => {
+        const settings = localSettings();
+        await settingsDocument.set(settings, {
+          mergeFields: settingsMergeFields(settings),
+        });
+        await publishSharedFavorites();
       })
       .catch((error) => {
         reportSettingsSyncError('write user settings', error);
       });
-
-    publishSharedFavorites().catch((error) => {
-      console.error('Firebase share sync failed:', error);
-    });
-  }, 300);
+    return firebaseSettingsWrite;
+  };
+  if (immediate) return write();
+  cloudSyncTimer = window.setTimeout(write, 300);
 }
 
 async function syncSettingsWithFirebase() {
@@ -1944,7 +1947,7 @@ $removeShared.addEventListener('click', async () => {
     const sharedTab = tabs[`shared:${sharedUserId}`];
     sharedTab?.remove();
     delete tabs[`shared:${sharedUserId}`];
-    scheduleCloudSettingsSync();
+    scheduleCloudSettingsSync(true);
   }
   sharedFavorites = null;
   setActive('program');
