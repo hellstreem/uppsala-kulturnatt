@@ -115,7 +115,7 @@ let settingsDocument = null;
 let shareDocument = null;
 let shareUnsubscribe = null;
 let sharedFavorites = null;
-let sharedOwnerName = 'Någon';
+let sharedOwnerName = null;
 let missingSharedId = null;
 let isDeletingUserData = false;
 const sharedPageUrl = new URL(window.location.href);
@@ -317,14 +317,14 @@ function shareTextForFavorites(events, favorites) {
     const starLabel = rating === 1 ? 'stjärna' : 'stjärnor';
     return `${start}-${end}\n${title} (${rating} ${starLabel})\n${location}\n\n${event.url || ''}`;
   });
-  const userName = getShareName() || 'Någon';
+  const userName = getShareName() || '';
   return [`${userName} har delat sina favoritevenemang från Uppsala Kulturnatt 2026 med dig.`, ...eventText, 'Hitta dina egna favoriter på https://uppsalakulturnatt.com/.'].join('\n\n');
 }
 
 function updateShareDialog() {
   const shareName = getShareName();
   $shareName.value = shareName;
-  const hasSavedName = Boolean(shareName && shareName !== 'Någon');
+  const hasSavedName = Boolean(shareName && shareName !== '');
   $shareName.disabled = hasSavedName;
   $shareNameEdit.hidden = !hasSavedName;
   $shareNameSave.hidden = hasSavedName;
@@ -342,7 +342,7 @@ function updateShareDialog() {
 }
 
 function updateShareNameGate() {
-  const hasName = Boolean($shareName.value.trim() && $shareName.value.trim() !== 'Någon');
+  const hasName = Boolean($shareName.value.trim() && $shareName.value.trim() !== '');
   const hasSavedName = hasName && $shareName.disabled;
   $shareNameSave.disabled = !hasName;
   $shareLinkCopy.disabled = !hasSavedName;
@@ -352,7 +352,7 @@ function updateShareNameGate() {
 
 function getShareName() {
   const name = localStorage.getItem('shareOwnerName')?.trim() || firebaseUser?.displayName?.trim() || '';
-  return name === 'Någon' ? '' : name;
+  return name;
 }
 
 function confirmAction(message) {
@@ -371,7 +371,7 @@ function confirmAction(message) {
 
 async function saveShareName() {
   const name = $shareName.value.trim();
-  if (!name || name === 'Någon') {
+  if (!name) {
     $shareName.focus();
     $shareMessage.textContent = 'Ange ett giltigt namn för att fortsätta.';
     return;
@@ -545,12 +545,12 @@ function removeFavorite(id) {
 }
 
 function shareOwnerName() {
-  return localStorage.getItem('shareOwnerName')?.trim() || firebaseUser?.displayName?.trim() || firebaseUser?.email?.trim() || 'Någon';
+  return localStorage.getItem('shareOwnerName')?.trim() || firebaseUser?.displayName?.trim() || firebaseUser?.email?.trim() || '';
 }
 
 function rememberSharedUser(id, name) {
   if (!id) return;
-  sharedUsers = [...sharedUsers.filter((user) => user.id !== id), { id, name: name || 'Någon' }];
+  sharedUsers = [...sharedUsers.filter((user) => user.id !== id), { id, name: name || '' }];
   localStorage.setItem('sharedUsers', JSON.stringify(sharedUsers));
 }
 
@@ -559,8 +559,8 @@ function addSharedTab(id, name) {
   if (!id || tabs[key]) return;
   const option = document.createElement('option');
   option.value = key;
-  option.textContent = `\u{1F517} Delade favoriter (${name || 'Någon'})`;
-  option.title = `Delade favoriter från ${name || 'Någon'}`;
+  option.textContent = `\u{1F517} Delade favoriter (${name || 'okänd'})`;
+  option.title = `Delade favoriter från ${name || 'okänd'}`;
   $tabSelect.appendChild(option);
   tabs[key] = option;
 }
@@ -604,7 +604,7 @@ async function subscribeToSharedFavorites(id, loadState = null) {
       const shared = snapshot.data();
       missingSharedId = null;
       sharedFavorites = normalizeFavorites(shared.favorites);
-      sharedOwnerName = shared.ownerName || 'Någon';
+      sharedOwnerName = shared.ownerName || 'okänd';
       const isNewSharedUser = !sharedUsers.some((user) => user.id === id);
       rememberSharedUser(id, sharedOwnerName);
       addSharedTab(id, sharedOwnerName);
@@ -701,7 +701,7 @@ function localSettings() {
     sharedUsers,
   };
   const ownerName = shareOwnerName();
-  if (ownerName !== 'Någon') settings.name = ownerName;
+  if (ownerName !== 'okänd') settings.name = ownerName;
   return settings;
 }
 
@@ -724,7 +724,7 @@ function applySettings(settings) {
     settings.sharedUsers
       .filter((user) => user?.id)
       .forEach((user) => {
-        usersById.set(user.id, { id: user.id, name: user.name || 'Någon' });
+        usersById.set(user.id, { id: user.id, name: user.name || 'okänd' });
       });
     sharedUsers = Array.from(usersById.values());
     localStorage.setItem('sharedUsers', JSON.stringify(sharedUsers));
@@ -877,7 +877,7 @@ async function removeUserData() {
     settingsDocument = null;
     shareDocument = null;
     sharedFavorites = null;
-    sharedOwnerName = 'Någon';
+    sharedOwnerName = 'okänd';
     sharedUsers = [];
     Object.keys(tabs)
       .filter((tab) => tab.startsWith('shared:'))
@@ -2073,7 +2073,12 @@ $googleLoginButton.addEventListener('click', async () => {
   try {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
-    await firebaseAuth.signInWithPopup(provider);
+    const currentUser = firebaseAuth.currentUser || firebaseUser;
+    if (currentUser?.isAnonymous) {
+      await currentUser.linkWithPopup(provider);
+    } else {
+      await firebaseAuth.signInWithPopup(provider);
+    }
     $authDialog.close();
     showActionAlert('Du är nu inloggad. Dina favoritändringar sparas i molnet och synkroniseras automatiskt till andra enheter där du är inloggad.');
   } catch (error) {
