@@ -179,7 +179,7 @@ function shareTextForFavorites(events, favorites) {
     const starLabel = rating === 1 ? 'stjärna' : 'stjärnor';
     return `${start}-${end}\n${title} (${rating} ${starLabel})\n${location}\n\n${event.url || ''}`;
   });
-  return ['Favoritevenemang från Uppsala Kulturnatt 2026:', ...eventText, 'Hitta egna favoriter på https://uppsalakulturnatt.com/'].join('\n\n');
+  return ['Favoritevenemang på Uppsala Kulturnatt 2026:', ...eventText, 'Hitta egna favoriter på https://uppsalakulturnatt.com/'].join('\n\n');
 }
 
 function updateShareDialog() {
