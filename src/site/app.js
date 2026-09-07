@@ -333,7 +333,7 @@ function showActionAlert(message) {
   $actionAlertMessage.textContent = message;
   $actionAlert.hidden = false;
   window.clearTimeout(actionAlertTimer);
-  actionAlertTimer = window.setTimeout(closeActionAlert, 15000);
+  actionAlertTimer = window.setTimeout(closeActionAlert, 10000);
 }
 
 function showError(message = '') {
@@ -1658,7 +1658,7 @@ $logoutButton.addEventListener('click', async () => {
     await firebaseAuth.signOut();
     $userMenu.hidden = true;
     $loginButton.setAttribute('aria-expanded', 'false');
-    showActionAlert('Du är nu utloggad. Ändringar i dina favoriter sparas inte längre i molnet. Logga in igen om du vill synkronisera ändringar.');
+    showActionAlert('Du är nu utloggad. Logga in igen om du vill synkronisera ändringar.');
   } catch (error) {
     console.error('Firebase sign-out failed:', error);
     showError(`Utloggningen misslyckades: ${error?.message || error}`);
