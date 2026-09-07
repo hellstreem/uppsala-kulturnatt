@@ -41,6 +41,7 @@ const $finishedVisibilityToggle = document.getElementById('finished-visibility-t
 const $themeToggle = document.getElementById('theme-toggle');
 const $loginButton = document.getElementById('login-button');
 const $userMenu = document.getElementById('user-menu');
+const $loginMenu = document.getElementById('login-menu');
 const $removeUserData = document.getElementById('remove-user-data');
 const $logoutButton = document.getElementById('logout-button');
 const $syncAlert = document.getElementById('sync-alert');
@@ -766,6 +767,8 @@ function openAuthenticationDialog() {
 function updateAuthenticationUi(user) {
   firebaseUser = user;
   $syncAlert.hidden = Boolean(user);
+  $loginMenu.hidden = Boolean(user && !user.isAnonymous);
+  $logoutButton.hidden = !user || user.isAnonymous;
   $userMenu.hidden = true;
   $loginButton.setAttribute('aria-expanded', 'false');
   $loginButton.replaceChildren();
@@ -1923,6 +1926,11 @@ $logoutButton.addEventListener('click', async () => {
     console.error('Firebase sign-out failed:', error);
     showError(`Utloggningen misslyckades: ${error?.message || error}`);
   }
+});
+$loginMenu.addEventListener('click', () => {
+  $userMenu.hidden = true;
+  $loginButton.setAttribute('aria-expanded', 'false');
+  openAuthenticationDialog();
 });
 $removeUserData.addEventListener('click', removeUserData);
 $authClose.addEventListener('click', () => $authDialog.close());
