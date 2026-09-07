@@ -119,20 +119,7 @@
           <h2 id="share-dialog-title"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span>Dela med vänner</span></h2>
           <button id="share-close" class="info-close" type="button" aria-label="Stäng delning" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
-        <div id="share-name-section" class="share-name-section">
-          <p class="share-help">Du behöver ange ett namn för att dela favoriter.</p>
-          <div class="share-name-actions">
-            <input id="share-name" type="text" autocomplete="name" aria-label="Ditt namn" />
-            <button id="share-name-edit" class="share-copy-button" type="button" hidden>Redigera</button>
-            <button id="share-name-save" class="share-copy-button" type="button">Spara</button>
-          </div>
-        </div>
         <div id="share-content" class="share-content">
-          <section class="share-block" aria-labelledby="share-link-label">
-            <p id="share-link-label" class="share-help">Använd denna länk för att dela dina favoriter: <span class="share-link" id="share-link" aria-label="Länk till favoritevenemang"></span></p>
-
-            <button id="share-link-copy" class="share-copy-button" type="button">Kopiera länk</button>
-          </section>
           <section class="share-block" aria-labelledby="share-text-label">
             <p id="share-text-label" class="share-help">Du kan också kopiera texten nedan och klistra in den där du vill dela dina favoriter.</p>
             <p id="share-empty" class="share-help" hidden>Du har inga favoritevenemang att dela ännu.</p>
@@ -141,14 +128,6 @@
           </section>
         </div>
         <p id="share-message" class="share-message" role="status" aria-live="polite"></p>
-      </div>
-    </dialog>
-    <dialog id="shared-loading-dialog" class="shared-loading-dialog" aria-labelledby="shared-loading-dialog-title">
-      <div class="shared-loading-dialog-content">
-        <h2 id="shared-loading-dialog-title"><i class="fa-solid fa-cloud-arrow-down" aria-hidden="true"></i><span>Hämtar delade favoriter</span></h2>
-        <p>Väntar på den delade favoritlistan...</p>
-        <div class="shared-loading-progress" role="progressbar" aria-label="Hämtar delade favoriter"></div>
-        <button id="shared-loading-cancel" type="button">Avbryt</button>
       </div>
     </dialog>
     <aside id="sync-alert" class="sync-alert" role="status" hidden><a id="sync-login-link" href="#login">Logga in</a> så sparas dina favoriter och följer med mellan dina enheter</aside>
@@ -258,11 +237,8 @@
                   <button id="program-sort-start" class="sort-option active" type="button" aria-pressed="true">Starttid</button>
                   <span aria-hidden="true">|</span>
                   <button id="program-sort-seen" class="sort-option" type="button" aria-pressed="false">Nyast</button>
-                  <span id="shared-sort-separator" aria-hidden="true" hidden>|</span>
-                  <button id="program-sort-shared" class="sort-option" type="button" aria-pressed="false" hidden>Delat betyg</button>
                 </div>
                 <button id="share-favorites" class="share-favorites" type="button" hidden>Dela med vänner</button>
-                <button id="remove-shared" class="remove-shared" type="button" hidden>Ta bort</button>
               </div>
             </div>
             <div id="tab-information" class="tab-information" hidden></div>
