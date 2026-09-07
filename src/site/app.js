@@ -621,7 +621,17 @@ async function ensureFirebaseAuthentication() {
   return Boolean(firebaseAuth);
 }
 
+function hasStoredFirebaseUser() {
+  if (typeof FIREBASE_CONFIG === 'undefined' || !FIREBASE_CONFIG?.apiKey) return false;
+  try {
+    return Boolean(localStorage.getItem(`firebase:authUser:${FIREBASE_CONFIG.apiKey}:[DEFAULT]`));
+  } catch (_) {
+    return false;
+  }
+}
+
 function scheduleFirebaseIdleLoad() {
+  if (!hasStoredFirebaseUser()) return;
   const loadFirebase = () => ensureFirebaseAuthentication();
   if ('requestIdleCallback' in window) {
     window.requestIdleCallback(loadFirebase, { timeout: 3000 });
@@ -1400,11 +1410,14 @@ function renderList(events, favorites = loadFavorites()) {
       card.setAttribute('aria-expanded', String(!details.hidden));
       openCard = details.hidden ? null : card;
       if (!details.hidden) {
-        const offset = $header.getBoundingClientRect().height + 4;
-        const cardTop = card.getBoundingClientRect().top;
-        if (cardTop < offset || cardTop > window.innerHeight) {
-          window.scrollTo({ top: cardTop + window.scrollY - offset, behavior: 'smooth' });
-        }
+        requestAnimationFrame(() => {
+          if (details.hidden || openCard !== card) return;
+          const offset = $header.getBoundingClientRect().height + 4;
+          const cardTop = card.getBoundingClientRect().top;
+          if (cardTop < offset || cardTop > window.innerHeight) {
+            window.scrollTo({ top: cardTop + window.scrollY - offset, behavior: 'smooth' });
+          }
+        });
       }
     };
     card.addEventListener('click', (event) => {

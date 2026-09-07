@@ -16,11 +16,12 @@ if (!fs.existsSync(SOURCE_DATA_PATH)) {
 }
 
 fs.mkdirSync(TARGET_DATA_DIR, { recursive: true });
-fs.copyFileSync(SOURCE_DATA_PATH, TARGET_DATA_PATH);
+const packedEvents = JSON.parse(fs.readFileSync(SOURCE_DATA_PATH, 'utf8'));
+fs.writeFileSync(TARGET_DATA_PATH, JSON.stringify(packedEvents), 'utf8');
 const { version } = JSON.parse(fs.readFileSync(PACKAGE_PATH, 'utf8'));
 fs.writeFileSync(VERSION_PATH, `window.APP_VERSION = ${JSON.stringify(version)};\n`, 'utf8');
 
-fs.writeFileSync(HEADERS_PATH, ['/', '  Cache-Control: no-store, no-cache, must-revalidate, max-age=0', '  CDN-Cache-Control: no-store', '', '/index.html', '  Cache-Control: no-store, no-cache, must-revalidate, max-age=0', '  CDN-Cache-Control: no-store', '', '/app.js', '  Cache-Control: public, max-age=300, stale-while-revalidate=86400', '', '/style.css', '  Cache-Control: public, max-age=300, stale-while-revalidate=86400', '', '/data/packedEvents.json', '  Cache-Control: public, max-age=300, stale-while-revalidate=86400', '', '/*.svg', '  Cache-Control: public, max-age=86400', '', '/sitemap.xml', '  Content-Type: application/xml; charset=UTF-8', ''].join('\n'), 'utf8');
+fs.writeFileSync(HEADERS_PATH, ['/', '  Cache-Control: no-store, no-cache, must-revalidate, max-age=0', '  CDN-Cache-Control: no-store', '', '/index.html', '  Cache-Control: no-store, no-cache, must-revalidate, max-age=0', '  CDN-Cache-Control: no-store', '', '/app.js', '  Cache-Control: public, max-age=300, stale-while-revalidate=86400', '', '/style.css', '  Cache-Control: public, max-age=300, stale-while-revalidate=86400', '', '/icons.css', '  Cache-Control: public, max-age=300, stale-while-revalidate=86400', '', '/data/packedEvents.json', '  Cache-Control: public, max-age=300, stale-while-revalidate=86400', '', '/*.svg', '  Cache-Control: public, max-age=86400', '', '/sitemap.xml', '  Content-Type: application/xml; charset=UTF-8', ''].join('\n'), 'utf8');
 fs.appendFileSync(HEADERS_PATH, ['/version.js', '  Cache-Control: no-store, no-cache, must-revalidate, max-age=0', '  CDN-Cache-Control: no-store', ''].join('\n'), 'utf8');
 
 console.log('Copied', path.relative(ROOT_DIR, SOURCE_DATA_PATH), 'to', path.relative(ROOT_DIR, TARGET_DATA_PATH));

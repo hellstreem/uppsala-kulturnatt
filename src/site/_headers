@@ -12,6 +12,9 @@
 /style.css
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
+/icons.css
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
 /data/packedEvents.json
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
 

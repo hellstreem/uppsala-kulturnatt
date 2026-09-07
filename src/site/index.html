@@ -19,8 +19,17 @@
     <meta name="twitter:description" content="Hitta evenemang under Uppsala Kulturnatt 2026. Sök, filtrera och spara dina favoriter." />
     <meta name="twitter:url" content="https://uppsalakulturnatt.com/" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link
+      rel="preload"
+      href="/icons.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      " />
+    <noscript><link rel="stylesheet" href="/icons.css" /></noscript>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="preload" href="/data/packedEvents.json" as="fetch" crossorigin />
   </head>
   <body>
     <div class="top-bar">
@@ -130,7 +139,7 @@
         <p id="share-message" class="share-message" role="status" aria-live="polite"></p>
       </div>
     </dialog>
-    <aside id="sync-alert" class="sync-alert" role="status" hidden><a id="sync-login-link" href="#login">Logga in</a> så sparas dina favoriter och följer med mellan dina enheter</aside>
+    <aside id="sync-alert" class="sync-alert" aria-live="polite" hidden><a id="sync-login-link" href="#login">Logga in</a> så sparas dina favoriter och följer med mellan dina enheter</aside>
     <header>
       <div class="view-controls">
         <select id="tab-select" class="tabs-select" aria-label="Välj vy">

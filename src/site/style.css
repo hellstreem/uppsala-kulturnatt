@@ -28,9 +28,9 @@ body[data-theme='light'] {
   --bg: #f4f6f8;
   --card: #ffffff;
   --text: #111827;
-  --muted: #64748b;
-  --accent: #f59e0b;
-  --accent-2: #0891b2;
+  --muted: #475569;
+  --accent-2: #0e7490;
+  --accent: #a16207;
   --active-tab-bg: #fde68a;
   --border: rgba(15, 23, 42, 0.2);
   --border-subtle: rgba(15, 23, 42, 0.12);
@@ -1048,7 +1048,7 @@ body[data-theme='light'] .filter-search-section-inner {
   border: 1px solid var(--border);
   border-radius: 4px;
   background: transparent;
-  color: #f5b942;
+  color: #8a5a00;
   cursor: pointer;
   font-size: 0.95rem;
 }
@@ -1058,7 +1058,7 @@ body[data-theme='light'] .filter-search-section-inner {
 }
 
 .favorites-shortcut:focus-visible {
-  outline: 2px solid #f5b942;
+  outline: 2px solid #8a5a00;
   outline-offset: 2px;
 }
 
@@ -1411,6 +1411,8 @@ body.share-loading #status {
   flex-direction: column;
   align-items: flex-start;
   gap: 2px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 120px;
   background: var(--card);
   padding: 6px;
   border-radius: 6px;
@@ -1504,10 +1506,10 @@ body[data-theme='light'] .card.cancelled {
 }
 
 body[data-theme='light'] .chip {
-  background-color: #f4f8f9;
+  background-color: #f8fafc;
   background-image: none;
-  border-color: rgba(15, 23, 42, 0.12);
-  color: #64748b;
+  border-color: #64748b;
+  color: #475569;
 }
 
 .chip:hover {
@@ -1570,14 +1572,18 @@ body[data-theme='light'] .chip {
 .favorite-rating {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 0px;
   margin-left: 0;
 }
 
 .star {
   appearance: none;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
   border: 0;
-  padding: 0;
+  padding: 2px;
   background: transparent;
   display: inline-flex;
   align-items: center;
@@ -1608,12 +1614,16 @@ body[data-theme='light'] .chip {
 
 .favorite-remove {
   appearance: none;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   align-self: flex-end;
-  margin-left: 7px;
-  padding: 0;
+  margin-left: 4px;
+  padding: 2px;
   border: 0;
   background: transparent;
   color: var(--muted);
