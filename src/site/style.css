@@ -1526,10 +1526,6 @@ body[data-theme='light'] .chip {
   flex-wrap: nowrap;
   flex-shrink: 0;
   gap: 3px;
-  margin-left: 6px;
-}
-
-.search-links.is-new-line {
   margin-left: 0;
 }
 

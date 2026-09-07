@@ -1446,15 +1446,6 @@ function renderList(events, favorites = loadFavorites()) {
     fragment.appendChild(card);
   }
   $list.appendChild(fragment);
-  updateSearchLinkMargins();
-}
-
-function updateSearchLinkMargins() {
-  for (const searchLinks of $list.querySelectorAll('.search-links')) {
-    const previousElement = searchLinks.previousElementSibling;
-    const isNewLine = previousElement && searchLinks.offsetTop > previousElement.offsetTop;
-    searchLinks.classList.toggle('is-new-line', Boolean(isNewLine));
-  }
 }
 
 function tabIcon(tab) {
@@ -1758,7 +1749,6 @@ $filterSearchSection.addEventListener('click', (event) => {
 });
 window.addEventListener('resize', () => {
   if ($filterSearchSection.open) positionFiltersDialog();
-  updateSearchLinkMargins();
 });
 $search.addEventListener('input', () => {
   updateClearFiltersButton();
