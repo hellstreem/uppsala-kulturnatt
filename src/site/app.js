@@ -580,6 +580,7 @@ async function subscribeToSharedFavorites(id, loadState = null) {
   const document = firebase.firestore().collection('shares').doc(id);
   return new Promise((resolve, reject) => {
     if (loadState) loadState.reject = reject;
+    if (loadState) loadState.unsubscribe = () => shareUnsubscribe?.();
     let firstSnapshot = true;
     shareUnsubscribe = document.onSnapshot((snapshot) => {
       if (!snapshot.exists) {
@@ -617,8 +618,10 @@ async function subscribeToSharedFavorites(id, loadState = null) {
 function cancelSharedTabLoad() {
   if (!sharedTabLoad) return;
   sharedTabLoad.cancelled = true;
-  shareUnsubscribe?.();
-  shareUnsubscribe = null;
+  if (sharedTabLoad.unsubscribe) {
+    sharedTabLoad.unsubscribe();
+    shareUnsubscribe = null;
+  }
   sharedTabLoad.reject(new Error('Delade favoriter kunde inte laddas.'));
 }
 
@@ -1868,6 +1871,7 @@ function setActive(tab) {
 
 $tabSelect.addEventListener('change', async () => {
   const tab = $tabSelect.value;
+  const shouldSyncFavorites = firebaseUser && !firebaseUser.isAnonymous && (tab === 'favorites' || tab.startsWith('shared:'));
   if (tab.startsWith('shared:')) {
     const id = tab.slice('shared:'.length);
     const previousTab = activeTab;
@@ -1880,6 +1884,8 @@ $tabSelect.addEventListener('change', async () => {
     $sharedLoadingDialog.showModal();
     requestAnimationFrame(() => $sharedLoadingCancel.focus());
     try {
+      if (shouldSyncFavorites) await syncSettingsWithFirebase();
+      if (currentLoad.cancelled) return;
       await subscribeToSharedFavorites(id, currentLoad);
       if (!currentLoad.cancelled) setActive(tab);
     } catch (error) {
@@ -1892,6 +1898,7 @@ $tabSelect.addEventListener('change', async () => {
     }
     return;
   }
+  if (shouldSyncFavorites) await syncSettingsWithFirebase();
   setActive(tab);
 });
 $sharedLoadingCancel.addEventListener('click', () => {
