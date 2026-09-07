@@ -880,6 +880,10 @@ function initFirebaseAuthentication() {
     if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
     firebaseAuth = firebase.auth();
     const database = firebase.firestore();
+    database.settings({
+      experimentalForceLongPolling: true,
+      useFetchStreams: false,
+    });
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (!user) {
         if (isDeletingUserData) {
