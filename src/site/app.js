@@ -873,7 +873,6 @@ async function removeUserData() {
     shareUnsubscribe = null;
     window.clearTimeout(cloudSyncTimer);
     await user.delete();
-    await firebaseAuth.signOut().catch(() => {});
 
     settingsDocument = null;
     shareDocument = null;
@@ -886,13 +885,13 @@ async function removeUserData() {
         tabs[tab].remove();
         delete tabs[tab];
       });
+    localStorage.clear();
+    sessionStorage.clear();
     updateAuthenticationUi(null);
     $userMenu.hidden = true;
     $loginButton.setAttribute('aria-expanded', 'false');
     setActive('program');
     updateTabCounts();
-    localStorage.clear();
-    sessionStorage.clear();
     showActionAlert('Alla användardata har tagits bort.');
   } catch (error) {
     isDeletingUserData = false;
@@ -939,6 +938,7 @@ function initFirebaseAuthentication() {
         return;
       }
       updateAuthenticationUi(user);
+      if (isDeletingUserData) return;
       if (user.displayName?.trim()) localStorage.setItem('shareOwnerName', user.displayName.trim());
       settingsDocument = user ? database.collection('users').doc(user.uid) : null;
       shareDocument = database.collection('shares').doc(shareId);
