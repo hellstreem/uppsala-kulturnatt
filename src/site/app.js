@@ -105,6 +105,7 @@ let isDeletingUserData = false;
 let cloudSyncTimer = null;
 let actionAlertTimer = null;
 let firebaseSettingsWrite = Promise.resolve();
+let listRenderId = 0;
 updateDebugMode();
 const RECENT_EVENT_WINDOW_MS = 15 * 60 * 1000;
 const SOON_EVENT_WINDOW_MS = 45 * 60 * 1000;
@@ -178,7 +179,7 @@ function shareTextForFavorites(events, favorites) {
     const starLabel = rating === 1 ? 'stjärna' : 'stjärnor';
     return `${start}-${end}\n${title} (${rating} ${starLabel})\n${location}\n\n${event.url || ''}`;
   });
-  return ['Favoritevenemang från Uppsala Kulturnatt 2026:', ...eventText, 'Hitta egna favoriter på Uppsala Kulturnatt 2026: https://uppsalakulturnatt.com/'].join('\n\n');
+  return ['Favoritevenemang från Uppsala Kulturnatt 2026:', ...eventText, 'Hitta egna favoriter på https://uppsalakulturnatt.com/'].join('\n\n');
 }
 
 function updateShareDialog() {
@@ -1219,15 +1220,19 @@ function createEventDetails(ev, eventTitle) {
   return details.childElementCount > 0 ? details : null;
 }
 
-function renderList(events, favorites = loadFavorites()) {
+async function renderList(events, favorites = loadFavorites()) {
+  const currentRenderId = ++listRenderId;
   $list.innerHTML = '';
   if (!events || events.length === 0) {
     $list.innerHTML = '<div class="no-events">Inga evenemang</div>';
     return;
   }
-  const fragment = document.createDocumentFragment();
+  let fragment = document.createDocumentFragment();
+  const batchSize = 24;
   let openCard = null;
-  for (const ev of events) {
+  for (let index = 0; index < events.length; index += 1) {
+    if (currentRenderId !== listRenderId) return;
+    const ev = events[index];
     const card = document.createElement('div');
     card.className = 'card';
     card.classList.toggle('cancelled', Boolean(ev.isCancelled));
@@ -1444,8 +1449,14 @@ function renderList(events, favorites = loadFavorites()) {
     }
     card.appendChild(tags);
     fragment.appendChild(card);
+
+    if ((index + 1) % batchSize === 0) {
+      $list.appendChild(fragment);
+      fragment = document.createDocumentFragment();
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+    }
   }
-  $list.appendChild(fragment);
+  if (currentRenderId === listRenderId) $list.appendChild(fragment);
 }
 
 function tabIcon(tab) {

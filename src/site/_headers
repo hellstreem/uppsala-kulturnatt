@@ -9,7 +9,13 @@
 /app.js
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
+/app.min.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
 /style.css
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/style.min.css
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
 /icons.css
