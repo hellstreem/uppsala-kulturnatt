@@ -143,6 +143,14 @@
         <p id="share-message" class="share-message" role="status" aria-live="polite"></p>
       </div>
     </dialog>
+    <dialog id="shared-loading-dialog" class="shared-loading-dialog" aria-labelledby="shared-loading-dialog-title">
+      <div class="shared-loading-dialog-content">
+        <h2 id="shared-loading-dialog-title"><i class="fa-solid fa-cloud-arrow-down" aria-hidden="true"></i><span>Hämtar delade favoriter</span></h2>
+        <p>Väntar på den delade favoritlistan...</p>
+        <div class="shared-loading-progress" role="progressbar" aria-label="Hämtar delade favoriter"></div>
+        <button id="shared-loading-cancel" type="button">Avbryt</button>
+      </div>
+    </dialog>
     <aside id="sync-alert" class="sync-alert" role="status" hidden><a id="sync-login-link" href="#login">Logga in</a> så sparas dina favoriter och följer med mellan dina enheter</aside>
     <header>
       <div class="view-controls">

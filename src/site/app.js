@@ -26,6 +26,8 @@ const $sharedSortSeparator = document.getElementById('shared-sort-separator');
 const $programSortShared = document.getElementById('program-sort-shared');
 const $shareFavorites = document.getElementById('share-favorites');
 const $shareDialog = document.getElementById('share-dialog');
+const $sharedLoadingDialog = document.getElementById('shared-loading-dialog');
+const $sharedLoadingCancel = document.getElementById('shared-loading-cancel');
 const $shareName = document.getElementById('share-name');
 const $shareNameEdit = document.getElementById('share-name-edit');
 const $shareNameSave = document.getElementById('share-name-save');
@@ -136,6 +138,7 @@ let sharedUsers = (() => {
 })();
 let cloudSyncTimer = null;
 let actionAlertTimer = null;
+let sharedTabLoad = null;
 let shareId = localStorage.getItem('shareId');
 if (!shareId) {
   shareId = typeof crypto?.randomUUID === 'function' ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
@@ -571,11 +574,12 @@ async function publishSharedFavorites() {
   });
 }
 
-async function subscribeToSharedFavorites(id) {
+async function subscribeToSharedFavorites(id, loadState = null) {
   if (!firebase?.firestore || !id) return;
   shareUnsubscribe?.();
   const document = firebase.firestore().collection('shares').doc(id);
   return new Promise((resolve, reject) => {
+    if (loadState) loadState.reject = reject;
     let firstSnapshot = true;
     shareUnsubscribe = document.onSnapshot((snapshot) => {
       if (!snapshot.exists) {
@@ -608,6 +612,18 @@ async function subscribeToSharedFavorites(id) {
       resolve();
     }, reject);
   });
+}
+
+function cancelSharedTabLoad() {
+  if (!sharedTabLoad) return;
+  sharedTabLoad.cancelled = true;
+  shareUnsubscribe?.();
+  shareUnsubscribe = null;
+  sharedTabLoad.reject(new Error('Delade favoriter kunde inte laddas.'));
+}
+
+function closeSharedLoadingDialog() {
+  if ($sharedLoadingDialog.open) $sharedLoadingDialog.close();
 }
 
 function setStatus(message = '') {
@@ -1854,15 +1870,38 @@ $tabSelect.addEventListener('change', async () => {
   const tab = $tabSelect.value;
   if (tab.startsWith('shared:')) {
     const id = tab.slice('shared:'.length);
+    const previousTab = activeTab;
+    sharedTabLoad = {
+      cancelled: false,
+      previousTab: activeTab,
+      reject: () => {},
+    };
+    const currentLoad = sharedTabLoad;
+    $sharedLoadingDialog.showModal();
+    requestAnimationFrame(() => $sharedLoadingCancel.focus());
     try {
-      await subscribeToSharedFavorites(id);
-      setActive(tab);
+      await subscribeToSharedFavorites(id, currentLoad);
+      if (!currentLoad.cancelled) setActive(tab);
     } catch (error) {
-      showError(error?.message || 'Delade favoriter kunde inte laddas.');
+      if (!currentLoad.cancelled) showError(error?.message || 'Delade favoriter kunde inte laddas.');
+    } finally {
+      if (sharedTabLoad === currentLoad) {
+        sharedTabLoad = null;
+        closeSharedLoadingDialog();
+      }
     }
     return;
   }
   setActive(tab);
+});
+$sharedLoadingCancel.addEventListener('click', () => {
+  const load = sharedTabLoad;
+  if (!load) return;
+  cancelSharedTabLoad();
+  $tabSelect.value = load.previousTab;
+  setActive(load.previousTab);
+  closeSharedLoadingDialog();
+  sharedTabLoad = null;
 });
 $shareFavorites.addEventListener('click', () => {
   updateShareDialog();
