@@ -5,7 +5,7 @@
   --muted: #9aa4b2;
   --accent: #ffd166;
   --accent-2: #06b6d4;
-  --shared-card-border: #0e7490;
+  --shared-card-border: #0c3c49;
   --active-tab-bg: #f2c14e;
   --shared-tab-bg: rgba(14, 116, 144, 0.4);
   --border: rgba(255, 255, 255, 0.2);
@@ -167,12 +167,58 @@ header {
   padding: 7px 10px;
 }
 
+.action-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: min(calc(100% - 20px), 940px);
+  margin: 8px auto 0;
+  padding: 8px 10px;
+  border: 1px solid #0e7490;
+  border-radius: 4px;
+  background: #d9f3f7;
+  color: #164e63;
+  font-size: 0.9rem;
+}
+
+.action-alert[hidden] {
+  display: none;
+}
+
+.action-alert button {
+  flex: 0 0 auto;
+  padding: 3px 8px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.action-alert button:hover,
+.action-alert button:focus-visible {
+  background: rgba(14, 116, 144, 0.16);
+}
+
+.action-alert button:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+body[data-theme='dark'] .action-alert {
+  border-color: #0891b2;
+  background: #153640;
+  color: #c8e6e9;
+}
+
 .site-title {
   display: inline-flex;
   align-items: center;
   gap: 7px;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--topbar-text);
   text-decoration: none;
@@ -194,9 +240,8 @@ header {
   gap: 6px;
 }
 
-.info-button,
-.finished-visibility-toggle,
 .theme-toggle,
+.more-menu-button,
 .user-button {
   display: inline-flex;
   align-items: center;
@@ -215,17 +260,15 @@ header {
     box-shadow 150ms ease;
 }
 
-.info-button:hover,
-.finished-visibility-toggle:hover,
 .theme-toggle:hover,
+.more-menu-button:hover,
 .user-button:hover {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 6px rgba(2, 6, 23, 0.24);
 }
 
-.info-button:focus-visible,
-.finished-visibility-toggle:focus-visible,
 .theme-toggle:focus-visible,
+.more-menu-button:focus-visible,
 .user-button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -349,6 +392,9 @@ header {
 }
 
 .confirm-dialog h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: -14px -14px 0;
   padding: 10px 14px;
   border-bottom: 1px solid var(--border-subtle);
@@ -380,9 +426,19 @@ header {
 }
 
 .confirm-dialog-actions button[value='accept'] {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: #b91c1c;
+  border-color: #b91c1c;
   color: #fff;
+}
+
+.confirm-dialog-actions button[value='accept']:hover {
+  background: #991b1b;
+  border-color: #991b1b;
+}
+
+.confirm-dialog-actions button:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
 }
 
 .info-list {
@@ -417,12 +473,14 @@ header {
   outline-offset: 1px;
 }
 
-.user-menu-container {
+.user-menu-container,
+.more-menu-container {
   position: relative;
   display: inline-flex;
   align-items: center;
 }
 
+.more-menu-button,
 .user-button {
   display: inline-flex;
   align-items: center;
@@ -462,7 +520,7 @@ header {
   .site-title {
     gap: 4px;
     margin: 3px 2px;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 
   .site-logo {
@@ -472,12 +530,11 @@ header {
   }
 
   .top-actions {
-    gap: 6px;
+    gap: 8px;
   }
 
-  .info-button,
-  .finished-visibility-toggle,
   .theme-toggle,
+  .more-menu-button,
   .user-button {
     width: 1.7rem;
     height: 1.7rem;
@@ -504,6 +561,9 @@ header {
 }
 
 .user-menu button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
   padding: 6px 8px;
   border: 0;
@@ -514,6 +574,16 @@ header {
   font: inherit;
   text-align: left;
   white-space: nowrap;
+}
+
+.user-menu button[hidden] {
+  display: none;
+}
+
+.user-menu .finished-visibility-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .user-menu button:hover,
@@ -531,6 +601,14 @@ header {
   margin-top: 4px;
   padding-top: 10px;
   border-top: 1px solid var(--border-subtle);
+}
+
+.user-menu #remove-user-data i {
+  color: #dc2626;
+}
+
+body[data-theme='dark'] .user-menu #remove-user-data i {
+  color: #f87171;
 }
 
 .auth-dialog {
@@ -570,6 +648,9 @@ header {
 }
 
 .auth-dialog h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: 0;
   font-size: 1rem;
 }
@@ -1285,6 +1366,9 @@ body.share-loading #status {
 }
 
 .share-dialog-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: 0;
   font-size: 1.05rem;
 }
@@ -1701,6 +1785,38 @@ body[data-theme='light'] .chip {
   width: 1em;
   margin-right: 6px;
   text-align: center;
+}
+
+.price-paid-icon {
+  color: #d97706;
+}
+
+.price-free-icon {
+  color: #16a34a;
+}
+
+.audience-children-icon {
+  color: #0891b2;
+}
+
+.audience-adults-icon {
+  color: #2563eb;
+}
+
+body[data-theme='dark'] .price-paid-icon {
+  color: #fbbf24;
+}
+
+body[data-theme='dark'] .price-free-icon {
+  color: #4ade80;
+}
+
+body[data-theme='dark'] .audience-children-icon {
+  color: #22d3ee;
+}
+
+body[data-theme='dark'] .audience-adults-icon {
+  color: #60a5fa;
 }
 
 .accessibility-list {

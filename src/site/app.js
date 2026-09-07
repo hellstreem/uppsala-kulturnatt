@@ -4,6 +4,9 @@ let debugEnabled = new URL(window.location.href).searchParams.get('debug') === '
 
 const $header = document.querySelector('header');
 const $status = document.getElementById('status');
+const $actionAlert = document.getElementById('action-alert');
+const $actionAlertMessage = document.getElementById('action-alert-message');
+const $actionAlertClose = document.getElementById('action-alert-close');
 const $appVersion = document.getElementById('app-version');
 const $activeTabHeading = document.getElementById('active-tab-heading');
 const $tabInformation = document.getElementById('tab-information');
@@ -39,6 +42,8 @@ const $infoDialog = document.getElementById('info-dialog');
 const $infoClose = document.getElementById('info-close');
 const $finishedVisibilityToggle = document.getElementById('finished-visibility-toggle');
 const $themeToggle = document.getElementById('theme-toggle');
+const $moreMenuButton = document.getElementById('more-menu-button');
+const $moreMenu = document.getElementById('more-menu');
 const $loginButton = document.getElementById('login-button');
 const $userMenu = document.getElementById('user-menu');
 const $loginMenu = document.getElementById('login-menu');
@@ -130,6 +135,7 @@ let sharedUsers = (() => {
   }
 })();
 let cloudSyncTimer = null;
+let actionAlertTimer = null;
 let shareId = localStorage.getItem('shareId');
 if (!shareId) {
   shareId = typeof crypto?.randomUUID === 'function' ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
@@ -188,7 +194,7 @@ function visibleByFinishedToggle(events, tab, currentTime) {
 
 function updateFinishedVisibilityToggle() {
   const label = hideFinishedEvents ? 'Visa avslutade evenemang' : 'Dölj avslutade evenemang';
-  $finishedVisibilityToggle.innerHTML = hideFinishedEvents ? '<i class="fa-solid fa-eye-slash" aria-hidden="true"></i>' : '<i class="fa-solid fa-eye" aria-hidden="true"></i>';
+  $finishedVisibilityToggle.innerHTML = `${hideFinishedEvents ? '<i class="fa-solid fa-eye-slash" aria-hidden="true"></i>' : '<i class="fa-solid fa-eye" aria-hidden="true"></i>'}<span>${label}</span>`;
   $finishedVisibilityToggle.setAttribute('aria-label', label);
   $finishedVisibilityToggle.setAttribute('aria-pressed', String(hideFinishedEvents));
   $finishedVisibilityToggle.title = label;
@@ -333,8 +339,9 @@ function updateShareDialog() {
 
 function updateShareNameGate() {
   const hasName = Boolean($shareName.value.trim() && $shareName.value.trim() !== 'Någon');
+  const hasSavedName = hasName && $shareName.disabled;
   $shareNameSave.disabled = !hasName;
-  $shareLinkCopy.disabled = !hasName;
+  $shareLinkCopy.disabled = !hasSavedName;
   $shareContent.inert = !hasName;
   $shareContent.setAttribute('aria-hidden', String(!hasName));
 }
@@ -388,11 +395,13 @@ async function copyFavorites() {
 }
 
 async function copyShareLink() {
+  if ($shareLinkCopy.disabled) return;
   await navigator.clipboard.writeText(`${window.location.origin}/share/${shareId}`);
   $shareMessage.textContent = 'Länken kopierades.';
 }
 
 async function copyShareLink() {
+  if ($shareLinkCopy.disabled) return;
   await navigator.clipboard.writeText($shareLink.textContent);
   $shareMessage.textContent = 'Länken kopierades.';
 }
@@ -590,8 +599,10 @@ async function subscribeToSharedFavorites(id) {
       missingSharedId = null;
       sharedFavorites = normalizeFavorites(shared.favorites);
       sharedOwnerName = shared.ownerName || 'Någon';
+      const isNewSharedUser = !sharedUsers.some((user) => user.id === id);
       rememberSharedUser(id, sharedOwnerName);
       addSharedTab(id, sharedOwnerName);
+      if (isNewSharedUser) showActionAlert(`Delade favoriter från ${sharedOwnerName} har lagts till i din profil.`);
       if (activeTab === `shared:${id}` || (firstSnapshot && requestedShareId === id)) setActive(`shared:${id}`);
       firstSnapshot = false;
       resolve();
@@ -607,6 +618,19 @@ function setStatus(message = '') {
   }
   $status.textContent = message;
   $status.hidden = !message;
+}
+
+function closeActionAlert() {
+  window.clearTimeout(actionAlertTimer);
+  actionAlertTimer = null;
+  $actionAlert.hidden = true;
+}
+
+function showActionAlert(message) {
+  $actionAlertMessage.textContent = message;
+  $actionAlert.hidden = false;
+  window.clearTimeout(actionAlertTimer);
+  actionAlertTimer = window.setTimeout(closeActionAlert, 15000);
 }
 
 function setShareLoading(loading) {
@@ -766,7 +790,7 @@ function openAuthenticationDialog() {
 
 function updateAuthenticationUi(user) {
   firebaseUser = user;
-  $syncAlert.hidden = Boolean(user);
+  $syncAlert.hidden = Boolean(user && !user.isAnonymous);
   $loginMenu.hidden = Boolean(user && !user.isAnonymous);
   $logoutButton.hidden = !user || user.isAnonymous;
   $userMenu.hidden = true;
@@ -845,9 +869,9 @@ async function removeUserData() {
     $loginButton.setAttribute('aria-expanded', 'false');
     setActive('program');
     updateTabCounts();
-    setStatus('Alla användardata har tagits bort.');
     localStorage.clear();
     sessionStorage.clear();
+    showActionAlert('Alla användardata har tagits bort.');
   } catch (error) {
     isDeletingUserData = false;
     console.error('Removing user data failed:', error);
@@ -883,10 +907,6 @@ function initFirebaseAuthentication() {
     if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
     firebaseAuth = firebase.auth();
     const database = firebase.firestore();
-    database.settings({
-      experimentalForceLongPolling: true,
-      useFetchStreams: false,
-    });
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (!user) {
         if (isDeletingUserData) {
@@ -1160,7 +1180,7 @@ function updateSelectedFilters(filteredEventCount) {
   if ($childrenFilter.checked) selectedFilters.push('Barn');
   if ($adultsFilter.checked) selectedFilters.push('Vuxna');
   if ($freeFilter.checked) selectedFilters.push('Gratis');
-  if ($paidFilter.checked) selectedFilters.push('Kostar');
+  if ($paidFilter.checked) selectedFilters.push('Ej gratis');
   for (const filter of multiFilters) selectedFilters.push(...selectedFilterValues(filter).map((value) => displayFilterValue(filter, value)));
   if ($fromFilter.value) selectedFilters.push(`Från ${$fromFilter.value}`);
   if ($toFilter.value) selectedFilters.push(`Till ${$toFilter.value}`);
@@ -1270,9 +1290,41 @@ function createEventDetails(ev, eventTitle) {
   const detailsList = document.createElement('ul');
   detailsList.className = 'event-detail-list';
 
+  const appendDetailSublist = (label, content) => {
+    const detail = document.createElement('li');
+    detail.appendChild(document.createTextNode(`${label}:`));
+    const valueList = document.createElement('ul');
+    valueList.className = 'accessibility-list';
+    const valueListItem = document.createElement('li');
+    const valueItem = document.createElement('span');
+    valueItem.className = 'accessibility-item';
+    if (content instanceof Node) {
+      valueItem.appendChild(content);
+    } else {
+      valueItem.appendChild(document.createTextNode(String(content)));
+    }
+    valueListItem.appendChild(valueItem);
+    valueList.appendChild(valueListItem);
+    detail.appendChild(valueList);
+    detailsList.appendChild(detail);
+  };
+
   if (typeof ev.isFree === 'boolean') {
     const freeAdmission = document.createElement('li');
-    freeAdmission.textContent = `Gratis: ${ev.isFree ? 'Ja' : 'Nej'}`;
+    freeAdmission.appendChild(document.createTextNode('Pris:'));
+    const priceList = document.createElement('ul');
+    priceList.className = 'accessibility-list';
+    const priceListItem = document.createElement('li');
+    const priceItem = document.createElement('span');
+    priceItem.className = 'accessibility-item';
+    const priceIcon = document.createElement('i');
+    priceIcon.className = ev.isFree ? 'fa-solid fa-gift accessibility-icon price-free-icon' : 'fa-solid fa-dollar-sign accessibility-icon price-paid-icon';
+    priceIcon.setAttribute('aria-hidden', 'true');
+    priceItem.appendChild(priceIcon);
+    priceItem.appendChild(document.createTextNode(ev.isFree ? 'Gratis' : 'Ej gratis'));
+    priceListItem.appendChild(priceItem);
+    priceList.appendChild(priceListItem);
+    freeAdmission.appendChild(priceList);
     detailsList.appendChild(freeAdmission);
   }
 
@@ -1285,7 +1337,7 @@ function createEventDetails(ev, eventTitle) {
     const audienceItem = document.createElement('span');
     audienceItem.className = 'accessibility-item';
     const audienceIcon = document.createElement('i');
-    audienceIcon.className = `fa-solid ${ev.isForChildren ? 'fa-children' : 'fa-user'} accessibility-icon`;
+    audienceIcon.className = `fa-solid ${ev.isForChildren ? 'fa-children audience-children-icon' : 'fa-user audience-adults-icon'} accessibility-icon`;
     audienceIcon.setAttribute('aria-hidden', 'true');
     audienceItem.appendChild(audienceIcon);
     audienceItem.appendChild(document.createTextNode(ev.isForChildren ? 'Barn och vuxna' : 'Vuxna'));
@@ -1402,52 +1454,32 @@ function createEventDetails(ev, eventTitle) {
   }
 
   if (ev.organizer) {
-    const organizer = document.createElement('li');
-    organizer.textContent = 'Arrangör: ';
+    let organizerContent;
     if (ev.webpage) {
       const link = document.createElement('a');
       link.href = ev.webpage;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
       link.textContent = ev.organizer;
-      organizer.appendChild(link);
-    } else if (ev.organizer) {
-      organizer.appendChild(document.createTextNode(ev.organizer));
+      organizerContent = link;
+    } else {
+      organizerContent = ev.organizer;
     }
-    detailsList.appendChild(organizer);
+    appendDetailSublist('Arrangör', organizerContent);
   }
 
   if (ev.url) {
-    const source = document.createElement('li');
-    source.appendChild(document.createTextNode('Källa: '));
     const link = document.createElement('a');
     link.href = ev.url;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.textContent = 'kulturnatten.uppsala.se';
-    source.appendChild(link);
-    detailsList.appendChild(source);
+    appendDetailSublist('Källa', link);
   }
 
-  const type = document.createElement('li');
-  type.textContent = `Typ: ${ev.type === 'subEvent' ? 'Del av evenemang' : 'Evenemang'}`;
-  detailsList.appendChild(type);
-
-  const updatedStatus = formatUpdatedStatus(ev);
   if (ev.startTime) {
-    const startsAt = document.createElement('li');
-    startsAt.textContent = `Startar: ${formatLocalDateTime(ev.startTime) ?? ev.startTime}`;
-    detailsList.appendChild(startsAt);
-
-    const endsAt = document.createElement('li');
-    endsAt.textContent = `Slutar: ${ev.endTime ? (formatLocalDateTime(ev.endTime) ?? ev.endTime) : 'Ej angivet'}`;
-    detailsList.appendChild(endsAt);
-  }
-
-  if (updatedStatus) {
-    const updatedAt = document.createElement('li');
-    updatedAt.textContent = updatedStatus;
-    detailsList.appendChild(updatedAt);
+    appendDetailSublist('Startar', formatLocalDateTime(ev.startTime) ?? ev.startTime);
+    appendDetailSublist('Slutar', ev.endTime ? (formatLocalDateTime(ev.endTime) ?? ev.endTime) : 'Ej angivet');
   }
 
   const checked = formatLocalDateTime(ev.checked);
@@ -1458,9 +1490,7 @@ function createEventDetails(ev, eventTitle) {
   }
 
   if (ev.streetAddress) {
-    const address = document.createElement('li');
-    address.textContent = `Address: ${ev.streetAddress}`;
-    detailsList.appendChild(address);
+    appendDetailSublist('Adress', ev.streetAddress);
   }
 
   if (detailsList.childElementCount > 0) details.appendChild(detailsList);
@@ -1518,7 +1548,7 @@ function renderList(events, favorites = loadFavorites()) {
     if (activeTab === 'shared' || activeTab.startsWith('shared:')) {
       const sharedLabel = document.createElement('div');
       sharedLabel.className = 'shared-card-label';
-      sharedLabel.textContent = 'Delad favorit';
+      sharedLabel.textContent = `Delad favorit (${sharedOwnerName})`;
       card.appendChild(sharedLabel);
     }
 
@@ -1626,7 +1656,7 @@ function renderList(events, favorites = loadFavorites()) {
 
       const youtubeSearchLink = document.createElement('a');
       youtubeSearchLink.className = 'youtube-search-link';
-      youtubeSearchLink.href = `https://www.youtube.com/results?${new URLSearchParams({ search_query: searchTitle })}`;
+      youtubeSearchLink.href = `https://www.youtube.com/results?${new URLSearchParams({ search_query: `${searchTitle} musik` })}`;
       youtubeSearchLink.target = '_blank';
       youtubeSearchLink.rel = 'noopener noreferrer';
       youtubeSearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på YouTube`);
@@ -1768,7 +1798,7 @@ function setActive(tab) {
   const isSharedTab = tab === 'shared' || tab.startsWith('shared:');
   const sharedEventCount = Object.keys(sharedFavorites || {}).length;
   const tabInformation = isSharedTab
-    ? `${sharedOwnerName}s favoritevenemang som har delats med dig. Listan uppdateras automatiskt när ${sharedOwnerName} lägger till eller tar bort favoriter. Du hittar tillbaka hit via menyn ovan.`
+    ? `Listan uppdateras automatiskt när ${sharedOwnerName} lägger till eller tar bort favoriter. Sortera på Delat betyg för att se vilka som är viktigast. Du hittar tillbaka hit via menyn ovan.`
     : {
         program: 'Glöm inte att även titta på delevenemang i menyn ovan. Dessa programpunkter har identifierats i evenemangets beskrivning och gör det enklare att hitta favoritevenemang.',
         subevents: 'Nedan visas programpunkter som har identifierats i evenemangets beskrivning. Kategorin kan vara felaktig eftersom den baseras på texttolkning.',
@@ -1860,6 +1890,7 @@ $shareName.addEventListener('keydown', (event) => {
 $shareName.addEventListener('input', updateShareNameGate);
 $removeShared.addEventListener('click', async () => {
   if (!(await confirmAction(`Vill du ta bort ${sharedOwnerName}s delade favoriter från den här vyn?`))) return;
+  const removedSharedOwnerName = sharedOwnerName;
   const sharedUserId = activeTab.startsWith('shared:') ? activeTab.slice('shared:'.length) : sharedPageId;
   if (sharedUserId) {
     sharedUsers = sharedUsers.filter((user) => user.id !== sharedUserId);
@@ -1871,9 +1902,12 @@ $removeShared.addEventListener('click', async () => {
   }
   sharedFavorites = null;
   setActive('program');
+  showActionAlert(`Delade favoriter från ${removedSharedOwnerName} togs bort från den här vyn.`);
 });
 $shareLinkCopy.addEventListener('click', copyShareLink);
 $infoButton.addEventListener('click', () => {
+  $moreMenu.hidden = true;
+  $moreMenuButton.setAttribute('aria-expanded', 'false');
   $infoDialog.showModal();
 });
 $infoClose.addEventListener('click', () => $infoDialog.close());
@@ -1884,6 +1918,7 @@ $errorClose.addEventListener('click', () => $errorDialog.close());
 $errorDialog.addEventListener('click', (event) => {
   if (event.target === $errorDialog) $errorDialog.close();
 });
+$actionAlertClose.addEventListener('click', closeActionAlert);
 $confirmDialog.addEventListener('click', (event) => {
   if (event.target === $confirmDialog) $confirmDialog.close('cancel');
 });
@@ -1898,22 +1933,30 @@ $finishedVisibilityToggle.addEventListener('click', () => {
 $themeToggle.addEventListener('click', () => {
   setTheme(document.body.dataset.theme === 'light' ? 'dark' : 'light');
 });
-$loginButton.addEventListener('click', async () => {
-  if (!(await ensureFirebaseAuthentication())) return;
-  if (firebaseUser) {
-    const willOpen = $userMenu.hidden;
-    $userMenu.hidden = !willOpen;
-    $loginButton.setAttribute('aria-expanded', String(willOpen));
-    return;
+$moreMenuButton.addEventListener('click', () => {
+  const willOpen = $moreMenu.hidden;
+  $moreMenu.hidden = !willOpen;
+  $moreMenuButton.setAttribute('aria-expanded', String(willOpen));
+  if (willOpen) {
+    $userMenu.hidden = true;
+    $loginButton.setAttribute('aria-expanded', 'false');
   }
-
-  openAuthenticationDialog();
+});
+$loginButton.addEventListener('click', async () => {
+  await ensureFirebaseAuthentication();
+  const willOpen = $userMenu.hidden;
+  $userMenu.hidden = !willOpen;
+  $loginButton.setAttribute('aria-expanded', String(willOpen));
+  if (willOpen) {
+    $moreMenu.hidden = true;
+    $moreMenuButton.setAttribute('aria-expanded', 'false');
+  }
 });
 $syncLoginLink.addEventListener('click', (event) => {
   event.preventDefault();
-  if (firebaseUser) return;
+  if (firebaseUser && !firebaseUser.isAnonymous) return;
   ensureFirebaseAuthentication().then((isReady) => {
-    if (isReady && !firebaseUser) openAuthenticationDialog();
+    if (isReady && (!firebaseUser || firebaseUser.isAnonymous)) openAuthenticationDialog();
   });
 });
 $logoutButton.addEventListener('click', async () => {
@@ -1922,6 +1965,7 @@ $logoutButton.addEventListener('click', async () => {
     await firebaseAuth.signOut();
     $userMenu.hidden = true;
     $loginButton.setAttribute('aria-expanded', 'false');
+    showActionAlert('Du är nu utloggad. Ändringar i dina favoriter sparas inte längre i molnet. Logga in igen om du vill synkronisera ändringar.');
   } catch (error) {
     console.error('Firebase sign-out failed:', error);
     showError(`Utloggningen misslyckades: ${error?.message || error}`);
@@ -1952,6 +1996,7 @@ $authForm.addEventListener('submit', async (event) => {
       await firebaseAuth.signInWithEmailAndPassword(email, password);
     }
     $authDialog.close();
+    showActionAlert('Du är nu inloggad. Dina favoritändringar sparas i molnet och synkroniseras automatiskt till andra enheter där du är inloggad.');
   } catch (error) {
     console.error('Firebase email authentication failed:', error);
     showAuthMessage(error?.message || 'Inloggningen misslyckades.');
@@ -1964,6 +2009,7 @@ $googleLoginButton.addEventListener('click', async () => {
     provider.setCustomParameters({ prompt: 'select_account' });
     await firebaseAuth.signInWithPopup(provider);
     $authDialog.close();
+    showActionAlert('Du är nu inloggad. Dina favoritändringar sparas i molnet och synkroniseras automatiskt till andra enheter där du är inloggad.');
   } catch (error) {
     console.error('Firebase Google authentication failed:', error);
     showAuthMessage(error?.message || 'Google-inloggningen misslyckades.');
@@ -2075,6 +2121,10 @@ document.addEventListener('click', (event) => {
   if (!$userMenu.hidden && !event.composedPath().includes($loginButton) && !event.composedPath().includes($userMenu)) {
     $userMenu.hidden = true;
     $loginButton.setAttribute('aria-expanded', 'false');
+  }
+  if (!$moreMenu.hidden && !event.composedPath().includes($moreMenuButton) && !event.composedPath().includes($moreMenu)) {
+    $moreMenu.hidden = true;
+    $moreMenuButton.setAttribute('aria-expanded', 'false');
   }
 });
 for (const filter of multiFilters) {

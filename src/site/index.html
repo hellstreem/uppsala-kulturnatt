@@ -27,24 +27,33 @@
       <div class="top-bar-inner">
         <a class="site-title" href="/"><img class="site-logo" src="/uppsala-skyline.svg" alt="" />Uppsala Kulturnatt 2026</a>
         <div class="top-actions">
-          <button id="info-button" class="info-button" type="button" aria-label="Visa information" title="Information"><i class="fa-solid fa-circle-info" aria-hidden="true"></i></button>
-          <button id="finished-visibility-toggle" class="finished-visibility-toggle" type="button" aria-label="Dölj avslutade evenemang" aria-pressed="false" title="Dölj avslutade evenemang"><i class="fa-solid fa-eye" aria-hidden="true"></i></button>
           <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Byt till ljust läge" title="Byt till ljust läge"><i class="fa-solid fa-sun" aria-hidden="true"></i></button>
           <div class="user-menu-container">
             <button id="login-button" class="user-button" type="button" aria-label="Logga in" aria-expanded="false" aria-haspopup="menu" title="Logga in"><i class="fa-regular fa-user" aria-hidden="true"></i></button>
             <div id="user-menu" class="user-menu" role="menu" hidden>
-              <button id="login-menu" type="button" role="menuitem">Logga in</button>
-              <button id="logout-button" type="button" role="menuitem">Logga ut</button>
-              <button id="remove-user-data" type="button" role="menuitem">Ta bort mina data</button>
+              <button id="login-menu" type="button" role="menuitem"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span>Logga in</span></button>
+              <button id="logout-button" type="button" role="menuitem" hidden><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i><span>Logga ut</span></button>
+            </div>
+          </div>
+          <div class="more-menu-container">
+            <button id="more-menu-button" class="more-menu-button" type="button" aria-label="Öppna meny" aria-expanded="false" aria-haspopup="menu" title="Meny"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+            <div id="more-menu" class="user-menu" role="menu" hidden>
+              <button id="finished-visibility-toggle" class="finished-visibility-toggle" type="button" role="menuitem" aria-label="Dölj avslutade evenemang" aria-pressed="false" title="Dölj avslutade evenemang"><i class="fa-solid fa-eye" aria-hidden="true"></i><span>Dölj avslutade evenemang</span></button>
+              <button id="info-button" class="info-button" type="button" role="menuitem" aria-label="Visa information" title="Information"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Om webbplatsen</span></button>
+              <button id="remove-user-data" type="button" role="menuitem"><i class="fa-solid fa-trash-can" aria-hidden="true"></i><span>Ta bort mina data</span></button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div id="action-alert" class="action-alert" role="status" aria-live="polite" hidden>
+      <span id="action-alert-message"></span>
+      <button id="action-alert-close" type="button">Stäng</button>
+    </div>
     <dialog id="info-dialog" class="info-dialog" aria-labelledby="info-dialog-title">
       <div class="info-dialog-content">
         <div class="info-dialog-header">
-          <h2 id="info-dialog-title">Om denna sajt</h2>
+          <h2 id="info-dialog-title">Om webbplatsen</h2>
           <button id="info-close" class="info-close" type="button" aria-label="Stäng information" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
         <p>Här kan du söka bland evenemangen under Uppsala Kulturnatt 2026, filtrera programmet och spara dina favoriter.</p>
@@ -78,10 +87,10 @@
     </dialog>
     <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-dialog-title" aria-describedby="confirm-dialog-message">
       <form id="confirm-form" method="dialog" class="confirm-dialog-content">
-        <h2 id="confirm-dialog-title">Bekräfta</h2>
+        <h2 id="confirm-dialog-title"><i class="fa-solid fa-trash-can" aria-hidden="true"></i><span>Bekräfta</span></h2>
         <p id="confirm-dialog-message"></p>
         <div class="confirm-dialog-actions">
-          <button id="confirm-cancel" type="submit" value="cancel">Nej</button>
+          <button id="confirm-cancel" type="submit" value="cancel" autofocus>Nej</button>
           <button id="confirm-accept" type="submit" value="accept">Ja</button>
         </div>
       </form>
@@ -89,7 +98,7 @@
     <dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-dialog-title">
       <form id="auth-form" method="dialog" class="auth-form">
         <div class="auth-dialog-header">
-          <h2 id="auth-dialog-title">Logga in</h2>
+          <h2 id="auth-dialog-title"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span>Logga in</span></h2>
           <button class="auth-close" type="button" value="cancel" aria-label="Stäng inloggning" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
         <p class="auth-help">Logga in med ditt Google‑konto eller med e‑post för att spara favoriter när du använder flera enheter.</p>
@@ -107,7 +116,7 @@
     <dialog id="share-dialog" class="share-dialog" aria-labelledby="share-dialog-title">
       <div class="share-dialog-content">
         <div class="share-dialog-header">
-          <h2 id="share-dialog-title">Dela med vänner</h2>
+          <h2 id="share-dialog-title"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span>Dela med vänner</span></h2>
           <button id="share-close" class="info-close" type="button" aria-label="Stäng delning" title="Stäng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
         <div id="share-name-section" class="share-name-section">
@@ -134,7 +143,7 @@
         <p id="share-message" class="share-message" role="status" aria-live="polite"></p>
       </div>
     </dialog>
-    <aside id="sync-alert" class="sync-alert" role="status" hidden><a id="sync-login-link" href="#login">Logga in</a> för att spara favoriter</aside>
+    <aside id="sync-alert" class="sync-alert" role="status" hidden><a id="sync-login-link" href="#login">Logga in</a> så sparas dina favoriter och följer med mellan dina enheter</aside>
     <header>
       <div class="view-controls">
         <select id="tab-select" class="tabs-select" aria-label="Välj vy">
@@ -178,7 +187,7 @@
               <label><input id="children-filter" type="checkbox" /> Barn</label>
               <label><input id="adults-filter" type="checkbox" /> Vuxna</label>
               <label><input id="free-filter" type="checkbox" /> Gratis</label>
-              <label><input id="paid-filter" type="checkbox" /> Kostar</label>
+              <label><input id="paid-filter" type="checkbox" /> Ej gratis</label>
             </div>
             <div class="filters">
               <div class="multi-filter">
