@@ -129,6 +129,10 @@ const initialTheme = savedTheme === 'light' || savedTheme === 'dark' ? savedThem
 setTheme(initialTheme, false);
 hideFinishedEvents = localStorage.getItem('hideFinishedEvents') === 'true';
 
+function eventCurrentTime() {
+  return Date.now();
+}
+
 function eventStartTime(event) {
   if (Number.isFinite(event.startMs)) return event.startMs;
   return new Date(event.start || event.startTime || 0).getTime();
@@ -151,7 +155,19 @@ function isFinishedEvent(event, currentTime = eventCurrentTime()) {
   return !event.isCancelled && Number.isFinite(endTime) && endTime < currentTime;
 }
 
-function visibleByFinishedToggle(events, tab, currentTime) {}
+function visibleByFinishedToggle(events, tab, currentTime) {
+  if (!hideFinishedEvents || tab === 'finished') return events;
+  return events.filter((event) => !isFinishedEvent(event, currentTime));
+}
+
+function updateFinishedVisibilityToggle() {
+  const label = hideFinishedEvents ? 'Visa avslutade evenemang' : 'Dölj avslutade evenemang';
+  $finishedVisibilityToggle.setAttribute('aria-label', label);
+  $finishedVisibilityToggle.setAttribute('aria-pressed', String(hideFinishedEvents));
+  $finishedVisibilityToggle.title = label;
+  $finishedVisibilityToggle.innerHTML = hideFinishedEvents ? '<i class="fa-solid fa-eye-slash" aria-hidden="true"></i><span>Visa avslutade evenemang</span>' : '<i class="fa-solid fa-eye" aria-hidden="true"></i><span>Dölj avslutade evenemang</span>';
+}
+
 function shareTextForFavorites(events, favorites) {
   const eventText = events.map((event) => {
     const title = event.title || event.name || event.displayName || 'Untitled';
@@ -162,7 +178,7 @@ function shareTextForFavorites(events, favorites) {
     const starLabel = rating === 1 ? 'stjärna' : 'stjärnor';
     return `${start}-${end}\n${title} (${rating} ${starLabel})\n${location}\n\n${event.url || ''}`;
   });
-  return ['Favoritevenemang från Uppsala Kulturnatt 2026:', ...eventText].join('\n\n');
+  return ['Favoritevenemang från Uppsala Kulturnatt 2026:', ...eventText, 'Hitta egna favoriter på Uppsala Kulturnatt 2026: https://uppsalakulturnatt.com/'].join('\n\n');
 }
 
 function updateShareDialog() {
@@ -327,6 +343,7 @@ function showError(message = '') {
 }
 
 function reportSettingsSyncError(operation, error) {
+  if (!firebaseUser || firebaseUser.isAnonymous) return;
   console.error('Firebase settings sync failed:', {
     operation,
     code: error?.code || 'unknown',
@@ -378,16 +395,20 @@ function applySettings(settings) {
 function scheduleCloudSettingsSync(immediate = false) {
   window.clearTimeout(cloudSyncTimer);
   const write = () => {
-    if (!settingsDocument) return Promise.resolve();
+    if (!firebaseUser || !settingsDocument) return Promise.resolve();
+    const userId = firebaseUser.uid;
+    const document = settingsDocument;
     firebaseSettingsWrite = firebaseSettingsWrite
       .catch(() => {})
       .then(async () => {
+        if (!firebaseUser || firebaseUser.uid !== userId || settingsDocument !== document) return;
         const settings = localSettings();
-        await settingsDocument.set(settings, {
+        await document.set(settings, {
           mergeFields: settingsMergeFields(settings),
         });
       })
       .catch((error) => {
+        if (!firebaseUser || firebaseUser.isAnonymous) return;
         reportSettingsSyncError('write user settings', error);
       });
     return firebaseSettingsWrite;
@@ -397,7 +418,7 @@ function scheduleCloudSettingsSync(immediate = false) {
 }
 
 async function syncSettingsWithFirebase() {
-  if (!settingsDocument) return;
+  if (!firebaseUser || !settingsDocument) return;
 
   const maxAttempts = 3;
   for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
@@ -418,6 +439,7 @@ async function syncSettingsWithFirebase() {
         });
       }
 
+      if (!firebaseUser || !settingsDocument) return;
       const settings = localSettings();
 
       operation = 'write user settings';
@@ -430,6 +452,7 @@ async function syncSettingsWithFirebase() {
       setActive(activeTab);
       return;
     } catch (error) {
+      if (!firebaseUser || firebaseUser.isAnonymous) return;
       if (attempt === maxAttempts - 1) {
         reportSettingsSyncError(operation, error);
         return;
@@ -552,11 +575,18 @@ function initFirebaseAuthentication() {
     firebaseAuth = firebase.auth();
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (!user) {
+        window.clearTimeout(cloudSyncTimer);
+        settingsDocument = null;
         if (isDeletingUserData) {
           updateAuthenticationUi(null);
           return;
         }
         updateAuthenticationUi(null);
+        return;
+      }
+      if (user.isAnonymous) {
+        settingsDocument = null;
+        await firebaseAuth.signOut();
         return;
       }
       updateAuthenticationUi(user);
@@ -665,6 +695,11 @@ function coordinatesToMapQuery(coordinates) {
 function matchesSearch(event) {
   const searchTerm = $search.value.trim().toLocaleLowerCase('sv-SE');
   if (!searchTerm) return true;
+
+  if (activeTab === 'subevents') {
+    const subEventSearchText = [event.title, event.name, event.displayName, event.locationAlias, event.locationName, event.location].map((value) => String(value ?? '').toLocaleLowerCase('sv-SE')).join(' ');
+    return subEventSearchText.includes(searchTerm);
+  }
 
   return event.searchText.includes(searchTerm);
 }
@@ -1407,6 +1442,78 @@ function updateSearchLinkMargins() {
     const isNewLine = previousElement && searchLinks.offsetTop > previousElement.offsetTop;
     searchLinks.classList.toggle('is-new-line', Boolean(isNewLine));
   }
+}
+
+function tabIcon(tab) {
+  return (
+    {
+      program: '\u{1F4C5}',
+      subevents: '\u{1F4DD}',
+      cancelled: '\u{1F6AB}',
+      favorites: '\u{2B50}',
+      live: '\u{1F550}',
+      recent: '\u{23EE}',
+      soon: '\u{23ED}',
+      later: '\u{23F3}',
+      unfinished: '\u{25CF}',
+      finished: '\u{2705}',
+    }[tab] || ''
+  );
+}
+
+function tabTooltip(tab) {
+  return (
+    {
+      program: 'Evenemang',
+      subevents: 'Delevenemang',
+      cancelled: 'Inställda evenemang',
+      favorites: 'Mina favoriter',
+      live: 'Pågående',
+      recent: 'Just startade',
+      soon: 'Startar strax',
+      later: 'Startar senare',
+      unfinished: 'Ej avslutade',
+      finished: 'Avslutade',
+    }[tab] || 'Evenemang'
+  );
+}
+
+function updateProgramSortControls() {
+  const isFavorites = activeTab === 'favorites';
+  const isSortable = isFavorites || activeTab === 'program' || activeTab === 'subevents';
+  $programSortControls.hidden = !isSortable;
+  $shareFavorites.hidden = !isFavorites;
+  $programSortStart.hidden = !isSortable;
+  $programSortSeen.hidden = !isSortable;
+  $programSortSeen.textContent = isFavorites ? 'Betyg' : 'Nyast';
+
+  const selectedMode = isFavorites ? favoritesSortMode : programSortMode;
+  $programSortStart.classList.toggle('active', selectedMode === 'start');
+  $programSortSeen.classList.toggle('active', selectedMode !== 'start');
+  $programSortStart.setAttribute('aria-pressed', String(selectedMode === 'start'));
+  $programSortSeen.setAttribute('aria-pressed', String(selectedMode !== 'start'));
+}
+
+function sortProgramEvents(events) {
+  return events.slice().sort((first, second) => {
+    if (programSortMode === 'updated') {
+      const firstUpdated = new Date(first.updated || first.created || 0).getTime();
+      const secondUpdated = new Date(second.updated || second.created || 0).getTime();
+      if (secondUpdated !== firstUpdated) return secondUpdated - firstUpdated;
+    }
+    return eventStartTime(first) - eventStartTime(second);
+  });
+}
+
+function favoriteEvents(favorites) {
+  const events = allEvents.filter((event) => Object.prototype.hasOwnProperty.call(favorites, event.favoriteId));
+  return events.sort((first, second) => {
+    if (favoritesSortMode === 'stars') {
+      const ratingDifference = (favorites[second.favoriteId] || 0) - (favorites[first.favoriteId] || 0);
+      if (ratingDifference !== 0) return ratingDifference;
+    }
+    return eventStartTime(first) - eventStartTime(second);
+  });
 }
 
 function setActive(tab) {

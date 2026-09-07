@@ -1371,7 +1371,7 @@ body.share-loading #status {
 
 .share-text {
   width: 100%;
-  min-height: 7rem;
+  min-height: 15rem;
   resize: vertical;
   border: 1px solid var(--border);
   border-radius: 4px;

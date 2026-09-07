@@ -6667,11 +6667,11 @@
   },
   {
     "id": "1634ae6f-61c1-445d-8e76-9a4295cd66de",
-    "title": "Författarsamtal med smak av Italien",
+    "title": "Författarmöte med smak av Italien",
     "titleEnglish": "Meet the author Anna Martinengo ",
-    "about": "Är du nyfiken på spänning, skrivande och italiensk kultur? Kom och träffa författaren och Italienkonnässören Anna Martinengo i  Little Italy`s lokaler på Svartbäcksgatan.\nUnder kvällen blir det författarsamtal 19-20, där Anna berättar om sitt skrivande, Italien och framför allt sin spänningsserie ”Brottsplats Ligurien”. Själva samtalet pågår i cirka 20 minuter och därefter finns gott om tid för frågor om böckerna, skrivande och Italien. \n\nAnna Martinengo har ett förflutet som journalist på Upsala Nya Tidning och har bott i Uppsala i många år. Hon har dessutom ett andra hem i Ligurien, där hennes spänningsserie utspelar sig. Sedan debuten förra våren har hennes böcker ”Ambassadöres dotter” och ”Segelmakarens söner” klättrat på olika boktopplistor och Anna deltar i flera deckarfestivaler och kulturarrangemang under hösten och våren. \n\nSjälvklart blir det italiensk inramning på författarsamtalet– med focaccia så långt det räcker. Alkoholfri dryck finns att köpa.\nAnna Martinengo kommer även att möta läsare utanför Little Italy 13-19. Båda böckerna kommer att gå att köpa signerade till specialpris. \n\nOBS: Begränsat antal platser på samtalet 19-20.",
+    "about": "Är du nyfiken på spänning, skrivande och italiensk kultur? Kom och träffa författaren och Italienkonnässören Anna Martinengo utanför Little Italy. Anna Martinengo har ett förflutet som journalist på Upsala Nya Tidning och har bott i Uppsala i många år. Hon har även ett andra hem i Ligurien, där hennes spänningsserie Brottsplats Ligurien utspelar sig. Sedan debuten förra våren har hennes böcker ”Ambassadöres dotter” och ”Segelmakarens söner” klättrat på olika boktopplistor, och Anna tipsar även återkommande om Ligurien som resmål i olika resemagasin. De första två delarna i spänningsserien (”Ambassadörens dotter” och ”Segelmakarens söner” går under dagen att köpa signerade till specialpris, inklusive italienska praliner så långt det räcker.",
     "aboutEnglish": "Are you curious about suspense, writing, and Italian culture? Come and meet author and Italy connoisseur Anna Martinengo at Little Italy on Svartbäcksgatan.\nDuring the evening, 7-8 pm, you’ll have the opportunity to hear Anna talk about her writing, Italy, and, above all, her crime series Brottsplats Ligurien (“Crime Scene Liguria”). The author talk will last approximately 20 minutes, followed by plenty of time for questions and conversation – about the books, writing, Italy, or anything else you’re curious about.\n\nAnna Martinengo is a former journalist at Upsala Nya Tidning and has lived in Uppsala for many years. She also has a second home in Liguria, where her crime series is set. Since making her debut last spring, her books Ambassadöres dotter (“The Ambassador’s Daughter”) and Segelmakarens söner (“The Sailmaker’s Sons”) have climbed various bestseller lists. Anna is also taking part in several crime fiction festivals and cultural events throughout the autumn and spring.\n\nNaturally, the evening will have an Italian touch – with focaccia available while supplies last, and non-alcoholic drinks available for purchase.\n\nAnna Martinengo will also be meeting readers outside Little Italy from 1–7 pm and signing copies of her books, which will be available at a special price.\n\nPlease note: Limited seating for the author talk.",
-    "aboutShort": "Författarsamtal 19-20 samt möjlighet att träffa författaren Anna Martinengo, och köpa signerade böcker, även 13-19 utanför Little Italy. ",
+    "aboutShort": " Kom förbi och prata skrivande och Italien med författaren Anna Martinengo utanför Little Italy. Så klart med italiensk inramning.",
     "aboutShortEnglish": "",
     "organizer": "Anna Martinengo",
     "startTime": "2026-09-12T10:00:00+00:00",
@@ -6691,7 +6691,7 @@
       "longitude": 17.6343595
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=1634ae6f-61c1-445d-8e76-9a4295cd66de",
-    "checked": 1788284019971,
+    "checked": 1788809475499,
     "type": "event",
     "categoryNames": [
       "Litteratur"
@@ -6704,10 +6704,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788809475499,
     "status": "updated",
+    "updateStatus": "updated",
     "sortKeyTime": 144,
-    "sortKeyUpdated": 53
+    "sortKeyUpdated": 1
   },
   {
     "id": "f53b94c9-30fb-4cb3-83fd-68c4e304fd51",
@@ -12908,7 +12909,7 @@
     "id": "637f7135-eab3-45b9-b070-f21c11efbde4",
     "title": "Dekorateljén visar",
     "titleEnglish": "",
-    "about": "Vårens succémusikal, Bonnie & Clyde spelade för fulla hus och kanske satt du i salongen? Passa på att fråga hur man byggde dekoren och hur det är att jobba som finsnickare, dekormålare, attributmakare och tapetserare på teatern.",
+    "about": "Vårens succémusikal, Bonnie & Clyde spelade för fulla hus och kanske satt du i salongen? ? Idag visar och berättar tapetserare, finsnickare och attributmakare hur man byggde dekoren.",
     "aboutEnglish": "",
     "aboutShort": "Hur byggde man dekoren till musikalen Bonnie och Clyde?",
     "aboutShortEnglish": "",
@@ -12930,7 +12931,7 @@
       "longitude": 17.6429753
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=637f7135-eab3-45b9-b070-f21c11efbde4",
-    "checked": 1788276962619,
+    "checked": 1788809475499,
     "type": "event",
     "categoryNames": [
       "Teater",
@@ -12944,14 +12945,15 @@
     ],
     "accessibilityNames": [
       "Hiss anpassad för rullstol",
-      "Tillgänglighet anpassad för rullstol",
-      "Toalett tillgänglig med rullstol"
+      "Toalett tillgänglig med rullstol",
+      "Tillgänglighet anpassad för rullstol"
     ],
     "created": 1788276962619,
-    "updated": 1788276962619,
-    "status": "new",
+    "updated": 1788809475499,
+    "status": "updated",
+    "updateStatus": "updated",
     "sortKeyTime": 277,
-    "sortKeyUpdated": 277
+    "sortKeyUpdated": 2
   },
   {
     "id": "e6a5e58e-5bb8-4f02-a775-4907119cd9a8",
@@ -14692,7 +14694,7 @@
     "id": "cd0233b2-03b6-474c-8cd7-8fb29ad3a0bc",
     "title": "Samtal på Intiman",
     "titleEnglish": "",
-    "about": "Teaterns dramaturg Vesna Stanisic samtalar med författare och regissörer. Här samtalar hon med Mikaela Ramel om nya pjäsen Bara två stjärnor.",
+    "about": "Teaterns dramaturg Vesna Stanisic samtalar med författare och regissörer. Här samtalar hon med Lolo Amble-Naess om nya pjäsen Bara två stjärnor.",
     "aboutEnglish": "",
     "aboutShort": "Vesna Stanisic och Mikaela Ramel ",
     "aboutShortEnglish": "",
@@ -14714,7 +14716,7 @@
       "longitude": 17.6429753
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=cd0233b2-03b6-474c-8cd7-8fb29ad3a0bc",
-    "checked": 1788284019971,
+    "checked": 1788809475499,
     "type": "event",
     "categoryNames": [
       "Teater",
@@ -14727,15 +14729,16 @@
       "Inomhus"
     ],
     "accessibilityNames": [
+      "Hiss anpassad för rullstol",
       "Toalett tillgänglig med rullstol",
-      "Tillgänglighet anpassad för rullstol",
-      "Hiss anpassad för rullstol"
+      "Tillgänglighet anpassad för rullstol"
     ],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788809475499,
     "status": "updated",
+    "updateStatus": "updated",
     "sortKeyTime": 315,
-    "sortKeyUpdated": 125
+    "sortKeyUpdated": 3
   },
   {
     "id": "7d885d10-256f-41d5-8579-95683d5f32e9",
@@ -15363,8 +15366,8 @@
     "aboutShort": "Kom och se hur vi arbetar på teaterns mask- och perukateljé!",
     "aboutShortEnglish": "",
     "organizer": "Uppsala stadsteater",
-    "startTime": "2026-09-12T12:45:00+00:00",
-    "endTime": "2026-09-12T13:45:00+00:00",
+    "startTime": "2026-09-12T13:30:00+00:00",
+    "endTime": "2026-09-12T14:15:00+00:00",
     "webpage": "https://www.uppsalastadsteater.se",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
     "locationAlias": "Uppsala stadsteater",
@@ -15380,11 +15383,11 @@
       "longitude": 17.6429753
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=c883643c-d38a-42bf-9600-22fc8cb44c78",
-    "checked": 1788276962619,
+    "checked": 1788809475499,
     "type": "event",
     "categoryNames": [
-      "Vandring/guidad tur",
-      "Teater"
+      "Teater",
+      "Vandring/guidad tur"
     ],
     "languageNames": [
       "Svenska"
@@ -15398,10 +15401,11 @@
       "Tillgänglighet anpassad för rullstol"
     ],
     "created": 1788276962619,
-    "updated": 1788276962619,
-    "status": "new",
-    "sortKeyTime": 329,
-    "sortKeyUpdated": 329
+    "updated": 1788809475499,
+    "status": "updated",
+    "updateStatus": "updated",
+    "sortKeyTime": 382,
+    "sortKeyUpdated": 4
   },
   {
     "id": "23f4e999-8145-41ec-90f1-3038806911b6",
@@ -20737,7 +20741,7 @@
     "aboutShort": "Kom och se hur vi arbetar på teaterns mask- och perukateljé!",
     "aboutShortEnglish": "",
     "organizer": "Uppsala stadsteater",
-    "startTime": "2026-09-12T14:30:00+00:00",
+    "startTime": "2026-09-12T14:45:00+00:00",
     "endTime": "2026-09-12T15:30:00+00:00",
     "webpage": "https://www.uppsalastadsteater.se",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
@@ -20754,11 +20758,11 @@
       "longitude": 17.6429753
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=04c52319-7014-4e64-8b71-13985fc4a40a",
-    "checked": 1788276962619,
+    "checked": 1788809475499,
     "type": "event",
     "categoryNames": [
-      "Vandring/guidad tur",
-      "Teater"
+      "Teater",
+      "Vandring/guidad tur"
     ],
     "languageNames": [
       "Svenska"
@@ -20768,14 +20772,15 @@
     ],
     "accessibilityNames": [
       "Hiss anpassad för rullstol",
-      "Tillgänglighet anpassad för rullstol",
-      "Toalett tillgänglig med rullstol"
+      "Toalett tillgänglig med rullstol",
+      "Tillgänglighet anpassad för rullstol"
     ],
     "created": 1788276962619,
-    "updated": 1788276962619,
-    "status": "new",
-    "sortKeyTime": 444,
-    "sortKeyUpdated": 444
+    "updated": 1788809475499,
+    "status": "updated",
+    "updateStatus": "updated",
+    "sortKeyTime": 452,
+    "sortKeyUpdated": 5
   },
   {
     "id": "68b2f0f6-c600-4404-a4dc-4784aba3404a",
@@ -28198,7 +28203,7 @@
     "startTime": "2026-09-12T18:00:00+00:00",
     "endTime": "2026-09-12T20:00:00+00:00",
     "webpage": "",
-    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a001",
     "locationAlias": "Ekonomikumparken",
     "streetAddress": "Kyrkogårdsgatan 10",
     "postalCode": "Uppsala",
@@ -28212,7 +28217,7 @@
       "longitude": 17.61917740555349
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=93b3e122-0015-4d34-aa14-26dd0e8fb23e",
-    "checked": 1788276962619,
+    "checked": 1788809475499,
     "type": "event",
     "categoryNames": [
       "Film",
@@ -28222,19 +28227,20 @@
       "Evenemanget kräver inga språkkunskaper"
     ],
     "locationNames": [
-      "Inomhus"
+      "\n                    Utomhus\n                "
     ],
     "accessibilityNames": [
       "Tillgänglighet anpassad för rullstol",
-      "Barnvagnsvänligt",
       "Tillgänglighet för synskadade",
-      "God miljö för hörselskadade"
+      "God miljö för hörselskadade",
+      "Barnvagnsvänligt"
     ],
     "created": 1788276962619,
-    "updated": 1788276962619,
-    "status": "new",
-    "sortKeyTime": 605,
-    "sortKeyUpdated": 605
+    "updated": 1788809475499,
+    "status": "updated",
+    "updateStatus": "updated",
+    "sortKeyTime": 606,
+    "sortKeyUpdated": 7
   },
   {
     "id": "a423360a-dd43-4b7a-9f37-93a8803aa057",
@@ -31588,5 +31594,54 @@
     "updateStatus": "new",
     "sortKeyTime": 1,
     "sortKeyUpdated": 1
+  },
+  {
+    "id": "4d2ee2a4-ed66-42a9-9b6f-020e8458be6f",
+    "title": "Latinamerikansk sång och musik på Kulturnatten",
+    "titleEnglish": "",
+    "about": "Välkommen att lyssna, njuta och gunga med till Latinamerikansk/Boliviansk folkmusik i ABF huset.",
+    "aboutEnglish": "",
+    "aboutShort": "Njut av Latinoamerikansk och boliviansk sång och musik",
+    "aboutShortEnglish": "",
+    "organizer": "Föreningen Bolivia Chasqui ",
+    "startTime": "2026-09-12T16:00:00+00:00",
+    "endTime": "2026-09-12T20:00:00+00:00",
+    "webpage": "https://www.abf.se/aros",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "ABF Huset",
+    "streetAddress": "S:t persgatan 22 B",
+    "postalCode": "",
+    "city": "Uppsala",
+    "isCancelled": false,
+    "isForChildren": true,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.8621782,
+      "longitude": 17.6421965
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=4d2ee2a4-ed66-42a9-9b6f-020e8458be6f",
+    "checked": 1788809475499,
+    "type": "event",
+    "categoryNames": [
+      "Musik"
+    ],
+    "languageNames": [
+      "Spanska",
+      "Svenska"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [
+      "Hiss anpassad för rullstol",
+      "Toalett tillgänglig med rullstol"
+    ],
+    "created": 1788809475499,
+    "updated": 1788809475499,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 524,
+    "sortKeyUpdated": 6
   }
 ]
