@@ -1933,7 +1933,7 @@ $finishedVisibilityToggle.addEventListener('click', () => {
 $themeToggle.addEventListener('click', () => {
   setTheme(document.body.dataset.theme === 'light' ? 'dark' : 'light');
 });
-$moreMenuButton.addEventListener('click', () => {
+const toggleMoreMenu = () => {
   const willOpen = $moreMenu.hidden;
   $moreMenu.hidden = !willOpen;
   $moreMenuButton.setAttribute('aria-expanded', String(willOpen));
@@ -1941,6 +1941,23 @@ $moreMenuButton.addEventListener('click', () => {
     $userMenu.hidden = true;
     $loginButton.setAttribute('aria-expanded', 'false');
   }
+};
+let moreMenuTouchHandled = false;
+$moreMenuButton.addEventListener(
+  'touchend',
+  (event) => {
+    event.preventDefault();
+    moreMenuTouchHandled = true;
+    toggleMoreMenu();
+    window.setTimeout(() => {
+      moreMenuTouchHandled = false;
+    }, 500);
+  },
+  { passive: false },
+);
+$moreMenuButton.addEventListener('click', () => {
+  if (moreMenuTouchHandled) return;
+  toggleMoreMenu();
 });
 $loginButton.addEventListener('click', async () => {
   await ensureFirebaseAuthentication();
