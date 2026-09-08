@@ -1936,7 +1936,7 @@ function setActive(tab) {
   $activeTabHeading.textContent = `${tabIcon(tab)} ${tabTooltip(tab)}`;
   let tabInformation =
     {
-      program: 'Se även delevenemang i menyn ovan. Dessa programpunkter har identifierats i evenemangets beskrivning.',
+      program: 'Se även delevenemang i menyn ovan. Dessa har identifierats i evenemangets beskrivning.',
       subevents: 'Nedan visas programpunkter som har identifierats i evenemangets beskrivning. Kategorin kan vara felaktig eftersom den baseras på texttolkning.',
       recent: 'Evenemang som har startat de senaste 15 minuterna.',
       soon: 'Evenemang som startar inom de närmaste 45 minuterna.',
