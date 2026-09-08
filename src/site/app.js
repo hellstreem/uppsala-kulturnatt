@@ -48,7 +48,7 @@ const $infoClose = document.getElementById('info-close');
 const $reportErrorButton = document.getElementById('report-error-button');
 const $reportErrorDialog = document.getElementById('report-error-dialog');
 const $reportErrorClose = document.getElementById('report-error-close');
-const $finishedVisibilityToggle = document.getElementById('finished-visibility-toggle');
+const $finishedVisibilityInline = document.getElementById('finished-visibility-inline');
 const $themeToggle = document.getElementById('theme-toggle');
 const $moreMenuButton = document.getElementById('more-menu-button');
 const $moreMenu = document.getElementById('more-menu');
@@ -79,6 +79,7 @@ let recentAuthenticationResolver = null;
 const $list = document.getElementById('list');
 const $search = document.getElementById('event-search');
 const $clearFilters = document.getElementById('clear-filters');
+const $filterRowDivider = document.getElementById('filter-row-divider');
 const $childrenFilter = document.getElementById('children-filter');
 const $adultsFilter = document.getElementById('adults-filter');
 const $freeFilter = document.getElementById('free-filter');
@@ -226,12 +227,20 @@ function liveEvents(events, currentTime) {
   });
 }
 
-function updateFinishedVisibilityToggle() {
+function updateFinishedVisibilityLink() {
   const label = hideFinishedEvents ? 'Visa avslutade evenemang' : 'Dölj avslutade evenemang';
-  $finishedVisibilityToggle.setAttribute('aria-label', label);
-  $finishedVisibilityToggle.setAttribute('aria-pressed', String(hideFinishedEvents));
-  $finishedVisibilityToggle.title = label;
-  $finishedVisibilityToggle.innerHTML = hideFinishedEvents ? '<i class="fa-solid fa-eye-slash" aria-hidden="true"></i><span>Visa avslutade evenemang</span>' : '<i class="fa-solid fa-eye" aria-hidden="true"></i><span>Dölj avslutade evenemang</span>';
+  $finishedVisibilityInline.textContent = hideFinishedEvents ? 'Visa avslutade' : 'Dölj avslutade';
+  $finishedVisibilityInline.setAttribute('aria-label', label);
+  $finishedVisibilityInline.title = label;
+}
+
+function toggleFinishedVisibility() {
+  hideFinishedEvents = !hideFinishedEvents;
+  localStorage.setItem('hideFinishedEvents', String(hideFinishedEvents));
+  scheduleCloudSettingsSync();
+  updateFinishedVisibilityLink();
+  updateTabCounts();
+  setActive(activeTab);
 }
 
 function shareTextForFavorites(events, favorites) {
@@ -248,6 +257,7 @@ function shareTextForFavorites(events, favorites) {
 }
 
 function updateShareDialog() {
+  const canCopyText = Boolean(navigator.clipboard?.writeText || document.queryCommandSupported?.('copy'));
   const favorites = loadFavorites();
   const events = favoriteEvents(favorites);
   const count = events.length;
@@ -260,10 +270,12 @@ function updateShareDialog() {
   $shareLinkToggle.disabled = !firebaseUser;
   $shareLink.textContent = sharedLink;
   $shareLinkCopy.disabled = !firebaseUser || !sharedLinkEnabled;
+  $shareLinkCopy.hidden = !canCopyText;
   $shareEmpty.hidden = count > 0;
   $shareText.value = count > 0 ? shareTextForFavorites(events, favorites) : '';
   $shareText.disabled = count === 0;
   $shareCopy.disabled = count === 0;
+  $shareCopy.hidden = !canCopyText;
   $shareMessage.textContent = '';
 }
 
@@ -281,34 +293,54 @@ function confirmAction(message) {
   });
 }
 
+async function copyTextToClipboard(text) {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+  } catch (error) {
+    // Fall back to a temporary selection for browsers without usable Clipboard API access.
+  }
+  const temporaryInput = document.createElement('textarea');
+  temporaryInput.value = text;
+  temporaryInput.setAttribute('readonly', '');
+  temporaryInput.setAttribute('aria-hidden', 'true');
+  temporaryInput.style.position = 'fixed';
+  temporaryInput.style.top = '0';
+  temporaryInput.style.left = '0';
+  temporaryInput.style.width = '1px';
+  temporaryInput.style.height = '1px';
+  temporaryInput.style.padding = '0';
+  temporaryInput.style.border = '0';
+  temporaryInput.style.fontSize = '16px';
+  temporaryInput.style.opacity = '0.01';
+  document.body.append(temporaryInput);
+  temporaryInput.focus();
+  temporaryInput.setSelectionRange(0, temporaryInput.value.length);
+  const copied = document.execCommand('copy');
+  temporaryInput.remove();
+  if (!copied) throw new Error('Kopiering stöds inte av webbläsaren.');
+}
+
 async function copyFavorites() {
   if ($shareCopy.disabled) return;
   try {
-    await navigator.clipboard.writeText($shareText.value);
+    await copyTextToClipboard($shareText.value);
+    $shareMessage.textContent = 'Favoriterna kopierades.';
   } catch (error) {
-    $shareText.focus();
-    $shareText.select();
-    document.execCommand('copy');
+    $shareMessage.textContent = error?.message || 'Texten kunde inte kopieras.';
   }
-  $shareMessage.textContent = 'Favoriterna kopierades.';
 }
 
 async function copyShareLink() {
   if ($shareLinkCopy.disabled) return;
   try {
-    await navigator.clipboard.writeText($shareLink.textContent);
+    await copyTextToClipboard($shareLink.textContent);
+    $shareMessage.textContent = 'Länken kopierades.';
   } catch (error) {
-    const temporaryInput = document.createElement('textarea');
-    temporaryInput.value = $shareLink.textContent;
-    temporaryInput.setAttribute('readonly', '');
-    temporaryInput.style.position = 'fixed';
-    temporaryInput.style.opacity = '0';
-    document.body.append(temporaryInput);
-    temporaryInput.select();
-    document.execCommand('copy');
-    temporaryInput.remove();
+    $shareMessage.textContent = error?.message || 'Länken kunde inte kopieras.';
   }
-  $shareMessage.textContent = 'Länken kopierades.';
 }
 
 function formatLocalClockTime(value) {
@@ -546,7 +578,7 @@ function applySettings(settings) {
     hideFinishedEvents = settings.hideFinishedEvents;
     localStorage.setItem('hideFinishedEvents', String(hideFinishedEvents));
   }
-  updateFinishedVisibilityToggle();
+  updateFinishedVisibilityLink();
 }
 
 function loadSharedPagesFromValue(value) {
@@ -1118,7 +1150,9 @@ function createCategoryChip(category) {
 }
 
 function updateClearFiltersButton() {
-  $clearFilters.disabled = !$search.value && !$childrenFilter.checked && !$adultsFilter.checked && !$freeFilter.checked && !$paidFilter.checked && !$fromFilter.value && !$toFilter.value && multiFilters.every((filter) => selectedFilterValues(filter).length === 0);
+  const hasFilters = Boolean($search.value || $childrenFilter.checked || $adultsFilter.checked || $freeFilter.checked || $paidFilter.checked || $fromFilter.value || $toFilter.value || multiFilters.some((filter) => selectedFilterValues(filter).length > 0));
+  $clearFilters.disabled = !hasFilters;
+  $filterRowDivider.hidden = !hasFilters;
 }
 
 function updateFilterCount() {
@@ -2013,14 +2047,7 @@ $actionAlertClose.addEventListener('click', closeActionAlert);
 $confirmDialog.addEventListener('click', (event) => {
   if (event.target === $confirmDialog) $confirmDialog.close('cancel');
 });
-$finishedVisibilityToggle.addEventListener('click', () => {
-  hideFinishedEvents = !hideFinishedEvents;
-  localStorage.setItem('hideFinishedEvents', String(hideFinishedEvents));
-  scheduleCloudSettingsSync();
-  updateFinishedVisibilityToggle();
-  updateTabCounts();
-  setActive(activeTab);
-});
+$finishedVisibilityInline.addEventListener('click', toggleFinishedVisibility);
 $themeToggle.addEventListener('click', () => {
   setTheme(document.body.dataset.theme === 'light' ? 'dark' : 'light');
 });
@@ -2336,7 +2363,7 @@ async function main() {
     populateMultiFilter(multiFilters[1], Array.isArray(json?.languages) ? json.languages : []);
     populateMultiFilter(multiFilters[2], Array.isArray(json?.locations) ? json.locations : []);
     populateMultiFilter(multiFilters[3], Array.isArray(json?.accessibilities) ? json.accessibilities : []);
-    updateFinishedVisibilityToggle();
+    updateFinishedVisibilityLink();
     updateClearFiltersButton();
     updateFilterCount();
     updateTabCounts();

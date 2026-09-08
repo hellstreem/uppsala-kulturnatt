@@ -649,12 +649,6 @@ body[data-theme='dark'] .action-alert {
   display: none;
 }
 
-.user-menu .finished-visibility-toggle {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
 .user-menu #info-button i {
   color: var(--accent-2);
 }
@@ -1262,6 +1256,19 @@ body[data-theme='light'] .filter-search-section-inner {
   display: none;
 }
 
+#filter-row-divider {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 3px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+#filter-row-divider[hidden] {
+  display: none;
+}
+
 .filter-menu {
   position: relative;
 }
@@ -1523,7 +1530,7 @@ body.share-loading #status {
 
 .share-text {
   width: 100%;
-  min-height: 15rem;
+  min-height: 8rem;
   resize: vertical;
   border: 1px solid var(--border);
   border-radius: 4px;
