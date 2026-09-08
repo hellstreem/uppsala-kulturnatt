@@ -103,6 +103,15 @@
 .fa-circle-info {
   --fa: '\f05a';
 }
+.fa-circle-exclamation {
+  --fa: '\f06a';
+}
+.fa-circle-check {
+  --fa: '\f058';
+}
+.fa-bug {
+  --fa: '\f188';
+}
 .fa-trash-can {
   --fa: '\f2ed';
 }
@@ -120,6 +129,9 @@
 }
 .fa-filter {
   --fa: '\f0b0';
+}
+.fa-cloud-arrow-down {
+  --fa: '\f0ed';
 }
 .fa-building {
   --fa: '\f1ad';

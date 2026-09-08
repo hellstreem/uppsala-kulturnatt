@@ -1,6 +1,9 @@
 const DATA_PATH = '/data/packedEvents.json';
 const FIREBASE_SCRIPT_URLS = ['https://www.gstatic.com/firebasejs/12.18.0/firebase-app-compat.js', 'https://www.gstatic.com/firebasejs/12.18.0/firebase-auth-compat.js', 'https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore-compat.js'];
 let debugEnabled = new URL(window.location.href).searchParams.get('debug') === 'true';
+const sharedRouteMatch = window.location.pathname.match(/^\/share\/([^/]+)\/?$/);
+const sharedUserId = sharedRouteMatch ? decodeURIComponent(sharedRouteMatch[1]) : '';
+let isSharedPage = Boolean(sharedUserId);
 
 const $header = document.querySelector('header');
 const $status = document.getElementById('status');
@@ -13,6 +16,9 @@ const $tabInformation = document.getElementById('tab-information');
 const $errorDialog = document.getElementById('error-dialog');
 const $errorMessage = document.getElementById('error-message');
 const $errorClose = document.getElementById('error-close');
+const $progressDialog = document.getElementById('progress-dialog');
+const $progressMessage = document.getElementById('progress-message');
+const $progressCancel = document.getElementById('progress-cancel');
 const $confirmDialog = document.getElementById('confirm-dialog');
 const $confirmForm = document.getElementById('confirm-form');
 const $confirmMessage = document.getElementById('confirm-dialog-message');
@@ -21,9 +27,16 @@ const $listSubheaderRow = document.querySelector('.list-subheader-row');
 const $programSortControls = document.getElementById('program-sort-controls');
 const $programSortStart = document.getElementById('program-sort-start');
 const $programSortSeen = document.getElementById('program-sort-seen');
+const $programSortSharedSeparator = document.getElementById('program-sort-shared-separator');
+const $programSortShared = document.getElementById('program-sort-shared');
 const $shareFavorites = document.getElementById('share-favorites');
+const $removeSharedPage = document.getElementById('remove-shared-page');
 const $shareDialog = document.getElementById('share-dialog');
 const $shareContent = document.getElementById('share-content');
+const $shareLinkBlock = document.getElementById('share-link-block');
+const $shareLinkToggle = document.getElementById('share-link-toggle');
+const $shareLink = document.getElementById('share-link');
+const $shareLinkCopy = document.getElementById('share-link-copy');
 const $shareClose = document.getElementById('share-close');
 const $shareEmpty = document.getElementById('share-empty');
 const $shareText = document.getElementById('share-text');
@@ -32,6 +45,9 @@ const $shareMessage = document.getElementById('share-message');
 const $infoButton = document.getElementById('info-button');
 const $infoDialog = document.getElementById('info-dialog');
 const $infoClose = document.getElementById('info-close');
+const $reportErrorButton = document.getElementById('report-error-button');
+const $reportErrorDialog = document.getElementById('report-error-dialog');
+const $reportErrorClose = document.getElementById('report-error-close');
 const $finishedVisibilityToggle = document.getElementById('finished-visibility-toggle');
 const $themeToggle = document.getElementById('theme-toggle');
 const $moreMenuButton = document.getElementById('more-menu-button');
@@ -41,15 +57,25 @@ const $userMenu = document.getElementById('user-menu');
 const $loginMenu = document.getElementById('login-menu');
 const $removeUserData = document.getElementById('remove-user-data');
 const $logoutButton = document.getElementById('logout-button');
+const $logoutDialog = document.getElementById('logout-dialog');
+const $logoutClose = document.getElementById('logout-close');
 const $syncAlert = document.getElementById('sync-alert');
+const $syncAlertLoggedOut = document.getElementById('sync-alert-logged-out');
+const $syncAlertLoggedIn = document.getElementById('sync-alert-logged-in');
 const $syncLoginLink = document.getElementById('sync-login-link');
+const $shareLoginLink = document.getElementById('share-login-link');
+const $shareLoginHelp = $shareLoginLink.closest('p');
 const $authDialog = document.getElementById('auth-dialog');
+const $authDialogTitle = document.querySelector('#auth-dialog-title span');
+const $authHelp = document.querySelector('.auth-help');
 const $authForm = document.getElementById('auth-form');
 const $authEmail = document.getElementById('auth-email');
 const $authPassword = document.getElementById('auth-password');
+const $forgotPasswordButton = document.getElementById('forgot-password-button');
 const $authMessage = document.getElementById('auth-message');
 const $googleLoginButton = document.getElementById('google-login-button');
 const $authClose = document.querySelector('.auth-close');
+let recentAuthenticationResolver = null;
 const $list = document.getElementById('list');
 const $search = document.getElementById('event-search');
 const $clearFilters = document.getElementById('clear-filters');
@@ -80,6 +106,10 @@ const tabs = {
   finished: document.getElementById('tab-finished'),
   unfinished: document.getElementById('tab-unfinished'),
 };
+let sharedFavorites = {};
+let sharedIdentity = '';
+let activeSharedUserId = sharedUserId;
+let sharedLoadRequest = 0;
 
 function updateDebugMode() {
   debugEnabled = new URL(window.location.href).searchParams.get('debug') === 'true';
@@ -96,12 +126,15 @@ let allEvents = [];
 let activeTab = 'program';
 let programSortMode = 'start';
 let favoritesSortMode = 'start';
+let sharedSortMode = 'start';
 let hideFinishedEvents = false;
 let firebaseAuth = null;
 let firebaseUser = null;
 let firebaseInitializationPromise = null;
+let firebaseAuthStatePromise = null;
 let settingsDocument = null;
 let isDeletingUserData = false;
+let openLoginDialogOnNextClick = false;
 let cloudSyncTimer = null;
 let actionAlertTimer = null;
 let firebaseSettingsWrite = Promise.resolve();
@@ -131,7 +164,14 @@ setTheme(initialTheme, false);
 hideFinishedEvents = localStorage.getItem('hideFinishedEvents') === 'true';
 
 function eventCurrentTime() {
-  return Date.now();
+  if (typeof FAKE_TODAY_DATE !== 'string') return Date.now();
+  const match = FAKE_TODAY_DATE.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return Date.now();
+
+  const now = new Date();
+  const fakeNow = new Date(now);
+  fakeNow.setFullYear(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+  return fakeNow.getTime();
 }
 
 function eventStartTime(event) {
@@ -161,6 +201,31 @@ function visibleByFinishedToggle(events, tab, currentTime) {
   return events.filter((event) => !isFinishedEvent(event, currentTime));
 }
 
+function eventsInWindow(events, fromTime, toTime) {
+  return events.filter((event) => {
+    if (event.isCancelled) return false;
+    const startTime = eventStartTime(event);
+    return Number.isFinite(startTime) && startTime >= fromTime && startTime <= toTime;
+  });
+}
+
+function laterEvents(events, fromTime) {
+  return events.filter((event) => {
+    if (event.isCancelled) return false;
+    const startTime = eventStartTime(event);
+    return Number.isFinite(startTime) && startTime > fromTime;
+  });
+}
+
+function liveEvents(events, currentTime) {
+  return events.filter((event) => {
+    if (event.isCancelled) return false;
+    const startTime = eventStartTime(event);
+    const endTime = eventEndTime(event);
+    return Number.isFinite(startTime) && Number.isFinite(endTime) && startTime <= currentTime && endTime >= currentTime;
+  });
+}
+
 function updateFinishedVisibilityToggle() {
   const label = hideFinishedEvents ? 'Visa avslutade evenemang' : 'Dölj avslutade evenemang';
   $finishedVisibilityToggle.setAttribute('aria-label', label);
@@ -186,6 +251,15 @@ function updateShareDialog() {
   const favorites = loadFavorites();
   const events = favoriteEvents(favorites);
   const count = events.length;
+  const sharedLink = firebaseUser ? `http://${window.location.host}/share/${firebaseUser.uid}` : '';
+  const storedSharing = localStorage.getItem('enableSharing');
+  const sharedLinkEnabled = storedSharing === null ? localStorage.getItem('shareLinkEnabled') === 'true' : storedSharing === 'true';
+  $shareLinkBlock.classList.toggle('share-link-block-disabled', !firebaseUser);
+  $shareLinkBlock.setAttribute('aria-disabled', String(!firebaseUser));
+  $shareLinkToggle.checked = sharedLinkEnabled;
+  $shareLinkToggle.disabled = !firebaseUser;
+  $shareLink.textContent = sharedLink;
+  $shareLinkCopy.disabled = !firebaseUser || !sharedLinkEnabled;
   $shareEmpty.hidden = count > 0;
   $shareText.value = count > 0 ? shareTextForFavorites(events, favorites) : '';
   $shareText.disabled = count === 0;
@@ -217,6 +291,24 @@ async function copyFavorites() {
     document.execCommand('copy');
   }
   $shareMessage.textContent = 'Favoriterna kopierades.';
+}
+
+async function copyShareLink() {
+  if ($shareLinkCopy.disabled) return;
+  try {
+    await navigator.clipboard.writeText($shareLink.textContent);
+  } catch (error) {
+    const temporaryInput = document.createElement('textarea');
+    temporaryInput.value = $shareLink.textContent;
+    temporaryInput.setAttribute('readonly', '');
+    temporaryInput.style.position = 'fixed';
+    temporaryInput.style.opacity = '0';
+    document.body.append(temporaryInput);
+    temporaryInput.select();
+    document.execCommand('copy');
+    temporaryInput.remove();
+  }
+  $shareMessage.textContent = 'Länken kopierades.';
 }
 
 function formatLocalClockTime(value) {
@@ -298,7 +390,7 @@ function saveFavorites(favorites) {
   Object.keys(normalized).forEach((id) => delete removed[id]);
   localStorage.setItem('favorites', JSON.stringify(normalized));
   localStorage.setItem('removedFavorites', JSON.stringify(removed));
-  scheduleCloudSettingsSync(true);
+  return scheduleCloudSettingsSync(true);
 }
 
 function loadRemovedFavorites() {
@@ -316,7 +408,42 @@ function removeFavorite(id) {
   const removed = loadRemovedFavorites();
   removed[id] = Date.now();
   localStorage.setItem('removedFavorites', JSON.stringify(removed));
-  saveFavorites(favorites);
+  return saveFavorites(favorites);
+}
+
+function loadSharedPages() {
+  try {
+    const raw = localStorage.getItem('sharedPages');
+    const pages = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(pages)) return [];
+    return pages
+      .filter((page) => page && typeof page.userId === 'string' && page.userId.trim())
+      .map((page) => ({
+        userId: page.userId.trim(),
+        identity: typeof page.identity === 'string' && page.identity.trim() ? page.identity.trim() : 'användare',
+        url: typeof page.url === 'string' ? page.url : '',
+      }));
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveSharedPage(userId, identity) {
+  const pages = loadSharedPages().filter((page) => page.userId !== userId);
+  pages.unshift({
+    userId,
+    identity,
+    url: `${window.location.origin}/share/${encodeURIComponent(userId)}`,
+  });
+  localStorage.setItem('sharedPages', JSON.stringify(pages));
+  return scheduleCloudSettingsSync(true);
+}
+
+function removeSharedPage(userId) {
+  const pages = loadSharedPages().filter((page) => page.userId !== userId);
+  localStorage.setItem('sharedPages', JSON.stringify(pages));
+  document.getElementById(`tab-shared-${encodeURIComponent(userId)}`)?.remove();
+  return scheduleCloudSettingsSync(true);
 }
 
 function setStatus(message = '') {
@@ -370,27 +497,67 @@ function normalizeEvent(event) {
   return event;
 }
 
+function userDisplayName(user) {
+  const profile = user?.providerData?.find((provider) => provider.providerId === 'google.com') || user?.providerData?.[0];
+  return user?.displayName || profile?.displayName || '';
+}
+
+function userEmailAddress(user) {
+  const profile = user?.providerData?.find((provider) => provider.providerId === 'google.com') || user?.providerData?.[0];
+  return user?.email || profile?.email || '';
+}
+
+function isGoogleUser(user) {
+  return Boolean(user?.providerData?.some((provider) => provider.providerId === 'google.com'));
+}
+
 function localSettings() {
+  const displayName = firebaseUser ? userDisplayName(firebaseUser) : localStorage.getItem('displayName') || '';
+  const emailAddress = firebaseUser && isGoogleUser(firebaseUser) && displayName ? '' : userEmailAddress(firebaseUser) || localStorage.getItem('emailAddress') || '';
+  const storedSharing = localStorage.getItem('enableSharing');
+  const enableSharing = storedSharing === null ? localStorage.getItem('shareLinkEnabled') === 'true' : storedSharing === 'true';
+  localStorage.setItem('displayName', displayName);
+  localStorage.setItem('emailAddress', emailAddress);
+  localStorage.setItem('enableSharing', String(enableSharing));
   const settings = {
     theme: document.body.dataset.theme,
     favorites: loadFavorites(),
+    sharedPages: loadSharedPages(),
     hideFinishedEvents,
+    displayName,
+    emailAddress,
+    enableSharing,
   };
   return settings;
 }
 
 function settingsMergeFields(settings) {
-  return ['theme', 'favorites', 'hideFinishedEvents'].filter((field) => Object.prototype.hasOwnProperty.call(settings, field));
+  return ['theme', 'favorites', 'sharedPages', 'hideFinishedEvents', 'displayName', 'emailAddress', 'enableSharing'].filter((field) => Object.prototype.hasOwnProperty.call(settings, field));
 }
 
 function applySettings(settings) {
   if (settings && (settings.theme === 'light' || settings.theme === 'dark')) setTheme(settings.theme, false);
   if (settings && settings.favorites) localStorage.setItem('favorites', JSON.stringify(normalizeFavorites(settings.favorites)));
+  if (settings && Array.isArray(settings.sharedPages)) localStorage.setItem('sharedPages', JSON.stringify(loadSharedPagesFromValue(settings.sharedPages)));
+  if (settings && typeof settings.displayName === 'string') localStorage.setItem('displayName', settings.displayName);
+  if (settings && typeof settings.emailAddress === 'string') localStorage.setItem('emailAddress', settings.emailAddress);
+  if (settings && typeof settings.enableSharing === 'boolean') localStorage.setItem('enableSharing', String(settings.enableSharing));
   if (settings && typeof settings.hideFinishedEvents === 'boolean') {
     hideFinishedEvents = settings.hideFinishedEvents;
     localStorage.setItem('hideFinishedEvents', String(hideFinishedEvents));
   }
   updateFinishedVisibilityToggle();
+}
+
+function loadSharedPagesFromValue(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((page) => page && typeof page.userId === 'string' && page.userId.trim())
+    .map((page) => ({
+      userId: page.userId.trim(),
+      identity: typeof page.identity === 'string' && page.identity.trim() ? page.identity.trim() : 'användare',
+      url: typeof page.url === 'string' ? page.url : '',
+    }));
 }
 
 function scheduleCloudSettingsSync(immediate = false) {
@@ -433,10 +600,14 @@ async function syncSettingsWithFirebase() {
         const remoteFavorites = normalizeFavorites(remote.favorites);
         const removedFavorites = loadRemovedFavorites();
         const mergedFavorites = Object.fromEntries(Object.entries(remoteFavorites).filter(([id]) => !removedFavorites[id]));
+        const localSharedPages = loadSharedPages();
+        const remoteSharedPages = loadSharedPagesFromValue(remote.sharedPages);
+        const mergedSharedPages = [...localSharedPages, ...remoteSharedPages].filter((page, index, pages) => pages.findIndex((candidate) => candidate.userId === page.userId) === index);
 
         applySettings({
           ...remote,
           favorites: { ...mergedFavorites, ...local.favorites },
+          sharedPages: mergedSharedPages,
         });
       }
 
@@ -449,6 +620,8 @@ async function syncSettingsWithFirebase() {
       });
 
       localStorage.removeItem('removedFavorites');
+      localStorage.setItem('firebaseSyncedUserId', firebaseUser.uid);
+      updateUserDataMenu();
       updateTabCounts();
       setActive(activeTab);
       return;
@@ -468,19 +641,61 @@ function showAuthMessage(message = '') {
 }
 
 function openAuthenticationDialog() {
+  $authDialogTitle.textContent = 'Logga in';
+  $authHelp.textContent = 'Logga in med ditt Google-konto eller med e-post för att spara favoriter när du använder flera enheter.';
   showAuthMessage();
   $authForm.reset();
   $authDialog.showModal();
   requestAnimationFrame(() => $googleLoginButton.focus());
 }
 
+function requestRecentAuthentication(user) {
+  return new Promise((resolve) => {
+    recentAuthenticationResolver = resolve;
+    $authDialogTitle.textContent = 'Bekräfta din identitet';
+    $authHelp.textContent = 'Av säkerhetsskäl behöver du logga in igen innan dina användardata kan tas bort.';
+    showAuthMessage();
+    $authForm.reset();
+    $authEmail.value = userEmailAddress(user);
+    $authDialog.showModal();
+    requestAnimationFrame(() => $authEmail.focus());
+  });
+}
+
+function finishRecentAuthentication(success) {
+  if (!recentAuthenticationResolver) return;
+  const resolve = recentAuthenticationResolver;
+  recentAuthenticationResolver = null;
+  resolve(success);
+}
+
+function updateUserDataMenu() {
+  const syncedUserId = localStorage.getItem('firebaseSyncedUserId');
+  const canRemoveUserData = Boolean(firebaseUser && !firebaseUser.isAnonymous && syncedUserId === firebaseUser.uid);
+  $removeUserData.disabled = !canRemoveUserData;
+  $removeUserData.title = canRemoveUserData ? 'Ta bort mina data' : 'Logga in och synkronisera dina data först';
+}
+
 function updateAuthenticationUi(user) {
   firebaseUser = user;
-  $syncAlert.hidden = Boolean(user);
+  updateUserDataMenu();
+  $shareLoginHelp.hidden = Boolean(user);
+  if (user) {
+    const displayName = userDisplayName(user);
+    const emailAddress = isGoogleUser(user) && displayName ? '' : userEmailAddress(user);
+    console.debug('Saving displayName to localStorage:', displayName);
+    console.debug('Saving emailAddress to localStorage:', emailAddress);
+    localStorage.setItem('displayName', displayName);
+    localStorage.setItem('emailAddress', emailAddress);
+  }
+  $syncAlert.hidden = false;
+  $syncAlertLoggedOut.hidden = Boolean(user);
+  $syncAlertLoggedIn.hidden = !user;
   $loginMenu.hidden = Boolean(user);
   $logoutButton.hidden = !user;
   $userMenu.hidden = true;
   $loginButton.setAttribute('aria-expanded', 'false');
+  if ($shareDialog.open) updateShareDialog();
   $loginButton.replaceChildren();
   if (!user) {
     $loginButton.setAttribute('aria-label', 'Logga in');
@@ -489,11 +704,13 @@ function updateAuthenticationUi(user) {
     return;
   }
 
+  const displayName = userDisplayName(user);
+  const emailAddress = userEmailAddress(user);
+  const loginIdentity = displayName || emailAddress || 'användare';
   const profile = user.providerData?.find((provider) => provider.providerId === 'google.com') || user.providerData?.[0];
-  const displayName = user.displayName || profile?.displayName || user.email || 'användare';
   const photoURL = user.photoURL || profile?.photoURL;
-  $loginButton.setAttribute('aria-label', `Konto: ${displayName}`);
-  $loginButton.title = `Inloggad som ${displayName}`;
+  $loginButton.setAttribute('aria-label', `Konto: ${loginIdentity}`);
+  $loginButton.title = `Inloggad som ${loginIdentity}`;
   if (photoURL) {
     const image = document.createElement('img');
     image.className = 'user-avatar';
@@ -513,13 +730,15 @@ function updateAuthenticationUi(user) {
 }
 
 async function removeUserData() {
-  if (!firebaseAuth || !firebaseUser) return;
+  if (!firebaseAuth || !firebaseUser || localStorage.getItem('firebaseSyncedUserId') !== firebaseUser.uid) return;
   const confirmed = await confirmAction('Alla dina lokala och molnlagrade användardata, inklusive inloggningen, kommer att tas bort. Detta går inte att ångra. Vill du fortsätta?');
   if (!confirmed) return;
 
   const user = firebaseUser;
   $removeUserData.disabled = true;
   try {
+    if (!(await requestRecentAuthentication(user))) return;
+
     const database = firebase.firestore();
     const referenceList = settingsDocument ? [settingsDocument] : [];
     for (let index = 0; index < referenceList.length; index += 450) {
@@ -574,6 +793,12 @@ function initFirebaseAuthentication() {
   try {
     if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
     firebaseAuth = firebase.auth();
+    firebaseAuthStatePromise = new Promise((resolve) => {
+      firebaseAuth.onAuthStateChanged(
+        (user) => resolve(user),
+        () => resolve(null),
+      );
+    });
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (!user) {
         window.clearTimeout(cloudSyncTimer);
@@ -594,6 +819,10 @@ function initFirebaseAuthentication() {
       if (isDeletingUserData) return;
       settingsDocument = firebase.firestore().collection('users').doc(user.uid);
       try {
+        const displayName = userDisplayName(user);
+        const emailAddress = userEmailAddress(user);
+        console.debug('Saving displayName and emailAddress to Firestore:', { uid: user.uid, displayName, emailAddress });
+        await settingsDocument.set(localSettings(), { merge: true });
         await syncSettingsWithFirebase();
       } catch (error) {
         showError(error?.message || 'Användarinställningarna kunde inte laddas.');
@@ -607,13 +836,17 @@ function initFirebaseAuthentication() {
 }
 
 async function ensureFirebaseAuthentication() {
-  if (firebaseAuth) return true;
+  if (firebaseAuth) {
+    if (firebaseAuthStatePromise) await firebaseAuthStatePromise;
+    return true;
+  }
   if (!firebaseInitializationPromise) {
     firebaseInitializationPromise = FIREBASE_SCRIPT_URLS.reduce((promise, src) => promise.then(() => loadScript(src)), Promise.resolve()).then(() => initFirebaseAuthentication());
   }
 
   try {
     await firebaseInitializationPromise;
+    if (firebaseAuthStatePromise) await firebaseAuthStatePromise;
   } catch (error) {
     console.error('Firebase scripts failed to load:', error);
     $loginButton.disabled = true;
@@ -631,14 +864,30 @@ function hasStoredFirebaseUser() {
   }
 }
 
-function scheduleFirebaseIdleLoad() {
+function showStoredAuthenticationUi() {
   if (!hasStoredFirebaseUser()) return;
-  const loadFirebase = () => ensureFirebaseAuthentication();
-  if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(loadFirebase, { timeout: 3000 });
-  } else {
-    window.setTimeout(loadFirebase, 1500);
+  try {
+    const raw = localStorage.getItem(`firebase:authUser:${FIREBASE_CONFIG.apiKey}:[DEFAULT]`);
+    const storedUser = raw ? JSON.parse(raw) : null;
+    if (!storedUser || storedUser.isAnonymous) return;
+
+    const loginIdentity = storedUser.displayName || storedUser.email || 'användare';
+    $loginMenu.hidden = true;
+    $logoutButton.hidden = false;
+    $syncAlert.hidden = false;
+    $syncAlertLoggedOut.hidden = true;
+    $syncAlertLoggedIn.hidden = false;
+    $userMenu.hidden = true;
+    $loginButton.setAttribute('aria-label', `Konto: ${loginIdentity}`);
+    $loginButton.title = `Inloggad som ${loginIdentity}`;
+    $loginButton.replaceChildren(Object.assign(document.createElement('i'), { className: 'fa-solid fa-user-check', ariaHidden: 'true' }));
+  } catch (_) {
+    // Firebase will provide the authoritative authentication state.
   }
+}
+
+function scheduleFirebaseIdleLoad() {
+  ensureFirebaseAuthentication();
 }
 
 function updateTabCounts() {
@@ -693,6 +942,28 @@ function updateTabCounts() {
   tabs.unfinished.title = `Ej avslutade evenemang (${unfinishedCount} st)`;
   tabs.finished.textContent = `\u2705 Avslutade (${finishedCount})`;
   tabs.finished.title = `Avslutade evenemang (${finishedCount} st)`;
+}
+
+function sharedTabValue(userId) {
+  return `shared:${encodeURIComponent(userId)}`;
+}
+
+function addSharedTab(userId, identity) {
+  const tabValue = sharedTabValue(userId);
+  const tabId = `tab-shared-${encodeURIComponent(userId)}`;
+  let sharedTab = document.getElementById(tabId);
+  if (!sharedTab) {
+    sharedTab = document.createElement('option');
+    sharedTab.id = tabId;
+    sharedTab.value = tabValue;
+    $tabSelect.append(sharedTab);
+  }
+  sharedTab.textContent = `\u{1F517} Delade favoriter (${identity})`;
+  sharedTab.title = `Delade favoriter (${identity})`;
+}
+
+function addSavedSharedTabs() {
+  for (const page of loadSharedPages()) addSharedTab(page.userId, page.identity);
 }
 
 function coordinatesToMapQuery(coordinates) {
@@ -1239,6 +1510,13 @@ async function renderList(events, favorites = loadFavorites()) {
     card.tabIndex = 0;
     card.setAttribute('role', 'button');
 
+    if (activeTab.startsWith('shared:')) {
+      const sharedOwnerLabel = document.createElement('div');
+      sharedOwnerLabel.className = 'shared-card-owner';
+      sharedOwnerLabel.textContent = `Delad favorit (${sharedIdentity})`;
+      card.appendChild(sharedOwnerLabel);
+    }
+
     const timeLine = document.createElement('div');
     timeLine.className = 'line time-line';
 
@@ -1355,6 +1633,13 @@ async function renderList(events, favorites = loadFavorites()) {
 
     const myid = ev.favoriteId;
     const rating = favorites[myid] || 0;
+    const ownerRating = activeTab.startsWith('shared:') ? sharedFavorites[myid] || 0 : 0;
+    if (ownerRating > 0) {
+      const ownerRatingLabel = document.createElement('span');
+      ownerRatingLabel.className = 'shared-owner-rating';
+      ownerRatingLabel.textContent = `(${'★'.repeat(ownerRating)})`;
+      titleGroup.appendChild(ownerRatingLabel);
+    }
     const ratingControl = document.createElement('span');
     ratingControl.className = 'favorite-rating';
     ratingControl.setAttribute('role', 'group');
@@ -1368,11 +1653,11 @@ async function renderList(events, favorites = loadFavorites()) {
       star.setAttribute('aria-pressed', String(rating === value));
       star.classList.toggle('inactive', value > rating);
       star.innerHTML = value <= rating ? '<i class="fa-solid fa-star" aria-hidden="true"></i>' : '<i class="fa-sharp fa-regular fa-star" aria-hidden="true"></i>';
-      star.addEventListener('click', (event) => {
+      star.addEventListener('click', async (event) => {
         event.stopPropagation();
         const current = loadFavorites();
         current[myid] = value;
-        saveFavorites(current);
+        await saveFavorites(current);
         updateTabCounts();
         setActive(activeTab);
       });
@@ -1388,7 +1673,7 @@ async function renderList(events, favorites = loadFavorites()) {
       removeFavoriteButton.addEventListener('click', async (event) => {
         event.stopPropagation();
         if (!(await confirmAction('Vill du ta bort evenemanget från dina favoriter?'))) return;
-        removeFavorite(myid);
+        await removeFavorite(myid);
         updateTabCounts();
         setActive(activeTab);
       });
@@ -1494,19 +1779,24 @@ function tabTooltip(tab) {
 }
 
 function updateProgramSortControls() {
-  const isFavorites = activeTab === 'favorites';
+  const isFavorites = activeTab === 'favorites' || activeTab.startsWith('shared:');
+  const isShared = activeTab.startsWith('shared:');
   const isSortable = isFavorites || activeTab === 'program' || activeTab === 'subevents';
   $programSortControls.hidden = !isSortable;
-  $shareFavorites.hidden = !isFavorites;
+  $shareFavorites.hidden = activeTab !== 'favorites';
   $programSortStart.hidden = !isSortable;
   $programSortSeen.hidden = !isSortable;
-  $programSortSeen.textContent = isFavorites ? 'Betyg' : 'Nyast';
+  $programSortSharedSeparator.hidden = !isShared;
+  $programSortShared.hidden = !isShared;
+  $programSortSeen.textContent = isShared || isFavorites ? 'Betyg' : 'Nyast';
 
-  const selectedMode = isFavorites ? favoritesSortMode : programSortMode;
+  const selectedMode = isShared ? sharedSortMode : isFavorites ? favoritesSortMode : programSortMode;
   $programSortStart.classList.toggle('active', selectedMode === 'start');
-  $programSortSeen.classList.toggle('active', selectedMode !== 'start');
+  $programSortSeen.classList.toggle('active', isShared ? selectedMode === 'local' : selectedMode !== 'start');
+  $programSortShared.classList.toggle('active', selectedMode === 'shared');
   $programSortStart.setAttribute('aria-pressed', String(selectedMode === 'start'));
-  $programSortSeen.setAttribute('aria-pressed', String(selectedMode !== 'start'));
+  $programSortSeen.setAttribute('aria-pressed', String(isShared ? selectedMode === 'local' : selectedMode !== 'start'));
+  $programSortShared.setAttribute('aria-pressed', String(selectedMode === 'shared'));
 }
 
 function sortProgramEvents(events) {
@@ -1520,24 +1810,85 @@ function sortProgramEvents(events) {
   });
 }
 
-function favoriteEvents(favorites) {
+function favoriteEvents(favorites, ratingFavorites = favorites, sortMode = favoritesSortMode) {
   const events = allEvents.filter((event) => Object.prototype.hasOwnProperty.call(favorites, event.favoriteId));
   return events.sort((first, second) => {
-    if (favoritesSortMode === 'stars') {
-      const ratingDifference = (favorites[second.favoriteId] || 0) - (favorites[first.favoriteId] || 0);
+    if (sortMode === 'stars') {
+      const ratingDifference = (ratingFavorites[second.favoriteId] || 0) - (ratingFavorites[first.favoriteId] || 0);
       if (ratingDifference !== 0) return ratingDifference;
     }
     return eventStartTime(first) - eventStartTime(second);
   });
 }
 
+function configureSharedPage() {
+  document.body.classList.add('shared-page');
+  $shareFavorites.hidden = true;
+  $tabInformation.hidden = true;
+  $listSubheaderRow.hidden = false;
+}
+
+async function loadSharedFavorites(userId = activeSharedUserId) {
+  const requestId = ++sharedLoadRequest;
+  $progressMessage.textContent = 'Hämtar delade favoriter…';
+  if (!$progressDialog.open) $progressDialog.showModal();
+  setStatus('Hämtar delade favoriter…');
+  try {
+    if (!(await ensureFirebaseAuthentication())) throw new Error('Firebase kunde inte startas.');
+    if (requestId !== sharedLoadRequest) return false;
+    const signedInUser = firebaseUser || firebaseAuth?.currentUser;
+    if (signedInUser && !signedInUser.isAnonymous && signedInUser.uid === userId) {
+      await removeSharedPage(userId);
+      throw new Error('Du kan inte lägga till din egen delade sida.');
+    }
+    $progressMessage.textContent = 'Läser in delade favoriter…';
+    const snapshot = await firebase.firestore().collection('users').doc(userId).get();
+    console.debug('Fetched shared profile from Firestore:', {
+      userId,
+      exists: snapshot.exists,
+      data: snapshot.exists ? snapshot.data() : null,
+    });
+    if (requestId !== sharedLoadRequest) return false;
+    if (!snapshot.exists) throw new Error('Den delade profilen kunde inte hittas.');
+
+    const settings = snapshot.data() || {};
+    if (settings.enableSharing !== true) throw new Error('Den här användaren har inte aktiverat delning.');
+
+    const displayName = typeof settings.displayName === 'string' ? settings.displayName.trim() : '';
+    const emailAddress = typeof settings.emailAddress === 'string' ? settings.emailAddress.trim() : '';
+    const identity = displayName || emailAddress || 'användare';
+    activeSharedUserId = userId;
+    sharedIdentity = identity;
+    sharedFavorites = normalizeFavorites(settings.favorites);
+    addSharedTab(userId, identity);
+    await saveSharedPage(userId, identity);
+    return true;
+  } finally {
+    if (requestId === sharedLoadRequest) {
+      setStatus();
+      if ($progressDialog.open) $progressDialog.close();
+    }
+  }
+}
+
+async function renderSharedPage() {
+  configureSharedPage();
+  document.title = 'Delade favoriter | Uppsala Kulturnatt';
+  $activeTabHeading.textContent = 'Delade favoriter';
+  if (!(await loadSharedFavorites(sharedUserId))) return;
+  setActive(sharedTabValue(sharedUserId));
+}
+
 function setActive(tab) {
+  const tabChanged = activeTab !== tab;
   $list.hidden = false;
   $listSubheaderRow.hidden = false;
   activeTab = tab;
+  if (tabChanged) window.scrollTo({ top: 0, behavior: 'auto' });
   $tabSelect.value = tab;
+  $removeSharedPage.hidden = !tab.startsWith('shared:');
   $activeTabHeading.textContent = `${tabIcon(tab)} ${tabTooltip(tab)}`;
-  const tabInformation =
+  let tabInformation =
     {
       program: 'Glöm inte att även titta på delevenemang i menyn ovan. Dessa programpunkter har identifierats i evenemangets beskrivning och gör det enklare att hitta favoritevenemang.',
       subevents: 'Nedan visas programpunkter som har identifierats i evenemangets beskrivning. Kategorin kan vara felaktig eftersom den baseras på texttolkning.',
@@ -1548,6 +1899,7 @@ function setActive(tab) {
       favorites: 'Dina favoritevenemang, betygsatta med 1–3 stjärnor. Favoritval kan tas bort via papperskorgsikonen.',
       unfinished: 'Evenemang som pågår eller ännu inte har startat.',
     }[tab] || '';
+  if (tab.startsWith('shared:')) tabInformation = `Delade favoritevenemang från ${sharedIdentity}.`;
   $tabInformation.textContent = tabInformation;
   $tabInformation.hidden = !tabInformation;
   updateProgramSortControls();
@@ -1562,6 +1914,10 @@ function setActive(tab) {
     events = allEvents.filter((event) => event.isCancelled);
   } else if (tab === 'favorites') {
     events = favoriteEvents(favs);
+  } else if (tab.startsWith('shared:')) {
+    const ratingFavorites = sharedSortMode === 'local' ? favs : sharedFavorites;
+    events = favoriteEvents(sharedFavorites, ratingFavorites, sharedSortMode === 'start' ? 'start' : 'stars');
+    $activeTabHeading.textContent = `\u{1F517} Delade favoriter från ${sharedIdentity} (${events.length})`;
   } else if (tab === 'live') {
     events = liveEvents(allEvents, now);
   } else if (tab === 'recent') {
@@ -1583,19 +1939,54 @@ function setActive(tab) {
 
 $tabSelect.addEventListener('change', async () => {
   const tab = $tabSelect.value;
-  if (firebaseUser && tab === 'favorites') await syncSettingsWithFirebase();
-  setActive(tab);
+  try {
+    if (tab.startsWith('shared:')) {
+      const selectedUserId = decodeURIComponent(tab.slice('shared:'.length));
+      if (!(await loadSharedFavorites(selectedUserId))) return;
+    }
+    if (firebaseUser && tab === 'favorites') await syncSettingsWithFirebase();
+    setActive(tab);
+  } catch (error) {
+    showError(error?.message || 'De delade favoriterna kunde inte laddas.');
+    if (tab.startsWith('shared:')) {
+      const selectedUserId = decodeURIComponent(tab.slice('shared:'.length));
+      if (error?.message === 'Den delade profilen kunde inte hittas.') await removeSharedPage(selectedUserId);
+      document.body.classList.remove('shared-page');
+      document.title = 'Uppsala Kulturnatt 2026';
+      setActive('program');
+    } else {
+      setActive(activeTab);
+    }
+  }
 });
+$progressCancel.addEventListener('click', () => {
+  sharedLoadRequest += 1;
+  if ($progressDialog.open) $progressDialog.close();
+  setStatus();
+});
+$progressDialog.addEventListener('cancel', (event) => event.preventDefault());
 $shareFavorites.addEventListener('click', () => {
   updateShareDialog();
   $shareDialog.showModal();
   requestAnimationFrame(() => $shareClose.focus());
+});
+$removeSharedPage.addEventListener('click', async () => {
+  if (!activeSharedUserId || !(await confirmAction('Vill du ta bort den delade sidan?'))) return;
+  await removeSharedPage(activeSharedUserId);
+  document.body.classList.remove('shared-page');
+  setActive('program');
 });
 $shareClose.addEventListener('click', () => $shareDialog.close());
 $shareDialog.addEventListener('click', (event) => {
   if (event.target === $shareDialog) $shareDialog.close();
 });
 $shareCopy.addEventListener('click', copyFavorites);
+$shareLinkToggle.addEventListener('change', () => {
+  localStorage.setItem('enableSharing', String($shareLinkToggle.checked));
+  $shareLinkCopy.disabled = !firebaseUser || !$shareLinkToggle.checked;
+  scheduleCloudSettingsSync(true);
+});
+$shareLinkCopy.addEventListener('click', copyShareLink);
 $infoButton.addEventListener('click', () => {
   $moreMenu.hidden = true;
   $moreMenuButton.setAttribute('aria-expanded', 'false');
@@ -1604,6 +1995,15 @@ $infoButton.addEventListener('click', () => {
 $infoClose.addEventListener('click', () => $infoDialog.close());
 $infoDialog.addEventListener('click', (event) => {
   if (event.target === $infoDialog) $infoDialog.close();
+});
+$reportErrorButton.addEventListener('click', () => {
+  $moreMenu.hidden = true;
+  $moreMenuButton.setAttribute('aria-expanded', 'false');
+  $reportErrorDialog.showModal();
+});
+$reportErrorClose.addEventListener('click', () => $reportErrorDialog.close());
+$reportErrorDialog.addEventListener('click', (event) => {
+  if (event.target === $reportErrorDialog) $reportErrorDialog.close();
 });
 $errorClose.addEventListener('click', () => $errorDialog.close());
 $errorDialog.addEventListener('click', (event) => {
@@ -1651,7 +2051,17 @@ $moreMenuButton.addEventListener('click', () => {
   toggleMoreMenu();
 });
 $loginButton.addEventListener('click', async () => {
-  await ensureFirebaseAuthentication();
+  if (openLoginDialogOnNextClick) {
+    openLoginDialogOnNextClick = false;
+    openAuthenticationDialog();
+    return;
+  }
+  const isReady = await ensureFirebaseAuthentication();
+  if (!isReady) return;
+  if (!firebaseUser) {
+    openAuthenticationDialog();
+    return;
+  }
   const willOpen = $userMenu.hidden;
   $userMenu.hidden = !willOpen;
   $loginButton.setAttribute('aria-expanded', String(willOpen));
@@ -1667,17 +2077,31 @@ $syncLoginLink.addEventListener('click', (event) => {
     if (isReady && !firebaseUser) openAuthenticationDialog();
   });
 });
+$shareLoginLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  if (firebaseUser) return;
+  ensureFirebaseAuthentication().then((isReady) => {
+    if (isReady && !firebaseUser) openAuthenticationDialog();
+  });
+});
 $logoutButton.addEventListener('click', async () => {
   if (!firebaseAuth) return;
   try {
     await firebaseAuth.signOut();
+    openLoginDialogOnNextClick = true;
+    settingsDocument = null;
+    updateAuthenticationUi(null);
     $userMenu.hidden = true;
     $loginButton.setAttribute('aria-expanded', 'false');
-    showActionAlert('Du är nu utloggad. Logga in igen om du vill synkronisera ändringar.');
+    $logoutDialog.showModal();
   } catch (error) {
     console.error('Firebase sign-out failed:', error);
     showError(`Utloggningen misslyckades: ${error?.message || error}`);
   }
+});
+$logoutClose.addEventListener('click', () => $logoutDialog.close());
+$logoutDialog.addEventListener('click', (event) => {
+  if (event.target === $logoutDialog) $logoutDialog.close();
 });
 $loginMenu.addEventListener('click', () => {
   $userMenu.hidden = true;
@@ -1685,9 +2109,27 @@ $loginMenu.addEventListener('click', () => {
   openAuthenticationDialog();
 });
 $removeUserData.addEventListener('click', removeUserData);
-$authClose.addEventListener('click', () => $authDialog.close());
-$authDialog.addEventListener('click', (event) => {
-  if (event.target === $authDialog) $authDialog.close();
+$authClose.addEventListener('click', () => {
+  finishRecentAuthentication(false);
+  $authDialog.close();
+});
+$authDialog.addEventListener('cancel', () => finishRecentAuthentication(false));
+$forgotPasswordButton.addEventListener('click', async () => {
+  if (!(await ensureFirebaseAuthentication())) return;
+  const email = $authEmail.value.trim();
+  if (!email) {
+    showAuthMessage('Ange din e-postadress först.');
+    $authEmail.focus();
+    return;
+  }
+  try {
+    showAuthMessage('Skickar återställningslänk...');
+    await firebaseAuth.sendPasswordResetEmail(email);
+    showAuthMessage('En återställningslänk har skickats till din e-postadress.');
+  } catch (error) {
+    console.error('Firebase password reset failed:', error);
+    showAuthMessage(error?.message || 'Återställningen av lösenordet misslyckades.');
+  }
 });
 $authForm.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -1698,13 +2140,25 @@ $authForm.addEventListener('submit', async (event) => {
   const password = $authPassword.value;
   try {
     showAuthMessage('Väntar...');
+    if (recentAuthenticationResolver) {
+      if (!firebaseUser) {
+        finishRecentAuthentication(false);
+        $authDialog.close();
+        return;
+      }
+      const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+      await firebaseUser.reauthenticateWithCredential(credential);
+      finishRecentAuthentication(true);
+      $authDialog.close();
+      return;
+    }
     if (action === 'register') {
       await firebaseAuth.createUserWithEmailAndPassword(email, password);
     } else {
       await firebaseAuth.signInWithEmailAndPassword(email, password);
     }
+    openLoginDialogOnNextClick = false;
     $authDialog.close();
-    showActionAlert('Du är nu inloggad. Dina favoritändringar sparas i molnet och synkroniseras automatiskt till andra enheter där du är inloggad.');
   } catch (error) {
     console.error('Firebase email authentication failed:', error);
     showAuthMessage(error?.message || 'Inloggningen misslyckades.');
@@ -1713,25 +2167,45 @@ $authForm.addEventListener('submit', async (event) => {
 $googleLoginButton.addEventListener('click', async () => {
   if (!(await ensureFirebaseAuthentication())) return;
   try {
+    if (recentAuthenticationResolver) {
+      if (!firebaseUser) {
+        finishRecentAuthentication(false);
+        $authDialog.close();
+        return;
+      }
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: 'select_account' });
+      await firebaseUser.reauthenticateWithPopup(provider);
+      finishRecentAuthentication(true);
+      $authDialog.close();
+      return;
+    }
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
     await firebaseAuth.signInWithPopup(provider);
+    openLoginDialogOnNextClick = false;
     $authDialog.close();
-    showActionAlert('Du är nu inloggad. Dina favoritändringar sparas i molnet och synkroniseras automatiskt till andra enheter där du är inloggad.');
   } catch (error) {
     console.error('Firebase Google authentication failed:', error);
     showAuthMessage(error?.message || 'Google-inloggningen misslyckades.');
   }
 });
 $programSortStart.addEventListener('click', () => {
-  if (activeTab === 'favorites') favoritesSortMode = 'start';
+  if (activeTab.startsWith('shared:')) sharedSortMode = 'start';
+  else if (activeTab === 'favorites') favoritesSortMode = 'start';
   else programSortMode = 'start';
   updateProgramSortControls();
   setActive(activeTab);
 });
 $programSortSeen.addEventListener('click', () => {
-  if (activeTab === 'favorites') favoritesSortMode = 'stars';
+  if (activeTab.startsWith('shared:')) sharedSortMode = 'local';
+  else if (activeTab === 'favorites') favoritesSortMode = 'stars';
   else programSortMode = 'updated';
+  updateProgramSortControls();
+  setActive(activeTab);
+});
+$programSortShared.addEventListener('click', () => {
+  sharedSortMode = 'shared';
   updateProgramSortControls();
   setActive(activeTab);
 });
@@ -1866,13 +2340,23 @@ async function main() {
     updateClearFiltersButton();
     updateFilterCount();
     updateTabCounts();
+    addSavedSharedTabs();
     setStatus();
-    setActive('program');
+    if (sharedUserId) await renderSharedPage();
+    else setActive('program');
     $listSubheaderRow.hidden = false;
   } catch (err) {
     showError('Failed to load events: ' + (err && err.message ? err.message : String(err)));
     console.error(err);
+    if (sharedUserId) {
+      if (err?.message === 'Den delade profilen kunde inte hittas.') await removeSharedPage(sharedUserId);
+      document.body.classList.remove('shared-page');
+      document.title = 'Uppsala Kulturnatt 2026';
+      setActive('program');
+    }
   }
 }
 
-main().finally(scheduleFirebaseIdleLoad);
+showStoredAuthenticationUi();
+scheduleFirebaseIdleLoad();
+main();
