@@ -268,7 +268,7 @@ function updateShareDialog() {
   $shareLinkBlock.setAttribute('aria-disabled', String(!firebaseUser));
   $shareLinkToggle.checked = sharedLinkEnabled;
   $shareLinkToggle.disabled = !firebaseUser;
-  $shareLink.textContent = sharedLink;
+  $shareLink.value = sharedLink;
   $shareLinkCopy.disabled = !firebaseUser || !sharedLinkEnabled;
   $shareLinkCopy.hidden = !canCopyText;
   $shareEmpty.hidden = count > 0;
@@ -290,6 +290,15 @@ function confirmAction(message) {
     $confirmDialog.addEventListener('close', handleClose);
     $confirmDialog.showModal();
     requestAnimationFrame(() => $confirmCancel.focus());
+  });
+}
+
+function selectShareField(event) {
+  const field = event.currentTarget;
+  requestAnimationFrame(() => {
+    field.focus({ preventScroll: true });
+    field.select();
+    field.setSelectionRange(0, field.value.length);
   });
 }
 
@@ -327,7 +336,7 @@ async function copyFavorites() {
   if ($shareCopy.disabled) return;
   try {
     await copyTextToClipboard($shareText.value);
-    $shareMessage.textContent = 'Favoriterna kopierades.';
+    $shareMessage.textContent = 'Texten kopierades.';
   } catch (error) {
     $shareMessage.textContent = error?.message || 'Texten kunde inte kopieras.';
   }
@@ -336,7 +345,7 @@ async function copyFavorites() {
 async function copyShareLink() {
   if ($shareLinkCopy.disabled) return;
   try {
-    await copyTextToClipboard($shareLink.textContent);
+    await copyTextToClipboard($shareLink.value);
     $shareMessage.textContent = 'Länken kopierades.';
   } catch (error) {
     $shareMessage.textContent = error?.message || 'Länken kunde inte kopieras.';
@@ -2015,6 +2024,10 @@ $shareDialog.addEventListener('click', (event) => {
   if (event.target === $shareDialog) $shareDialog.close();
 });
 $shareCopy.addEventListener('click', copyFavorites);
+$shareLink.addEventListener('focus', selectShareField);
+$shareLink.addEventListener('click', selectShareField);
+$shareText.addEventListener('focus', selectShareField);
+$shareText.addEventListener('click', selectShareField);
 $shareLinkToggle.addEventListener('change', () => {
   localStorage.setItem('enableSharing', String($shareLinkToggle.checked));
   $shareLinkCopy.disabled = !firebaseUser || !$shareLinkToggle.checked;

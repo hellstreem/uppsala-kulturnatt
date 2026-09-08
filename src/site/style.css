@@ -1516,21 +1516,33 @@ body.share-loading #status {
   pointer-events: none;
 }
 
+.share-field-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.share-text-row {
+  align-items: flex-start;
+}
+
 .share-link {
-  display: block;
+  box-sizing: border-box;
   width: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
+  min-width: 0;
+  padding: 5px 8px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  background: var(--detail-bg);
   color: var(--muted);
   font: inherit;
-  font-size: 0.85rem;
-  overflow-wrap: anywhere;
+  font-size: 0.75rem;
 }
 
 .share-text {
   width: 100%;
-  min-height: 8rem;
+  min-height: 7rem;
   resize: vertical;
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -1542,6 +1554,12 @@ body.share-loading #status {
   padding: 8px;
 }
 
+.share-field-row > .share-link,
+.share-field-row > .share-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .share-copy-button {
   justify-self: start;
   padding: 6px 10px;
@@ -1551,6 +1569,26 @@ body.share-loading #status {
   color: var(--input-text);
   cursor: pointer;
   font: inherit;
+}
+
+.share-copy-inline {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  vertical-align: baseline;
+}
+
+.share-copy-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 1.7rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .share-copy-button:disabled {

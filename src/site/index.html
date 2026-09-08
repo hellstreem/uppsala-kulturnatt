@@ -161,14 +161,21 @@
           <p class="share-help">Du behöver vara <a id="share-login-link" href="#login">inloggad</a> för att kunna dela en länk till dina favoriter.</p>
           <section id="share-link-block" class="share-block share-link-block" aria-labelledby="share-link-label">
             <label id="share-link-label" class="share-toggle"><input id="share-link-toggle" type="checkbox" /> Aktivera delad länk</label>
-            <span id="share-link" class="share-link" aria-label="Delad länk"></span>
-            <button id="share-link-copy" class="share-copy-button" type="button" disabled hidden>Kopiera länk</button>
+
+            <p id="share-link-help" class="share-help">Kopiera länken nedan för att dela dina favoriter.</p>
+
+            <div class="share-field-row">
+              <input id="share-link" class="share-link" type="url" readonly aria-label="Delad länk" />
+              <button id="share-link-copy" class="share-copy-button share-copy-icon" type="button" aria-label="Kopiera delad länk" title="Kopiera delad länk" disabled hidden><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
+            </div>
           </section>
           <section class="share-block" aria-labelledby="share-text-label">
             <p id="share-text-label" class="share-help">Du kan också kopiera texten nedan och klistra in den där du vill dela dina favoriter.</p>
             <p id="share-empty" class="share-help" hidden>Du har inga favoritevenemang att dela ännu.</p>
-            <textarea id="share-text" class="share-text" readonly aria-label="Text att dela"></textarea>
-            <button id="share-copy" class="share-copy-button" type="button" hidden>Kopiera text</button>
+            <div class="share-field-row share-text-row">
+              <textarea id="share-text" class="share-text" readonly aria-label="Text att dela"></textarea>
+              <button id="share-copy" class="share-copy-button share-copy-icon" type="button" aria-label="Kopiera delningstext" title="Kopiera delningstext" hidden><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
+            </div>
           </section>
         </div>
         <p id="share-message" class="share-message" role="status" aria-live="polite"></p>
