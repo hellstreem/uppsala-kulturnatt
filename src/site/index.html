@@ -211,10 +211,10 @@
           </label>
         </div>
         <div class="filter-header">
-          <div id="selected-filters" class="selected-filters" aria-live="polite"></div>
-          <button id="finished-visibility-inline" class="clear-filter-link" type="button">Visa avslutade</button>
-          <span id="filter-row-divider" hidden> | </span>
-          <button id="clear-filters" class="clear-filter-link" type="button" disabled>Rensa filter</button>
+          <span id="selected-filters" class="selected-filters" aria-live="polite">
+            <a id="clear-filters" class="clear-filter-link filter-icon-link" href="#clear-filters" aria-label="Rensa filter" title="Rensa filter" hidden><i class="fa-solid fa-trash-can" aria-hidden="true"></i></a>
+            <a id="finished-visibility-inline" class="clear-filter-link" href="#finished-visibility"></a>
+          </span>
         </div>
       </div>
     </header>

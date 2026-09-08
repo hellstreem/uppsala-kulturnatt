@@ -79,7 +79,6 @@ let recentAuthenticationResolver = null;
 const $list = document.getElementById('list');
 const $search = document.getElementById('event-search');
 const $clearFilters = document.getElementById('clear-filters');
-const $filterRowDivider = document.getElementById('filter-row-divider');
 const $childrenFilter = document.getElementById('children-filter');
 const $adultsFilter = document.getElementById('adults-filter');
 const $freeFilter = document.getElementById('free-filter');
@@ -229,7 +228,7 @@ function liveEvents(events, currentTime) {
 
 function updateFinishedVisibilityLink() {
   const label = hideFinishedEvents ? 'Visa avslutade evenemang' : 'Dölj avslutade evenemang';
-  $finishedVisibilityInline.textContent = hideFinishedEvents ? 'Visa avslutade' : 'Dölj avslutade';
+  $finishedVisibilityInline.textContent = hideFinishedEvents ? '(visa)' : '(dölj)';
   $finishedVisibilityInline.setAttribute('aria-label', label);
   $finishedVisibilityInline.title = label;
 }
@@ -1160,8 +1159,7 @@ function createCategoryChip(category) {
 
 function updateClearFiltersButton() {
   const hasFilters = Boolean($search.value || $childrenFilter.checked || $adultsFilter.checked || $freeFilter.checked || $paidFilter.checked || $fromFilter.value || $toFilter.value || multiFilters.some((filter) => selectedFilterValues(filter).length > 0));
-  $clearFilters.disabled = !hasFilters;
-  $filterRowDivider.hidden = !hasFilters;
+  $clearFilters.hidden = !hasFilters;
 }
 
 function updateFilterCount() {
@@ -1189,14 +1187,19 @@ function updateSelectedFilters(filteredEventCount) {
   for (const filter of multiFilters) selectedFilters.push(...selectedFilterValues(filter).map((value) => displayFilterValue(filter, value)));
   if ($fromFilter.value) selectedFilters.push(`Från ${$fromFilter.value}`);
   if ($toFilter.value) selectedFilters.push(`Till ${$toFilter.value}`);
-  const finishedVisibilityText = hideFinishedEvents ? 'dölj avslutade' : 'visa avslutade';
-  const selectedFilterText = `${selectedFilters.length > 0 ? selectedFilters.join(', ') : 'Inga'} + ${finishedVisibilityText}`;
+  const selectedFilterText = `${selectedFilters.length > 0 ? selectedFilters.join(' | ') : 'Inga'} +${hideFinishedEvents ? ' Dölj avslutade ' : ' Visa avslutade '}`;
   $selectedFilters.replaceChildren();
   const label = document.createElement('span');
   label.textContent = 'Filter:';
   const values = document.createElement('span');
-  values.textContent = ` ${selectedFilterText} (${filteredEventCount})`;
-  $selectedFilters.append(label, values);
+  values.textContent = ` ${selectedFilterText}`;
+  const count = document.createElement('span');
+  count.textContent = ` (${filteredEventCount})`;
+  const summary = document.createElement('span');
+  summary.className = 'filter-summary';
+  summary.append(label, values, $finishedVisibilityInline, count, $clearFilters);
+  $selectedFilters.append(summary);
+  updateClearFiltersButton();
 }
 
 function languageCountryCode(language) {
@@ -1933,7 +1936,7 @@ function setActive(tab) {
   $activeTabHeading.textContent = `${tabIcon(tab)} ${tabTooltip(tab)}`;
   let tabInformation =
     {
-      program: 'Glöm inte att även titta på delevenemang i menyn ovan. Dessa programpunkter har identifierats i evenemangets beskrivning och gör det enklare att hitta favoritevenemang.',
+      program: 'Se även delevenemang i menyn ovan. Dessa programpunkter har identifierats i evenemangets beskrivning.',
       subevents: 'Nedan visas programpunkter som har identifierats i evenemangets beskrivning. Kategorin kan vara felaktig eftersom den baseras på texttolkning.',
       recent: 'Evenemang som har startat de senaste 15 minuterna.',
       soon: 'Evenemang som startar inom de närmaste 45 minuterna.',
@@ -2060,7 +2063,10 @@ $actionAlertClose.addEventListener('click', closeActionAlert);
 $confirmDialog.addEventListener('click', (event) => {
   if (event.target === $confirmDialog) $confirmDialog.close('cancel');
 });
-$finishedVisibilityInline.addEventListener('click', toggleFinishedVisibility);
+$finishedVisibilityInline.addEventListener('click', (event) => {
+  event.preventDefault();
+  toggleFinishedVisibility();
+});
 $themeToggle.addEventListener('click', () => {
   setTheme(document.body.dataset.theme === 'light' ? 'dark' : 'light');
 });
@@ -2311,7 +2317,8 @@ for (const timeFilter of [$fromFilter, $toFilter]) {
     setActive(activeTab);
   });
 }
-$clearFilters.addEventListener('click', () => {
+$clearFilters.addEventListener('click', (event) => {
+  event.preventDefault();
   $search.value = '';
   $childrenFilter.checked = false;
   $adultsFilter.checked = false;
