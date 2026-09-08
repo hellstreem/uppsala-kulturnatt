@@ -31643,5 +31643,341 @@
     "updateStatus": "new",
     "sortKeyTime": 524,
     "sortKeyUpdated": 6
+  },
+  {
+    "id": "d76701a1-298e-49fe-b3db-30f3c2e05a47",
+    "title": "Livemusik och utställning på Ungdomens hus",
+    "titleEnglish": "Live music and exhibition at Ungdomens hus",
+    "about": "Vi har livespelning, konstutställning och klädbyte på Ungdomens hus mellan 13-18! Välkommen!",
+    "aboutEnglish": "Welcome to live performances, artexhibition and clothing swap at Ungdomens hus!",
+    "aboutShort": "Livespelning, utställning och klädbyte på Ungdomens hus",
+    "aboutShortEnglish": "",
+    "organizer": "Ungdomens hus",
+    "startTime": "2026-09-12T11:00:00+00:00",
+    "endTime": "2026-09-12T16:00:00+00:00",
+    "webpage": "",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "Studentvägen 25",
+    "streetAddress": "",
+    "postalCode": "Uppsala",
+    "city": "75234",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.8541757,
+      "longitude": 17.6139213
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=d76701a1-298e-49fe-b3db-30f3c2e05a47",
+    "checked": 1788815942926,
+    "type": "event",
+    "categoryNames": [
+      "Konst",
+      "Musik"
+    ],
+    "languageNames": [
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [],
+    "created": 1788815942926,
+    "updated": 1788815942926,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 208,
+    "sortKeyUpdated": 1
+  },
+  {
+    "id": "013ec035-17b0-4f0e-b260-736368d3e87e",
+    "title": "Gatufotopromenad",
+    "titleEnglish": "Street photography walk",
+    "about": "Ta chansen att testa gatufoto! Under Kulturnatten ordnar vi två gatufotopromenader för den som är nyfiken på det och vill prova på under ledning av erfarna gatufotografer. Just Kulturnatten är dessutom en väldigt bra tid för gatufoto då det händer mycket i hela staden.\r\nSamling utanför Uppsala fotografiska sällskap, Övre Slottsgatan 14A. Start: 13:30 och 19:30.",
+    "aboutEnglish": "Take the chance to try street photography! During Culture Night we are organizing two street photography walks for those who are curious about it and want to try it out under the guidance of experienced street photographers. Culture Night is also a very good time for street photography as there is a lot happening all over the city.\r\nMeeting outside the Uppsala photographic society's premises, Övre Slottsgatan 14A. Start: 1:30 PM and 7:30 PM.",
+    "aboutShort": "Två gatufotopromenader för den som är nyfiken på det och vill prova på. ",
+    "aboutShortEnglish": "",
+    "organizer": "Uppsala fotografiska sällskap",
+    "startTime": "2026-09-12T11:30:00+00:00",
+    "endTime": "2026-09-12T12:30:00+00:00",
+    "webpage": "https://uppsalafotografiska.se",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a001",
+    "locationAlias": "Uppsala fotografiska sällskap",
+    "streetAddress": "Övre Slottsgatan 14A",
+    "postalCode": "Uppsala",
+    "city": "753 10",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.85692244627338,
+      "longitude": 17.628651171518765
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=013ec035-17b0-4f0e-b260-736368d3e87e",
+    "checked": 1788815942926,
+    "type": "event",
+    "categoryNames": [
+      "Konst",
+      "Workshop och prova på"
+    ],
+    "languageNames": [
+      "Engelska",
+      "Svenska",
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "\n                    Utomhus\n                "
+    ],
+    "accessibilityNames": [],
+    "created": 1788815942926,
+    "updated": 1788815942926,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 238,
+    "sortKeyUpdated": 2
+  },
+  {
+    "id": "a29c79f1-47ce-4433-a916-d4ecc88fc99d",
+    "title": "Visning av höstsalongen",
+    "titleEnglish": "",
+    "about": "Välkomna ner till oss och titta på årets höstsalong på Kulturnatten – då har vi en extra lång visning i sex timmar! Det är ett stort gäng medlemmar som satt upp sina fotografiska verk på väggarna i galleriet. Det är en blandning av digitalt och analogt, allt från natur och makro till gatufoto, monokromt och i färg.\r\n\r\nUtställare i bokstavsordning:\r\nAmy Wang, Anna Lundgren, Caroline Kivi, Dennis Älvebratt, Elina Immonen, Fredrik Wallgren, Harald Cederlund, Harald Reif, Ingegerd Boström Carlsson, Johanna Liljestrand Rönn, Jonas Evertsson, Jonny Älvebratt, Jordi Pujol, Kristina Smith, Marina Spoverud Älvebratt och Peter Burman.\r\n\r\nHoppas vi ses!",
+    "aboutEnglish": "",
+    "aboutShort": "Besök årets höstsalong och se aktuell fotokonst. ",
+    "aboutShortEnglish": "",
+    "organizer": "Uppsala fotografiska sällskap",
+    "startTime": "2026-09-12T14:00:00+00:00",
+    "endTime": "2026-09-12T20:00:00+00:00",
+    "webpage": "https://uppsalafotografiska.se/",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "Uppsala fotografiska sällskap",
+    "streetAddress": "Övre Slottsgatan 14A",
+    "postalCode": "Uppsala",
+    "city": "75310",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.85692244627338,
+      "longitude": 17.628651171518765
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=a29c79f1-47ce-4433-a916-d4ecc88fc99d",
+    "checked": 1788815942926,
+    "type": "event",
+    "categoryNames": [
+      "Konst",
+      "Öppet hus och visning"
+    ],
+    "languageNames": [
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [
+      "Tillgänglighet för synskadade"
+    ],
+    "created": 1788815942926,
+    "updated": 1788815942926,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 424,
+    "sortKeyUpdated": 3
+  },
+  {
+    "id": "02607d07-296a-43af-9bb7-413043bf02ec",
+    "title": "Cyanotypi – från bestrykning till toning",
+    "titleEnglish": "",
+    "about": "Välkomna till en cyanotypidemonstration där du kommer få se hur ett cyanotypiverk växer fram, från förberedelser av papper till belysning och framkallning.\nJohanna Liljestrand Rönn visar också hur du kan fortsätta jobba med bilden efter den är färdig.\nHon visar olika toningsbad och ger exempel på vilka växter du kan använda för att ändra färgen på din bild.",
+    "aboutEnglish": "",
+    "aboutShort": "Testa att göra en egen bild med cyanotypi, en av de äldsta fotografiska teknikerna. ",
+    "aboutShortEnglish": "",
+    "organizer": "Uppsala fotografiska sällskap",
+    "startTime": "2026-09-12T16:00:00+00:00",
+    "endTime": "2026-09-12T17:00:00+00:00",
+    "webpage": "https://uppsalafotografiska.se",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "Uppsala fotografiska sällskap",
+    "streetAddress": "Övre Slottsgatan 14A",
+    "postalCode": "Uppsala",
+    "city": "75310",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.85692244627338,
+      "longitude": 17.628651171518765
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=02607d07-296a-43af-9bb7-413043bf02ec",
+    "checked": 1788815942926,
+    "type": "event",
+    "categoryNames": [
+      "Konst",
+      "Workshop och prova på"
+    ],
+    "languageNames": [
+      "Svenska"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [
+      "Tillgänglighet för synskadade",
+      "God miljö för hörselskadade"
+    ],
+    "created": 1788815942926,
+    "updated": 1788815942926,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 517,
+    "sortKeyUpdated": 4
+  },
+  {
+    "id": "44087274-7a1e-4cc7-b071-8633736bd057",
+    "title": "Workshoppar i Cyanotypi",
+    "titleEnglish": "Workshops in Cyanotype",
+    "about": "Cyanotypi är ett nästan urgammalt, kreativt och enkelt sätt att göra fotografiska bilder. Våra tre workshop-instruktörer visar men kan även handleda besökare i att göra cyanotypier på akvarellpapper. Begränsat antal. Anmälan sker på plats innan start från kl. 17:00. Första passet av fem startar 18:00 , därefter 19:00 och 20:00.",
+    "aboutEnglish": "Cyanotype is an almost ancient, creative and simple way of making photographic images. Our three workshop instructors will show but can also guide visitors in making cyanotypes on watercolor paper. Limited numbers. Registration takes place on site before the start from 5:00 PM. The first session of five starts at 6:00 PM, then 7:00 PM and 8:00 PM.",
+    "aboutShort": "Cyanotypi är ett urgammalt, kreativt och enkelt sätt att göra fotografiska bilder på akvarellpapper.",
+    "aboutShortEnglish": "",
+    "organizer": "Uppsala fotografiska sällskap",
+    "startTime": "2026-09-12T16:00:00+00:00",
+    "endTime": "2026-09-12T18:00:00+00:00",
+    "webpage": "https://uppsalafotografiska.se/",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "Uppsala fotografiska sällskap",
+    "streetAddress": "Övre Slottsgatan 14A",
+    "postalCode": "Uppsala",
+    "city": "75310",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.85692244627338,
+      "longitude": 17.628651171518765
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=44087274-7a1e-4cc7-b071-8633736bd057",
+    "checked": 1788815942926,
+    "type": "event",
+    "categoryNames": [
+      "Konst",
+      "Workshop och prova på"
+    ],
+    "languageNames": [
+      "Engelska",
+      "Svenska",
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [],
+    "created": 1788815942926,
+    "updated": 1788815942926,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 526,
+    "sortKeyUpdated": 5
+  },
+  {
+    "id": "5ef50e06-70f6-474b-94ca-2ccbbdceed80",
+    "title": "Cyanotypi – från bestrykning till toning",
+    "titleEnglish": "",
+    "about": "Välkomna till en cyanotypidemonstration där du kommer få se hur ett cyanotypiverk växer fram, från förberedelser av papper till belysning och framkallning.\nJohanna Liljestrand Rönn visar också hur du kan fortsätta jobba med bilden efter den är färdig.\nHon visar olika toningsbad och ger exempel på vilka växter du kan använda för att ändra färgen på din bild.",
+    "aboutEnglish": "",
+    "aboutShort": "Testa att göra en egen bild med cyanotypi, en av de äldsta fotografiska teknikerna. ",
+    "aboutShortEnglish": "",
+    "organizer": "Uppsala fotografiska sällskap",
+    "startTime": "2026-09-12T17:00:00+00:00",
+    "endTime": "2026-09-12T18:00:00+00:00",
+    "webpage": "https://uppsalafotografiska.se",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "Uppsala fotografiska sällskap",
+    "streetAddress": "Övre Slottsgatan 14A",
+    "postalCode": "Uppsala",
+    "city": "75310",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.85692244627338,
+      "longitude": 17.628651171518765
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=5ef50e06-70f6-474b-94ca-2ccbbdceed80",
+    "checked": 1788815942926,
+    "type": "event",
+    "categoryNames": [
+      "Konst",
+      "Workshop och prova på"
+    ],
+    "languageNames": [
+      "Svenska"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [
+      "Tillgänglighet för synskadade",
+      "God miljö för hörselskadade"
+    ],
+    "created": 1788815942926,
+    "updated": 1788815942926,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 564,
+    "sortKeyUpdated": 6
+  },
+  {
+    "id": "71093cbe-1711-45cd-9dc6-14c543be084c",
+    "title": "Gatufotopromenad",
+    "titleEnglish": "Street photography walk",
+    "about": "Ta chansen att testa gatufoto! Under Kulturnatten ordnar vi två gatufotopromenader för den som är nyfiken på det och vill prova på under ledning av erfarna gatufotografer. Just Kulturnatten är dessutom en väldigt bra tid för gatufoto då det händer mycket i hela staden. Samling utanför Uppsala fotografiska sällskap, Övre Slottsgatan 14A. Start: 13:30 och 19:30.",
+    "aboutEnglish": "Take the chance to try street photography! During Culture Night we are organizing two street photography walks for those who are curious about it and want to try it out under the guidance of experienced street photographers. Culture Night is also a very good time for street photography as there is a lot happening all over the city. Meeting outside the Uppsala photographic society's premises, Övre Slottsgatan 14A. Start: 1:30 PM and 7:30 PM.",
+    "aboutShort": "Gatufotopromenad för den som är nyfiken på det och vill prova på. ",
+    "aboutShortEnglish": "",
+    "organizer": "Uppsala fotografiska sällskap",
+    "startTime": "2026-09-12T17:30:00+00:00",
+    "endTime": "2026-09-12T19:00:00+00:00",
+    "webpage": "https://uppsalafotografiska.se",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a001",
+    "locationAlias": "Uppsala fotografiska sällskap",
+    "streetAddress": "Övre Slottsgatan 14A",
+    "postalCode": "Uppsala",
+    "city": "75310",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.85692244627338,
+      "longitude": 17.628651171518765
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=71093cbe-1711-45cd-9dc6-14c543be084c",
+    "checked": 1788815942926,
+    "type": "event",
+    "categoryNames": [
+      "Konst",
+      "Workshop och prova på"
+    ],
+    "languageNames": [
+      "Engelska",
+      "Svenska",
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "\n                    Utomhus\n                "
+    ],
+    "accessibilityNames": [],
+    "created": 1788815942926,
+    "updated": 1788815942926,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 592,
+    "sortKeyUpdated": 7
   }
 ]
