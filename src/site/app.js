@@ -1056,6 +1056,10 @@ function addSavedSharedTabs() {
   for (const page of loadSharedPages()) addSharedTab(page.userId, page.identity);
 }
 
+function isKnownTab(tab) {
+  return Object.prototype.hasOwnProperty.call(tabs, tab) || Array.from($tabSelect.options).some((option) => option.value === tab);
+}
+
 function coordinatesToMapQuery(coordinates) {
   if (!coordinates || typeof coordinates !== 'object') return null;
 
@@ -2006,7 +2010,7 @@ function setActive(tab, preserveScroll = false) {
   $list.hidden = false;
   $listSubheaderRow.hidden = false;
   activeTab = tab;
-  if (Object.prototype.hasOwnProperty.call(tabs, tab)) localStorage.setItem(LAST_SELECTED_TAB_KEY, tab);
+  if (isKnownTab(tab)) localStorage.setItem(LAST_SELECTED_TAB_KEY, tab);
   if (tabChanged) window.scrollTo({ top: 0, behavior: 'auto' });
   $tabSelect.value = tab;
   $removeSharedPage.hidden = !tab.startsWith('shared:');
@@ -2475,8 +2479,12 @@ async function main() {
     if (sharedUserId) await renderSharedPage();
     else {
       const savedTab = localStorage.getItem(LAST_SELECTED_TAB_KEY);
-      const initialTab = savedTab && Object.prototype.hasOwnProperty.call(tabs, savedTab) ? savedTab : 'program';
-      setActive(initialTab);
+      const initialTab = savedTab && isKnownTab(savedTab) ? savedTab : 'program';
+      if (initialTab.startsWith('shared:')) {
+        const savedUserId = decodeURIComponent(initialTab.slice('shared:'.length));
+        if (await loadSharedFavorites(savedUserId)) setActive(initialTab);
+        else setActive('program');
+      } else setActive(initialTab);
     }
     $listSubheaderRow.hidden = false;
   } catch (err) {
