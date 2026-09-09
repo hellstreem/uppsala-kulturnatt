@@ -2104,6 +2104,8 @@ $confirmDialog.addEventListener('click', (event) => {
 $finishedVisibilityInline.addEventListener('click', (event) => {
   event.preventDefault();
   toggleFinishedVisibility();
+  $moreMenu.hidden = true;
+  $moreMenuButton.setAttribute('aria-expanded', 'false');
 });
 $themeToggle.addEventListener('click', () => {
   setTheme(document.body.dataset.theme === 'light' ? 'dark' : 'light');
