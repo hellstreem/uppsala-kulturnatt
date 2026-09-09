@@ -1781,7 +1781,7 @@ async function renderList(events, favorites = loadFavorites()) {
       if (!details.hidden) {
         requestAnimationFrame(() => {
           if (details.hidden || openCard !== card) return;
-          const offset = $header.getBoundingClientRect().height + 4;
+          const offset = $header.getBoundingClientRect().bottom + 4;
           const cardTop = card.getBoundingClientRect().top;
           if (cardTop < offset || cardTop > window.innerHeight) {
             window.scrollTo({ top: cardTop + window.scrollY - offset, behavior: 'smooth' });
