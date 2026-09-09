@@ -307,6 +307,34 @@ function selectShareField(event) {
   });
 }
 
+function showDebug(message, details = '') {
+  let panel = document.getElementById('debug-panel');
+  if (!panel) {
+    panel = document.createElement('pre');
+    panel.id = 'debug-panel';
+    Object.assign(panel.style, {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      right: '0',
+      zIndex: '99999',
+      margin: '0',
+      padding: '4px 6px',
+      maxHeight: '120px',
+      overflow: 'auto',
+      background: '#111',
+      color: '#0f0',
+      font: '11px/1.3 monospace',
+      whiteSpace: 'pre-wrap',
+      opacity: '0.9',
+      pointerEvents: 'none',
+    });
+    document.body.prepend(panel);
+  }
+  const timestamp = new Date().toLocaleTimeString();
+  panel.textContent += `[${timestamp}] ${message}\n${details}\n`;
+}
+
 function hideShareToast() {
   window.clearTimeout(shareToastTimer);
   shareToastTimer = null;
@@ -338,27 +366,25 @@ function copyTextWithFallback(text) {
 }
 
 function copyToClipboard(text, successMessage, failureMessage) {
-  window.alert(text);
-  if (navigator.clipboard?.writeText) {
-    window.alert('navigator');
-    navigator.clipboard.writeText(text).then(
-      () => {
-        $shareMessage.textContent = `${successMessage}.`;
-        showShareToast(`${successMessage}!`);
-      },
-      () => {
-        $shareMessage.textContent = failureMessage;
-      },
-    );
+  showDebug('copyToClipboard called', `Text length: ${text.length}`);
+  showDebug('Clipboard state', `Secure context: ${window.isSecureContext}\nClipboard API: ${Boolean(navigator.clipboard?.writeText)}`);
+  if (!navigator.clipboard?.writeText) {
+    showDebug('Clipboard API unavailable');
+    $shareMessage.textContent = failureMessage;
     return;
   }
-  window.alert('copyTextWithFallback');
-  if (copyTextWithFallback(text)) {
-    $shareMessage.textContent = `${successMessage}.`;
-    showShareToast(`${successMessage}!`);
-  } else {
-    $shareMessage.textContent = failureMessage;
-  }
+
+  navigator.clipboard.writeText(text).then(
+    () => {
+      showDebug('Clipboard write succeeded');
+      $shareMessage.textContent = `${successMessage}.`;
+      showShareToast(`${successMessage}!`);
+    },
+    (error) => {
+      showDebug('Clipboard write failed', error?.message || String(error));
+      $shareMessage.textContent = failureMessage;
+    },
+  );
 }
 
 function copyFavorites() {
@@ -2461,6 +2487,7 @@ async function main() {
   }
 }
 
+showDebug('Debug panel ready');
 showStoredAuthenticationUi();
 scheduleFirebaseIdleLoad();
 main();
