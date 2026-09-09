@@ -1146,6 +1146,7 @@ function addCategoryFilter(category) {
   updateClearFiltersButton();
   updateFilterCount();
   setActive(activeTab);
+  window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
 function createCategoryChip(category) {
