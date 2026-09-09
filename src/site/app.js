@@ -266,7 +266,7 @@ function updateShareDialog() {
   const favorites = loadFavorites();
   const events = favoriteEvents(favorites);
   const count = events.length;
-  const sharedLink = firebaseUser ? `https://${window.location.host}/share/${firebaseUser.uid}` : '';
+  const sharedLink = firebaseUser ? `https://${window.location.host}/share/${firebaseUser.uid}/` : '';
   const storedSharing = localStorage.getItem('enableSharing');
   const sharedLinkEnabled = storedSharing === null ? localStorage.getItem('shareLinkEnabled') === 'true' : storedSharing === 'true';
   $shareLinkBlock.classList.toggle('share-link-block-disabled', !firebaseUser);
@@ -522,7 +522,7 @@ function saveSharedPage(userId, identity) {
   pages.unshift({
     userId,
     identity,
-    url: `${window.location.origin}/share/${encodeURIComponent(userId)}`,
+    url: `https://${window.location.host}/share/${encodeURIComponent(userId)}/`,
   });
   localStorage.setItem('sharedPages', JSON.stringify(pages));
   return scheduleCloudSettingsSync(true);
@@ -2115,7 +2115,7 @@ $shareText.addEventListener('click', selectShareField);
 $shareLinkToggle.addEventListener('change', () => {
   localStorage.setItem('enableSharing', String($shareLinkToggle.checked));
   $shareLinkCopy.disabled = !firebaseUser || !$shareLinkToggle.checked;
-  $shareLink.textContent = $shareLinkToggle.checked ? `https://${window.location.host}/share/${firebaseUser?.uid || ''}` : '<Aktivera delning för att visa länk här>';
+  $shareLink.textContent = $shareLinkToggle.checked ? `https://${window.location.host}/share/${firebaseUser?.uid || ''}/` : '<Aktivera delning för att visa länk här>';
   scheduleCloudSettingsSync(true);
 });
 $shareLinkCopy.addEventListener('click', copyShareLink);
