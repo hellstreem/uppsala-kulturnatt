@@ -338,7 +338,9 @@ function copyTextWithFallback(text) {
 }
 
 function copyToClipboard(text, successMessage, failureMessage) {
+  window.alert(text);
   if (navigator.clipboard?.writeText) {
+    window.alert('navigator');
     navigator.clipboard.writeText(text).then(
       () => {
         $shareMessage.textContent = `${successMessage}.`;
@@ -350,6 +352,7 @@ function copyToClipboard(text, successMessage, failureMessage) {
     );
     return;
   }
+  window.alert('copyTextWithFallback');
   if (copyTextWithFallback(text)) {
     $shareMessage.textContent = `${successMessage}.`;
     showShareToast(`${successMessage}!`);
