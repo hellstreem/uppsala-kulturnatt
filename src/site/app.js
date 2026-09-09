@@ -1719,6 +1719,7 @@ async function renderList(events, favorites = loadFavorites()) {
       removeFavoriteButton.innerHTML = '<i class="fa-solid fa-trash-can" aria-hidden="true"></i>';
       removeFavoriteButton.addEventListener('click', async (event) => {
         event.stopPropagation();
+        event.currentTarget.blur();
         if (!(await confirmAction('Vill du ta bort evenemanget från dina favoriter?'))) return;
         await removeFavorite(myid);
         updateTabCounts();
