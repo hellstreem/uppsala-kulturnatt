@@ -308,6 +308,8 @@ function selectShareField(event) {
 }
 
 function showDebug(message, details = '') {
+  if (!debugEnabled) return;
+
   let panel = document.getElementById('debug-panel');
   if (!panel) {
     panel = document.createElement('pre');
@@ -331,6 +333,7 @@ function showDebug(message, details = '') {
     });
     document.body.prepend(panel);
   }
+  panel.hidden = false;
   const timestamp = new Date().toLocaleTimeString();
   panel.textContent += `[${timestamp}] ${message}\n${details}\n`;
 }
