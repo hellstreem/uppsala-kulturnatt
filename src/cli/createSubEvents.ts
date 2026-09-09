@@ -53,7 +53,7 @@ async function main() {
     return;
   }
 
-  const outSubs: { type: string; id: string; parentEventId: string | null; parentTitle: string; title: string; startTimeText: string; endTimeText?: string | null; startTime?: string; endTime?: string | null }[] = [];
+  const outSubs: { type: string; id: string; parentEventId: string | null; parentTitle: string; title: string; about: string; aboutCopy?: string; aboutHeader?: string; aboutTitles?: { startTime: string; endTime?: string | null; title: string }[]; aboutSlim?: string; aboutSlimNoExtraInfo?: string; aboutSlimMyExtraInfo?: string; aboutCalculated?: string; aboutCalculated2?: string; aboutSubEvent?: string; extraInfo?: string; extraInfo2?: string; startTimeText: string; endTimeText?: string | null; startTime?: string; endTime?: string | null }[] = [];
   const nonSubs: any[] = [];
   let totalFound = 0;
 
@@ -69,7 +69,7 @@ async function main() {
       nonSubs.push({ type: 'event', title: ev.title ?? '', about: ev.about ?? '' });
     }
     for (const s of subs) {
-      outSubs.push({ type: 'subEvent', id: s.id, parentEventId: ev.id ?? ev.value ?? null, parentTitle: ev.title ?? '', title: s.title, startTimeText: s.startTimeText, endTimeText: s.endTimeText ?? null, startTime: s.startTime ?? undefined, endTime: s.endTime ?? null });
+      outSubs.push({ type: 'subEvent', id: s.id, parentEventId: ev.id ?? ev.value ?? null, parentTitle: ev.title ?? '', title: s.title, about: ev.about ?? '', aboutCopy: s.aboutCopy, aboutHeader: s.aboutHeader, aboutTitles: s.aboutTitles, aboutSlim: s.aboutSlim, aboutSlimNoExtraInfo: s.aboutSlimNoExtraInfo, aboutSlimMyExtraInfo: s.aboutSlimMyExtraInfo, aboutCalculated: s.aboutCalculated, aboutCalculated2: s.aboutCalculated2, aboutSubEvent: s.aboutSubEvent, extraInfo: s.extraInfo, extraInfo2: s.extraInfo2, startTimeText: s.startTimeText, endTimeText: s.endTimeText ?? null, startTime: s.startTime ?? undefined, endTime: s.endTime ?? null });
       totalFound++;
     }
   } else {
@@ -79,7 +79,7 @@ async function main() {
         nonSubs.push({ type: 'event', title: ev.title ?? '', about: ev.about ?? '' });
       }
       for (const s of subs) {
-        outSubs.push({ type: 'subEvent', id: s.id, parentEventId: ev.id ?? ev.value ?? null, parentTitle: ev.title ?? '', title: s.title, startTimeText: s.startTimeText, endTimeText: s.endTimeText ?? null, startTime: s.startTime ?? undefined, endTime: s.endTime ?? null });
+        outSubs.push({ type: 'subEvent', id: s.id, parentEventId: ev.id ?? ev.value ?? null, parentTitle: ev.title ?? '', title: s.title, about: ev.about ?? '', aboutCopy: s.aboutCopy, aboutHeader: s.aboutHeader, aboutTitles: s.aboutTitles, aboutSlim: s.aboutSlim, aboutSlimNoExtraInfo: s.aboutSlimNoExtraInfo, aboutSlimMyExtraInfo: s.aboutSlimMyExtraInfo, aboutCalculated: s.aboutCalculated, aboutCalculated2: s.aboutCalculated2, aboutSubEvent: s.aboutSubEvent, extraInfo: s.extraInfo, extraInfo2: s.extraInfo2, startTimeText: s.startTimeText, endTimeText: s.endTimeText ?? null, startTime: s.startTime ?? undefined, endTime: s.endTime ?? null });
         totalFound++;
       }
     }

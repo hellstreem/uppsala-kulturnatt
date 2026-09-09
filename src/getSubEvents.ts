@@ -8,6 +8,17 @@ export interface SubEvent {
   // computed ISO timestamp (UTC) derived from global start and the text
   startTime?: string;
   endTime?: string | null;
+  aboutCopy?: string;
+  aboutHeader?: string;
+  aboutTitles?: { startTime: string; endTime?: string | null; title: string }[];
+  aboutSlim?: string;
+  aboutSlimNoExtraInfo?: string;
+  aboutSlimMyExtraInfo?: string;
+  aboutCalculated?: string;
+  aboutCalculated2?: string;
+  aboutSubEvent?: string;
+  extraInfo?: string;
+  extraInfo2?: string;
   raw?: string;
 }
 
@@ -57,14 +68,36 @@ function subEventId(parentEvent: any, subEvent: SubEvent) {
   return `${parentId}_${title}_${timestampFromStartTime(subEvent.startTime)}`;
 }
 
+function removeText(text: string, value: string) {
+  const pattern = value
+    .trim()
+    .split(/\s+/)
+    .map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('\\s+');
+  return pattern ? text.replace(new RegExp(pattern, 'gi'), '') : text;
+}
+
 export function getSubEvents(ev: any, allEvents: any[] = []): SubEvent[] {
   const about = ev && typeof ev.about === 'string' ? ev.about : undefined;
   if (!about) return [];
 
+  const aboutCopy = about
+    .replace(/Preliminärt schema:/gi, '')
+    .replace(/Program:\s*/gi, '')
+    .replace(/Livemusik i samarbete med Uppsala Musikarkiv:\s*/gi, '')
+    .replace(/_/g, '')
+    .replace(/\r\n?/g, '\n')
+    .replace(/\n\s+\n/g, '\n\n')
+    .replace(/ {2,}/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+    .replace(/ - /g, ' ');
+
   // preserve blank lines so we can use them to separate paragraphs
-  const lines = about.split(/\r?\n/).map((l: string) => l.trim());
+  const lines = aboutCopy.split('\n').map((l: string) => l.trim());
 
   const subs: SubEvent[] = [];
+  const parsedEntries: { sub: SubEvent; startLine: number }[] = [];
   // compute timezone offset for Europe/Stockholm at the festival date
   let tzOffsetMs = 0;
   try {
@@ -92,6 +125,7 @@ export function getSubEvents(ev: any, allEvents: any[] = []): SubEvent[] {
     tzOffsetMs = 0;
   }
   for (let i = 0; i < lines.length; i++) {
+    const scheduleStartLine = i;
     let ln = lines[i];
     // remove all '*' characters before attempting to parse times
     const cleanedLn = ln.replace(/\*/g, '');
@@ -222,7 +256,88 @@ export function getSubEvents(ev: any, allEvents: any[] = []): SubEvent[] {
 
       sub.id = subEventId(ev, sub);
       subs.push(sub);
+      parsedEntries.push({ sub, startLine: scheduleStartLine });
     }
+  }
+
+  const extraInfoBodies: string[] = [];
+  const aboutTitles = parsedEntries.map((entry) => ({
+    startTime: entry.sub.startTimeText,
+    endTime: entry.sub.endTimeText ?? null,
+    title: entry.sub.title,
+  }));
+  const firstEntry = parsedEntries[0];
+  const firstTime = firstEntry?.sub.startTimeText.trim() || '';
+  const firstTimeLine = firstEntry ? lines[firstEntry.startLine] : '';
+  const firstTimeOffset = firstTime && firstTimeLine ? firstTimeLine.indexOf(firstTime) : -1;
+  const aboutHeader = firstEntry && firstTimeOffset >= 0 ? `${lines.slice(0, firstEntry.startLine).join('\n')}${firstTimeOffset > 0 ? `\n${firstTimeLine.slice(0, firstTimeOffset)}` : ''}`.trim() : aboutCopy;
+  let aboutSlim = aboutCopy;
+  for (const entry of parsedEntries) {
+    if (entry.sub.raw) aboutSlim = removeText(aboutSlim, entry.sub.raw);
+  }
+  aboutSlim = aboutSlim
+    .replace(/Preliminärt schema:\s*/gi, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+
+  for (let index = 0; index < parsedEntries.length; index += 1) {
+    const entry = parsedEntries[index];
+    const nextStartLine = parsedEntries[index + 1]?.startLine ?? lines.length;
+    const blockLines = lines.slice(entry.startLine, nextStartLine);
+    for (let lineIndex = 0; lineIndex < blockLines.length - 1; lineIndex += 1) {
+      if (blockLines[lineIndex] !== '') continue;
+      const nextText = blockLines.slice(lineIndex + 1).find((line: string) => line !== '');
+      if (nextText && !tryParseTimeLine(nextText)) {
+        blockLines.length = lineIndex;
+        break;
+      }
+    }
+    const extraInfo = blockLines
+      .join('\n')
+      .replace(/_/g, '')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    const extraInfoBody = extraInfo.split('\n').slice(1).join('\n').trim();
+    const hasExtraInfo = entry.sub.title !== 'BBKK';
+    if (hasExtraInfo && extraInfoBody) extraInfoBodies.push(extraInfoBody);
+    entry.sub.extraInfo = hasExtraInfo ? extraInfo : undefined;
+    const extraInfoTitle = entry.sub.title.trim().toLocaleLowerCase();
+    const extraInfoText = extraInfo.trim().toLocaleLowerCase();
+    entry.sub.extraInfo2 = hasExtraInfo && extraInfoTitle && extraInfoText.endsWith(extraInfoTitle) ? '' : entry.sub.extraInfo;
+    entry.sub.aboutCopy = aboutCopy;
+    entry.sub.aboutHeader = aboutHeader;
+    entry.sub.aboutTitles = aboutTitles;
+    entry.sub.aboutSlim = aboutSlim;
+  }
+  const aboutSlimNoExtraInfo = extraInfoBodies.reduce((text, body) => removeText(text, body), aboutSlim).trim();
+  const aboutSlimNoExtraInfoLines = aboutSlimNoExtraInfo.split('\n');
+  const titleKeys = new Set(parsedEntries.map((entry) => entry.sub.title.trim().replace(/\s+/g, ' ').toLocaleLowerCase()).filter(Boolean));
+  const titleBlocks: { start: number; end: number; key: string }[] = [];
+  for (let lineIndex = 0; lineIndex < aboutSlimNoExtraInfoLines.length; lineIndex += 1) {
+    const key = aboutSlimNoExtraInfoLines[lineIndex].trim().replace(/\s+/g, ' ').toLocaleLowerCase();
+    if (!titleKeys.has(key)) continue;
+    titleBlocks.push({ start: lineIndex, end: aboutSlimNoExtraInfoLines.length, key });
+    if (titleBlocks.length > 1) titleBlocks[titleBlocks.length - 2].end = lineIndex;
+  }
+  const aboutSlimMyExtraInfo = (currentTitle: string) => {
+    const currentKey = currentTitle.trim().replace(/\s+/g, ' ').toLocaleLowerCase();
+    const currentBlock = titleBlocks.find((block) => block.key === currentKey);
+    if (!currentBlock) return '';
+    return aboutSlimNoExtraInfoLines
+      .slice(currentBlock.start, currentBlock.end)
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+  };
+  for (const entry of parsedEntries) {
+    entry.sub.aboutSlimNoExtraInfo = aboutSlimNoExtraInfo;
+    entry.sub.aboutSlimMyExtraInfo = aboutSlimMyExtraInfo(entry.sub.title);
+    const aboutCalculated = entry.sub.aboutSlimMyExtraInfo || entry.sub.extraInfo || entry.sub.aboutSlim || entry.sub.aboutCopy || '';
+    entry.sub.aboutCalculated = aboutCalculated;
+    const calculatedText = aboutCalculated.trim().toLocaleLowerCase();
+    const subEventTitle = entry.sub.title.trim().toLocaleLowerCase();
+    entry.sub.aboutCalculated2 = subEventTitle && calculatedText.endsWith(subEventTitle) ? '' : aboutCalculated;
+    entry.sub.aboutSubEvent = entry.sub.aboutCalculated2 || entry.sub.extraInfo2 || entry.sub.aboutHeader || entry.sub.aboutSlimNoExtraInfo || entry.sub.aboutSlim || entry.sub.aboutCopy || about;
   }
 
   return subs;

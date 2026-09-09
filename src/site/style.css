@@ -1556,6 +1556,7 @@ body.share-loading #status {
 
 .share-text-row {
   align-items: flex-start;
+  width: 100%;
 }
 
 .share-link {
@@ -1574,8 +1575,10 @@ body.share-loading #status {
 }
 
 .share-text {
+  box-sizing: border-box;
   width: 100%;
   max-width: 32rem;
+  min-width: 0;
   min-height: 7rem;
   resize: vertical;
   border: 1px solid var(--border);
