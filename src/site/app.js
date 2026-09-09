@@ -273,7 +273,7 @@ function updateShareDialog() {
   $shareLinkBlock.setAttribute('aria-disabled', String(!firebaseUser));
   $shareLinkToggle.checked = sharedLinkEnabled;
   $shareLinkToggle.disabled = !firebaseUser;
-  $shareLink.textContent = sharedLink;
+  $shareLink.textContent = sharedLinkEnabled ? sharedLink : '<Aktivera delning för för att visa länk här>';
   $shareLinkCopy.disabled = !firebaseUser || !sharedLinkEnabled;
   $shareLinkCopy.hidden = !canCopyText;
   $shareEmpty.hidden = count > 0;
@@ -2115,6 +2115,7 @@ $shareText.addEventListener('click', selectShareField);
 $shareLinkToggle.addEventListener('change', () => {
   localStorage.setItem('enableSharing', String($shareLinkToggle.checked));
   $shareLinkCopy.disabled = !firebaseUser || !$shareLinkToggle.checked;
+  $shareLink.textContent = $shareLinkToggle.checked ? `http://${window.location.host}/share/${firebaseUser?.uid || ''}` : '<Aktivera delning för att visa länk här>';
   scheduleCloudSettingsSync(true);
 });
 $shareLinkCopy.addEventListener('click', copyShareLink);
