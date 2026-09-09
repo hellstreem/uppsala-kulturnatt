@@ -663,7 +663,7 @@ async function syncSettingsWithFirebase() {
       localStorage.setItem('firebaseSyncedUserId', firebaseUser.uid);
       updateUserDataMenu();
       updateTabCounts();
-      setActive(activeTab);
+      if (activeTab === 'favorites') setActive(activeTab);
       return;
     } catch (error) {
       if (!firebaseUser || firebaseUser.isAnonymous) return;
@@ -1635,6 +1635,29 @@ async function renderList(events, favorites = loadFavorites()) {
       const searchLinks = document.createElement('span');
       searchLinks.className = 'search-links';
 
+      const isMusicCategory = categoryNames.some((category) => String(category).trim().toLocaleLowerCase('sv-SE') === 'musik');
+      if (isMusicCategory) {
+        const youtubeSearchLink = document.createElement('a');
+        youtubeSearchLink.className = 'youtube-search-link';
+        youtubeSearchLink.href = `https://www.youtube.com/results?${new URLSearchParams({ search_query: `${searchTitle} musik` })}`;
+        youtubeSearchLink.target = '_blank';
+        youtubeSearchLink.rel = 'noopener noreferrer';
+        youtubeSearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på YouTube`);
+        youtubeSearchLink.title = 'Sök på YouTube';
+        youtubeSearchLink.innerHTML = '<i class="fa-brands fa-youtube" aria-hidden="true"></i>';
+        searchLinks.appendChild(youtubeSearchLink);
+
+        const spotifySearchLink = document.createElement('a');
+        spotifySearchLink.className = 'spotify-search-link';
+        spotifySearchLink.href = `https://open.spotify.com/search/${encodeURIComponent(searchTitle)}/artists`;
+        spotifySearchLink.target = '_blank';
+        spotifySearchLink.rel = 'noopener noreferrer';
+        spotifySearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på Spotify`);
+        spotifySearchLink.title = 'Sök på Spotify';
+        spotifySearchLink.innerHTML = '<i class="fa-brands fa-spotify" aria-hidden="true"></i>';
+        searchLinks.appendChild(spotifySearchLink);
+      }
+
       const facebookSearchLink = document.createElement('a');
       facebookSearchLink.className = 'facebook-search-link';
       facebookSearchLink.href = `https://www.facebook.com/search/top/?${new URLSearchParams({ q: searchTitle })}`;
@@ -1644,26 +1667,6 @@ async function renderList(events, favorites = loadFavorites()) {
       facebookSearchLink.title = 'Sök på Facebook';
       facebookSearchLink.innerHTML = '<i class="fa-brands fa-facebook-f" aria-hidden="true"></i>';
       searchLinks.appendChild(facebookSearchLink);
-
-      const spotifySearchLink = document.createElement('a');
-      spotifySearchLink.className = 'spotify-search-link';
-      spotifySearchLink.href = `https://open.spotify.com/search/${encodeURIComponent(searchTitle)}/artists`;
-      spotifySearchLink.target = '_blank';
-      spotifySearchLink.rel = 'noopener noreferrer';
-      spotifySearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på Spotify`);
-      spotifySearchLink.title = 'Sök på Spotify';
-      spotifySearchLink.innerHTML = '<i class="fa-brands fa-spotify" aria-hidden="true"></i>';
-      searchLinks.appendChild(spotifySearchLink);
-
-      const youtubeSearchLink = document.createElement('a');
-      youtubeSearchLink.className = 'youtube-search-link';
-      youtubeSearchLink.href = `https://www.youtube.com/results?${new URLSearchParams({ search_query: `${searchTitle} musik` })}`;
-      youtubeSearchLink.target = '_blank';
-      youtubeSearchLink.rel = 'noopener noreferrer';
-      youtubeSearchLink.setAttribute('aria-label', `Sök efter ${searchTitle} på YouTube`);
-      youtubeSearchLink.title = 'Sök på YouTube';
-      youtubeSearchLink.innerHTML = '<i class="fa-brands fa-youtube" aria-hidden="true"></i>';
-      searchLinks.appendChild(youtubeSearchLink);
 
       const googleSearchLink = document.createElement('a');
       googleSearchLink.className = 'google-search-link';
@@ -1690,6 +1693,34 @@ async function renderList(events, favorites = loadFavorites()) {
     ratingControl.className = 'favorite-rating';
     ratingControl.setAttribute('role', 'group');
     ratingControl.setAttribute('aria-label', 'Ditt betyg för favorit');
+    const addRemoveFavoriteButton = () => {
+      if (ratingControl.querySelector('.favorite-remove')) return;
+      const removeFavoriteButton = document.createElement('button');
+      removeFavoriteButton.type = 'button';
+      removeFavoriteButton.className = 'favorite-remove';
+      removeFavoriteButton.setAttribute('aria-label', `Ta bort ${eventTitle} från favoriter`);
+      removeFavoriteButton.title = 'Ta bort favorit';
+      removeFavoriteButton.innerHTML = '<i class="fa-solid fa-trash-can" aria-hidden="true"></i>';
+      removeFavoriteButton.addEventListener('pointerdown', (event) => event.preventDefault());
+      removeFavoriteButton.addEventListener('click', async (event) => {
+        event.stopPropagation();
+        event.currentTarget.blur();
+        if (!(await confirmAction('Vill du ta bort evenemanget från dina favoriter?'))) return;
+        await removeFavorite(myid);
+        updateTabCounts();
+        if (activeTab === 'favorites') {
+          card.remove();
+          return;
+        }
+        ratingControl.querySelectorAll('.star').forEach((ratingStar) => {
+          ratingStar.setAttribute('aria-pressed', 'false');
+          ratingStar.classList.add('inactive');
+          ratingStar.innerHTML = '<i class="fa-sharp fa-regular fa-star" aria-hidden="true"></i>';
+        });
+        removeFavoriteButton.remove();
+      });
+      ratingControl.appendChild(removeFavoriteButton);
+    };
     for (let value = 1; value <= 3; value += 1) {
       const star = document.createElement('button');
       star.type = 'button';
@@ -1699,6 +1730,7 @@ async function renderList(events, favorites = loadFavorites()) {
       star.setAttribute('aria-pressed', String(rating === value));
       star.classList.toggle('inactive', value > rating);
       star.innerHTML = value <= rating ? '<i class="fa-solid fa-star" aria-hidden="true"></i>' : '<i class="fa-sharp fa-regular fa-star" aria-hidden="true"></i>';
+      star.addEventListener('pointerdown', (event) => event.preventDefault());
       star.addEventListener('click', async (event) => {
         event.stopPropagation();
         event.currentTarget.blur();
@@ -1706,27 +1738,17 @@ async function renderList(events, favorites = loadFavorites()) {
         current[myid] = value;
         await saveFavorites(current);
         updateTabCounts();
-        setActive(activeTab);
+        ratingControl.querySelectorAll('.star').forEach((ratingStar, index) => {
+          const starValue = index + 1;
+          ratingStar.setAttribute('aria-pressed', String(starValue === value));
+          ratingStar.classList.toggle('inactive', starValue > value);
+          ratingStar.innerHTML = starValue <= value ? '<i class="fa-solid fa-star" aria-hidden="true"></i>' : '<i class="fa-sharp fa-regular fa-star" aria-hidden="true"></i>';
+        });
+        addRemoveFavoriteButton();
       });
       ratingControl.appendChild(star);
     }
-    if (rating > 0) {
-      const removeFavoriteButton = document.createElement('button');
-      removeFavoriteButton.type = 'button';
-      removeFavoriteButton.className = 'favorite-remove';
-      removeFavoriteButton.setAttribute('aria-label', `Ta bort ${eventTitle} från favoriter`);
-      removeFavoriteButton.title = 'Ta bort favorit';
-      removeFavoriteButton.innerHTML = '<i class="fa-solid fa-trash-can" aria-hidden="true"></i>';
-      removeFavoriteButton.addEventListener('click', async (event) => {
-        event.stopPropagation();
-        event.currentTarget.blur();
-        if (!(await confirmAction('Vill du ta bort evenemanget från dina favoriter?'))) return;
-        await removeFavorite(myid);
-        updateTabCounts();
-        setActive(activeTab);
-      });
-      ratingControl.appendChild(removeFavoriteButton);
-    }
+    if (rating > 0) addRemoveFavoriteButton();
     titleGroup.appendChild(ratingControl);
     titleLine.title = `${timeText} ${titleText.textContent}`;
 
@@ -1927,8 +1949,9 @@ async function renderSharedPage() {
   setActive(sharedTabValue(sharedUserId));
 }
 
-function setActive(tab) {
+function setActive(tab, preserveScroll = false) {
   const tabChanged = activeTab !== tab;
+  const scrollTop = preserveScroll ? window.scrollY : 0;
   $list.hidden = false;
   $listSubheaderRow.hidden = false;
   activeTab = tab;
@@ -1982,7 +2005,12 @@ function setActive(tab) {
   events = visibleByFinishedToggle(events, tab, now);
   const filteredEvents = events.filter(matchesActiveFilters);
   updateSelectedFilters(filteredEvents.length);
-  renderList(filteredEvents, favs);
+  const renderPromise = renderList(filteredEvents, favs);
+  if (preserveScroll && !tabChanged) {
+    renderPromise.then(() => {
+      if (activeTab === tab) window.scrollTo({ top: scrollTop, behavior: 'auto' });
+    });
+  }
 }
 
 $tabSelect.addEventListener('change', async () => {
