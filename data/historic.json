@@ -483,14 +483,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)",
+    "extraInfo2": "",
     "startTimeText": "10:00",
     "endTimeText": "11:00",
     "startTime": "2026-09-12T08:00:00+00:00",
     "endTime": "2026-09-12T09:00:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -514,10 +591,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
+    "updateStatus": "updated",
     "sortKeyTime": 14,
-    "sortKeyUpdated": 6
+    "sortKeyUpdated": 1
   },
   {
     "type": "subEvent",
@@ -1463,8 +1541,8 @@
     "id": "226d06f1-0642-41d5-81d0-9629a356781b",
     "title": "Dansplats Resecentrum",
     "titleEnglish": "Dance Area Resecentrum",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
-    "aboutEnglish": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige \n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutEnglish": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige \n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "aboutShort": "Dansplats Resecentrum",
     "aboutShortEnglish": "Dance Area Resecentrum",
     "organizer": "Destination Uppsala",
@@ -1485,7 +1563,7 @@
       "longitude": 17.6460285907551
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=226d06f1-0642-41d5-81d0-9629a356781b",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "type": "event",
     "categoryNames": [
       "Dans"
@@ -1498,10 +1576,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
+    "updateStatus": "updated",
     "sortKeyTime": 34,
-    "sortKeyUpdated": 12
+    "sortKeyUpdated": 2
   },
   {
     "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
@@ -4209,14 +4288,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita",
+    "extraInfo2": "",
     "startTimeText": "11:15",
     "endTimeText": "11:45",
     "startTime": "2026-09-12T09:15:00+00:00",
     "endTime": "2026-09-12T09:45:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -4240,10 +4396,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
+    "updateStatus": "updated",
     "sortKeyTime": 91,
-    "sortKeyUpdated": 34
+    "sortKeyUpdated": 3
   },
   {
     "id": "131fcbf9-aa2c-4ec8-99d6-2710324e7541",
@@ -4999,14 +5156,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Traditionell burundisk dans KaribuCreations",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "12:00-12:20 Traditionell burundisk dans KaribuCreations",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "12:00-12:20 Traditionell burundisk dans KaribuCreations",
+    "extraInfo2": "",
     "startTimeText": "12:00",
     "endTimeText": "12:20",
     "startTime": "2026-09-12T10:00:00+00:00",
     "endTime": "2026-09-12T10:20:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -5030,10 +5264,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
+    "updateStatus": "updated",
     "sortKeyTime": 108,
-    "sortKeyUpdated": 41
+    "sortKeyUpdated": 4
   },
   {
     "id": "d36b22e0-2c2e-4896-a6e5-577998936215",
@@ -6137,13 +6372,13 @@
     "id": "10d3bc44-7c35-471c-a235-a3db7f79463c",
     "title": "Dans på KulturKnattens scen i Odinslund",
     "titleEnglish": "Dance at KulturKnattens stage in Odinslund",
-    "about": "Välkomna att se Studiefrämjandes Kulturskola visa upp sin dans på KulturKnattens scen i Odinslund.\n\nPå scen: kl 13:40 och 15:55",
+    "about": "Välkomna att se Studiefrämjandes Kulturskola visa upp sin dans på KulturKnattens scen i Odinslund.\n\nPå scen: kl 13:35 och 15:55",
     "aboutEnglish": "Warm welcome to see Studiefrämjandets Kulturskola perform a dance number on KulturKnattens stage in Odinslund\n\nOn stage: 13:35 and 15:50",
     "aboutShort": "Studiefrämjandets Kulturskola visar upp dans på scen",
     "aboutShortEnglish": "Studiefrämjandets Kulturskola perform a dance number on KulturKnattens stage in Odinslund",
     "organizer": "Studiefrämjandets Kulturskola",
-    "startTime": "2026-09-12T10:00:00+00:00",
-    "endTime": "2026-09-12T14:15:00+00:00",
+    "startTime": "2026-09-12T11:35:00+00:00",
+    "endTime": "2026-09-12T11:45:00+00:00",
     "webpage": "https://www.studieframjandet.se/",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Barnområdet KulturKnatten i Odinslund",
@@ -6159,7 +6394,7 @@
       "longitude": 17.63221286368932
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=10d3bc44-7c35-471c-a235-a3db7f79463c",
-    "checked": 1788276962619,
+    "checked": 1788974840209,
     "type": "event",
     "categoryNames": [
       "Dans"
@@ -6175,10 +6410,11 @@
       "Barnvagnsvänligt"
     ],
     "created": 1788276962619,
-    "updated": 1788276962619,
-    "status": "new",
-    "sortKeyTime": 132,
-    "sortKeyUpdated": 132
+    "updated": 1788974840209,
+    "status": "updated",
+    "updateStatus": "updated",
+    "sortKeyTime": 244,
+    "sortKeyUpdated": 7
   },
   {
     "id": "ae9ec468-ea68-482d-a899-3d7724489d03",
@@ -8080,14 +8316,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Internationell Seniordans Glada ringen",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "12:35-13:05 Internationell Seniordans Glada ringen",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "12:35-13:05 Internationell Seniordans Glada ringen",
+    "extraInfo2": "",
     "startTimeText": "12:35",
     "endTimeText": "13:05",
     "startTime": "2026-09-12T10:35:00+00:00",
     "endTime": "2026-09-12T11:05:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -8111,10 +8424,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
+    "updateStatus": "updated",
     "sortKeyTime": 173,
-    "sortKeyUpdated": 66
+    "sortKeyUpdated": 5
   },
   {
     "type": "subEvent",
@@ -10547,14 +10861,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag",
+    "extraInfo2": "",
     "startTimeText": "13:20",
     "endTimeText": "13:50",
     "startTime": "2026-09-12T11:20:00+00:00",
     "endTime": "2026-09-12T11:50:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -10578,10 +10969,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
-    "sortKeyTime": 225,
-    "sortKeyUpdated": 88
+    "updateStatus": "updated",
+    "sortKeyTime": 226,
+    "sortKeyUpdated": 6
   },
   {
     "type": "subEvent",
@@ -13962,14 +14354,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Squaredans uppvisning Uppsala Viking Squaredancers",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers",
+    "extraInfo2": "",
     "startTimeText": "14:05",
     "endTimeText": "14:35",
     "startTime": "2026-09-12T12:05:00+00:00",
     "endTime": "2026-09-12T12:35:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -13993,10 +14462,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
-    "sortKeyTime": 297,
-    "sortKeyUpdated": 117
+    "updateStatus": "updated",
+    "sortKeyTime": 300,
+    "sortKeyUpdated": 8
   },
   {
     "type": "subEvent",
@@ -15566,14 +16036,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige",
+    "extraInfo2": "",
     "startTimeText": "14:50",
     "endTimeText": "15:50",
     "startTime": "2026-09-12T12:50:00+00:00",
     "endTime": "2026-09-12T13:50:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -15597,10 +16144,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
-    "sortKeyTime": 331,
-    "sortKeyUpdated": 132
+    "updateStatus": "updated",
+    "sortKeyTime": 333,
+    "sortKeyUpdated": 9
   },
   {
     "id": "22f19aa3-12da-480d-8c6c-6dd8eead6e43",
@@ -16036,15 +16584,32 @@
     "id": "1ceef33b-d65c-4f88-817d-e1b67887d831_JagsomLeonardenungdomsbokavThomasSzendroFoljmedpaenhistoriaunder1900taletsUngernDarbokenkommervaracentrumiforedraget_1789218000000",
     "parentEventId": "1ceef33b-d65c-4f88-817d-e1b67887d831",
     "parentTitle": "15.00 \"jag är som Leonardo - Thomas Szendrö",
-    "title": "Jag som Leonard  en ungdomsbok av Thomas Szendrö. Följ med på en historia under 1900-talets Ungern. Där boken kommer vara centrum i föredraget.",
+    "title": "Jag som Leonard en ungdomsbok av Thomas Szendrö. Följ med på en historia under 1900-talets Ungern. Där boken kommer vara centrum i föredraget.",
+    "about": "15.00-15.45 Jag som Leonard  en ungdomsbok av Thomas Szendrö. Följ med på en historia under 1900-talets Ungern. Där boken kommer vara centrum i föredraget.",
+    "aboutCopy": "15.00-15.45 Jag som Leonard en ungdomsbok av Thomas Szendrö. Följ med på en historia under 1900-talets Ungern. Där boken kommer vara centrum i föredraget.",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "15.00",
+        "endTime": "15.45",
+        "title": "Jag som Leonard en ungdomsbok av Thomas Szendrö. Följ med på en historia under 1900-talets Ungern. Där boken kommer vara centrum i föredraget."
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "15.00-15.45 Jag som Leonard en ungdomsbok av Thomas Szendrö. Följ med på en historia under 1900-talets Ungern. Där boken kommer vara centrum i föredraget.",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "15.00-15.45 Jag som Leonard en ungdomsbok av Thomas Szendrö. Följ med på en historia under 1900-talets Ungern. Där boken kommer vara centrum i föredraget.",
+    "extraInfo": "15.00-15.45 Jag som Leonard en ungdomsbok av Thomas Szendrö. Följ med på en historia under 1900-talets Ungern. Där boken kommer vara centrum i föredraget.",
+    "extraInfo2": "",
     "startTimeText": "15.00",
     "endTimeText": "15.45",
     "startTime": "2026-09-12T13:00:00+00:00",
     "endTime": "2026-09-12T13:45:00+00:00",
-    "checked": 1788276962619,
+    "checked": 1788974840209,
     "organizer": "Sensus studieförbund, Drottninggatan 4, plan 3",
     "webpage": "https://www.sensus.se/kulturnattenuppsala/",
-    "about": "15.00-15.45 Jag som Leonard  en ungdomsbok av Thomas Szendrö. Följ med på en historia under 1900-talets Ungern. Där boken kommer vara centrum i föredraget.",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
     "locationAlias": "Sensus studieförbund, plan 2",
     "streetAddress": "Drottninggatan 4 ",
@@ -16073,10 +16638,11 @@
       "Hiss anpassad för rullstol"
     ],
     "created": 1788276962619,
-    "updated": 1788276962619,
-    "status": "new",
-    "sortKeyTime": 341,
-    "sortKeyUpdated": 341
+    "updated": 1788974840209,
+    "status": "updated",
+    "updateStatus": "updated",
+    "sortKeyTime": 343,
+    "sortKeyUpdated": 10
   },
   {
     "id": "ef7b33ea-0359-4ea6-8367-68ab7c745789",
@@ -20357,14 +20923,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby",
+    "extraInfo2": "",
     "startTimeText": "16:05",
     "endTimeText": "16:50",
     "startTime": "2026-09-12T14:05:00+00:00",
     "endTime": "2026-09-12T14:50:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -20388,10 +21031,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
-    "sortKeyTime": 433,
-    "sortKeyUpdated": 168
+    "updateStatus": "updated",
+    "sortKeyTime": 439,
+    "sortKeyUpdated": 13
   },
   {
     "id": "bed201e2-3c0d-4c54-8765-daa726dd2e27",
@@ -22195,7 +22839,7 @@
     "aboutShort": "Konserter med ungdomsband på Kulturhuset Grands stora scen",
     "aboutShortEnglish": "",
     "organizer": "Kulturhuset Grand, Fritid Uppsala, Uppsala Kommun ",
-    "startTime": "2026-09-12T15:00:00+00:00",
+    "startTime": "2026-09-12T14:00:00+00:00",
     "endTime": "2026-09-12T19:30:00+00:00",
     "webpage": "https://grand.uppsala.se",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
@@ -22212,11 +22856,11 @@
       "longitude": 17.6361376
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=efeba550-69f4-4e8c-90c5-63da75a423ce",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "type": "event",
     "categoryNames": [
-      "Musik",
-      "Konst"
+      "Konst",
+      "Musik"
     ],
     "languageNames": [
       "Engelska",
@@ -22227,17 +22871,18 @@
       "Inomhus"
     ],
     "accessibilityNames": [
-      "God miljö för hörselskadade",
-      "Tillgänglighet för synskadade",
-      "Tillgänglighet anpassad för rullstol",
+      "Hiss anpassad för rullstol",
       "Toalett tillgänglig med rullstol",
-      "Hiss anpassad för rullstol"
+      "Tillgänglighet anpassad för rullstol",
+      "Tillgänglighet för synskadade",
+      "God miljö för hörselskadade"
     ],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
-    "sortKeyTime": 472,
-    "sortKeyUpdated": 184
+    "updateStatus": "updated",
+    "sortKeyTime": 426,
+    "sortKeyUpdated": 12
   },
   {
     "id": "669498b0-7693-45ec-a49f-ea123f1b1d4c",
@@ -22571,14 +23216,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "FCBD® Style med Aizume! Aizume Dance Collective",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective",
+    "extraInfo2": "",
     "startTimeText": "17:05",
     "endTimeText": "17:35",
     "startTime": "2026-09-12T15:05:00+00:00",
     "endTime": "2026-09-12T15:35:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -22602,10 +23324,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
-    "sortKeyTime": 480,
-    "sortKeyUpdated": 189
+    "updateStatus": "updated",
+    "sortKeyTime": 485,
+    "sortKeyUpdated": 15
   },
   {
     "id": "10520011-e7d6-405f-9ab6-dc86db2f924f",
@@ -23492,14 +24215,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios",
+    "extraInfo2": "",
     "startTimeText": "17:50",
     "endTimeText": "18:35",
     "startTime": "2026-09-12T15:50:00+00:00",
     "endTime": "2026-09-12T16:35:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -23523,10 +24323,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
-    "sortKeyTime": 500,
-    "sortKeyUpdated": 200
+    "updateStatus": "updated",
+    "sortKeyTime": 505,
+    "sortKeyUpdated": 16
   },
   {
     "type": "subEvent",
@@ -25548,14 +26349,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Capoeirauppvisning Föreningen iê capoeira",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "18:50-19:35 Capoeirauppvisning Föreningen iê capoeira",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "18:50-19:35 Capoeirauppvisning Föreningen iê capoeira",
+    "extraInfo2": "",
     "startTimeText": "18:50",
     "endTimeText": "19:35",
     "startTime": "2026-09-12T16:50:00+00:00",
     "endTime": "2026-09-12T17:35:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -25579,10 +26457,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
-    "sortKeyTime": 544,
-    "sortKeyUpdated": 220
+    "updateStatus": "updated",
+    "sortKeyTime": 553,
+    "sortKeyUpdated": 18
   },
   {
     "id": "3483f284-cb26-4887-93ea-47ed5d77464c",
@@ -27828,7 +28707,7 @@
     "aboutShort": "Dance performance with Uppsala Dansakademi´s dance lines of varying ages. ",
     "aboutShortEnglish": "",
     "organizer": "Uppsala Dansakademi - Aktiv ungdom",
-    "startTime": "2026-09-12T17:50:00+00:00",
+    "startTime": "2026-09-12T18:00:00+00:00",
     "endTime": "2026-09-12T20:00:00+00:00",
     "webpage": "https://www.uppsaladansakademi.com",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
@@ -27845,7 +28724,7 @@
       "longitude": 17.6460285907551
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=ca28211b-a09b-499d-b224-d6754be8c40f",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "type": "event",
     "categoryNames": [
       "Dans"
@@ -27858,10 +28737,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
-    "sortKeyTime": 593,
-    "sortKeyUpdated": 240
+    "updateStatus": "updated",
+    "sortKeyTime": 614,
+    "sortKeyUpdated": 20
   },
   {
     "type": "subEvent",
@@ -30973,14 +31853,91 @@
     "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
     "parentTitle": "Dansplats Resecentrum",
     "title": "Dansshow med Tourmaline! Tourmaline",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo2": "",
     "startTimeText": "22:15",
     "endTimeText": "22:30",
     "startTime": "2026-09-12T20:15:00+00:00",
     "endTime": "2026-09-12T20:30:00+00:00",
-    "checked": 1788284019971,
+    "checked": 1788974840209,
     "organizer": "Destination Uppsala",
     "webpage": "https://kulturnatten.uppsala.se/",
-    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n19:50-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
     "locationAlias": "Dansplats Resecentrum",
     "streetAddress": "",
@@ -31004,10 +31961,11 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788284019971,
+    "updated": 1788974840209,
     "status": "updated",
-    "sortKeyTime": 662,
-    "sortKeyUpdated": 273
+    "updateStatus": "updated",
+    "sortKeyTime": 673,
+    "sortKeyUpdated": 22
   },
   {
     "id": "b152f0b0-b69f-43ec-a51a-9105600200b8",
@@ -32303,5 +33261,407 @@
     "updateStatus": "new",
     "sortKeyTime": 111,
     "sortKeyUpdated": 33
+  },
+  {
+    "id": "5dcfe001-d31e-4064-9c64-77e08cb01020",
+    "title": "Dans på KulturKnattens scen i Odinslund",
+    "titleEnglish": "Dance at KulturKnattens stage in Odinslund",
+    "about": "Välkomna att se Studiefrämjandes Kulturskola visa upp sin dans på KulturKnattens scen i Odinslund.\n\nPå scen: kl 13:35 och 15:50",
+    "aboutEnglish": "Warm welcome to see Studiefrämjandets Kulturskola perform a dance number on KulturKnattens stage in Odinslund\r\n\r\nOn stage: 13:35 and 15:50\r\n",
+    "aboutShort": "Studiefrämjandets Kulturskola visar upp dans på scen",
+    "aboutShortEnglish": "",
+    "organizer": "Studiefrämjandets Kulturskola",
+    "startTime": "2026-09-12T13:50:00+00:00",
+    "endTime": "2026-09-12T14:00:00+00:00",
+    "webpage": "https://www.studieframjandet.se/",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
+    "locationAlias": "Barnområdet KulturKnatten i Odinslund",
+    "streetAddress": "",
+    "postalCode": "",
+    "city": "",
+    "isCancelled": false,
+    "isForChildren": true,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.85629900783095,
+      "longitude": 17.63221286368932
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=5dcfe001-d31e-4064-9c64-77e08cb01020",
+    "checked": 1788974840209,
+    "type": "event",
+    "categoryNames": [
+      "Dans"
+    ],
+    "languageNames": [
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "\n                    Scen\n                "
+    ],
+    "accessibilityNames": [
+      "Toalett tillgänglig med rullstol",
+      "Barnvagnsvänligt"
+    ],
+    "created": 1788974840209,
+    "updated": 1788974840209,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 396,
+    "sortKeyUpdated": 11
+  },
+  {
+    "type": "subEvent",
+    "id": "a670a50c-2d01-4c1e-90ed-964e1a3c1609_1800LardigdansaBugg_1789225200000",
+    "parentEventId": "a670a50c-2d01-4c1e-90ed-964e1a3c1609",
+    "parentTitle": "Lär dig dansa bugg, salsa och tango!",
+    "title": "18:00 Lär dig dansa 💜 Bugg!",
+    "about": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt. \n\n17:00 - 18:00 Lär dig dansa 💜 Bugg!\n18:00 - 19:00 Lär dig dansa 🧡 Salsa & Merengue!\n19:00 - 20:00 Lär dig dansa 💚Tango!",
+    "aboutCopy": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt. \n\n17:00 18:00 Lär dig dansa 💜 Bugg!\n18:00 19:00 Lär dig dansa 🧡 Salsa & Merengue!\n19:00 20:00 Lär dig dansa 💚Tango!",
+    "aboutHeader": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "aboutTitles": [
+      {
+        "startTime": "17:00",
+        "endTime": null,
+        "title": "18:00 Lär dig dansa 💜 Bugg!"
+      },
+      {
+        "startTime": "18:00",
+        "endTime": null,
+        "title": "19:00 Lär dig dansa 🧡 Salsa & Merengue!"
+      },
+      {
+        "startTime": "19:00",
+        "endTime": null,
+        "title": "20:00 Lär dig dansa 💚Tango!"
+      }
+    ],
+    "aboutSlim": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "aboutSlimNoExtraInfo": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "17:00 18:00 Lär dig dansa 💜 Bugg!",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "extraInfo": "17:00 18:00 Lär dig dansa 💜 Bugg!",
+    "extraInfo2": "",
+    "startTimeText": "17:00",
+    "endTimeText": null,
+    "startTime": "2026-09-12T15:00:00+00:00",
+    "endTime": null,
+    "checked": 1788974840209,
+    "organizer": "Studio-K",
+    "webpage": "https://www.facebook.com/events/28978493731737551/",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "Drabanten - bottenplan",
+    "streetAddress": "Bangårdsgatan 13",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.8578314,
+      "longitude": 17.6441103
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=a670a50c-2d01-4c1e-90ed-964e1a3c1609",
+    "categoryNames": [
+      "Dans",
+      "Musik"
+    ],
+    "languageNames": [
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [
+      "Hiss anpassad för rullstol",
+      "Toalett tillgänglig med rullstol",
+      "Tillgänglighet anpassad för rullstol",
+      "Tillgänglighet för synskadade",
+      "God miljö för hörselskadade",
+      "Barnvagnsvänligt"
+    ],
+    "created": 1788974840209,
+    "updated": 1788974840209,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 479,
+    "sortKeyUpdated": 14
+  },
+  {
+    "type": "subEvent",
+    "id": "a670a50c-2d01-4c1e-90ed-964e1a3c1609_1900LardigdansaSalsaMerengue_1789228800000",
+    "parentEventId": "a670a50c-2d01-4c1e-90ed-964e1a3c1609",
+    "parentTitle": "Lär dig dansa bugg, salsa och tango!",
+    "title": "19:00 Lär dig dansa 🧡 Salsa & Merengue!",
+    "about": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt. \n\n17:00 - 18:00 Lär dig dansa 💜 Bugg!\n18:00 - 19:00 Lär dig dansa 🧡 Salsa & Merengue!\n19:00 - 20:00 Lär dig dansa 💚Tango!",
+    "aboutCopy": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt. \n\n17:00 18:00 Lär dig dansa 💜 Bugg!\n18:00 19:00 Lär dig dansa 🧡 Salsa & Merengue!\n19:00 20:00 Lär dig dansa 💚Tango!",
+    "aboutHeader": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "aboutTitles": [
+      {
+        "startTime": "17:00",
+        "endTime": null,
+        "title": "18:00 Lär dig dansa 💜 Bugg!"
+      },
+      {
+        "startTime": "18:00",
+        "endTime": null,
+        "title": "19:00 Lär dig dansa 🧡 Salsa & Merengue!"
+      },
+      {
+        "startTime": "19:00",
+        "endTime": null,
+        "title": "20:00 Lär dig dansa 💚Tango!"
+      }
+    ],
+    "aboutSlim": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "aboutSlimNoExtraInfo": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "18:00 19:00 Lär dig dansa 🧡 Salsa & Merengue!",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "extraInfo": "18:00 19:00 Lär dig dansa 🧡 Salsa & Merengue!",
+    "extraInfo2": "",
+    "startTimeText": "18:00",
+    "endTimeText": null,
+    "startTime": "2026-09-12T16:00:00+00:00",
+    "endTime": null,
+    "checked": 1788974840209,
+    "organizer": "Studio-K",
+    "webpage": "https://www.facebook.com/events/28978493731737551/",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "Drabanten - bottenplan",
+    "streetAddress": "Bangårdsgatan 13",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.8578314,
+      "longitude": 17.6441103
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=a670a50c-2d01-4c1e-90ed-964e1a3c1609",
+    "categoryNames": [
+      "Dans",
+      "Musik"
+    ],
+    "languageNames": [
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [
+      "Hiss anpassad för rullstol",
+      "Toalett tillgänglig med rullstol",
+      "Tillgänglighet anpassad för rullstol",
+      "Tillgänglighet för synskadade",
+      "God miljö för hörselskadade",
+      "Barnvagnsvänligt"
+    ],
+    "created": 1788974840209,
+    "updated": 1788974840209,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 534,
+    "sortKeyUpdated": 17
+  },
+  {
+    "type": "subEvent",
+    "id": "a670a50c-2d01-4c1e-90ed-964e1a3c1609_2000LardigdansaTango_1789232400000",
+    "parentEventId": "a670a50c-2d01-4c1e-90ed-964e1a3c1609",
+    "parentTitle": "Lär dig dansa bugg, salsa och tango!",
+    "title": "20:00 Lär dig dansa 💚Tango!",
+    "about": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt. \n\n17:00 - 18:00 Lär dig dansa 💜 Bugg!\n18:00 - 19:00 Lär dig dansa 🧡 Salsa & Merengue!\n19:00 - 20:00 Lär dig dansa 💚Tango!",
+    "aboutCopy": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt. \n\n17:00 18:00 Lär dig dansa 💜 Bugg!\n18:00 19:00 Lär dig dansa 🧡 Salsa & Merengue!\n19:00 20:00 Lär dig dansa 💚Tango!",
+    "aboutHeader": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "aboutTitles": [
+      {
+        "startTime": "17:00",
+        "endTime": null,
+        "title": "18:00 Lär dig dansa 💜 Bugg!"
+      },
+      {
+        "startTime": "18:00",
+        "endTime": null,
+        "title": "19:00 Lär dig dansa 🧡 Salsa & Merengue!"
+      },
+      {
+        "startTime": "19:00",
+        "endTime": null,
+        "title": "20:00 Lär dig dansa 💚Tango!"
+      }
+    ],
+    "aboutSlim": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "aboutSlimNoExtraInfo": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "19:00 20:00 Lär dig dansa 💚Tango!",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
+    "extraInfo": "19:00 20:00 Lär dig dansa 💚Tango!",
+    "extraInfo2": "",
+    "startTimeText": "19:00",
+    "endTimeText": null,
+    "startTime": "2026-09-12T17:00:00+00:00",
+    "endTime": null,
+    "checked": 1788974840209,
+    "organizer": "Studio-K",
+    "webpage": "https://www.facebook.com/events/28978493731737551/",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "Drabanten - bottenplan",
+    "streetAddress": "Bangårdsgatan 13",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.8578314,
+      "longitude": 17.6441103
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=a670a50c-2d01-4c1e-90ed-964e1a3c1609",
+    "categoryNames": [
+      "Dans",
+      "Musik"
+    ],
+    "languageNames": [
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [
+      "Hiss anpassad för rullstol",
+      "Toalett tillgänglig med rullstol",
+      "Tillgänglighet anpassad för rullstol",
+      "Tillgänglighet för synskadade",
+      "God miljö för hörselskadade",
+      "Barnvagnsvänligt"
+    ],
+    "created": 1788974840209,
+    "updated": 1788974840209,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 582,
+    "sortKeyUpdated": 19
+  },
+  {
+    "type": "subEvent",
+    "id": "226d06f1-0642-41d5-81d0-9629a356781b_UppsalaDansakademiUppsalaDansakademiAktivungdom_1789236000000",
+    "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
+    "parentTitle": "Dansplats Resecentrum",
+    "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom",
+    "about": "10:00-11:00 - Dansa Linedance Happy Feet - Happy Feet (Linedancers)\n\n11:15-11:45 - Albansk folkdans med Tradita - Albanian Folk Group Tradita\n\n12:00-12:20 - Traditionell burundisk dans - KaribuCreations\n\n12:35-13:05 - Internationell Seniordans - Glada ringen\n\n13:20-13:50 - Folkdansuppvisning med Tensta folkdanslag - Tensta folkdanslag\n\n14:05-14:35 - Squaredans uppvisning - Uppsala Viking Squaredancers\n\n14:50-15:50 - Sudanesiska Dansglädje i färg och ton - Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 - Dansuppvisning av Dansstudion i Norby - Dansstudion i Norby\n\n17:05-17:35 - FCBD® Style med Aizume! - Aizume Dance Collective\n\n17:50-18:35 - Dansuppvisning med Edge Dance Studios - Edge Dance Studios \n\n18:50-19:35 - Capoeirauppvisning - Föreningen iê capoeira\n\n20:00-22:00 - Uppsala Dansakademi - Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 - Dansshow med Tourmaline! - Tourmaline",
+    "aboutCopy": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "aboutHeader": "",
+    "aboutTitles": [
+      {
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "title": "Dansa Linedance Happy Feet Happy Feet (Linedancers)"
+      },
+      {
+        "startTime": "11:15",
+        "endTime": "11:45",
+        "title": "Albansk folkdans med Tradita Albanian Folk Group Tradita"
+      },
+      {
+        "startTime": "12:00",
+        "endTime": "12:20",
+        "title": "Traditionell burundisk dans KaribuCreations"
+      },
+      {
+        "startTime": "12:35",
+        "endTime": "13:05",
+        "title": "Internationell Seniordans Glada ringen"
+      },
+      {
+        "startTime": "13:20",
+        "endTime": "13:50",
+        "title": "Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag"
+      },
+      {
+        "startTime": "14:05",
+        "endTime": "14:35",
+        "title": "Squaredans uppvisning Uppsala Viking Squaredancers"
+      },
+      {
+        "startTime": "14:50",
+        "endTime": "15:50",
+        "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige"
+      },
+      {
+        "startTime": "16:05",
+        "endTime": "16:50",
+        "title": "Dansuppvisning av Dansstudion i Norby Dansstudion i Norby"
+      },
+      {
+        "startTime": "17:05",
+        "endTime": "17:35",
+        "title": "FCBD® Style med Aizume! Aizume Dance Collective"
+      },
+      {
+        "startTime": "17:50",
+        "endTime": "18:35",
+        "title": "Dansuppvisning med Edge Dance Studios Edge Dance Studios"
+      },
+      {
+        "startTime": "18:50",
+        "endTime": "19:35",
+        "title": "Capoeirauppvisning Föreningen iê capoeira"
+      },
+      {
+        "startTime": "20:00",
+        "endTime": "22:00",
+        "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom"
+      },
+      {
+        "startTime": "22:15",
+        "endTime": "22:30",
+        "title": "Dansshow med Tourmaline! Tourmaline"
+      }
+    ],
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "10:00-11:00 Dansa Linedance Happy Feet Happy Feet (Linedancers)\n\n11:15-11:45 Albansk folkdans med Tradita Albanian Folk Group Tradita\n\n12:00-12:20 Traditionell burundisk dans KaribuCreations\n\n12:35-13:05 Internationell Seniordans Glada ringen\n\n13:20-13:50 Folkdansuppvisning med Tensta folkdanslag Tensta folkdanslag\n\n14:05-14:35 Squaredans uppvisning Uppsala Viking Squaredancers\n\n14:50-15:50 Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige\n\n16:05-16:50 Dansuppvisning av Dansstudion i Norby Dansstudion i Norby\n\n17:05-17:35 FCBD® Style med Aizume! Aizume Dance Collective\n\n17:50-18:35 Dansuppvisning med Edge Dance Studios Edge Dance Studios \n\n18:50-19:35 Capoeirauppvisning Föreningen iê capoeira\n\n20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom\n\n22:15-22:30 Dansshow med Tourmaline! Tourmaline",
+    "extraInfo": "20:00-22:00 Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom",
+    "extraInfo2": "",
+    "startTimeText": "20:00",
+    "endTimeText": "22:00",
+    "startTime": "2026-09-12T18:00:00+00:00",
+    "endTime": "2026-09-12T20:00:00+00:00",
+    "checked": 1788974840209,
+    "organizer": "Destination Uppsala",
+    "webpage": "https://kulturnatten.uppsala.se/",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
+    "locationAlias": "Dansplats Resecentrum",
+    "streetAddress": "",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.85811745213608,
+      "longitude": 17.6460285907551
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=226d06f1-0642-41d5-81d0-9629a356781b",
+    "categoryNames": [
+      "Dans"
+    ],
+    "languageNames": [
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "\n                    Scen\n                "
+    ],
+    "accessibilityNames": [],
+    "created": 1788974840209,
+    "updated": 1788974840209,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 615,
+    "sortKeyUpdated": 21
   }
 ]
