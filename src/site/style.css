@@ -1087,6 +1087,7 @@ body[data-theme='light'] .filter-search-section-inner {
   background: var(--card);
   color: var(--input-text);
   font: inherit;
+  font-size: 16px;
 }
 
 .search-field input:focus-visible {
