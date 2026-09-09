@@ -1701,6 +1701,7 @@ async function renderList(events, favorites = loadFavorites()) {
       star.innerHTML = value <= rating ? '<i class="fa-solid fa-star" aria-hidden="true"></i>' : '<i class="fa-sharp fa-regular fa-star" aria-hidden="true"></i>';
       star.addEventListener('click', async (event) => {
         event.stopPropagation();
+        event.currentTarget.blur();
         const current = loadFavorites();
         current[myid] = value;
         await saveFavorites(current);
