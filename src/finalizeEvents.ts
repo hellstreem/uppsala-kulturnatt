@@ -94,7 +94,12 @@ export function finalizeEvents(events: any[], filters: any) {
 
   const out = events.map((ev) => {
     const copy: any = { ...(ev || {}) };
-    if (typeof copy.about === 'string') copy.about = copy.about.trim();
+    if (typeof copy.about === 'string') {
+      copy.about = copy.about
+        .trim()
+        .replace(/\r\n?/g, '\n')
+        .replace(/\n{3,}/g, '\n\n');
+    }
     if (typeof copy.title === 'string') copy.title = copy.title.replace(/^:+/, '').trim();
     copy.endTime = normalizeEndTime(copy.startTime, copy.endTime);
     let evCats: any[] = [];

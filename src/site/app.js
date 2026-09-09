@@ -49,6 +49,8 @@ const $reportErrorButton = document.getElementById('report-error-button');
 const $reportErrorDialog = document.getElementById('report-error-dialog');
 const $reportErrorClose = document.getElementById('report-error-close');
 const $finishedVisibilityInline = document.getElementById('finished-visibility-inline');
+const $finishedVisibilityIcon = document.getElementById('finished-visibility-icon');
+const $finishedVisibilityLabel = document.getElementById('finished-visibility-label');
 const $themeToggle = document.getElementById('theme-toggle');
 const $moreMenuButton = document.getElementById('more-menu-button');
 const $moreMenu = document.getElementById('more-menu');
@@ -86,7 +88,6 @@ const $paidFilter = document.getElementById('paid-filter');
 const $fromFilter = document.getElementById('from-filter');
 const $toFilter = document.getElementById('to-filter');
 const $showFilters = document.getElementById('show-filters');
-const $favoritesShortcut = document.getElementById('favorites-shortcut');
 const $showFiltersLabel = document.getElementById('show-filters-label');
 const $filterSearchSection = document.getElementById('filter-search-section');
 const $closeFilters = document.getElementById('close-filters');
@@ -106,6 +107,7 @@ const tabs = {
   finished: document.getElementById('tab-finished'),
   unfinished: document.getElementById('tab-unfinished'),
 };
+const LAST_SELECTED_TAB_KEY = 'lastSelectedTab';
 let sharedFavorites = {};
 let sharedIdentity = '';
 let activeSharedUserId = sharedUserId;
@@ -228,7 +230,8 @@ function liveEvents(events, currentTime) {
 
 function updateFinishedVisibilityLink() {
   const label = hideFinishedEvents ? 'Visa avslutade evenemang' : 'Dölj avslutade evenemang';
-  $finishedVisibilityInline.textContent = hideFinishedEvents ? '(visa)' : '(dölj)';
+  $finishedVisibilityIcon.className = `fa-solid ${hideFinishedEvents ? 'fa-eye' : 'fa-eye-slash'}`;
+  $finishedVisibilityLabel.textContent = label;
   $finishedVisibilityInline.setAttribute('aria-label', label);
   $finishedVisibilityInline.title = label;
 }
@@ -249,10 +252,10 @@ function shareTextForFavorites(events, favorites) {
     const start = formatLocalClockTime(event.startTime || event.start || event.startTimeText || event.time || '');
     const end = formatLocalClockTime(event.endTime || event.end || event.endTimeText || '');
     const rating = favorites[event.favoriteId];
-    const starLabel = rating === 1 ? 'stjärna' : 'stjärnor';
-    return `${start}-${end}\n${title} (${rating} ${starLabel})\n${location}\n\n${event.url || ''}`;
+    const starLabel = '*'.repeat(rating);
+    return `${start}-${end} (${starLabel})\n${title}\n${location}\n\n${event.url || ''}`;
   });
-  return ['Favoritevenemang på Uppsala Kulturnatt 2026:', ...eventText, 'Hitta egna favoriter på https://uppsalakulturnatt.com/'].join('\n\n');
+  return ['Favoritevenemang på Uppsala Kulturnatt 2026', ...eventText, 'Hitta egna favoriter på https://uppsalakulturnatt.com/'].join('\n\n');
 }
 
 function updateShareDialog() {
@@ -267,7 +270,7 @@ function updateShareDialog() {
   $shareLinkBlock.setAttribute('aria-disabled', String(!firebaseUser));
   $shareLinkToggle.checked = sharedLinkEnabled;
   $shareLinkToggle.disabled = !firebaseUser;
-  $shareLink.value = sharedLink;
+  $shareLink.textContent = sharedLink;
   $shareLinkCopy.disabled = !firebaseUser || !sharedLinkEnabled;
   $shareLinkCopy.hidden = !canCopyText;
   $shareEmpty.hidden = count > 0;
@@ -344,7 +347,7 @@ async function copyFavorites() {
 async function copyShareLink() {
   if ($shareLinkCopy.disabled) return;
   try {
-    await copyTextToClipboard($shareLink.value);
+    await copyTextToClipboard($shareLink.textContent);
     $shareMessage.textContent = 'Länken kopierades.';
   } catch (error) {
     $shareMessage.textContent = error?.message || 'Länken kunde inte kopieras.';
@@ -968,15 +971,15 @@ function updateTabCounts() {
   tabs.subevents.title = `Delevenemang (${subeventCount} st)`;
   tabs.cancelled.textContent = `\u{1F6AB} Inställda (${cancelledCount})`;
   tabs.cancelled.title = `Inställda evenemang (${cancelledCount} st)`;
-  tabs.favorites.textContent = `\u2B50 Mina favoriter (${favoriteCount})`;
+  tabs.favorites.textContent = `\u2B50 Favoriter (${favoriteCount})`;
   tabs.favorites.title = `Mina favoriter (${favoriteCount} st)`;
   tabs.live.textContent = `\u{1F550} Pågående (${liveCount})`;
   tabs.live.title = `Pågående evenemang (${liveCount} st)`;
-  tabs.recent.textContent = `\u23EA Startat nyss (${recentCount})`;
+  tabs.recent.textContent = `\u23EA Nu (${recentCount})`;
   tabs.recent.title = `Evenemang som startat nyss (${recentCount} st)`;
-  tabs.soon.textContent = `\u23E9 Startar strax (${soonCount})`;
+  tabs.soon.textContent = `\u23E9 Strax (${soonCount})`;
   tabs.soon.title = `Evenemang som startar strax (${soonCount} st)`;
-  tabs.later.textContent = `\u23F3 Startar senare (${laterCount})`;
+  tabs.later.textContent = `\u23F3 Senare (${laterCount})`;
   tabs.later.title = `Evenemang som startar senare (${laterCount} st)`;
   tabs.unfinished.textContent = `\u26AB Ej avslutade (${unfinishedCount})`;
   tabs.unfinished.title = `Ej avslutade evenemang (${unfinishedCount} st)`;
@@ -1187,17 +1190,19 @@ function updateSelectedFilters(filteredEventCount) {
   for (const filter of multiFilters) selectedFilters.push(...selectedFilterValues(filter).map((value) => displayFilterValue(filter, value)));
   if ($fromFilter.value) selectedFilters.push(`Från ${$fromFilter.value}`);
   if ($toFilter.value) selectedFilters.push(`Till ${$toFilter.value}`);
-  const selectedFilterText = `${selectedFilters.length > 0 ? selectedFilters.join(' | ') : 'Inga'} +${hideFinishedEvents ? ' Dölj avslutade ' : ' Visa avslutade '}`;
+  const selectedFilterText = selectedFilters.length > 0 ? selectedFilters.join(' | ') : 'Inga';
   $selectedFilters.replaceChildren();
   const label = document.createElement('span');
   label.textContent = 'Filter:';
   const values = document.createElement('span');
   values.textContent = ` ${selectedFilterText}`;
+  const finished = document.createElement('span');
+  finished.textContent = hideFinishedEvents ? ' + Döljer avslutade' : '';
   const count = document.createElement('span');
   count.textContent = ` (${filteredEventCount})`;
   const summary = document.createElement('span');
   summary.className = 'filter-summary';
-  summary.append(label, values, $finishedVisibilityInline, count, $clearFilters);
+  summary.append(label, values, finished, count);
   $selectedFilters.append(summary);
   updateClearFiltersButton();
 }
@@ -1575,7 +1580,7 @@ async function renderList(events, favorites = loadFavorites()) {
     const timeLabel = document.createElement('span');
     timeLabel.textContent = timeText;
 
-    const eventStatus = ev.isCancelled ? '(INSTÄLLT)' : isFinished ? '(AVSLUTAT)' : null;
+    const eventStatus = ev.isCancelled ? 'INSTÄLLT' : isFinished ? 'AVSLUTAT' : null;
     if (eventStatus) {
       const statusLabel = document.createElement('span');
       statusLabel.className = 'event-status';
@@ -1595,11 +1600,12 @@ async function renderList(events, favorites = loadFavorites()) {
     titleLine.className = 'line';
     titleLine.appendChild(titleGroup);
 
-    timeLine.prepend(timeLabel);
+    timeLine.appendChild(timeLabel);
 
     const parentTitle = ev.parentTitle || ev.parent || ev.groupTitle;
     let parentLine = null;
-    if (parentTitle && !(parentTitle === eventTitle && parentTitle === (ev.locationAlias || ev.locationName || ev.location || '—'))) {
+    const showSecondaryLines = !ev.isCancelled && !isFinished;
+    if (showSecondaryLines && parentTitle && !(parentTitle === eventTitle && parentTitle === (ev.locationAlias || ev.locationName || ev.location || '—'))) {
       parentLine = document.createElement('div');
       parentLine.className = 'line secondary';
       parentLine.textContent = parentTitle;
@@ -1615,19 +1621,20 @@ async function renderList(events, favorites = loadFavorites()) {
 
     const tags = document.createElement('div');
     tags.className = 'tag-row';
+    const showTagRow = !ev.isCancelled && !isFinished;
     const categoryNames = Array.isArray(ev.categoryNames) ? ev.categoryNames : [];
     if (categoryNames.length === 0 && ev.categoryName) {
       categoryNames.push(ev.categoryName);
     }
 
-    if (SHOW_CATEGORIES_IN_LIST && categoryNames.length > 0) {
+    if (showTagRow && SHOW_CATEGORIES_IN_LIST && categoryNames.length > 0) {
       tags.classList.add('has-tags');
     }
 
-    for (const category of SHOW_CATEGORIES_IN_LIST ? categoryNames : []) {
+    for (const category of showTagRow && SHOW_CATEGORIES_IN_LIST ? categoryNames : []) {
       tags.appendChild(createCategoryChip(category));
     }
-    if (SHOW_CATEGORIES_IN_LIST && categoryNames.length > 0) {
+    if (showTagRow && SHOW_CATEGORIES_IN_LIST && categoryNames.length > 0) {
       const searchTitle = eventTitle
         .replace(/\([^)]*\)/g, '')
         .replace(/\s+/g, ' ')
@@ -1749,7 +1756,7 @@ async function renderList(events, favorites = loadFavorites()) {
       ratingControl.appendChild(star);
     }
     if (rating > 0) addRemoveFavoriteButton();
-    titleGroup.appendChild(ratingControl);
+    timeLine.appendChild(ratingControl);
     titleLine.title = `${timeText} ${titleText.textContent}`;
 
     let details = null;
@@ -1794,15 +1801,15 @@ async function renderList(events, favorites = loadFavorites()) {
     card.appendChild(timeLine);
     card.appendChild(titleLine);
     if (parentLine) card.appendChild(parentLine);
-    if (locationLine.textContent) card.appendChild(locationLine);
+    if (!isFinished && locationLine.textContent) card.appendChild(locationLine);
     const updatedStatus = formatUpdatedStatus(ev);
-    if (programSortMode === 'updated' && updatedStatus) {
+    if (showSecondaryLines && programSortMode === 'updated' && updatedStatus) {
       const updatedLine = document.createElement('div');
       updatedLine.className = 'line secondary';
       updatedLine.textContent = updatedStatus;
       card.appendChild(updatedLine);
     }
-    card.appendChild(tags);
+    if (showTagRow) card.appendChild(tags);
     fragment.appendChild(card);
 
     if ((index + 1) % batchSize === 0) {
@@ -1955,6 +1962,7 @@ function setActive(tab, preserveScroll = false) {
   $list.hidden = false;
   $listSubheaderRow.hidden = false;
   activeTab = tab;
+  if (Object.prototype.hasOwnProperty.call(tabs, tab)) localStorage.setItem(LAST_SELECTED_TAB_KEY, tab);
   if (tabChanged) window.scrollTo({ top: 0, behavior: 'auto' });
   $tabSelect.value = tab;
   $removeSharedPage.hidden = !tab.startsWith('shared:');
@@ -2057,8 +2065,6 @@ $shareDialog.addEventListener('click', (event) => {
   if (event.target === $shareDialog) $shareDialog.close();
 });
 $shareCopy.addEventListener('click', copyFavorites);
-$shareLink.addEventListener('focus', selectShareField);
-$shareLink.addEventListener('click', selectShareField);
 $shareText.addEventListener('focus', selectShareField);
 $shareText.addEventListener('click', selectShareField);
 $shareLinkToggle.addEventListener('change', () => {
@@ -2297,7 +2303,6 @@ $showFilters.addEventListener('click', () => {
   $showFilters.setAttribute('aria-pressed', 'true');
   updateShowFiltersButton();
 });
-$favoritesShortcut.addEventListener('click', () => setActive('favorites'));
 $closeFilters.addEventListener('click', closeFilters);
 $closeFiltersBottom.addEventListener('click', closeFilters);
 $filterSearchSection.addEventListener('close', () => {
@@ -2420,7 +2425,11 @@ async function main() {
     addSavedSharedTabs();
     setStatus();
     if (sharedUserId) await renderSharedPage();
-    else setActive('program');
+    else {
+      const savedTab = localStorage.getItem(LAST_SELECTED_TAB_KEY);
+      const initialTab = savedTab && Object.prototype.hasOwnProperty.call(tabs, savedTab) ? savedTab : 'program';
+      setActive(initialTab);
+    }
     $listSubheaderRow.hidden = false;
   } catch (err) {
     showError('Failed to load events: ' + (err && err.message ? err.message : String(err)));

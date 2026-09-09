@@ -13,31 +13,33 @@ function runGit(args: string[], options: { capture?: boolean } = {}) {
 }
 
 function commitAndPushPackedEvents(): Error | null {
-  const status = runGit(['status', '--porcelain', '--', packedEventsPath], { capture: true });
-  if (status.error) return new Error(`Failed to check ${packedEventsPath}: ${status.error.message}`);
-  if (status.status !== 0) return new Error(`Failed to check ${packedEventsPath}: git status exited with ${status.status ?? 1}.`);
+  const generatedPaths = [packedEventsPath, 'data/historic.json'];
+  const pathArguments = ['--', ...generatedPaths];
+  const status = runGit(['status', '--porcelain', ...pathArguments], { capture: true });
+  if (status.error) return new Error(`Failed to check generated event files: ${status.error.message}`);
+  if (status.status !== 0) return new Error(`Failed to check generated event files: git status exited with ${status.status ?? 1}.`);
   if (!String(status.stdout).trim()) {
-    console.log(`No changes in ${packedEventsPath}; skipping commit and push.`);
+    console.log('No changes in generated event files; skipping commit and push.');
     return null;
   }
 
-  console.log(`\n> git add ${packedEventsPath}`);
-  const add = runGit(['add', packedEventsPath]);
-  if (add.error) return new Error(`Failed to stage ${packedEventsPath}: ${add.error.message}`);
-  if (add.status !== 0) return new Error(`Failed to stage ${packedEventsPath}: git add exited with ${add.status ?? 1}.`);
+  console.log(`\n> git add ${generatedPaths.join(' ')}`);
+  const add = runGit(['add', ...generatedPaths]);
+  if (add.error) return new Error(`Failed to stage generated event files: ${add.error.message}`);
+  if (add.status !== 0) return new Error(`Failed to stage generated event files: git add exited with ${add.status ?? 1}.`);
 
-  const staged = runGit(['diff', '--cached', '--quiet', '--', packedEventsPath], { capture: true });
-  if (staged.error) return new Error(`Failed to inspect staged ${packedEventsPath}: ${staged.error.message}`);
+  const staged = runGit(['diff', '--cached', '--quiet', ...pathArguments], { capture: true });
+  if (staged.error) return new Error(`Failed to inspect staged event files: ${staged.error.message}`);
   if (staged.status === 0) {
-    console.log(`No staged changes in ${packedEventsPath}; skipping commit and push.`);
+    console.log('No staged changes in generated event files; skipping commit and push.');
     return null;
   }
-  if (staged.status !== 1) return new Error(`Failed to inspect staged ${packedEventsPath}: git diff exited with ${staged.status ?? 1}.`);
+  if (staged.status !== 1) return new Error(`Failed to inspect staged event files: git diff exited with ${staged.status ?? 1}.`);
 
-  console.log(`\n> git commit ${packedEventsPath}`);
-  const commit = runGit(['commit', '-m', 'Update packed events', '--', packedEventsPath]);
-  if (commit.error) return new Error(`Failed to commit ${packedEventsPath}: ${commit.error.message}`);
-  if (commit.status !== 0) return new Error(`Failed to commit ${packedEventsPath}: git commit exited with ${commit.status ?? 1}.`);
+  console.log(`\n> git commit ${generatedPaths.join(' ')}`);
+  const commit = runGit(['commit', '-m', 'Update generated event data', ...pathArguments]);
+  if (commit.error) return new Error(`Failed to commit generated event files: ${commit.error.message}`);
+  if (commit.status !== 0) return new Error(`Failed to commit generated event files: git commit exited with ${commit.status ?? 1}.`);
 
   console.log('\n> git push');
   const push = runGit(['push']);

@@ -49,6 +49,7 @@
           <div class="more-menu-container">
             <button id="more-menu-button" class="more-menu-button" type="button" aria-label="Öppna meny" aria-expanded="false" aria-haspopup="menu" title="Meny"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
             <div id="more-menu" class="user-menu" role="menu" hidden>
+              <button id="finished-visibility-inline" class="finished-visibility-menu" type="button" role="menuitem"><i id="finished-visibility-icon" class="fa-solid fa-eye-slash" aria-hidden="true"></i><span id="finished-visibility-label"></span></button>
               <button id="info-button" class="info-button" type="button" role="menuitem" aria-label="Visa information" title="Information"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Om webbplatsen</span></button>
               <button id="report-error-button" type="button" role="menuitem" aria-label="Rapportera fel" title="Rapportera fel"><i class="fa-solid fa-bug" aria-hidden="true"></i><span>Rapportera fel</span></button>
               <button id="remove-user-data" type="button" role="menuitem" disabled><i class="fa-solid fa-trash-can" aria-hidden="true"></i><span>Ta bort mina data</span></button>
@@ -165,7 +166,7 @@
             <p id="share-link-help" class="share-help">Kopiera länken nedan för att dela dina favoriter.</p>
 
             <div class="share-field-row">
-              <input id="share-link" class="share-link" type="url" readonly aria-label="Delad länk" />
+              <span id="share-link" class="share-link" aria-label="Delad länk"></span>
               <button id="share-link-copy" class="share-copy-button share-copy-icon" type="button" aria-label="Kopiera delad länk" title="Kopiera delad länk" disabled hidden><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
             </div>
           </section>
@@ -183,7 +184,7 @@
     </dialog>
     <aside id="sync-alert" class="sync-alert" aria-live="polite" hidden>
       <span id="sync-alert-logged-out"><a id="sync-login-link" href="#login">Logga in</a> så sparas dina favoriter och följer med mellan dina enheter</span>
-      <span id="sync-alert-logged-in" hidden>Du är inloggad. Dina favoriter sparas och följer med mellan dina enheter.</span>
+      <span id="sync-alert-logged-in" hidden>Du är inloggad. Favoriter sparas och följer med mellan dina enheter.</span>
     </aside>
     <header>
       <div class="view-controls">
@@ -199,9 +200,7 @@
           <option id="tab-unfinished" value="unfinished" title="Ej avslutade evenemang (0 st)">&#9899; Ej avslutade (0)</option>
           <option id="tab-finished" value="finished" title="Avslutade evenemang (0 st)">&#9989; Avslutade (0)</option>
         </select>
-        <button id="favorites-shortcut" class="favorites-shortcut" type="button" aria-label="Visa mina favoriter" title="Visa mina favoriter">
-          <i class="fa-regular fa-star" aria-hidden="true"></i>
-        </button>
+        <a id="clear-filters" class="clear-filter-link filter-icon-link" href="#clear-filters" aria-label="Rensa filter" title="Rensa filter" hidden><i class="fa-solid fa-trash-can" aria-hidden="true"></i></a>
         <button id="show-filters" class="clear-search" type="button" aria-label="Visa filter" title="Visa filter" aria-expanded="false" aria-pressed="false">
           <span id="show-filters-label"><i class="fa-solid fa-filter" aria-hidden="true"></i></span> <span id="filter-count" hidden></span>
         </button>
@@ -211,10 +210,7 @@
           </label>
         </div>
         <div class="filter-header">
-          <span id="selected-filters" class="selected-filters" aria-live="polite">
-            <a id="clear-filters" class="clear-filter-link filter-icon-link" href="#clear-filters" aria-label="Rensa filter" title="Rensa filter" hidden><i class="fa-solid fa-trash-can" aria-hidden="true"></i></a>
-            <a id="finished-visibility-inline" class="clear-filter-link" href="#finished-visibility"></a>
-          </span>
+          <span id="selected-filters" class="selected-filters" aria-live="polite"></span>
         </div>
       </div>
     </header>
