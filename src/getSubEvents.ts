@@ -337,7 +337,7 @@ export function getSubEvents(ev: any, allEvents: any[] = []): SubEvent[] {
     const calculatedText = aboutCalculated.trim().toLocaleLowerCase();
     const subEventTitle = entry.sub.title.trim().toLocaleLowerCase();
     entry.sub.aboutCalculated2 = subEventTitle && calculatedText.endsWith(subEventTitle) ? '' : aboutCalculated;
-    entry.sub.aboutSubEvent = entry.sub.aboutCalculated2 || entry.sub.extraInfo2 || entry.sub.aboutHeader || entry.sub.aboutSlimNoExtraInfo || entry.sub.aboutSlim || entry.sub.aboutCopy || about;
+    entry.sub.aboutSubEvent = entry.sub.aboutCalculated2 || entry.sub.extraInfo2 || entry.sub.aboutHeader || entry.sub.aboutSlimNoExtraInfo || entry.sub.aboutSlim;
   }
 
   return subs;

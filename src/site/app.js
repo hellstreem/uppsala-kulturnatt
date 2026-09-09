@@ -1282,10 +1282,11 @@ function createEventDetails(ev, eventTitle) {
   details.className = 'event-details';
   details.hidden = true;
 
-  if (ev.about) {
+  const aboutText = ev.type === 'subEvent' ? ev.aboutSubEvent || '' : ev.type === 'event' ? ev.about : '';
+  if (aboutText) {
     const about = document.createElement('p');
     about.className = 'event-about';
-    about.textContent = ev.about;
+    about.textContent = aboutText;
     details.appendChild(about);
   }
 
