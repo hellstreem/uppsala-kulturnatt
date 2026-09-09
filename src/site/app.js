@@ -42,6 +42,9 @@ const $shareEmpty = document.getElementById('share-empty');
 const $shareText = document.getElementById('share-text');
 const $shareCopy = document.getElementById('share-copy');
 const $shareMessage = document.getElementById('share-message');
+const $shareToast = document.getElementById('share-toast');
+const $shareToastMessage = document.getElementById('share-toast-message');
+let shareToastTimer = null;
 const $infoButton = document.getElementById('info-button');
 const $infoDialog = document.getElementById('info-dialog');
 const $infoClose = document.getElementById('info-close');
@@ -304,38 +307,65 @@ function selectShareField(event) {
   });
 }
 
-async function copyTextToClipboard(text) {
-  if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(text);
-    return;
-  }
+function hideShareToast() {
+  window.clearTimeout(shareToastTimer);
+  shareToastTimer = null;
+  $shareToast.classList.remove('toast-visible');
+  $shareToast.hidden = true;
+}
+
+function showShareToast(message) {
+  $shareToastMessage.textContent = message;
+  $shareToast.hidden = false;
+  requestAnimationFrame(() => $shareToast.classList.add('toast-visible'));
+  window.clearTimeout(shareToastTimer);
+  shareToastTimer = window.setTimeout(() => {
+    $shareToast.classList.remove('toast-visible');
+    shareToastTimer = window.setTimeout(() => {
+      $shareToast.hidden = true;
+    }, 200);
+  }, 2500);
+}
+
+function copyTextWithFallback(text) {
   const temporaryInput = document.createElement('textarea');
   temporaryInput.value = text;
   document.body.appendChild(temporaryInput);
   temporaryInput.select();
   const copied = document.execCommand('copy');
   temporaryInput.remove();
-  if (!copied) throw new Error('Kopiering stöds inte av webbläsaren.');
+  return copied;
 }
 
-async function copyFavorites() {
+function copyToClipboard(text, successMessage, failureMessage) {
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(text).then(
+      () => {
+        $shareMessage.textContent = `${successMessage}.`;
+        showShareToast(`${successMessage}!`);
+      },
+      () => {
+        $shareMessage.textContent = failureMessage;
+      },
+    );
+    return;
+  }
+  if (copyTextWithFallback(text)) {
+    $shareMessage.textContent = `${successMessage}.`;
+    showShareToast(`${successMessage}!`);
+  } else {
+    $shareMessage.textContent = failureMessage;
+  }
+}
+
+function copyFavorites() {
   if ($shareCopy.disabled) return;
-  try {
-    await copyTextToClipboard($shareText.value);
-    $shareMessage.textContent = 'Texten kopierades.';
-  } catch (error) {
-    $shareMessage.textContent = error?.message || 'Texten kunde inte kopieras.';
-  }
+  copyToClipboard($shareText.value, 'Texten kopierades', 'Texten kunde inte kopieras.');
 }
 
-async function copyShareLink() {
+function copyShareLink() {
   if ($shareLinkCopy.disabled) return;
-  try {
-    await copyTextToClipboard($shareLink.textContent);
-    $shareMessage.textContent = 'Länken kopierades.';
-  } catch (error) {
-    $shareMessage.textContent = error?.message || 'Länken kunde inte kopieras.';
-  }
+  copyToClipboard($shareLink.textContent, 'Länken kopierades', 'Länken kunde inte kopieras.');
 }
 
 function formatLocalClockTime(value) {
@@ -2043,6 +2073,7 @@ $removeSharedPage.addEventListener('click', async () => {
   setActive('program');
 });
 $shareClose.addEventListener('click', () => $shareDialog.close());
+$shareDialog.addEventListener('close', hideShareToast);
 $shareDialog.addEventListener('click', (event) => {
   if (event.target === $shareDialog) $shareDialog.close();
 });
