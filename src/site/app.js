@@ -259,7 +259,7 @@ function shareTextForFavorites(events, favorites) {
 }
 
 function updateShareDialog() {
-  const canCopyText = Boolean(navigator.clipboard?.writeText || document.queryCommandSupported?.('copy'));
+  const canCopyText = Boolean(navigator.clipboard?.writeText || document.execCommand);
   const favorites = loadFavorites();
   const events = favoriteEvents(favorites);
   const count = events.length;
@@ -328,8 +328,9 @@ async function copyTextToClipboard(text) {
   temporaryInput.style.opacity = '0.01';
   document.body.append(temporaryInput);
   temporaryInput.focus();
+  temporaryInput.select();
   temporaryInput.setSelectionRange(0, temporaryInput.value.length);
-  const copied = document.execCommand('copy');
+  const copied = typeof document.execCommand === 'function' && document.execCommand('copy');
   temporaryInput.remove();
   if (!copied) throw new Error('Kopiering stöds inte av webbläsaren.');
 }
@@ -536,7 +537,8 @@ function normalizeEvent(event) {
   event.endMs = eventEndTime(event);
   event.startMinutes = clockMinutes(event.start || event.startTime || event.startTimeText || event.time);
   event.endMinutes = eventEndClockMinutes(event);
-  event.searchText = [event.title, event.name, event.displayName, event.locationAlias, event.locationName, event.location, event.about].map((value) => String(value ?? '').toLocaleLowerCase('sv-SE')).join(' ');
+  const aboutText = event.type === 'subEvent' ? event.aboutSubEvent : event.type === 'event' ? event.about : '';
+  event.searchText = [event.title, event.name, event.displayName, event.locationAlias, event.locationName, event.location, aboutText].map((value) => String(value ?? '').toLocaleLowerCase('sv-SE')).join(' ');
   return event;
 }
 
@@ -1020,11 +1022,6 @@ function coordinatesToMapQuery(coordinates) {
 function matchesSearch(event) {
   const searchTerm = $search.value.trim().toLocaleLowerCase('sv-SE');
   if (!searchTerm) return true;
-
-  if (activeTab === 'subevents') {
-    const subEventSearchText = [event.title, event.name, event.displayName, event.locationAlias, event.locationName, event.location].map((value) => String(value ?? '').toLocaleLowerCase('sv-SE')).join(' ');
-    return subEventSearchText.includes(searchTerm);
-  }
 
   return event.searchText.includes(searchTerm);
 }
