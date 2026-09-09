@@ -1669,11 +1669,19 @@ body.share-loading #status {
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.2;
+  color: white;
+  background: #a13afb;
+  padding: 2px 5px;
+  margin-bottom: 5px;
 }
 
 body[data-theme='light'] .shared-card-owner {
   border-bottom-color: rgba(147, 51, 234, 0.4);
   color: #7e22ce;
+  color: white;
+  background: #a13afb;
+  padding: 2px 5px;
+  margin-bottom: 5px;
 }
 
 body[data-theme='light'] .card.cancelled {

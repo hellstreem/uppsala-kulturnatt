@@ -1977,9 +1977,9 @@ function setActive(tab, preserveScroll = false) {
       favorites: 'Dina favoritevenemang, betygsatta med 1–3 stjärnor. Favoritval kan tas bort via papperskorgsikonen.',
       unfinished: 'Evenemang som pågår eller ännu inte har startat.',
     }[tab] || '';
-  if (tab.startsWith('shared:')) tabInformation = `Delade favoritevenemang från ${sharedIdentity}.`;
+  if (tab.startsWith('shared:')) tabInformation = `Delade favoritevenemang från ${sharedIdentity}`;
   $tabInformation.textContent = tabInformation;
-  $tabInformation.hidden = !tabInformation;
+  $tabInformation.hidden = tab.startsWith('shared:') || !tabInformation;
   updateProgramSortControls();
   const favs = loadFavorites();
   const now = eventCurrentTime();
