@@ -313,8 +313,8 @@ function copyWithExecCommand(text) {
 
   const temporaryInput = document.createElement('textarea');
   temporaryInput.value = text;
-  temporaryInput.setAttribute('readonly', '');
-  temporaryInput.setAttribute('aria-hidden', 'true');
+  temporaryInput.setAttribute('tabindex', '-1');
+  temporaryInput.contentEditable = 'true';
   temporaryInput.style.position = 'fixed';
   temporaryInput.style.top = '0';
   temporaryInput.style.left = '0';
@@ -325,12 +325,14 @@ function copyWithExecCommand(text) {
   temporaryInput.style.fontSize = '16px';
   temporaryInput.style.opacity = '0.01';
   document.body.append(temporaryInput);
-  temporaryInput.focus();
-  temporaryInput.select();
-  temporaryInput.setSelectionRange(0, temporaryInput.value.length);
-  const copied = document.execCommand('copy');
-  temporaryInput.remove();
-  return copied;
+  try {
+    temporaryInput.focus();
+    temporaryInput.select();
+    temporaryInput.setSelectionRange(0, temporaryInput.value.length);
+    return document.execCommand('copy');
+  } finally {
+    temporaryInput.remove();
+  }
 }
 
 async function copyTextToClipboard(text) {
