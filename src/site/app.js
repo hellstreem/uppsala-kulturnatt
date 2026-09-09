@@ -2019,12 +2019,12 @@ function setActive(tab, preserveScroll = false) {
     {
       program: '',
       subevents: 'Nedan visas programpunkter som har identifierats i evenemangets beskrivning. Kategorin kan vara felaktig eftersom den baseras på texttolkning.',
-      recent: 'Evenemang som har startat de senaste 15 minuterna.',
-      soon: 'Evenemang som startar inom de närmaste 45 minuterna.',
-      later: 'Evenemang som startar senare i dag.',
-      live: 'Evenemang som pågår just nu.',
+      recent: 'Evenemang som har startat de senaste 15 minuterna',
+      soon: 'Evenemang som startar inom de närmaste 45 minuterna',
+      later: 'Evenemang som startar senare',
+      live: 'Evenemang som pågår just nu',
       favorites: 'Dina favoritevenemang, betygsatta med 1–3 stjärnor. Favoritval kan tas bort via papperskorgsikonen.',
-      unfinished: 'Evenemang som pågår eller ännu inte har startat.',
+      unfinished: 'Evenemang som pågår eller ännu inte har startat',
     }[tab] || '';
   if (tab.startsWith('shared:')) tabInformation = `Delade favoritevenemang från ${sharedIdentity}`;
   $tabInformation.textContent = tabInformation;
