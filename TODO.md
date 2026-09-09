@@ -15,3 +15,5 @@ when deployed to https://uppsalakulturnatt.com/, loading https://uppsalakulturna
 add sortering to all
 
 add visa/dölj avslutade to main screen
+
+Se även delevenemang i menyn ovan. Dessa har identifierats i evenemangets beskrivning.

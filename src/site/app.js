@@ -984,7 +984,7 @@ function updateTabCounts() {
   const favorites = loadFavorites();
   const favoriteIds = new Set(Object.keys(favorites));
   const now = eventCurrentTime();
-  let activeCount = 0;
+  let eventCount = 0;
   let subeventCount = 0;
   let cancelledCount = 0;
   let favoriteCount = 0;
@@ -1003,7 +1003,7 @@ function updateTabCounts() {
     if (!isCancelled && !isFinished) unfinishedCount += 1;
 
     if (hideFinishedEvents && isFinished) continue;
-    if (!isCancelled && event.type === 'event') activeCount += 1;
+    if (!isCancelled && (event.type === 'event' || event.type === 'subEvent')) eventCount += 1;
     if (!isCancelled && event.type === 'subEvent') subeventCount += 1;
     if (favoriteIds.has(event.favoriteId)) favoriteCount += 1;
     if (!isCancelled && Number.isFinite(event.startMs) && Number.isFinite(event.endMs) && event.startMs <= now && event.endMs >= now) liveCount += 1;
@@ -1012,8 +1012,8 @@ function updateTabCounts() {
     if (!isCancelled && Number.isFinite(event.startMs) && event.startMs > now + SOON_EVENT_WINDOW_MS) laterCount += 1;
   }
 
-  tabs.program.textContent = `\u{1F4C5} Evenemang (${activeCount})`;
-  tabs.program.title = `Evenemang (${activeCount} st)`;
+  tabs.program.textContent = `\u{1F4C5} Evenemang (${eventCount})`;
+  tabs.program.title = `Evenemang (${eventCount} st)`;
   tabs.subevents.textContent = `\u{1F4DD} Delevenemang (${subeventCount})`;
   tabs.subevents.title = `Delevenemang (${subeventCount} st)`;
   tabs.cancelled.textContent = `\u{1F6AB} Inställda (${cancelledCount})`;
@@ -1057,7 +1057,7 @@ function addSavedSharedTabs() {
 }
 
 function isKnownTab(tab) {
-  return Object.prototype.hasOwnProperty.call(tabs, tab) || Array.from($tabSelect.options).some((option) => option.value === tab);
+  return Array.from($tabSelect.options).some((option) => option.value === tab && !option.hidden);
 }
 
 function coordinatesToMapQuery(coordinates) {
@@ -2017,7 +2017,7 @@ function setActive(tab, preserveScroll = false) {
   $activeTabHeading.textContent = `${tabIcon(tab)} ${tabTooltip(tab)}`;
   let tabInformation =
     {
-      program: 'Se även delevenemang i menyn ovan. Dessa har identifierats i evenemangets beskrivning.',
+      program: '',
       subevents: 'Nedan visas programpunkter som har identifierats i evenemangets beskrivning. Kategorin kan vara felaktig eftersom den baseras på texttolkning.',
       recent: 'Evenemang som har startat de senaste 15 minuterna.',
       soon: 'Evenemang som startar inom de närmaste 45 minuterna.',
@@ -2034,7 +2034,7 @@ function setActive(tab, preserveScroll = false) {
   const now = eventCurrentTime();
   let events = [];
   if (tab === 'program') {
-    events = sortProgramEvents(allEvents.filter((event) => !event.isCancelled && event.type === 'event'));
+    events = sortProgramEvents(allEvents.filter((event) => !event.isCancelled && (event.type === 'event' || event.type === 'subEvent')));
   } else if (tab === 'subevents') {
     events = sortProgramEvents(allEvents.filter((event) => !event.isCancelled && event.type === 'subEvent'));
   } else if (tab === 'cancelled') {
