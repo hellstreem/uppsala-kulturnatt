@@ -304,15 +304,13 @@ function selectShareField(event) {
   });
 }
 
-async function copyTextToClipboard(text) {
-  try {
-    if (navigator.clipboard?.writeText) {
-      await navigator.clipboard.writeText(text);
-      return;
-    }
-  } catch (error) {
-    // Fall back to a temporary selection for browsers without usable Clipboard API access.
-  }
+function isAppleMobileBrowser() {
+  return /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
+
+function copyWithExecCommand(text) {
+  if (typeof document.execCommand !== 'function') return false;
+
   const temporaryInput = document.createElement('textarea');
   temporaryInput.value = text;
   temporaryInput.setAttribute('readonly', '');
@@ -330,9 +328,23 @@ async function copyTextToClipboard(text) {
   temporaryInput.focus();
   temporaryInput.select();
   temporaryInput.setSelectionRange(0, temporaryInput.value.length);
-  const copied = typeof document.execCommand === 'function' && document.execCommand('copy');
+  const copied = document.execCommand('copy');
   temporaryInput.remove();
-  if (!copied) throw new Error('Kopiering stöds inte av webbläsaren.');
+  return copied;
+}
+
+async function copyTextToClipboard(text) {
+  if (isAppleMobileBrowser() && copyWithExecCommand(text)) return;
+
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+  } catch (error) {
+    // Fall back to a temporary selection for browsers without usable Clipboard API access.
+  }
+  if (!copyWithExecCommand(text)) throw new Error('Kopiering stöds inte av webbläsaren.');
 }
 
 async function copyFavorites() {
