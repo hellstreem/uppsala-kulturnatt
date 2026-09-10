@@ -65,7 +65,7 @@ const $logoutButton = document.getElementById('logout-button');
 const $logoutDialog = document.getElementById('logout-dialog');
 const $logoutClose = document.getElementById('logout-close');
 const $shareLoginLink = document.getElementById('share-login-link');
-const $shareLoginHelp = $shareLoginLink.closest('p');
+const $shareLoginHelp = $shareLoginLink?.closest('p');
 const $authDialog = document.getElementById('auth-dialog');
 const $authDialogTitle = document.querySelector('#auth-dialog-title span');
 const $authHelp = document.querySelector('.auth-help');
@@ -289,7 +289,7 @@ function confirmAction(message) {
       $confirmDialog.removeEventListener('close', handleClose);
       resolve($confirmDialog.returnValue === 'accept');
     };
-    $confirmDialog.addEventListener('close', handleClose);
+    $confirmDialog?.addEventListener('close', handleClose);
     $confirmDialog.showModal();
     requestAnimationFrame(() => $confirmCancel.focus());
   });
@@ -767,7 +767,7 @@ function updateUserDataMenu() {
 function updateAuthenticationUi(user) {
   firebaseUser = user;
   updateUserDataMenu();
-  $shareLoginHelp.hidden = Boolean(user);
+  if ($shareLoginHelp) $shareLoginHelp.hidden = Boolean(user);
   if (user) {
     const displayName = userDisplayName(user);
     const emailAddress = isGoogleUser(user) && displayName ? '' : userEmailAddress(user);
@@ -2093,7 +2093,7 @@ function setActive(tab, preserveScroll = false) {
   }
 }
 
-$tabSelect.addEventListener('change', async () => {
+$tabSelect?.addEventListener('change', async () => {
   const tab = $tabSelect.value;
   try {
     if (tab.startsWith('shared:')) {
@@ -2115,62 +2115,62 @@ $tabSelect.addEventListener('change', async () => {
     }
   }
 });
-$progressCancel.addEventListener('click', () => {
+$progressCancel?.addEventListener('click', () => {
   sharedLoadRequest += 1;
   if ($progressDialog.open) $progressDialog.close();
   setStatus();
 });
-$progressDialog.addEventListener('cancel', (event) => event.preventDefault());
-$shareFavorites.addEventListener('click', () => {
+$progressDialog?.addEventListener('cancel', (event) => event.preventDefault());
+$shareFavorites?.addEventListener('click', () => {
   updateShareDialog();
   $shareDialog.showModal();
   requestAnimationFrame(() => $shareClose.focus());
 });
-$removeSharedPage.addEventListener('click', async () => {
+$removeSharedPage?.addEventListener('click', async () => {
   if (!activeSharedUserId || !(await confirmAction('Vill du ta bort den delade sidan?'))) return;
   await removeSharedPage(activeSharedUserId);
   document.body.classList.remove('shared-page');
   setActive('program');
 });
-$shareClose.addEventListener('click', () => $shareDialog.close());
-$shareDialog.addEventListener('close', hideShareToast);
-$shareDialog.addEventListener('click', (event) => {
+$shareClose?.addEventListener('click', () => $shareDialog.close());
+$shareDialog?.addEventListener('close', hideShareToast);
+$shareDialog?.addEventListener('click', (event) => {
   if (event.target === $shareDialog) $shareDialog.close();
 });
-$shareCopy.addEventListener('click', copyFavorites);
-$shareText.addEventListener('focus', selectShareField);
-$shareText.addEventListener('click', selectShareField);
-$shareLinkToggle.addEventListener('change', () => {
+$shareCopy?.addEventListener('click', copyFavorites);
+$shareText?.addEventListener('focus', selectShareField);
+$shareText?.addEventListener('click', selectShareField);
+$shareLinkToggle?.addEventListener('change', () => {
   localStorage.setItem('enableSharing', String($shareLinkToggle.checked));
   $shareLinkCopy.disabled = !firebaseUser || !$shareLinkToggle.checked;
   $shareLink.textContent = $shareLinkToggle.checked ? `https://${window.location.host}/share/${firebaseUser?.uid || ''}/` : '<Aktivera delning för att visa länk här>';
   scheduleCloudSettingsSync(true);
 });
-$shareLinkCopy.addEventListener('click', copyShareLink);
-$infoButton.addEventListener('click', () => {
+$shareLinkCopy?.addEventListener('click', copyShareLink);
+$infoButton?.addEventListener('click', () => {
   $moreMenu.hidden = true;
   $moreMenuButton.setAttribute('aria-expanded', 'false');
   $infoDialog.showModal();
 });
-$infoClose.addEventListener('click', () => $infoDialog.close());
-$infoDialog.addEventListener('click', (event) => {
+$infoClose?.addEventListener('click', () => $infoDialog.close());
+$infoDialog?.addEventListener('click', (event) => {
   if (event.target === $infoDialog) $infoDialog.close();
 });
-$reportErrorButton.addEventListener('click', () => {
+$reportErrorButton?.addEventListener('click', () => {
   $moreMenu.hidden = true;
   $moreMenuButton.setAttribute('aria-expanded', 'false');
   $reportErrorDialog.showModal();
 });
-$reportErrorClose.addEventListener('click', () => $reportErrorDialog.close());
-$reportErrorDialog.addEventListener('click', (event) => {
+$reportErrorClose?.addEventListener('click', () => $reportErrorDialog.close());
+$reportErrorDialog?.addEventListener('click', (event) => {
   if (event.target === $reportErrorDialog) $reportErrorDialog.close();
 });
-$errorClose.addEventListener('click', () => $errorDialog.close());
-$errorDialog.addEventListener('click', (event) => {
+$errorClose?.addEventListener('click', () => $errorDialog.close());
+$errorDialog?.addEventListener('click', (event) => {
   if (event.target === $errorDialog) $errorDialog.close();
 });
-$actionAlertClose.addEventListener('click', closeActionAlert);
-$confirmDialog.addEventListener('click', (event) => {
+$actionAlertClose?.addEventListener('click', closeActionAlert);
+$confirmDialog?.addEventListener('click', (event) => {
   if (event.target === $confirmDialog) $confirmDialog.close('cancel');
 });
 $finishedVisibilityInline?.addEventListener('click', (event) => {
@@ -2179,7 +2179,7 @@ $finishedVisibilityInline?.addEventListener('click', (event) => {
   $moreMenu.hidden = true;
   $moreMenuButton.setAttribute('aria-expanded', 'false');
 });
-$themeToggle.addEventListener('click', () => {
+$themeToggle?.addEventListener('click', () => {
   setTheme(document.body.dataset.theme === 'light' ? 'dark' : 'light');
 });
 const toggleMoreMenu = () => {
@@ -2192,7 +2192,7 @@ const toggleMoreMenu = () => {
   }
 };
 let moreMenuTouchHandled = false;
-$moreMenuButton.addEventListener(
+$moreMenuButton?.addEventListener(
   'touchend',
   (event) => {
     event.preventDefault();
@@ -2204,11 +2204,11 @@ $moreMenuButton.addEventListener(
   },
   { passive: false },
 );
-$moreMenuButton.addEventListener('click', () => {
+$moreMenuButton?.addEventListener('click', () => {
   if (moreMenuTouchHandled) return;
   toggleMoreMenu();
 });
-$loginButton.addEventListener('click', async () => {
+$loginButton?.addEventListener('click', async () => {
   if (openLoginDialogOnNextClick) {
     openLoginDialogOnNextClick = false;
     openAuthenticationDialog();
@@ -2228,14 +2228,14 @@ $loginButton.addEventListener('click', async () => {
     $moreMenuButton.setAttribute('aria-expanded', 'false');
   }
 });
-$shareLoginLink.addEventListener('click', (event) => {
+$shareLoginLink?.addEventListener('click', (event) => {
   event.preventDefault();
   if (firebaseUser) return;
   ensureFirebaseAuthentication().then((isReady) => {
     if (isReady && !firebaseUser) openAuthenticationDialog();
   });
 });
-$logoutButton.addEventListener('click', async () => {
+$logoutButton?.addEventListener('click', async () => {
   if (!firebaseAuth) return;
   try {
     await firebaseAuth.signOut();
@@ -2250,22 +2250,22 @@ $logoutButton.addEventListener('click', async () => {
     showError(`Utloggningen misslyckades: ${error?.message || error}`);
   }
 });
-$logoutClose.addEventListener('click', () => $logoutDialog.close());
-$logoutDialog.addEventListener('click', (event) => {
+$logoutClose?.addEventListener('click', () => $logoutDialog.close());
+$logoutDialog?.addEventListener('click', (event) => {
   if (event.target === $logoutDialog) $logoutDialog.close();
 });
-$loginMenu.addEventListener('click', () => {
+$loginMenu?.addEventListener('click', () => {
   $userMenu.hidden = true;
   $loginButton.setAttribute('aria-expanded', 'false');
   openAuthenticationDialog();
 });
-$removeUserData.addEventListener('click', removeUserData);
-$authClose.addEventListener('click', () => {
+$removeUserData?.addEventListener('click', removeUserData);
+$authClose?.addEventListener('click', () => {
   finishRecentAuthentication(false);
   $authDialog.close();
 });
-$authDialog.addEventListener('cancel', () => finishRecentAuthentication(false));
-$forgotPasswordButton.addEventListener('click', async () => {
+$authDialog?.addEventListener('cancel', () => finishRecentAuthentication(false));
+$forgotPasswordButton?.addEventListener('click', async () => {
   if (!(await ensureFirebaseAuthentication())) return;
   const email = $authEmail.value.trim();
   if (!email) {
@@ -2282,7 +2282,7 @@ $forgotPasswordButton.addEventListener('click', async () => {
     showAuthMessage(error?.message || 'Återställningen av lösenordet misslyckades.');
   }
 });
-$authForm.addEventListener('submit', async (event) => {
+$authForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (!(await ensureFirebaseAuthentication())) return;
 
@@ -2315,7 +2315,7 @@ $authForm.addEventListener('submit', async (event) => {
     showAuthMessage(error?.message || 'Inloggningen misslyckades.');
   }
 });
-$googleLoginButton.addEventListener('click', async () => {
+$googleLoginButton?.addEventListener('click', async () => {
   if (!(await ensureFirebaseAuthentication())) return;
   try {
     if (recentAuthenticationResolver) {
@@ -2341,26 +2341,26 @@ $googleLoginButton.addEventListener('click', async () => {
     showAuthMessage(error?.message || 'Google-inloggningen misslyckades.');
   }
 });
-$programSortStart.addEventListener('click', () => {
+$programSortStart?.addEventListener('click', () => {
   if (activeTab.startsWith('shared:')) sharedSortMode = 'start';
   else if (activeTab === 'favorites') favoritesSortMode = 'start';
   else programSortMode = 'start';
   updateProgramSortControls();
   setActive(activeTab);
 });
-$programSortSeen.addEventListener('click', () => {
+$programSortSeen?.addEventListener('click', () => {
   if (activeTab.startsWith('shared:')) sharedSortMode = 'local';
   else if (activeTab === 'favorites') favoritesSortMode = 'stars';
   else programSortMode = 'updated';
   updateProgramSortControls();
   setActive(activeTab);
 });
-$programSortShared.addEventListener('click', () => {
+$programSortShared?.addEventListener('click', () => {
   sharedSortMode = 'shared';
   updateProgramSortControls();
   setActive(activeTab);
 });
-$showFilters.addEventListener('click', () => {
+$showFilters?.addEventListener('click', () => {
   if ($filterSearchSection.open) {
     closeFilters();
     return;
@@ -2372,56 +2372,56 @@ $showFilters.addEventListener('click', () => {
   $showFilters.setAttribute('aria-pressed', 'true');
   updateShowFiltersButton();
 });
-$closeFilters.addEventListener('click', closeFilters);
-$closeFiltersBottom.addEventListener('click', closeFilters);
-$filterSearchSection.addEventListener('close', () => {
+$closeFilters?.addEventListener('click', closeFilters);
+$closeFiltersBottom?.addEventListener('click', closeFilters);
+$filterSearchSection?.addEventListener('close', () => {
   $showFilters.setAttribute('aria-expanded', 'false');
   $showFilters.setAttribute('aria-pressed', 'false');
   updateShowFiltersButton();
 });
-$filterSearchSection.addEventListener('click', (event) => {
+$filterSearchSection?.addEventListener('click', (event) => {
   if (event.target === $filterSearchSection) closeFilters();
 });
 window.addEventListener('resize', () => {
   if ($filterSearchSection.open) positionFiltersDialog();
 });
-$search.addEventListener('input', () => {
+$search?.addEventListener('input', () => {
   updateClearFiltersButton();
   updateFilterCount();
   setActive(activeTab);
 });
-$childrenFilter.addEventListener('change', () => {
+$childrenFilter?.addEventListener('change', () => {
   if ($childrenFilter.checked) $adultsFilter.checked = false;
   updateClearFiltersButton();
   updateFilterCount();
   setActive(activeTab);
 });
-$adultsFilter.addEventListener('change', () => {
+$adultsFilter?.addEventListener('change', () => {
   if ($adultsFilter.checked) $childrenFilter.checked = false;
   updateClearFiltersButton();
   updateFilterCount();
   setActive(activeTab);
 });
-$freeFilter.addEventListener('change', () => {
+$freeFilter?.addEventListener('change', () => {
   if ($freeFilter.checked) $paidFilter.checked = false;
   updateClearFiltersButton();
   updateFilterCount();
   setActive(activeTab);
 });
-$paidFilter.addEventListener('change', () => {
+$paidFilter?.addEventListener('change', () => {
   if ($paidFilter.checked) $freeFilter.checked = false;
   updateClearFiltersButton();
   updateFilterCount();
   setActive(activeTab);
 });
 for (const timeFilter of [$fromFilter, $toFilter]) {
-  timeFilter.addEventListener('input', () => {
+  timeFilter?.addEventListener('input', () => {
     updateClearFiltersButton();
     updateFilterCount();
     setActive(activeTab);
   });
 }
-$clearFilters.addEventListener('click', (event) => {
+$clearFilters?.addEventListener('click', (event) => {
   event.preventDefault();
   $search.value = '';
   $childrenFilter.checked = false;
@@ -2454,7 +2454,7 @@ document.addEventListener('click', (event) => {
   }
 });
 for (const filter of multiFilters) {
-  filter.options.addEventListener('change', (event) => {
+  filter.options?.addEventListener('change', (event) => {
     const changedInput = event.target;
     if (!(changedInput instanceof HTMLInputElement)) return;
 
