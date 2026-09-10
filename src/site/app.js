@@ -148,6 +148,7 @@ let openLoginDialogOnNextClick = false;
 let cloudSyncTimer = null;
 let actionAlertTimer = null;
 let firebaseSettingsWrite = Promise.resolve();
+let firebaseSettingsReady = false;
 let listRenderId = 0;
 updateDebugMode();
 const RECENT_EVENT_WINDOW_MS = 15 * 60 * 1000;
@@ -664,13 +665,13 @@ function loadSharedPagesFromValue(value) {
 function scheduleCloudSettingsSync(immediate = false) {
   window.clearTimeout(cloudSyncTimer);
   const write = () => {
-    if (!firebaseUser || !settingsDocument) return Promise.resolve();
+    if (!firebaseSettingsReady || !firebaseUser || !settingsDocument) return Promise.resolve();
     const userId = firebaseUser.uid;
     const document = settingsDocument;
     firebaseSettingsWrite = firebaseSettingsWrite
       .catch(() => {})
       .then(async () => {
-        if (!firebaseUser || firebaseUser.uid !== userId || settingsDocument !== document) return;
+        if (!firebaseSettingsReady || !firebaseUser || firebaseUser.uid !== userId || settingsDocument !== document) return;
         const settings = localSettings();
         await document.set(settings, {
           mergeFields: settingsMergeFields(settings),
@@ -699,14 +700,13 @@ async function syncSettingsWithFirebase() {
 
       if (remote) {
         const remoteFavorites = normalizeFavorites(remote.favorites);
-        const synchronizedFavorites = Object.keys(remoteFavorites).length > 0 ? remoteFavorites : local.favorites;
         const localSharedPages = loadSharedPages();
         const remoteSharedPages = loadSharedPagesFromValue(remote.sharedPages);
         const mergedSharedPages = [...localSharedPages, ...remoteSharedPages].filter((page, index, pages) => pages.findIndex((candidate) => candidate.userId === page.userId) === index);
 
         applySettings({
           ...remote,
-          favorites: synchronizedFavorites,
+          favorites: remoteFavorites,
           sharedPages: mergedSharedPages,
         });
       } else {
@@ -718,14 +718,15 @@ async function syncSettingsWithFirebase() {
 
       operation = 'write user settings';
       await settingsDocument.set(settings, {
-        mergeFields: settingsMergeFields(settings),
+        mergeFields: snapshot.exists ? settingsMergeFields(settings).filter((field) => field !== 'favorites') : settingsMergeFields(settings),
       });
 
+      firebaseSettingsReady = true;
       localStorage.removeItem('removedFavorites');
       localStorage.setItem('firebaseSyncedUserId', firebaseUser.uid);
       updateUserDataMenu();
-      updateTabCounts();
       if (activeTab === 'favorites') setActive(activeTab);
+      updateTabCounts();
       return;
     } catch (error) {
       if (!firebaseUser || firebaseUser.isAnonymous) return;
@@ -901,6 +902,7 @@ function initFirebaseAuthentication() {
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (!user) {
         window.clearTimeout(cloudSyncTimer);
+        firebaseSettingsReady = false;
         settingsDocument = null;
         if (isDeletingUserData) {
           updateAuthenticationUi(null);
@@ -910,12 +912,14 @@ function initFirebaseAuthentication() {
         return;
       }
       if (user.isAnonymous) {
+        firebaseSettingsReady = false;
         settingsDocument = null;
         await firebaseAuth.signOut();
         return;
       }
       updateAuthenticationUi(user);
       if (isDeletingUserData) return;
+      firebaseSettingsReady = false;
       settingsDocument = firebase.firestore().collection('users').doc(user.uid);
       try {
         await syncSettingsWithFirebase();
