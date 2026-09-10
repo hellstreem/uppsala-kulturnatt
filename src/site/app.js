@@ -116,6 +116,14 @@ function updateDebugMode() {
   debugEnabled = new URL(window.location.href).searchParams.get('debug') === 'true';
 }
 
+function debugLog(...args) {
+  if (debugEnabled) console.log(...args);
+}
+
+function debugError(...args) {
+  console.error(...args);
+}
+
 const multiFilters = [
   { menu: document.getElementById('category-menu'), options: document.getElementById('category-options'), summary: document.getElementById('category-summary'), eventProperty: 'categoryNames', allLabel: 'Alla kategorier', selectedLabel: 'categories' },
   { menu: document.getElementById('music-category-menu'), options: document.getElementById('music-category-options'), summary: document.getElementById('music-category-summary'), eventProperty: 'musicCategoryNames', allLabel: 'All musik', selectedLabel: 'music categories' },
@@ -558,7 +566,7 @@ function showError(message = '') {
 
 function reportSettingsSyncError(operation, error) {
   if (!firebaseUser || firebaseUser.isAnonymous) return;
-  console.error('Firebase settings sync failed:', {
+  debugError('Firebase settings sync failed:', {
     operation,
     code: error?.code || 'unknown',
     message: error?.message || String(error),
@@ -771,8 +779,8 @@ function updateAuthenticationUi(user) {
   if (user) {
     const displayName = userDisplayName(user);
     const emailAddress = isGoogleUser(user) && displayName ? '' : userEmailAddress(user);
-    console.debug('Saving displayName to localStorage:', displayName);
-    console.debug('Saving emailAddress to localStorage:', emailAddress);
+    debugLog('Saving displayName to localStorage:', displayName);
+    debugLog('Saving emailAddress to localStorage:', emailAddress);
     localStorage.setItem('displayName', displayName);
     localStorage.setItem('emailAddress', emailAddress);
   }
@@ -847,7 +855,7 @@ async function removeUserData() {
     showActionAlert('Alla användardata har tagits bort.');
   } catch (error) {
     isDeletingUserData = false;
-    console.error('Removing user data failed:', error);
+    debugError('Removing user data failed:', error);
     showError(`Användardata kunde inte tas bort: ${error?.message || error}`);
   } finally {
     $removeUserData.disabled = false;
@@ -906,7 +914,7 @@ function initFirebaseAuthentication() {
       try {
         const displayName = userDisplayName(user);
         const emailAddress = userEmailAddress(user);
-        console.debug('Saving displayName and emailAddress to Firestore:', { uid: user.uid, displayName, emailAddress });
+        debugLog('Saving displayName and emailAddress to Firestore:', { uid: user.uid, displayName, emailAddress });
         await settingsDocument.set(localSettings(), { merge: true });
         await syncSettingsWithFirebase();
       } catch (error) {
@@ -914,7 +922,7 @@ function initFirebaseAuthentication() {
       }
     });
   } catch (error) {
-    console.error('Firebase initialization failed:', error);
+    debugError('Firebase initialization failed:', error);
     $loginButton.disabled = true;
     $loginButton.title = 'Firebase kunde inte startas';
   }
@@ -933,7 +941,7 @@ async function ensureFirebaseAuthentication() {
     await firebaseInitializationPromise;
     if (firebaseAuthStatePromise) await firebaseAuthStatePromise;
   } catch (error) {
-    console.error('Firebase scripts failed to load:', error);
+    debugError('Firebase scripts failed to load:', error);
     $loginButton.disabled = true;
     $loginButton.title = 'Firebase kunde inte laddas';
   }
@@ -1992,7 +2000,7 @@ async function loadSharedFavorites(userId = activeSharedUserId) {
     }
     $progressMessage.textContent = 'Läser in delade favoriter…';
     const snapshot = await firebase.firestore().collection('users').doc(userId).get();
-    console.debug('Fetched shared profile from Firestore:', {
+    debugLog('Fetched shared profile from Firestore:', {
       userId,
       exists: snapshot.exists,
       data: snapshot.exists ? snapshot.data() : null,
@@ -2246,7 +2254,7 @@ $logoutButton?.addEventListener('click', async () => {
     $loginButton.setAttribute('aria-expanded', 'false');
     $logoutDialog.showModal();
   } catch (error) {
-    console.error('Firebase sign-out failed:', error);
+    debugError('Firebase sign-out failed:', error);
     showError(`Utloggningen misslyckades: ${error?.message || error}`);
   }
 });
@@ -2278,7 +2286,7 @@ $forgotPasswordButton?.addEventListener('click', async () => {
     await firebaseAuth.sendPasswordResetEmail(email);
     showAuthMessage('En återställningslänk har skickats till din e-postadress.');
   } catch (error) {
-    console.error('Firebase password reset failed:', error);
+    debugError('Firebase password reset failed:', error);
     showAuthMessage(error?.message || 'Återställningen av lösenordet misslyckades.');
   }
 });
@@ -2311,7 +2319,7 @@ $authForm?.addEventListener('submit', async (event) => {
     openLoginDialogOnNextClick = false;
     $authDialog.close();
   } catch (error) {
-    console.error('Firebase email authentication failed:', error);
+    debugError('Firebase email authentication failed:', error);
     showAuthMessage(error?.message || 'Inloggningen misslyckades.');
   }
 });
@@ -2337,7 +2345,7 @@ $googleLoginButton?.addEventListener('click', async () => {
     openLoginDialogOnNextClick = false;
     $authDialog.close();
   } catch (error) {
-    console.error('Firebase Google authentication failed:', error);
+    debugError('Firebase Google authentication failed:', error);
     showAuthMessage(error?.message || 'Google-inloggningen misslyckades.');
   }
 });
@@ -2508,7 +2516,7 @@ async function main() {
     $listSubheaderRow.hidden = false;
   } catch (err) {
     showError('Failed to load events: ' + (err && err.message ? err.message : String(err)));
-    console.error(err);
+    debugError(err);
     if (sharedUserId) {
       if (err?.message === 'Den delade profilen kunde inte hittas.') await removeSharedPage(sharedUserId);
       document.body.classList.remove('shared-page');
