@@ -119,6 +119,7 @@ function updateDebugMode() {
 
 const multiFilters = [
   { menu: document.getElementById('category-menu'), options: document.getElementById('category-options'), summary: document.getElementById('category-summary'), eventProperty: 'categoryNames', allLabel: 'Alla kategorier', selectedLabel: 'categories' },
+  { menu: document.getElementById('music-category-menu'), options: document.getElementById('music-category-options'), summary: document.getElementById('music-category-summary'), eventProperty: 'musicCategoryNames', allLabel: 'All musik', selectedLabel: 'music categories' },
   { menu: document.getElementById('language-menu'), options: document.getElementById('language-options'), summary: document.getElementById('language-summary'), eventProperty: 'languageNames', allLabel: 'Alla språk', selectedLabel: 'languages' },
   { menu: document.getElementById('location-menu'), options: document.getElementById('location-options'), summary: document.getElementById('location-summary'), eventProperty: 'locationNames', allLabel: 'Alla platser', selectedLabel: 'locations' },
   { menu: document.getElementById('accessibility-menu'), options: document.getElementById('accessibility-options'), summary: document.getElementById('accessibility-summary'), eventProperty: 'accessibilityNames', allLabel: 'All tillgänglighet', selectedLabel: 'accessibilities' },
@@ -1079,6 +1080,10 @@ function selectedFilterValues(filter) {
 
 function displayFilterValue(filter, value) {
   if (filter.eventProperty === 'languageNames' && String(value).toLocaleLowerCase('sv-SE').includes('kräver inga språkkunskaper')) return 'Inga språkkunskaper';
+  if (filter.eventProperty === 'musicCategoryNames') {
+    const text = String(value);
+    return text ? `${text[0].toLocaleUpperCase('sv-SE')}${text.slice(1)}` : text;
+  }
   return value;
 }
 
@@ -1199,6 +1204,34 @@ function createCategoryChip(category) {
   tag.addEventListener('click', (event) => {
     event.stopPropagation();
     addCategoryFilter(category);
+  });
+  return tag;
+}
+
+function addMusicCategoryFilter(category) {
+  const musicCategoryFilter = multiFilters[1];
+  const musicCategoryInput = Array.from(musicCategoryFilter.options.querySelectorAll('input:not([value="all"])')).find((input) => input.value === category);
+  if (!musicCategoryInput) return;
+
+  for (const input of musicCategoryFilter.options.querySelectorAll('input')) input.checked = false;
+  const allOption = musicCategoryFilter.options.querySelector('input[value="all"]');
+  if (allOption) allOption.checked = false;
+  musicCategoryInput.checked = true;
+  updateFilterSummary(musicCategoryFilter);
+  updateClearFiltersButton();
+  updateFilterCount();
+  setActive(activeTab);
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+function createMusicCategoryChip(category) {
+  const tag = document.createElement('button');
+  tag.type = 'button';
+  tag.className = 'chip';
+  tag.textContent = displayFilterValue(multiFilters[1], category);
+  tag.addEventListener('click', (event) => {
+    event.stopPropagation();
+    addMusicCategoryFilter(category);
   });
   return tag;
 }
@@ -1670,6 +1703,13 @@ async function renderList(events, favorites = loadFavorites()) {
 
     for (const category of showTagRow && SHOW_CATEGORIES_IN_LIST ? categoryNames : []) {
       tags.appendChild(createCategoryChip(category));
+    }
+    const musicCategoryNames = Array.isArray(ev.musicCategoryNames) ? ev.musicCategoryNames : [];
+    if (showTagRow && SHOW_CATEGORIES_IN_LIST && musicCategoryNames.length > 0) {
+      tags.classList.add('has-tags');
+      for (const musicCategory of musicCategoryNames) {
+        tags.appendChild(createMusicCategoryChip(musicCategory));
+      }
     }
     if (showTagRow && SHOW_CATEGORIES_IN_LIST && categoryNames.length > 0) {
       const searchTitle = eventTitle
@@ -2401,6 +2441,7 @@ $clearFilters.addEventListener('click', (event) => {
   $fromFilter.value = '';
   $toFilter.value = '';
   for (const filter of multiFilters) {
+    if (!filter.options || !filter.menu) continue;
     for (const input of filter.options.querySelectorAll('input')) input.checked = input.value === 'all';
     filter.menu.open = false;
     updateFilterSummary(filter);
@@ -2411,7 +2452,7 @@ $clearFilters.addEventListener('click', (event) => {
 });
 document.addEventListener('click', (event) => {
   for (const filter of multiFilters) {
-    if (filter.menu.open && !event.composedPath().includes(filter.menu)) filter.menu.open = false;
+    if (filter.menu?.open && !event.composedPath().includes(filter.menu)) filter.menu.open = false;
   }
   if (!$userMenu.hidden && !event.composedPath().includes($loginButton) && !event.composedPath().includes($userMenu)) {
     $userMenu.hidden = true;
@@ -2454,9 +2495,10 @@ async function main() {
     const events = json && Array.isArray(json.events) ? json.events : Array.isArray(json) ? json : [];
     allEvents = events.map(normalizeEvent).sort((a, b) => a.startMs - b.startMs);
     populateMultiFilter(multiFilters[0], Array.isArray(json?.categories) ? json.categories : []);
-    populateMultiFilter(multiFilters[1], Array.isArray(json?.languages) ? json.languages : []);
-    populateMultiFilter(multiFilters[2], Array.isArray(json?.locations) ? json.locations : []);
-    populateMultiFilter(multiFilters[3], Array.isArray(json?.accessibilities) ? json.accessibilities : []);
+    populateMultiFilter(multiFilters[1], Array.isArray(json?.musicCategories) ? json.musicCategories : []);
+    populateMultiFilter(multiFilters[2], Array.isArray(json?.languages) ? json.languages : []);
+    populateMultiFilter(multiFilters[3], Array.isArray(json?.locations) ? json.locations : []);
+    populateMultiFilter(multiFilters[4], Array.isArray(json?.accessibilities) ? json.accessibilities : []);
     updateFinishedVisibilityLink();
     updateClearFiltersButton();
     updateFilterCount();
