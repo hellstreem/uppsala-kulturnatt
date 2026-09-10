@@ -2,6 +2,7 @@ import { GLOBAL_START_DATE } from './globals';
 
 export interface SubEvent {
   id: string;
+  parentId?: string;
   title: string;
   about?: string;
   startTimeText: string;
@@ -167,7 +168,8 @@ export function getSubEvents(ev: any, allEvents: any[] = []): SubEvent[] {
       if (title.length > 0) title = title.charAt(0).toUpperCase() + title.slice(1);
       const startText = parsed.start;
       const endText = parsed.end ?? null;
-      const sub: SubEvent = { id: '', title, startTimeText: startText, endTimeText: endText, raw: parsed.raw };
+      const parentId = ev && (ev.id ?? ev.value) ? String(ev.id ?? ev.value) : undefined;
+      const sub: SubEvent = { id: '', parentId, title, startTimeText: startText, endTimeText: endText, raw: parsed.raw };
 
       // compute ISO UTC startTime based on global start date
       try {

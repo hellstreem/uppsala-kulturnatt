@@ -571,7 +571,7 @@ function reportSettingsSyncError(operation, error) {
 
 function normalizeEvent(event) {
   event.favoriteId = idFor(event);
-  const externalId = event.parentId || event.id;
+  const externalId = event.parentEventId || event.id;
   event.url = externalId ? `https://kulturnatten.uppsala.se/program/event/?externalId=${externalId}` : '';
   event.categoryNames = Array.isArray(event.categoryNames) ? event.categoryNames : [];
   event.languageNames = Array.isArray(event.languageNames) ? event.languageNames : [];

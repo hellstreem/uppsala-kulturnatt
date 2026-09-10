@@ -1,6 +1,6 @@
 export function packEvents(events: any[], filters: any) {
   const outEvents = JSON.parse(JSON.stringify(events || []));
-  const unusedPackedEventFields = ['aboutCopy', 'aboutHeader', 'aboutTitles', 'aboutSlim', 'aboutSlimNoExtraInfo', 'aboutSlimMyExtraInfo', 'aboutCalculated', 'aboutCalculated2', 'extraInfo', 'extraInfo2', 'aboutEnglish', 'aboutShort', 'aboutShortEnglish', 'city', 'created', 'locationId', 'parentEventId', 'postalCode', 'price', 'status', 'titleEnglish', 'url'];
+  const unusedPackedEventFields = ['aboutCopy', 'aboutHeader', 'aboutTitles', 'aboutSlim', 'aboutSlimNoExtraInfo', 'aboutSlimMyExtraInfo', 'aboutCalculated', 'aboutCalculated2', 'extraInfo', 'extraInfo2', 'aboutEnglish', 'aboutShort', 'aboutShortEnglish', 'city', 'created', 'locationId', 'postalCode', 'price', 'status', 'titleEnglish', 'url'];
 
   function extractNamesFromEvent(val: any): string[] {
     if (!val && val !== 0) return [];

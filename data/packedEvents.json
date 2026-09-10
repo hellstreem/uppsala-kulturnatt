@@ -475,6 +475,7 @@
     {
       "type": "subEvent",
       "id": "a81f1a09-382a-4a27-b412-e7724a3a5f1d_Workshopbinddinegenruska_1789200000000",
+      "parentEventId": "a81f1a09-382a-4a27-b412-e7724a3a5f1d",
       "parentTitle": "Finsk bastuceremoni",
       "title": "Workshop “bind din egen ruska”",
       "about": "Välkommen in till Kulturnattens varmaste och fuktigaste evenemang. Omfamnas av bastuångan ”löyly” och upplev den östersjöfinska bastutraditionen och guidas genom en basturitual med bastusång och ruskans ”vihta” helande hand under ledning av bastusystrarna Jaana Kaiste och Lovisa Borg, utbildade bastubehandlare, saunahealers.",
@@ -896,6 +897,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_Biblioteketaroppet_1789200000000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Biblioteket är öppet.",
       "startTimeText": "10.00",
@@ -1279,6 +1281,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_Fyrisgardenscenen_1789201800000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Fyrisgården (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -1467,6 +1470,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_CirkusFukurdansbanan_1789203600000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Cirkus Fukur (dansbanan)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -1542,6 +1546,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Tjeckiska_1789203600000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Tjeckiska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -1872,6 +1877,7 @@
     {
       "type": "subEvent",
       "id": "6be8ccd8-17a0-4f43-9719-5fe3fe62855d_RUMRiksforbundetUngaMusikanterUppsaladistriktet_1789203600000",
+      "parentEventId": "6be8ccd8-17a0-4f43-9719-5fe3fe62855d",
       "parentTitle": "Livemusik på S:t Eriks torg",
       "title": "RUM Riksförbundet Unga Musikanter Uppsaladistriktet",
       "startTimeText": "11:00",
@@ -1941,6 +1947,7 @@
     {
       "type": "subEvent",
       "id": "a81f1a09-382a-4a27-b412-e7724a3a5f1d_BastunaroppendropinTamedegenhanddukochbadklader_1789203600000",
+      "parentEventId": "a81f1a09-382a-4a27-b412-e7724a3a5f1d",
       "parentTitle": "Finsk bastuceremoni",
       "title": "Bastun är öppen, drop-in. Ta med egen handduk och badkläder.",
       "about": "Välkommen in till Kulturnattens varmaste och fuktigaste evenemang. Omfamnas av bastuångan ”löyly” och upplev den östersjöfinska bastutraditionen och guidas genom en basturitual med bastusång och ruskans ”vihta” helande hand under ledning av bastusystrarna Jaana Kaiste och Lovisa Borg, utbildade bastubehandlare, saunahealers.",
@@ -2266,6 +2273,7 @@
     {
       "type": "subEvent",
       "id": "51665eae-274e-49b3-938c-49921b07b179_Komochtadetlugntenstundilastaltet_1789203600000",
+      "parentEventId": "51665eae-274e-49b3-938c-49921b07b179",
       "parentTitle": "Kom och ta det lugnt en stund i lästältet!",
       "title": "Kom och ta det lugnt en stund i lästältet!",
       "about": "11.00-17.00\nKom och ta det lugnt en stund i lästältet! Här kan du slå dig ner och läsa en stund, leka med bokleksväskor, spela spel och lyssna på en ljudberättelse.",
@@ -3130,6 +3138,7 @@
     {
       "type": "subEvent",
       "id": "529b6a18-5f9f-4d8b-81f6-d0b93b336810_Workshopyngreca37ar_1789203600000",
+      "parentEventId": "529b6a18-5f9f-4d8b-81f6-d0b93b336810",
       "parentTitle": "Rörelse, dans, workshop och föreställning med Kulturskolan",
       "title": "Workshop yngre ca 3-7 år",
       "about": "Häng med Studiefrämjandets Kulturskola på KulturKnatten, vid grönytan i Odinslund. Här kan du ta del av rörelsebana, dans, föreställning och workshops för både yngre och äldre.",
@@ -3210,6 +3219,7 @@
     {
       "type": "subEvent",
       "id": "290ed8d8-e4c8-43a2-8b2e-dc290066027e_VispopMarianne_1789203900000",
+      "parentEventId": "290ed8d8-e4c8-43a2-8b2e-dc290066027e",
       "parentTitle": "Livemusik, dans och musikal på KulturKnatten i Odinslund",
       "title": "Vispop, Marianne",
       "startTimeText": "11:05",
@@ -3431,6 +3441,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_Edelajvscenen_1789205400000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Edelajv (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -3512,6 +3523,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Kinesiska_1789205400000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Kinesiska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -3633,6 +3645,7 @@
     {
       "type": "subEvent",
       "id": "51665eae-274e-49b3-938c-49921b07b179_Sangstund_1789205400000",
+      "parentEventId": "51665eae-274e-49b3-938c-49921b07b179",
       "parentTitle": "Kom och ta det lugnt en stund i lästältet!",
       "title": "Sångstund",
       "about": "Välkommen till Bibblans lästält i KulturKnattens område Odinslund.",
@@ -3676,6 +3689,7 @@
     {
       "type": "subEvent",
       "id": "529b6a18-5f9f-4d8b-81f6-d0b93b336810_Workshopaldreca812ar_1789205400000",
+      "parentEventId": "529b6a18-5f9f-4d8b-81f6-d0b93b336810",
       "parentTitle": "Rörelse, dans, workshop och föreställning med Kulturskolan",
       "title": "Workshop äldre ca 8-12 år",
       "about": "Häng med Studiefrämjandets Kulturskola på KulturKnatten, vid grönytan i Odinslund. Här kan du ta del av rörelsebana, dans, föreställning och workshops för både yngre och äldre.",
@@ -3715,6 +3729,7 @@
     {
       "type": "subEvent",
       "id": "290ed8d8-e4c8-43a2-8b2e-dc290066027e_MusikalenShrekJrChanges_1789205700000",
+      "parentEventId": "290ed8d8-e4c8-43a2-8b2e-dc290066027e",
       "parentTitle": "Livemusik, dans och musikal på KulturKnatten i Odinslund",
       "title": "Musikalen Shrek Jr., Changes",
       "startTimeText": "11:35",
@@ -3790,6 +3805,7 @@
     {
       "type": "subEvent",
       "id": "cf9a1aa5-541d-44b8-ab9b-68db09005049_UppsalaIndianChoirStorascenen_1789206300000",
+      "parentEventId": "cf9a1aa5-541d-44b8-ab9b-68db09005049",
       "parentTitle": "Livemusik på Vaksala torg",
       "title": "Uppsala Indian Choir (Stora scenen)",
       "startTimeText": "11:45",
@@ -3923,6 +3939,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Spanska_1789207200000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Spanska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -3973,6 +3990,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_UppsalaVokalensemblescenen_1789207200000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Uppsala Vokalensemble (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -4015,6 +4033,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_Familjevisningavboksalen25platsergratisbiljetterhamtasiforvagiinformationsdiskenfranden29_1789207200000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Familjevisning av boksalen (25 platser, gratisbiljetter hämtas i förväg i informationsdisken från den 2/9).",
       "about": "12.00–12.45 Familjevisning av boksalen (25 platser, gratisbiljetter\nhämtas i förväg i informationsdisken från den 2/9).",
@@ -4574,6 +4593,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_CafeCarolinaaroppet_1789207200000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Café Carolina är öppet.",
       "startTimeText": "12.00",
@@ -5060,6 +5080,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_Rithornaochskattjaktikafeet_1789207200000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Rithörna och skattjakt i kaféet.",
       "startTimeText": "12.00",
@@ -5317,6 +5338,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_Utstallningssalenmedbutikaroppen_1789207200000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Utställningssalen med butik är öppen.",
       "startTimeText": "12.00",
@@ -5865,6 +5887,7 @@
     {
       "type": "subEvent",
       "id": "529b6a18-5f9f-4d8b-81f6-d0b93b336810_Dansrorelsebanaitradgarden_1789207200000",
+      "parentEventId": "529b6a18-5f9f-4d8b-81f6-d0b93b336810",
       "parentTitle": "Rörelse, dans, workshop och föreställning med Kulturskolan",
       "title": "Dans/rörelsebana i trädgården",
       "about": "Häng med Studiefrämjandets Kulturskola på KulturKnatten, vid grönytan i Odinslund. Här kan du ta del av rörelsebana, dans, föreställning och workshops för både yngre och äldre.",
@@ -6009,6 +6032,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Polska_1789209000000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Polska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -6059,6 +6083,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_TimeforCrimemedAndersDanelldansbanan_1789209000000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Time for Crime med Anders Danell (dansbanan)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -6133,6 +6158,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Uppsalaspelmanslag_1789209000000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Uppsala spelmanslag",
       "about": "Uppsala spelmanslag\nUppsala spelmanslag spelar traditionell folkmusik främst från Uppland \nmen även från andra landskap (Dalarna, Hälsingland, Jämtland m.fl.)\n\nUppsala spelmanslag bildades 2017 och vi har spelat på bröllop, dansspelningar, \nexamenshögtider, Tobotorsdag på Eric Sahlströms institutet, Museinatten, \nspelmansstämmor och även på Kulturnatten mm.\n\nLaget har ca 30 deltagare och instrumenten är fiol, nyckelharpa, klarinett, flöjt, \nkontrabas, gitarr och tramporgel. \n\nhttps://uppsalaspelmanslag.se/",
@@ -6238,6 +6264,7 @@
     {
       "type": "subEvent",
       "id": "cf9a1aa5-541d-44b8-ab9b-68db09005049_InvigningstalavLindaEskilssonKulturnamndensordforandeStorascenen_1789209900000",
+      "parentEventId": "cf9a1aa5-541d-44b8-ab9b-68db09005049",
       "parentTitle": "Livemusik på Vaksala torg",
       "title": "Invigningstal av Linda Eskilsson, Kulturnämndens ordförande (Stora scenen)",
       "startTimeText": "12:45",
@@ -6448,6 +6475,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_ShrekTheMusicalscenen_1789210800000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Shrek The Musical (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -6490,6 +6518,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Turkiska_1789210800000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Turkiska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -6581,6 +6610,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_VisningMatsHoglundarkivarievisarAndersBureskarta1626ochCartaMarina1539iutstallningssalen_1789210800000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Visning: Mats Höglund, arkivarie, visar Anders Bures karta (1626) och Carta Marina (1539) i utställningssalen.",
       "about": "13.00–13.30 Visning: Mats Höglund, arkivarie, visar Anders Bures\nkarta (1626) och Carta Marina (1539) i utställningssalen.",
@@ -6738,6 +6768,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_Visningavboksalen25platsergratisbiljetterhamtasiforvagiinformationsdiskenfranden29_1789210800000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Visning av boksalen (25 platser, gratisbiljetter hämtas i förväg i informationsdisken från den 2/9).",
       "about": "13.00–13.45 Visning av boksalen (25 platser, gratisbiljetter hämtas\ni förväg i informationsdisken från den 2/9).",
@@ -7843,6 +7874,7 @@
     {
       "type": "subEvent",
       "id": "529b6a18-5f9f-4d8b-81f6-d0b93b336810_ForestallningManstralarochplaneter_1789210800000",
+      "parentEventId": "529b6a18-5f9f-4d8b-81f6-d0b93b336810",
       "parentTitle": "Rörelse, dans, workshop och föreställning med Kulturskolan",
       "title": "Föreställning: Månstrålar och planeter",
       "about": "Häng med Studiefrämjandets Kulturskola på KulturKnatten, vid grönytan i Odinslund. Här kan du ta del av rörelsebana, dans, föreställning och workshops för både yngre och äldre.",
@@ -7882,6 +7914,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_JojjeCband_1789210800000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Jojje C band",
       "about": "Jojje C Band \nJojje C Band (fd. Strices), är en fyrmannagrupp som spelar pop/rock/blues baserad på låtar som Jojje Croce skrivit (gitarr, sång). Medlemmarna är, Mats Bergkvist, trummor, Matthias Gustafsson Lafitte, bas Jonny Holmkvist, gitarr. Låtmotiven rör sig dels sig kring lovordandet av ”hemmaplanet” som tex ”Uppsalasviten”, ”Västeråsblues” (Jojje är ursprungligen från Västerås), samt kring ”livets mening” och människors sökande efter ”sanning”.",
@@ -7921,6 +7954,7 @@
     {
       "type": "subEvent",
       "id": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a_LarsTranvikSjorapporterOminlandsvattnenimanniskanstidsalder_1789210800000",
+      "parentEventId": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a",
       "parentTitle": "Linnéträdgårdens Orangeri",
       "title": "Lars Tranvik, Sjörapporter. Om inlandsvattnen i människans tidsålder.",
       "about": "Linnéträdgårdens Orangeri föreläsningar, musik och dans.",
@@ -8035,6 +8069,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Arabiska_1789212600000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Arabiska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -8085,6 +8120,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_Brukssextettendansbanan_1789212600000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Brukssextetten (dansbanan)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -8199,6 +8235,7 @@
     {
       "type": "subEvent",
       "id": "cf9a1aa5-541d-44b8-ab9b-68db09005049_KnivstasuneLillascenen_1789212600000",
+      "parentEventId": "cf9a1aa5-541d-44b8-ab9b-68db09005049",
       "parentTitle": "Livemusik på Vaksala torg",
       "title": "Knivstasune (Lilla scenen)",
       "startTimeText": "13:30",
@@ -8343,6 +8380,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_ForelasningUniversitetshusetiUppsalaAnnaHambergantikvariekonstvetareTidskriftslasesalenTLSSeavenutstallningeniutstallningssalen_1789212600000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Föreläsning: Universitetshuset i Uppsala, Anna Hamberg, antikvarie, konstvetare. Tidskriftsläsesalen (TLS). Se även utställningen i utställningssalen.",
       "startTimeText": "13.30",
@@ -8540,6 +8578,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_MichaelJonsochTheTreutigers_1789212600000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Michael Jons och The Treutigers",
       "about": "Michael Jons och The Treutigers\nSkallrande akustisk folkpop på svenska om livet och döden.",
@@ -8577,6 +8616,7 @@
     {
       "type": "subEvent",
       "id": "529b6a18-5f9f-4d8b-81f6-d0b93b336810_Workshopyngreca37ar_1789212600000",
+      "parentEventId": "529b6a18-5f9f-4d8b-81f6-d0b93b336810",
       "parentTitle": "Rörelse, dans, workshop och föreställning med Kulturskolan",
       "title": "Workshop yngre ca 3-7 år",
       "about": "Häng med Studiefrämjandets Kulturskola på KulturKnatten, vid grönytan i Odinslund. Här kan du ta del av rörelsebana, dans, föreställning och workshops för både yngre och äldre.",
@@ -8652,6 +8692,7 @@
     {
       "type": "subEvent",
       "id": "290ed8d8-e4c8-43a2-8b2e-dc290066027e_DansStudieframjandetsKulturskola_1789212900000",
+      "parentEventId": "290ed8d8-e4c8-43a2-8b2e-dc290066027e",
       "parentTitle": "Livemusik, dans och musikal på KulturKnatten i Odinslund",
       "title": "Dans, Studiefrämjandets Kulturskola",
       "startTimeText": "13:35",
@@ -8833,6 +8874,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Svenska_1789214400000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Svenska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -8921,6 +8963,7 @@
     {
       "type": "subEvent",
       "id": "cf9a1aa5-541d-44b8-ab9b-68db09005049_TectylStorascenen_1789214400000",
+      "parentEventId": "cf9a1aa5-541d-44b8-ab9b-68db09005049",
       "parentTitle": "Livemusik på Vaksala torg",
       "title": "Tectyl (Stora scenen)",
       "startTimeText": "14:00",
@@ -8958,6 +9001,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_TheGloryfiresscenen_1789214400000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "The Gloryfires (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -9731,6 +9775,7 @@
     {
       "type": "subEvent",
       "id": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c_ProvapaworkshopislaktforskningArdunyfikenpadinslaktBjorklingebygdensslaktforskarforeningarpaplatsforattsvarapafragorochhjalpadigattkommaigangmeddinslaktforskning_1789214400000",
+      "parentEventId": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c",
       "parentTitle": "Öppet hus på Fyriskällan",
       "title": "Prova-på-workshop i släktforskning. Är du nyfiken på din släkt? Björklingebygdens släktforskarförening är på plats för att svara på frågor och hjälpa dig att komma igång med din släktforskning.",
       "about": "Under dagen även utställning om rösträtt och lokalhistorisk bokrea.",
@@ -10078,6 +10123,7 @@
     {
       "type": "subEvent",
       "id": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c_Byggdittegetkvarter_1789214400000",
+      "parentEventId": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c",
       "parentTitle": "Öppet hus på Fyriskällan",
       "title": "Bygg ditt eget kvarter",
       "about": "14.00-19.00 Bygg ditt eget kvarter\nHämta inspiration från historien och bygg hus, träd och miljöer med hjälp av färdigmönstrade pappersmodeller. Klipp, klistra, smycka och måla. Målgrupp: barn och vuxna.",
@@ -10420,6 +10466,7 @@
     {
       "type": "subEvent",
       "id": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a_FyriskvartettenmusikavBeethoven_1789214400000",
+      "parentEventId": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a",
       "parentTitle": "Linnéträdgårdens Orangeri",
       "title": "Fyriskvartetten, musik av Beethoven.",
       "about": "Linnéträdgårdens Orangeri föreläsningar, musik och dans.",
@@ -10464,6 +10511,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_Konstbruket_1789214400000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Konstbruket",
       "startTimeText": "14:00",
@@ -10501,6 +10549,7 @@
     {
       "type": "subEvent",
       "id": "51665eae-274e-49b3-938c-49921b07b179_Sagostund_1789214400000",
+      "parentEventId": "51665eae-274e-49b3-938c-49921b07b179",
       "parentTitle": "Kom och ta det lugnt en stund i lästältet!",
       "title": "Sagostund",
       "about": "Välkommen till Bibblans lästält i KulturKnattens område Odinslund.",
@@ -10544,6 +10593,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_SargonsZiggurat_1789214400000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Sargons Ziggurat",
       "about": "Sargons Ziggurat\nEn musikgrupp med fyra musikanter som tillsammans har en musikalisk erfarenhet som sträcker sig över ungefär två sekler. Bandnamnet är emellertid betydligt äldre än så och är hämtat från främre Orientens äldre historia. Syftet med bandnamnet är att det skall väcka fantasin. Det gäller även bandets musik som är en blandning av suggestiva, huvudsakligen instrumentala, coverlåtar blandat med lite eget material. Det bjuds melodier från Santana, Pat Metheny Group, Focus, Allman Brothers Band. – Musik som bandet själva tycker om att lyssna på och uppskattar att spela. Det kan tyckas själviskt men spelglädje smittar, och gillar musikanterna det de spelar så blir åhörarna glada av att lyssna på musiken.",
@@ -10581,6 +10631,7 @@
     {
       "type": "subEvent",
       "id": "529b6a18-5f9f-4d8b-81f6-d0b93b336810_Workshopaldreca812ar_1789214400000",
+      "parentEventId": "529b6a18-5f9f-4d8b-81f6-d0b93b336810",
       "parentTitle": "Rörelse, dans, workshop och föreställning med Kulturskolan",
       "title": "Workshop äldre ca 8-12 år",
       "about": "Häng med Studiefrämjandets Kulturskola på KulturKnatten, vid grönytan i Odinslund. Här kan du ta del av rörelsebana, dans, föreställning och workshops för både yngre och äldre.",
@@ -10689,6 +10740,7 @@
     {
       "type": "subEvent",
       "id": "290ed8d8-e4c8-43a2-8b2e-dc290066027e_FolkdansFyrisgillet_1789214700000",
+      "parentEventId": "290ed8d8-e4c8-43a2-8b2e-dc290066027e",
       "parentTitle": "Livemusik, dans och musikal på KulturKnatten i Odinslund",
       "title": "Folkdans, Fyrisgillet",
       "startTimeText": "14:05",
@@ -10876,6 +10928,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_PaxVobiscum_1789215300000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Pax Vobiscum",
       "startTimeText": "14:15",
@@ -10912,6 +10965,7 @@
     {
       "type": "subEvent",
       "id": "6be8ccd8-17a0-4f43-9719-5fe3fe62855d_SiGHstinskaKapellet_1789215600000",
+      "parentEventId": "6be8ccd8-17a0-4f43-9719-5fe3fe62855d",
       "parentTitle": "Livemusik på S:t Eriks torg",
       "title": "SiGHstinska Kapellet",
       "startTimeText": "14:20",
@@ -11026,6 +11080,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_DansshowerfranUDCUDAOrientaldansbanan_1789216200000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Dansshower från UDC UDA Oriental (dansbanan)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -11142,6 +11197,7 @@
     {
       "type": "subEvent",
       "id": "cf9a1aa5-541d-44b8-ab9b-68db09005049_ImaHjertstedtLoveAdrianssonLillascenen_1789216200000",
+      "parentEventId": "cf9a1aa5-541d-44b8-ab9b-68db09005049",
       "parentTitle": "Livemusik på Vaksala torg",
       "title": "Ima Hjertstedt & Love Adriansson (Lilla scenen)",
       "startTimeText": "14:30",
@@ -11246,6 +11302,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Persiska_1789216200000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Persiska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -11529,6 +11586,7 @@
     {
       "type": "subEvent",
       "id": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c_Visningavstadsarkivetsochfolkrorelsearkivetsarkivmagasin_1789216200000",
+      "parentEventId": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c",
       "parentTitle": "Öppet hus på Fyriskällan",
       "title": "Visning av stadsarkivets och folkrörelsearkivets arkivmagasin.",
       "about": "Under dagen även utställning om rösträtt och lokalhistorisk bokrea.",
@@ -11684,6 +11742,7 @@
     {
       "type": "subEvent",
       "id": "529b6a18-5f9f-4d8b-81f6-d0b93b336810_Dansrorelsebanaitradgarden_1789216200000",
+      "parentEventId": "529b6a18-5f9f-4d8b-81f6-d0b93b336810",
       "parentTitle": "Rörelse, dans, workshop och föreställning med Kulturskolan",
       "title": "Dans/rörelsebana i trädgården",
       "about": "Häng med Studiefrämjandets Kulturskola på KulturKnatten, vid grönytan i Odinslund. Här kan du ta del av rörelsebana, dans, föreställning och workshops för både yngre och äldre.",
@@ -11723,6 +11782,7 @@
     {
       "type": "subEvent",
       "id": "f80d2c62-dfc8-4750-a5f5-ec2b54217000_FatsWallerExperience_1789216200000",
+      "parentEventId": "f80d2c62-dfc8-4750-a5f5-ec2b54217000",
       "parentTitle": "Katalins Lördagsjazz - Kulturnatt!",
       "title": "Fats Waller Experience",
       "about": "Uppsala Kulturnatt är tillbaka! Vi firar med en helkväll på Stora Scenen – jazz, puls och festivalkänsla när den är som bäst. Katalin serverar mat & dryck under tiden. Välkomna.",
@@ -11767,6 +11827,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_JSB_1789216200000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "JSB",
       "startTimeText": "14:30",
@@ -11800,6 +11861,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Ronster_1789216200000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Ronster",
       "about": "Ronster\nRonster var en högljudd del av Uppsalas livescen på 1990-talet. Efter en paus på 25 tog de vid där de slutade och fortsatte med sin energiska powerpop med amerikanska influenser från band som Buffalo Tom, Lemonheads och The Jayhawks.\n\nhttps://www.instagram.com/thebandnamedronster/",
@@ -11870,6 +11932,7 @@
     {
       "type": "subEvent",
       "id": "226d06f1-0642-41d5-81d0-9629a356781b_SudanesiskaDansgladjeifargochtonSvenskSudanskaforeningenSudaneseSocietyinSwedenSudanesiskaforeningeniUppsalaSydsudanesiskaforeningeniSverige_1789217400000",
+      "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
       "parentTitle": "Dansplats Resecentrum",
       "title": "Sudanesiska Dansglädje i färg och ton Svensk Sudanska föreningen, Sudanese Society in Sweden, Sudanesiska föreningen i Uppsala & Sydsudanesiska föreningen i Sverige",
       "startTimeText": "14:50",
@@ -11974,6 +12037,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Grekiska_1789218000000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Grekiska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -12057,6 +12121,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_NorraUpplandsKammarorkesterscenen_1789218000000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Norra Upplands Kammarorkester (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -12220,6 +12285,7 @@
     {
       "type": "subEvent",
       "id": "1ceef33b-d65c-4f88-817d-e1b67887d831_JagsomLeonardenungdomsbokavThomasSzendroFoljmedpaenhistoriaunder1900taletsUngernDarbokenkommervaracentrumiforedraget_1789218000000",
+      "parentEventId": "1ceef33b-d65c-4f88-817d-e1b67887d831",
       "parentTitle": "15.00 \"jag är som Leonardo - Thomas Szendrö",
       "title": "Jag som Leonard en ungdomsbok av Thomas Szendrö. Följ med på en historia under 1900-talets Ungern. Där boken kommer vara centrum i föredraget.",
       "startTimeText": "15.00",
@@ -12331,6 +12397,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_Visningavboksalenpaengelska25platsergratisbiljetterhamtasiforvagiinformationsdiskenfranden29_1789218000000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Visning av boksalen på engelska (25 platser, gratisbiljetter hämtas i förväg i informationsdisken från den 2/9).",
       "startTimeText": "15.00",
@@ -12700,6 +12767,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_RektorAndersHagfeldtdelarutaretsDisaprismedefterfoljandeforelasningTidskriftslasesalenTLS_1789218000000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Rektor Anders Hagfeldt delar ut årets Disapris med efterföljande föreläsning. Tidskriftsläsesalen (TLS).",
       "startTimeText": "15.00",
@@ -13142,6 +13210,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_AtomicSpitfire_1789218000000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Atomic Spitfire",
       "startTimeText": "15:00",
@@ -13178,6 +13247,7 @@
     {
       "type": "subEvent",
       "id": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a_GudrunAnderssonAkademikerochborgareRumsliginteraktioni1700taletsUppsala_1789218000000",
+      "parentEventId": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a",
       "parentTitle": "Linnéträdgårdens Orangeri",
       "title": "Gudrun Andersson, Akademiker och borgare. Rumslig interaktion i 1700-talets Uppsala",
       "about": "Linnéträdgårdens Orangeri föreläsningar, musik och dans.",
@@ -13219,6 +13289,7 @@
     {
       "type": "subEvent",
       "id": "f413afdc-1d83-41d2-839d-f22dc44be2af_Jazz_1789218000000",
+      "parentEventId": "f413afdc-1d83-41d2-839d-f22dc44be2af",
       "parentTitle": "Barnens Dansdag",
       "title": "Jazz",
       "about": "Den 12:e september är det Kulturnatten i Uppsala och självklart bjuder vi på Uppsala Danscenter in till DANS!\nTa med familjen och testa på våra populäraste barndans-kurser:\n\nJazz & Street Dance\n\nDrop in 3-5 år:",
@@ -13262,6 +13333,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_ShoworkesterndeOnamnbara_1789218000000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Showorkestern de Onämnbara",
       "startTimeText": "15:00",
@@ -13298,6 +13370,7 @@
     {
       "type": "subEvent",
       "id": "f413afdc-1d83-41d2-839d-f22dc44be2af_Street_1789218000000",
+      "parentEventId": "f413afdc-1d83-41d2-839d-f22dc44be2af",
       "parentTitle": "Barnens Dansdag",
       "title": "Street",
       "about": "Den 12:e september är det Kulturnatten i Uppsala och självklart bjuder vi på Uppsala Danscenter in till DANS!\nTa med familjen och testa på våra populäraste barndans-kurser:\n\nJazz & Street Dance\n\nDrop in 3-5 år:",
@@ -13338,6 +13411,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Uppsalafeministkor_1789218000000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Uppsala feministkör",
       "about": "Uppsala Feministkör\nUppsala Feministkör sjunger in valdagen på kulturnatten! Kören sjunger sånger om allt som de vill att lyssnaren ska bära i hjärtat när den går till röstlokalen på valsöndagen. Låtarna är valda efter körens viktigaste valfrågor. Kom om du är nyfiken, osäker eller bara vill känna lite gemenskap! Eller om du vill höra jävligt bra körsång.\n\nhttps://uppsalafeministkor.se/",
@@ -13477,6 +13551,7 @@
     {
       "type": "subEvent",
       "id": "cf9a1aa5-541d-44b8-ab9b-68db09005049_AlexanderSchoningLillascenen_1789219800000",
+      "parentEventId": "cf9a1aa5-541d-44b8-ab9b-68db09005049",
       "parentTitle": "Livemusik på Vaksala torg",
       "title": "Alexander Schöning (Lilla scenen)",
       "startTimeText": "15:30",
@@ -13514,6 +13589,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Franska_1789219800000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Franska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -13897,6 +13973,7 @@
     {
       "type": "subEvent",
       "id": "51665eae-274e-49b3-938c-49921b07b179_Dansaenbok_1789219800000",
+      "parentEventId": "51665eae-274e-49b3-938c-49921b07b179",
       "parentTitle": "Kom och ta det lugnt en stund i lästältet!",
       "title": "Dansa en bok",
       "about": "Välkommen till Bibblans lästält i KulturKnattens område Odinslund.",
@@ -13940,6 +14017,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_EkebyBluesBand_1789219800000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Ekeby Blues Band",
       "startTimeText": "15:30",
@@ -13976,6 +14054,7 @@
     {
       "type": "subEvent",
       "id": "529b6a18-5f9f-4d8b-81f6-d0b93b336810_ForestallningManstralarochplaneter_1789219800000",
+      "parentEventId": "529b6a18-5f9f-4d8b-81f6-d0b93b336810",
       "parentTitle": "Rörelse, dans, workshop och föreställning med Kulturskolan",
       "title": "Föreställning: Månstrålar och planeter",
       "about": "Häng med Studiefrämjandets Kulturskola på KulturKnatten, vid grönytan i Odinslund. Här kan du ta del av rörelsebana, dans, föreställning och workshops för både yngre och äldre.",
@@ -14015,6 +14094,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Moontrash_1789219800000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Moontrash",
       "about": "Moontrash\nExperimentellt punkband från Västerås, blandar fler olika genres i sitt sound tillsammans med råa känslor och texter för att skapa något helt nytt.\nFörvänta er stark energi och högt tempo\n\nhttps://www.instagram.com/moontrash999/",
@@ -14052,6 +14132,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_Verbafonscenen_1789220700000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Verbafon (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -14094,6 +14175,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_Drownintime_1789220700000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Drown in time",
       "startTimeText": "15:45",
@@ -14166,6 +14248,7 @@
     {
       "type": "subEvent",
       "id": "290ed8d8-e4c8-43a2-8b2e-dc290066027e_DansStudieframjandetsKulturskola_1789221000000",
+      "parentEventId": "290ed8d8-e4c8-43a2-8b2e-dc290066027e",
       "parentTitle": "Livemusik, dans och musikal på KulturKnatten i Odinslund",
       "title": "Dans, Studiefrämjandets Kulturskola",
       "startTimeText": "15:50",
@@ -14206,6 +14289,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_EricCullhed_1789221600000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Eric Cullhed",
       "about": "Författarstafett 2026",
@@ -14283,6 +14367,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Engelska_1789221600000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Engelska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -14438,6 +14523,7 @@
     {
       "type": "subEvent",
       "id": "7abc44ef-438e-4463-bae2-eece1818866c_Socialdans_1789221600000",
+      "parentEventId": "7abc44ef-438e-4463-bae2-eece1818866c",
       "parentTitle": "Prova-på Bugg och socialdans med UBSS",
       "title": "Socialdans",
       "about": "Välkommen att prova på bugg, socialdansa, kolla på dans eller bara kom och häng med UBSS!",
@@ -14594,6 +14680,7 @@
     {
       "type": "subEvent",
       "id": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c_VisningavvalaffischerJennyJanssonochMattiasSigfridssonfranStatsvetenskapligainstitutionenberattaromvalaffischerpolitiskaspraketochpartibudskap_1789221600000",
+      "parentEventId": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c",
       "parentTitle": "Öppet hus på Fyriskällan",
       "title": "Visning av valaffischer. Jenny Jansson och Mattias Sigfridsson från Statsvetenskapliga institutionen berättar om valaffischer, politiska språket och partibudskap.",
       "about": "Under dagen även utställning om rösträtt och lokalhistorisk bokrea.",
@@ -14675,6 +14762,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_CarolinaRedivivasjungerSangeravensembleurUppsalaakademiskakammarkorochallsangAsalen_1789221600000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "Carolina Rediviva sjunger! Sånger av ensemble ur Uppsala akademiska kammarkör och allsång. A-salen.",
       "startTimeText": "16.00",
@@ -15394,6 +15482,7 @@
     {
       "type": "subEvent",
       "id": "f625dc74-1348-4014-b7ea-0bd8e6a1daee_Allsangskonsertforbarn_1789221600000",
+      "parentEventId": "f625dc74-1348-4014-b7ea-0bd8e6a1daee",
       "parentTitle": "Körstafett i Missionskyrkan",
       "title": "Allsångskonsert för barn!",
       "about": "16:00 Allsångskonsert för barn!\nBarbro Björklund, Donald Wieselgren, Gunnar Axelson Fisk, Inge Almén",
@@ -15436,6 +15525,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_BorjeTull_1789221600000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Börje Tull",
       "startTimeText": "16:00",
@@ -15473,6 +15563,7 @@
     {
       "type": "subEvent",
       "id": "f80d2c62-dfc8-4750-a5f5-ec2b54217000_ClaesJansonJanssonFour_1789221600000",
+      "parentEventId": "f80d2c62-dfc8-4750-a5f5-ec2b54217000",
       "parentTitle": "Katalins Lördagsjazz - Kulturnatt!",
       "title": "Claes Janson & Jansson Four",
       "about": "Uppsala Kulturnatt är tillbaka! Vi firar med en helkväll på Stora Scenen – jazz, puls och festivalkänsla när den är som bäst. Katalin serverar mat & dryck under tiden. Välkomna.",
@@ -15517,6 +15608,7 @@
     {
       "type": "subEvent",
       "id": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a_GrevinnanBraheochBraniculamedMidgardspipare1700talsdanser_1789221600000",
+      "parentEventId": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a",
       "parentTitle": "Linnéträdgårdens Orangeri",
       "title": "Grevinnan Brahe och Branicula med Midgårds pipare, 1700-talsdanser.",
       "about": "Linnéträdgårdens Orangeri föreläsningar, musik och dans.",
@@ -15558,6 +15650,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Hinkmat_1789221600000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Hinkmat",
       "about": "Hinkmat\nHinkmat är bandet som skapade skunkrock, en av de mest ultimata musikstilarna. Västeråsbandet bildades i slutet av 2020 och har lämnat ett spår av musikalisk stank var de än spelat.\n\nhttps://www.hinkmat.se/",
@@ -15595,6 +15688,7 @@
     {
       "type": "subEvent",
       "id": "f413afdc-1d83-41d2-839d-f22dc44be2af_Jazz_1789221600000",
+      "parentEventId": "f413afdc-1d83-41d2-839d-f22dc44be2af",
       "parentTitle": "Barnens Dansdag",
       "title": "Jazz",
       "about": "Den 12:e september är det Kulturnatten i Uppsala och självklart bjuder vi på Uppsala Danscenter in till DANS!\nTa med familjen och testa på våra populäraste barndans-kurser:\n\nJazz & Street Dance\n\nDrop in 3-5 år:",
@@ -15638,6 +15732,7 @@
     {
       "type": "subEvent",
       "id": "f413afdc-1d83-41d2-839d-f22dc44be2af_Street_1789221600000",
+      "parentEventId": "f413afdc-1d83-41d2-839d-f22dc44be2af",
       "parentTitle": "Barnens Dansdag",
       "title": "Street",
       "about": "Den 12:e september är det Kulturnatten i Uppsala och självklart bjuder vi på Uppsala Danscenter in till DANS!\nTa med familjen och testa på våra populäraste barndans-kurser:\n\nJazz & Street Dance\n\nDrop in 3-5 år:",
@@ -15678,6 +15773,7 @@
     {
       "type": "subEvent",
       "id": "529b6a18-5f9f-4d8b-81f6-d0b93b336810_Workshopyngreca37ar_1789221600000",
+      "parentEventId": "529b6a18-5f9f-4d8b-81f6-d0b93b336810",
       "parentTitle": "Rörelse, dans, workshop och föreställning med Kulturskolan",
       "title": "Workshop yngre ca 3-7 år",
       "about": "Häng med Studiefrämjandets Kulturskola på KulturKnatten, vid grönytan i Odinslund. Här kan du ta del av rörelsebana, dans, föreställning och workshops för både yngre och äldre.",
@@ -15787,6 +15883,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_SheilaKalusumu_1789222800000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Sheila Kalusumu",
       "about": "Författarstafett 2026",
@@ -15867,6 +15964,7 @@
     {
       "type": "subEvent",
       "id": "ea7d215e-238d-4edc-9345-b43eb2d50a8f_Katalanska_1789223400000",
+      "parentEventId": "ea7d215e-238d-4edc-9345-b43eb2d50a8f",
       "parentTitle": "Sagostunder hela dagen!",
       "title": "Katalanska",
       "about": "Hela dagen läser vi sagor i mysiga Drömverkstan. Vilket språk vill du höra saga på?\nFör barn ca 3–6 år. Ingen föranmälan, men begränsat antal platser.",
@@ -15917,6 +16015,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_KnivstaVoicesscenen_1789223400000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Knivsta Voices (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -16027,6 +16126,7 @@
     {
       "type": "subEvent",
       "id": "7abc44ef-438e-4463-bae2-eece1818866c_ProvapaBugg_1789223400000",
+      "parentEventId": "7abc44ef-438e-4463-bae2-eece1818866c",
       "parentTitle": "Prova-på Bugg och socialdans med UBSS",
       "title": "Prova-på Bugg",
       "about": "Välkommen att prova på bugg, socialdansa, kolla på dans eller bara kom och häng med UBSS!",
@@ -16146,6 +16246,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_DistortedTimes_1789223400000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Distorted Times",
       "startTimeText": "16:30",
@@ -16182,6 +16283,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_JonasLefvert_1789223400000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Jonas Lefvert",
       "startTimeText": "16:30",
@@ -16218,6 +16320,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Lightinyourlife_1789223400000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Light in your life",
       "about": "Light In Your Life\nDet finns kultband – och så finns det kultband: Under några brinnande år i slutet av 00-talet var Light In Your Life Uppsalas motsvarighet till vad Broder Daniel var i Göteborg på 90-talet: älskade och hatade, med en liten men dedikerad följarbas av kantstötta ungdomar.\n\nÖver en natt försvann de – och få, om ens någon, vet riktigt varför. Sanningen är att bandet imploderade i en komplex bomb av outredda konflikter, livsomvälvande olyckor och depressioner.\n\nNu – två decennier senare – har de mot förmodan hittat tillbaka till varandra, redo att återvända till scenen. De utlovar en kväll där blind lojalitet gentemot gruppen möter smärtsam intensitet i uttrycket, och där varje ton känns som kärlek gjorde när man var ung och totalt desperat. Det här har varit värt att vänta på. Det här blir magiskt.\n\nLyssna på Spotify: https://open.spotify.com/album/2CPgjlEJGJ1c4B3UdVknDa?si=Cf-fBrP1TbKRz0ZwzZJcw",
@@ -16255,6 +16358,7 @@
     {
       "type": "subEvent",
       "id": "529b6a18-5f9f-4d8b-81f6-d0b93b336810_Workshopaldreca812ar_1789223400000",
+      "parentEventId": "529b6a18-5f9f-4d8b-81f6-d0b93b336810",
       "parentTitle": "Rörelse, dans, workshop och föreställning med Kulturskolan",
       "title": "Workshop äldre ca 8-12 år",
       "about": "Häng med Studiefrämjandets Kulturskola på KulturKnatten, vid grönytan i Odinslund. Här kan du ta del av rörelsebana, dans, föreställning och workshops för både yngre och äldre.",
@@ -16294,6 +16398,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_ChristinaWahlden_1789224000000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Christina Wahldén",
       "about": "Författarstafett 2026",
@@ -16484,6 +16589,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_JonasBurmanochJoachimVogel_1789225200000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Jonas Burman och Joachim Vogel",
       "about": "Författarstafett 2026",
@@ -16565,6 +16671,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_CanillaEnskarscenen_1789225200000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Canilla Enskär (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -16643,6 +16750,7 @@
     {
       "type": "subEvent",
       "id": "7abc44ef-438e-4463-bae2-eece1818866c_Socialdans_1789225200000",
+      "parentEventId": "7abc44ef-438e-4463-bae2-eece1818866c",
       "parentTitle": "Prova-på Bugg och socialdans med UBSS",
       "title": "Socialdans",
       "about": "Välkommen att prova på bugg, socialdansa, kolla på dans eller bara kom och häng med UBSS!",
@@ -17129,6 +17237,7 @@
     {
       "type": "subEvent",
       "id": "a670a50c-2d01-4c1e-90ed-964e1a3c1609_1800LardigdansaBugg_1789225200000",
+      "parentEventId": "a670a50c-2d01-4c1e-90ed-964e1a3c1609",
       "parentTitle": "Lär dig dansa bugg, salsa och tango!",
       "title": "18:00 Lär dig dansa 💜 Bugg!",
       "about": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
@@ -17173,6 +17282,7 @@
     {
       "type": "subEvent",
       "id": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a_AnnaSvenssonBotaniskabroderierpresentationochprovapa_1789225200000",
+      "parentEventId": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a",
       "parentTitle": "Linnéträdgårdens Orangeri",
       "title": "Anna Svensson, Botaniska broderier, presentation och prova på.",
       "about": "Linnéträdgårdens Orangeri föreläsningar, musik och dans.",
@@ -17214,6 +17324,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_Darskapenshus_1789225200000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Dårskapens hus",
       "startTimeText": "17:00",
@@ -17250,6 +17361,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Revanschen_1789225200000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Revanschen",
       "about": "Revanschen\nFrån Eriksbergs karga bergslandskap anländer dom, Revanschen. PUB-rock-bandet som, utan att be om lov, vädrar sina åsikter och vidgar hitintills oupptäckta kroppsöppningar med sin stela men dansanta repertoar. Vad tycker du om ljudet av o-distade gitarrer och disko-trumma kombinerat med svenska texter om det orätta i vår samhällsmodell? Häng med och odla din avsky för eliten...eller vem fa-an bryr sig!?\n\nhttps://www.instagram.com/revanschen/",
@@ -17287,6 +17399,7 @@
     {
       "type": "subEvent",
       "id": "f625dc74-1348-4014-b7ea-0bd8e6a1daee_Tonprakt_1789225200000",
+      "parentEventId": "f625dc74-1348-4014-b7ea-0bd8e6a1daee",
       "parentTitle": "Körstafett i Missionskyrkan",
       "title": "Tonprakt",
       "about": "17:00 Tonprakt\nAnders Grosse Grotherus, dirigent",
@@ -17398,6 +17511,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_Pegasus_1789226100000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Pegasus",
       "startTimeText": "17:15",
@@ -17431,6 +17545,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_GunnarArdelius_1789226400000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Gunnar Ardelius",
       "about": "Författarstafett 2026",
@@ -17474,6 +17589,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_DansshowerfranUDCUDAOrientalBollywooddansbanan_1789227000000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Dansshower från UDC UDA Oriental Bollywood (dansbanan)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -17549,6 +17665,7 @@
     {
       "type": "subEvent",
       "id": "7abc44ef-438e-4463-bae2-eece1818866c_Show_1789227000000",
+      "parentEventId": "7abc44ef-438e-4463-bae2-eece1818866c",
       "parentTitle": "Prova-på Bugg och socialdans med UBSS",
       "title": "Show",
       "about": "Välkommen att prova på bugg, socialdansa, kolla på dans eller bara kom och häng med UBSS!",
@@ -17708,6 +17825,7 @@
     {
       "type": "subEvent",
       "id": "669498b0-7693-45ec-a49f-ea123f1b1d4c_BELLMANSOKANDAPSALMER_1789227000000",
+      "parentEventId": "669498b0-7693-45ec-a49f-ea123f1b1d4c",
       "parentTitle": "Konsert och Café Samariten ",
       "title": "”BELLMANS OKÄNDA PSALMER”",
       "about": "17:30 ”BELLMANS OKÄNDA PSALMER”\nRedan från tonåren och genom hela sitt liv skrev Bellman andliga dikter och översatte psalmer. Dessa texter, vars melodier inte finns nedtecknade, har bearbetats av Inga Stenlund och tonsatts av Seth Norberg.\nMedverkande: Seth Norberg, Bo Grafström, Fredrik Lundquist, Inga Stenlund, Olof Norberg, Martin Valman och Jacobina Silén.",
@@ -17755,6 +17873,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Backenhem_1789227000000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Backen hem",
       "about": "Backen Hem\nBacken Hem är ett band som spelar musik på svenska.\nDe övervägde en gång att inte göra det.\nDeras inspiration är vanlig sorg och otysta minuter.\nPopig punkrock och raffsig indie-funk finns, nåt sökes.\n\nhttps://www.backenhem.se/",
@@ -17792,6 +17911,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_Jabado_1789227000000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Jabado",
       "startTimeText": "17:30",
@@ -17828,6 +17948,7 @@
     {
       "type": "subEvent",
       "id": "f625dc74-1348-4014-b7ea-0bd8e6a1daee_Stenhagensmanskor_1789227000000",
+      "parentEventId": "f625dc74-1348-4014-b7ea-0bd8e6a1daee",
       "parentTitle": "Körstafett i Missionskyrkan",
       "title": "Stenhagens manskör",
       "about": "17:30 Stenhagens manskör\nTomas Wärend Rydlander, dirigent",
@@ -17873,6 +17994,7 @@
     {
       "type": "subEvent",
       "id": "f80d2c62-dfc8-4750-a5f5-ec2b54217000_ZoieFinerBromandersTrinetts_1789227000000",
+      "parentEventId": "f80d2c62-dfc8-4750-a5f5-ec2b54217000",
       "parentTitle": "Katalins Lördagsjazz - Kulturnatt!",
       "title": "Zoie Finer Bromanders Trinetts",
       "about": "Uppsala Kulturnatt är tillbaka! Vi firar med en helkväll på Stora Scenen – jazz, puls och festivalkänsla när den är som bäst. Katalin serverar mat & dryck under tiden. Välkomna.",
@@ -17917,6 +18039,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_CarinaBurman_1789227600000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Carina Burman",
       "about": "Författarstafett 2026",
@@ -18104,6 +18227,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_UlrikaLagerlof_1789228800000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Ulrika Lagerlöf",
       "about": "Författarstafett 2026",
@@ -18147,6 +18271,7 @@
     {
       "type": "subEvent",
       "id": "92994e26-3879-4020-bc92-ea36236b3216_Engelska_1789228800000",
+      "parentEventId": "92994e26-3879-4020-bc92-ea36236b3216",
       "parentTitle": "Visningar museets samlingar -  landskap",
       "title": "Engelska",
       "about": "Följ med på en visning av museets samlingar på temat Plats och landskap. Genom måleri, fotografi, video och skulpturer skildras relationen till natursköna och laddade platser. I Uppland samt från andra delar av världen. Fiktiva och dokumentära motiv samsas i dessa rum där relationen till en plats står i centrum.\nTider: 17.00-17.30, svenska",
@@ -18229,6 +18354,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_JosefinaCerdascenen_1789228800000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Josefina Cerda (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -18307,6 +18433,7 @@
     {
       "type": "subEvent",
       "id": "7abc44ef-438e-4463-bae2-eece1818866c_ProvapaBugg_1789228800000",
+      "parentEventId": "7abc44ef-438e-4463-bae2-eece1818866c",
       "parentTitle": "Prova-på Bugg och socialdans med UBSS",
       "title": "Prova-på Bugg",
       "about": "Välkommen att prova på bugg, socialdansa, kolla på dans eller bara kom och häng med UBSS!",
@@ -18465,6 +18592,7 @@
     {
       "type": "subEvent",
       "id": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c_BoksamtalmedHenrikVenantUppsalaMusikarkivSkivbolagetHeartworkRecordsgrundadesavHenrikVenantsomvarennyckelpersonpaskanskarockscenenunderpunkochpostpunkarenBokenVikanintedoHenrikVenantHeartworkRecordsochpunksceneniMalmoLundberattarhelahistorien_1789228800000",
+      "parentEventId": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c",
       "parentTitle": "Öppet hus på Fyriskällan",
       "title": "Boksamtal med Henrik Venant & Uppsala Musikarkiv. Skivbolaget Heartwork Records grundades av Henrik Venant som var en nyckelperson på skånska rockscenen under punkoch postpunkåren. Boken ”Vi kan inte dö – Henrik Venant, Heartwork Records och punkscenen i Malmö/Lund” berättar hela historien.",
       "about": "18.00-19.00 Boksamtal med Henrik Venant & Uppsala Musikarkiv. Skivbolaget Heartwork Records grundades av Henrik Venant som var en nyckelperson på skånska rockscenen under punk- och postpunkåren. Boken ”Vi kan inte dö – Henrik Venant, Heartwork Records och punkscenen i Malmö/Lund” berättar hela historien.",
@@ -18546,6 +18674,7 @@
     {
       "type": "subEvent",
       "id": "8cb6598e-f0a4-451f-85da-2ca0e1974a09_UppTalkforskarsamtalomdigitalopinionsbildningTikTokpaverkanochungavaljareMatteoMagnaniprofessorvidInstitutionenforinformationsteknologiCafeCarolina_1789228800000",
+      "parentEventId": "8cb6598e-f0a4-451f-85da-2ca0e1974a09",
       "parentTitle": "Öppet på Carolina Rediviva",
       "title": "UppTalk: forskarsamtal om digital opinionsbildning – TikTok, påverkan och unga väljare. Matteo Magnani, professor vid Institutionen för informationsteknologi. Café Carolina.",
       "startTimeText": "18.00",
@@ -18628,6 +18757,7 @@
     {
       "type": "subEvent",
       "id": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c_Visningavstadsarkivetsochfolkrorelsearkivetsarkivmagasin_1789228800000",
+      "parentEventId": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c",
       "parentTitle": "Öppet hus på Fyriskällan",
       "title": "Visning av stadsarkivets och folkrörelsearkivets arkivmagasin.",
       "about": "Under dagen även utställning om rösträtt och lokalhistorisk bokrea.",
@@ -19078,6 +19208,7 @@
     {
       "type": "subEvent",
       "id": "a670a50c-2d01-4c1e-90ed-964e1a3c1609_1900LardigdansaSalsaMerengue_1789228800000",
+      "parentEventId": "a670a50c-2d01-4c1e-90ed-964e1a3c1609",
       "parentTitle": "Lär dig dansa bugg, salsa och tango!",
       "title": "19:00 Lär dig dansa 🧡 Salsa & Merengue!",
       "about": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
@@ -19122,6 +19253,7 @@
     {
       "type": "subEvent",
       "id": "f625dc74-1348-4014-b7ea-0bd8e6a1daee_BBKK_1789228800000",
+      "parentEventId": "f625dc74-1348-4014-b7ea-0bd8e6a1daee",
       "parentTitle": "Körstafett i Missionskyrkan",
       "title": "BBKK",
       "about": "Körstafett 2026\n\n \nBarbro Björklund, Donald Wieselgren, Gunnar Axelson Fisk, Inge Almén\n\n \nAnders Grosse Grotherus, dirigent\n\n \nTomas Wärend Rydlander, dirigent\n\n \nBarbro Björklund, dirigent\nAndreas Kreuger. piano\n\n \nAnders Alderborn, dirigent\n\nMarkus Jonsson, dirigent\n\n \nMerete Ellegaard, dirigent\n\n \nPeter Melin, dirigent\n\n \nMari Pettersson, dirigent",
@@ -19167,6 +19299,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_Canvas_1789228800000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Canvas",
       "startTimeText": "18:00",
@@ -19203,6 +19336,7 @@
     {
       "type": "subEvent",
       "id": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a_GluntarnasvannerallsangmedGluntar_1789228800000",
+      "parentEventId": "6c3d3e19-4022-4f8c-a9c0-8589ec08046a",
       "parentTitle": "Linnéträdgårdens Orangeri",
       "title": "Gluntarnas vänner, allsång med Gluntar.",
       "about": "Linnéträdgårdens Orangeri föreläsningar, musik och dans.",
@@ -19247,6 +19381,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_HambergExpress_1789228800000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Hamberg Express",
       "startTimeText": "18:00",
@@ -19283,6 +19418,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_HarmonyHeights_1789228800000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Harmony Heights",
       "about": "Harmony Heights\nHarmony Heights Chorus är en Uppsalakör med omkring sextiofemtio musikaliska kvinnor. Ledorden – glädje, energi och artisteri genomsyrar inte bara framträdandena utan också varje repetition, där kören ständigt strävar efter att utvecklas och ha roligt tillsammans.\nHarmony Heights sjunger och tävlar i barbershopsång och är nuvarande bronsmedaljörer i de Nordiska mästerskapen 2026. Showrepertoaren är bred och kören uppträder med allt från visor till rock, ibland i samarbete med andra körer och gästartister.\nhttps://www.harmonyheights.se/",
@@ -19357,6 +19493,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_EllinorSkagegard_1789230000000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Ellinor Skagegård",
       "about": "Författarstafett 2026",
@@ -19468,6 +19605,7 @@
     {
       "type": "subEvent",
       "id": "7abc44ef-438e-4463-bae2-eece1818866c_Socialdans_1789230600000",
+      "parentEventId": "7abc44ef-438e-4463-bae2-eece1818866c",
       "parentTitle": "Prova-på Bugg och socialdans med UBSS",
       "title": "Socialdans",
       "about": "Välkommen att prova på bugg, socialdansa, kolla på dans eller bara kom och häng med UBSS!",
@@ -19576,6 +19714,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Elements_1789230600000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Elements",
       "about": "Elements\nStraight out of Gränby kommer ung, lokalproducerad, rykande färsk hiphop. Vilka som står på scen får du se om du kommer!\n\nhttps://www.instagram.com/elementsstudion/",
@@ -19613,6 +19752,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_Jazzcommitments_1789230600000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Jazz commitments",
       "startTimeText": "18:30",
@@ -19649,6 +19789,7 @@
     {
       "type": "subEvent",
       "id": "f625dc74-1348-4014-b7ea-0bd8e6a1daee_Rediviva_1789230600000",
+      "parentEventId": "f625dc74-1348-4014-b7ea-0bd8e6a1daee",
       "parentTitle": "Körstafett i Missionskyrkan",
       "title": "Rediviva",
       "about": "18:30 Rediviva\nAnders Alderborn, dirigent",
@@ -19691,6 +19832,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_LarsHager_1789231200000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Lars Häger",
       "about": "Författarstafett 2026",
@@ -19802,12 +19944,13 @@
       "sortKeyTime": 522,
       "sortKeyUpdated": 611,
       "musicCategoryNames": [
-        "elektroniskt"
+        "elektronisk"
       ]
     },
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_KinaPohjanenochAlexanderGagliano_1789232400000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Kina Pohjanen och Alexander Gagliano",
       "about": "Författarstafett 2026",
@@ -19999,6 +20142,7 @@
     {
       "type": "subEvent",
       "id": "92994e26-3879-4020-bc92-ea36236b3216_Svenska_1789232400000",
+      "parentEventId": "92994e26-3879-4020-bc92-ea36236b3216",
       "parentTitle": "Visningar museets samlingar -  landskap",
       "title": "Svenska",
       "about": "19.00-19.30, svenska\nPlats: Våning 1.\nDrop-in: ingen föranmälan krävs",
@@ -20425,6 +20569,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_Thornbergscenen_1789232400000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Thornberg (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -20770,6 +20915,7 @@
     {
       "type": "subEvent",
       "id": "a670a50c-2d01-4c1e-90ed-964e1a3c1609_2000LardigdansaTango_1789232400000",
+      "parentEventId": "a670a50c-2d01-4c1e-90ed-964e1a3c1609",
       "parentTitle": "Lär dig dansa bugg, salsa och tango!",
       "title": "20:00 Lär dig dansa 💚Tango!",
       "about": "Passa på och lär dig dansa bugg, salsa och tango, kostnadsfritt.",
@@ -20814,6 +20960,7 @@
     {
       "type": "subEvent",
       "id": "f80d2c62-dfc8-4750-a5f5-ec2b54217000_IhuvudetpaThomasArnesen_1789232400000",
+      "parentEventId": "f80d2c62-dfc8-4750-a5f5-ec2b54217000",
       "parentTitle": "Katalins Lördagsjazz - Kulturnatt!",
       "title": "I huvudet på Thomas Arnesen",
       "about": "Uppsala Kulturnatt är tillbaka! Vi firar med en helkväll på Stora Scenen – jazz, puls och festivalkänsla när den är som bäst. Katalin serverar mat & dryck under tiden. Välkomna.",
@@ -20858,6 +21005,7 @@
     {
       "type": "subEvent",
       "id": "f625dc74-1348-4014-b7ea-0bd8e6a1daee_MissionskyrkansVokalensemble_1789232400000",
+      "parentEventId": "f625dc74-1348-4014-b7ea-0bd8e6a1daee",
       "parentTitle": "Körstafett i Missionskyrkan",
       "title": "Missionskyrkans Vokalensemble",
       "about": "19:00 Missionskyrkans Vokalensemble\nMarkus Jonsson, dirigent",
@@ -20903,6 +21051,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_PowerPlay_1789232400000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "PowerPlay",
       "startTimeText": "19:00",
@@ -20940,6 +21089,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_StoneBrigade_1789232400000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Stone Brigade",
       "startTimeText": "19:00",
@@ -20976,6 +21126,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Syndet_1789232400000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Syndet",
       "about": "Syndet\nFyra killar från Uppsala som skriver helt egen musik med inspiration av alternativ rock. Syndet försöker alltid tänja på gränserna när det gäller musiken vilket skapar ett stort och nostalgiskt sound, på varje scen de spelar på lämnar de ett intryck som är svårt att missa.\n\nhttps://www.instagram.com/syndet.band/",
@@ -21013,6 +21164,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_CarlHenrikCarlsson_1789233600000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Carl Henrik Carlsson",
       "about": "Författarstafett 2026",
@@ -21196,6 +21348,7 @@
     {
       "type": "subEvent",
       "id": "669498b0-7693-45ec-a49f-ea123f1b1d4c_HORVINDENGERSVAR_1789234200000",
+      "parentEventId": "669498b0-7693-45ec-a49f-ea123f1b1d4c",
       "parentTitle": "Konsert och Café Samariten ",
       "title": "”HÖR, VINDEN GER SVAR”",
       "about": "19:30 ”HÖR, VINDEN GER SVAR”\nKlimatkonsert för Jorden. Inga Stenlund och Anders Hedman läser Karnevaldansen,\nen sonettkrans av Inga Stenlund. Diktersviten varvas med sång och musik av lokala tonsättare och textförfattare.\nMedverkande: Sara Lindvall, Mats Stenlund, Mats Hansson.",
@@ -21240,6 +21393,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Able_1789234200000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Able",
       "about": "Studieförbunden ABF, Bilda och Sensus ordnar musik non-stop mellan 12.30-23.00 på Uppsalas mysigaste innergård. Det blir alltifrån uppländsk spelmansmusik och prisbelönt barbershop, till pinfärsk hiphop och uråldrig punk. Nytt inslag varje halvtimme; så oavsett om du vill stanna hela dagen eller bara kika in en stund finns det alltid något nytt att upptäcka.",
@@ -21274,6 +21428,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_AlmostDeadmen_1789234200000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Almost Dead men",
       "about": "Almost Dead Men\nAlmost DEAD MEN består av ett gäng ärrade veteraner från Uppsalas rockscen, medlemmarna har varit verksamma i otaliga band i stan sen 70-talets slut. Nämnas kan Riots, N-Liners, The Sleep, Stain, Gabba Heys, Rävjunk, Pretty Triggers, Studfarm, Scandinavian Leathermen, Natural Way, Atomic Spitfire och Private Jets. Idag spelar ADM rock på det sätt den skall framföras. Med ett dussin digitala singlar, ett par CD och en hyllad LP i bagaget kör vi vidare framåt. Inget tjafs, inget larv, inga kompromisser. \n\nhttps://www.almostdeadmen.se/",
@@ -21311,6 +21466,7 @@
     {
       "type": "subEvent",
       "id": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c_Branneriet_1789234200000",
+      "parentEventId": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c",
       "parentTitle": "Öppet hus på Fyriskällan",
       "title": "Bränneriet",
       "about": "19.30 Bränneriet\nNybildat Uppsala-band som enligt en kritiker spelar ”funk utan att det är funk”. Med ett ålderspann mellan 17 och 55 i kvintetten blandas erfarenhet med barnsliga infall. Bränneriet består av Fredrik Hardenborg, Alexis Hardenborg, Lasse Blom, Rolf Staflin, Joel Svensson och Johannes Berjlund.",
@@ -21355,6 +21511,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_JacobKilstrom_1789234200000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Jacob Kilström",
       "startTimeText": "19:30",
@@ -21391,6 +21548,7 @@
     {
       "type": "subEvent",
       "id": "f625dc74-1348-4014-b7ea-0bd8e6a1daee_LaCappella_1789234200000",
+      "parentEventId": "f625dc74-1348-4014-b7ea-0bd8e6a1daee",
       "parentTitle": "Körstafett i Missionskyrkan",
       "title": "La Cappella",
       "about": "19:30 La Cappella\nMerete Ellegaard, dirigent",
@@ -21436,6 +21594,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_ElinYlvasdotter_1789234800000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Elin Ylvasdotter",
       "about": "Författarstafett 2026",
@@ -21479,6 +21638,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_TheBushDevilTrackers_1789235100000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "The Bush Devil Trackers",
       "startTimeText": "19:45",
@@ -21551,7 +21711,7 @@
       "sortKeyTime": 567,
       "sortKeyUpdated": 442,
       "musicCategoryNames": [
-        "elektroniskt"
+        "elektronisk"
       ]
     },
     {
@@ -21596,6 +21756,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_SaraBackmanPrytz_1789236000000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Sara Backman Prytz",
       "about": "Författarstafett 2026",
@@ -21639,6 +21800,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_AngelinaUndascenen_1789236000000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Angelina Unda (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -21875,7 +22037,7 @@
       "sortKeyTime": 575,
       "sortKeyUpdated": 345,
       "musicCategoryNames": [
-        "elektroniskt"
+        "elektronisk"
       ]
     },
     {
@@ -21913,6 +22075,7 @@
     {
       "type": "subEvent",
       "id": "226d06f1-0642-41d5-81d0-9629a356781b_UppsalaDansakademiUppsalaDansakademiAktivungdom_1789236000000",
+      "parentEventId": "226d06f1-0642-41d5-81d0-9629a356781b",
       "parentTitle": "Dansplats Resecentrum",
       "title": "Uppsala Dansakademi Uppsala Dansakademi Aktiv ungdom",
       "startTimeText": "20:00",
@@ -22022,6 +22185,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_ButterUtter_1789236000000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Butter Utter",
       "about": "Butter Utter\nUppsalabandet Butter Utter var ett av Sveriges tre första punkband. Gav ut en EP redan 1977, inspelad i Katedralskolans skrivsal. Skivan är en raritet och räknas som en av de 100 bästa DIY-releaserna i världen. Samlingsalbumet ’Legacy’ har fått bra recensioner i flera länder. Gav ut en singel för något år sedan. Deras musik finns bland annat på Bandcamp, Spotify och Apple Music. \n\nhttps://www.instagram.com/butterutterofficial/",
@@ -22059,6 +22223,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_SilentDisco_1789236000000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Silent Disco",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -22100,6 +22265,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_SoulPicnic_1789236000000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Soul Picnic",
       "startTimeText": "20:00",
@@ -22136,6 +22302,7 @@
     {
       "type": "subEvent",
       "id": "f625dc74-1348-4014-b7ea-0bd8e6a1daee_Uppslaget_1789236000000",
+      "parentEventId": "f625dc74-1348-4014-b7ea-0bd8e6a1daee",
       "parentTitle": "Körstafett i Missionskyrkan",
       "title": "Uppslaget",
       "about": "20:00 Uppslaget\nPeter Melin, dirigent",
@@ -22213,6 +22380,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_EmmaFrans_1789237200000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Emma Frans",
       "about": "Författarstafett 2026",
@@ -22329,6 +22497,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_Storscenen_1789237800000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Stor (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -22523,6 +22692,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Chuck_1789237800000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Chuck",
       "about": "Chuck\n\"Rockbandet CHUCK från Uppsala kombinerar Kaliforniens fuzziga ökenrock med den svenska garagerockens råhet och virar in allt i ett tungt täcke av doom. Nu är de redo att göra sin Uppsala-debut. Ta chansen att kunna säga att ”jag var där!”\"\n\nVIK HÆDAN\nLirar trallpunk i både D-takt och 4/4:a. Startades som ett enmansprojekt 2025 men blev ett band med full besättning i Maj 2026. Texterna behandlar viktiga ämnen som psykisk ohälsa, rattfylleri, mäns våld mot kvinnor och förstås några välförtjänta kängor åt högern. Musiken levereras med både attityd och passion, så röj utlovas. Med andra ord, för den som känner att det kliar i mosh-genen är det hit du ska komma!\n\nhttps://www.instagram.com/vikhadan.punk/ \n\nMalakka!\nRiver av ett live dunka-dunka set, så jäkla hårt, elektroniskt och snabbt! Dansa och röj så att fötterna går av! Ful, oartig, stygg hardbase rätt i örsnäckan. FÖR DU SKA DANSA!",
@@ -22560,6 +22730,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_DieKristiBrud_1789237800000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Die Kristi Brüd",
       "startTimeText": "20:30",
@@ -22596,6 +22767,7 @@
     {
       "type": "subEvent",
       "id": "f625dc74-1348-4014-b7ea-0bd8e6a1daee_HarmonyHeights_1789237800000",
+      "parentEventId": "f625dc74-1348-4014-b7ea-0bd8e6a1daee",
       "parentTitle": "Körstafett i Missionskyrkan",
       "title": "Harmony Heights",
       "about": "20:30 Harmony Heights\nMari Pettersson, dirigent",
@@ -22641,6 +22813,7 @@
     {
       "type": "subEvent",
       "id": "f80d2c62-dfc8-4750-a5f5-ec2b54217000_HelenaAnderssonBromanderAJOTrio_1789237800000",
+      "parentEventId": "f80d2c62-dfc8-4750-a5f5-ec2b54217000",
       "parentTitle": "Katalins Lördagsjazz - Kulturnatt!",
       "title": "Helena Andersson Bromander & ÅJO Trio",
       "about": "Uppsala Kulturnatt är tillbaka! Vi firar med en helkväll på Stora Scenen – jazz, puls och festivalkänsla när den är som bäst. Katalin serverar mat & dryck under tiden. Välkomna.",
@@ -22685,6 +22858,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_MonopunkSwe_1789237800000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Monopunk Swe",
       "about": "Studieförbunden ABF, Bilda och Sensus ordnar musik non-stop mellan 12.30-23.00 på Uppsalas mysigaste innergård. Det blir alltifrån uppländsk spelmansmusik och prisbelönt barbershop, till pinfärsk hiphop och uråldrig punk. Nytt inslag varje halvtimme; så oavsett om du vill stanna hela dagen eller bara kika in en stund finns det alltid något nytt att upptäcka.",
@@ -22722,6 +22896,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_RuneStrutz_1789237800000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Rune Strutz",
       "startTimeText": "20: 30",
@@ -22758,6 +22933,7 @@
     {
       "type": "subEvent",
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8_OlaLarsmo_1789238400000",
+      "parentEventId": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
       "parentTitle": "Kulturnatten i Missionskyrkan 2026",
       "title": "Ola Larsmo",
       "about": "Författarstafett 2026",
@@ -22837,7 +23013,7 @@
       "sortKeyTime": 600,
       "sortKeyUpdated": 446,
       "musicCategoryNames": [
-        "elektroniskt"
+        "elektronisk"
       ]
     },
     {
@@ -23062,6 +23238,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_Grandenscenen_1789239600000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Gränden (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -23186,6 +23363,7 @@
     {
       "type": "subEvent",
       "id": "669498b0-7693-45ec-a49f-ea123f1b1d4c_KORSVAGAROCHLIVSVAGAR_1789239600000",
+      "parentEventId": "669498b0-7693-45ec-a49f-ea123f1b1d4c",
       "parentTitle": "Konsert och Café Samariten ",
       "title": "”KORSVÄGAR OCH LIVSVÄGAR”",
       "about": "21:00 ”KORSVÄGAR OCH LIVSVÄGAR”\nVälkomna till en musikstund vägkorsningar där Queen möter Predikaren, Lars Gullin får dela musikens rum med Laleh, där både texter och musik manar till eftertanke och sinnesro.\nMedverkande: Anna Bäcklund, Mats Stenlund, Sakarias Åkerman.",
@@ -23230,6 +23408,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_Martinandthemidnightmen_1789239600000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Martin and the midnight men",
       "startTimeText": "21:00",
@@ -23266,6 +23445,7 @@
     {
       "type": "subEvent",
       "id": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c_TTReuter_1789239600000",
+      "parentEventId": "b979cd7e-e10c-4e1b-9f8f-52480dcf838c",
       "parentTitle": "Öppet hus på Fyriskällan",
       "title": "TT Reuter",
       "about": "21.00 TT Reuter\nTT Reuter tog avstamp i den svenska punkexplosionen 1979, men sökte sig snabbt bortom punkens ramar. Kantiga gitarrer, mörk intensitet och kompromisslös experimentlusta gav bandet ett helt eget uttryck och en plats bland den svenska postpunkens mest särpräglade namn. Två studioalbum och ett livealbum följde innan bandet upplöstes 1981. Under 2010-talet återvände TT Reuter till scenen, och 2021 kom bandets fjärde album.\nPå Kulturnatten blir spelningen också något av en hemkomst. Sångaren och grundaren Henrik Venant föddes i Uppsala, och med två Uppsalabor i dagens sättning finns det gott om lokala trådar i TT Reuter.\nTT Reuter idag: Henrik Venant – sång, gitarr,Erik Flodén – gitarr, sång, Mathias Rask-Andersen – bas, sång och Jonas Eriksson Slove – trummor.",
@@ -23310,6 +23490,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_VIKHAEDAN_1789239600000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "VIK HAEDAN",
       "about": "Studieförbunden ABF, Bilda och Sensus ordnar musik non-stop mellan 12.30-23.00 på Uppsalas mysigaste innergård. Det blir alltifrån uppländsk spelmansmusik och prisbelönt barbershop, till pinfärsk hiphop och uråldrig punk. Nytt inslag varje halvtimme; så oavsett om du vill stanna hela dagen eller bara kika in en stund finns det alltid något nytt att upptäcka.",
@@ -23347,6 +23528,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_HappyShittyBand_1789240500000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Happy Shitty Band",
       "startTimeText": "21:15",
@@ -23490,6 +23672,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Malakka_1789241400000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Malakka",
       "about": "Studieförbunden ABF, Bilda och Sensus ordnar musik non-stop mellan 12.30-23.00 på Uppsalas mysigaste innergård. Det blir alltifrån uppländsk spelmansmusik och prisbelönt barbershop, till pinfärsk hiphop och uråldrig punk. Nytt inslag varje halvtimme; så oavsett om du vill stanna hela dagen eller bara kika in en stund finns det alltid något nytt att upptäcka.",
@@ -23521,12 +23704,13 @@
       "sortKeyTime": 618,
       "sortKeyUpdated": 189,
       "musicCategoryNames": [
-        "elektroniskt"
+        "elektronisk"
       ]
     },
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_Ourlocalgang_1789241400000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Our local gang!",
       "startTimeText": "21:30",
@@ -23563,6 +23747,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Spektakel_1789241400000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Spektakel",
       "about": "Studieförbunden ABF, Bilda och Sensus ordnar musik non-stop mellan 12.30-23.00 på Uppsalas mysigaste innergård. Det blir alltifrån uppländsk spelmansmusik och prisbelönt barbershop, till pinfärsk hiphop och uråldrig punk. Nytt inslag varje halvtimme; så oavsett om du vill stanna hela dagen eller bara kika in en stund finns det alltid något nytt att upptäcka.",
@@ -23698,6 +23883,7 @@
     {
       "type": "subEvent",
       "id": "f80d2c62-dfc8-4750-a5f5-ec2b54217000_BluesFriends_1789243200000",
+      "parentEventId": "f80d2c62-dfc8-4750-a5f5-ec2b54217000",
       "parentTitle": "Katalins Lördagsjazz - Kulturnatt!",
       "title": "Blues Friends.",
       "about": "Uppsala Kulturnatt är tillbaka! Vi firar med en helkväll på Stora Scenen – jazz, puls och festivalkänsla när den är som bäst. Katalin serverar mat & dryck under tiden. Välkomna.",
@@ -23743,6 +23929,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_Haerdsmaelta_1789243200000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Haerdsmaelta",
       "startTimeText": "22:00",
@@ -23779,6 +23966,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_TheGreeting_1789243200000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "The Greeting",
       "startTimeText": "22:00",
@@ -23815,6 +24003,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_ThreeDeadFingers_1789243200000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Three Dead Fingers",
       "about": "Three Dead Fingers\nFölj med på en resa guidad av rymdcowboys! Vi skapar musik för själ, kropp och sinne. Låt rytmerna och melodierna vägleda dig till extas. Kom och dansa röven av dig!\n\nhttps://threedeadfingers.com/",
@@ -23852,6 +24041,7 @@
     {
       "type": "subEvent",
       "id": "af1558bf-d565-40cd-8a09-cf97b447e0a2_TimBerglingDJTBAscenen_1789243200000",
+      "parentEventId": "af1558bf-d565-40cd-8a09-cf97b447e0a2",
       "parentTitle": "Kulturnatten på Forumtorget",
       "title": "Tim Bergling + DJ TBA (scenen)",
       "about": "Upplev Kulturnatten på Forumtorget\nMed ett fullspäckat schema under hela dagen och kvällen finns det aktiviteter för både stora och små, upplev kultur, gemenskap och underhållning på Forumtorget under Kulturnatten.",
@@ -23927,6 +24117,7 @@
     {
       "type": "subEvent",
       "id": "b152f0b0-b69f-43ec-a51a-9105600200b8_ImproteatermedTeaterPrego_1789244100000",
+      "parentEventId": "b152f0b0-b69f-43ec-a51a-9105600200b8",
       "parentTitle": "Improvisationsteater med Teater Prego",
       "title": "Improteater med Teater Prego",
       "about": "Snabbt, skruvat och fullständigt oförutsägbart precis som livet självt! Improvisationsteater med Teater Prego på Kulturnatten är ett måste!\n\nTeater Prego är en av Sveriges mest rutinerade improvisationsgrupper. De har sedan starten 2009 spelat runt om i Sverige och på internationella festivaler men också grundat en av improvärldens mest omtyckta festivaler: SWIMP Sweden International Improv Festival. Under sexton år har de underhållit publiken under Kulturnatten på Reginateatern, och nu tar de improsuccén till Sprakateatern. Deras Kulturnattssuccé får du inte missa!",
@@ -23962,6 +24153,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_Blavattnet_1789245000000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "Blåvattnet",
       "startTimeText": "22:30",
@@ -23998,6 +24190,7 @@
     {
       "type": "subEvent",
       "id": "e7198f34-9ddb-43fe-a986-83ea8532026e_Morthzz_1789245000000",
+      "parentEventId": "e7198f34-9ddb-43fe-a986-83ea8532026e",
       "parentTitle": "Musik på innergården!",
       "title": "Mörthzz",
       "about": "Mörthzz\nMörthzz lirar åttiotalsdoftande Old School Heavy Metal. Uppsalabandet startade som coverband men har sadlat om och spelar framförallt eget låtmaterial.\n\nMörthzz budskap..\"Stay Metal\"..🤘😃🤘..\n\nwww.morthzz.se",
@@ -24029,7 +24222,7 @@
       "sortKeyTime": 632,
       "sortKeyUpdated": 199,
       "musicCategoryNames": [
-        "heavy metal"
+        "metal"
       ]
     },
     {
@@ -24072,6 +24265,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_TheOverthrone_1789245900000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "The Overthrone",
       "startTimeText": "22:45",
@@ -24108,6 +24302,7 @@
     {
       "type": "subEvent",
       "id": "a8862c26-f3e0-48f6-844c-312be090c7f6_Myheartisametronome_1789246800000",
+      "parentEventId": "a8862c26-f3e0-48f6-844c-312be090c7f6",
       "parentTitle": "Livemusik på Walmstedtska gården",
       "title": "My heart is a metronome",
       "startTimeText": "23:00",
@@ -24178,6 +24373,7 @@
     {
       "type": "subEvent",
       "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_Scentofsurface_1789248600000",
+      "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
       "parentTitle": "Livemusik på Fyristorg",
       "title": "Scent of surface",
       "startTimeText": "23:30",
@@ -24276,7 +24472,7 @@
       "count": 2
     },
     {
-      "name": "elektroniskt",
+      "name": "elektronisk",
       "count": 5
     },
     {
@@ -24289,10 +24485,6 @@
     },
     {
       "name": "gitarr",
-      "count": 1
-    },
-    {
-      "name": "heavy metal",
       "count": 1
     },
     {
@@ -24321,7 +24513,7 @@
     },
     {
       "name": "metal",
-      "count": 7
+      "count": 8
     },
     {
       "name": "orkester",
