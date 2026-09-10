@@ -607,6 +607,11 @@ function isGoogleUser(user) {
   return Boolean(user?.providerData?.some((provider) => provider.providerId === 'google.com'));
 }
 
+async function recordLastLogin(user) {
+  if (!user || user.isAnonymous) return;
+  await firebase.firestore().collection('users').doc(user.uid).set({ lastLogin: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true });
+}
+
 function localSettings() {
   const displayName = firebaseUser ? userDisplayName(firebaseUser) : localStorage.getItem('displayName') || '';
   const emailAddress = firebaseUser && isGoogleUser(firebaseUser) && displayName ? '' : userEmailAddress(firebaseUser) || localStorage.getItem('emailAddress') || '';
@@ -694,17 +699,18 @@ async function syncSettingsWithFirebase() {
 
       if (remote) {
         const remoteFavorites = normalizeFavorites(remote.favorites);
-        const removedFavorites = loadRemovedFavorites();
-        const mergedFavorites = Object.fromEntries(Object.entries(remoteFavorites).filter(([id]) => !removedFavorites[id]));
+        const synchronizedFavorites = Object.keys(remoteFavorites).length > 0 ? remoteFavorites : local.favorites;
         const localSharedPages = loadSharedPages();
         const remoteSharedPages = loadSharedPagesFromValue(remote.sharedPages);
         const mergedSharedPages = [...localSharedPages, ...remoteSharedPages].filter((page, index, pages) => pages.findIndex((candidate) => candidate.userId === page.userId) === index);
 
         applySettings({
           ...remote,
-          favorites: { ...mergedFavorites, ...local.favorites },
+          favorites: synchronizedFavorites,
           sharedPages: mergedSharedPages,
         });
+      } else {
+        applySettings({ favorites: local.favorites });
       }
 
       if (!firebaseUser || !settingsDocument) return;
@@ -912,10 +918,6 @@ function initFirebaseAuthentication() {
       if (isDeletingUserData) return;
       settingsDocument = firebase.firestore().collection('users').doc(user.uid);
       try {
-        const displayName = userDisplayName(user);
-        const emailAddress = userEmailAddress(user);
-        debugLog('Saving displayName and emailAddress to Firestore:', { uid: user.uid, displayName, emailAddress });
-        await settingsDocument.set(localSettings(), { merge: true });
         await syncSettingsWithFirebase();
       } catch (error) {
         showError(error?.message || 'Användarinställningarna kunde inte laddas.');
@@ -2316,6 +2318,7 @@ $authForm?.addEventListener('submit', async (event) => {
     } else {
       await firebaseAuth.signInWithEmailAndPassword(email, password);
     }
+    await recordLastLogin(firebaseAuth.currentUser || firebaseUser);
     openLoginDialogOnNextClick = false;
     $authDialog.close();
   } catch (error) {
@@ -2342,6 +2345,7 @@ $googleLoginButton?.addEventListener('click', async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
     await firebaseAuth.signInWithPopup(provider);
+    await recordLastLogin(firebaseAuth.currentUser || firebaseUser);
     openLoginDialogOnNextClick = false;
     $authDialog.close();
   } catch (error) {
