@@ -99,7 +99,6 @@ const tabs = {
   subevents: document.getElementById('tab-subevents'),
   cancelled: document.getElementById('tab-cancelled'),
   favorites: document.getElementById('tab-favorites'),
-  nonfavorites: document.getElementById('tab-nonfavorites'),
   live: document.getElementById('tab-live'),
   recent: document.getElementById('tab-recent'),
   soon: document.getElementById('tab-soon'),
@@ -981,7 +980,6 @@ function updateTabCounts() {
   let subeventCount = 0;
   let cancelledCount = 0;
   let favoriteCount = 0;
-  let nonFavoriteCount = 0;
   let liveCount = 0;
   let recentCount = 0;
   let soonCount = 0;
@@ -1000,7 +998,6 @@ function updateTabCounts() {
     if (!isCancelled && (event.type === 'event' || event.type === 'subEvent')) eventCount += 1;
     if (!isCancelled && event.type === 'subEvent') subeventCount += 1;
     if (favoriteIds.has(event.favoriteId)) favoriteCount += 1;
-    if (!isCancelled && (event.type === 'event' || event.type === 'subEvent') && !favoriteIds.has(event.favoriteId)) nonFavoriteCount += 1;
     if (!isCancelled && Number.isFinite(event.startMs) && Number.isFinite(event.endMs) && event.startMs <= now && event.endMs >= now) liveCount += 1;
     if (!isCancelled && Number.isFinite(event.startMs) && event.startMs >= now - RECENT_EVENT_WINDOW_MS && event.startMs <= now) recentCount += 1;
     if (!isCancelled && Number.isFinite(event.startMs) && event.startMs >= now && event.startMs <= now + SOON_EVENT_WINDOW_MS) soonCount += 1;
@@ -1015,8 +1012,6 @@ function updateTabCounts() {
   tabs.cancelled.title = `Inställda evenemang (${cancelledCount} st)`;
   tabs.favorites.textContent = `\u{2B50} Favoriter (${favoriteCount})`;
   tabs.favorites.title = `Mina favoriter (${favoriteCount} st)`;
-  tabs.nonfavorites.textContent = `\u{2605} Ej favoriter (${nonFavoriteCount})`;
-  tabs.nonfavorites.title = `Ej favoriter (${nonFavoriteCount} st)`;
   tabs.live.textContent = `\u{1F550} Pågående (${liveCount})`;
   tabs.live.title = `Pågående evenemang (${liveCount} st)`;
   tabs.recent.textContent = `\u23EA Nu (${recentCount})`;
@@ -1905,7 +1900,6 @@ function tabIcon(tab) {
       subevents: '\u{1F4DD}',
       cancelled: '\u{1F6AB}',
       favorites: '\u{2B50}',
-      nonfavorites: '\u{2605}',
       live: '\u{1F550}',
       recent: '\u{23EE}',
       soon: '\u{23ED}',
@@ -1923,7 +1917,6 @@ function tabTooltip(tab) {
       subevents: 'Delevenemang',
       cancelled: 'Inställda evenemang',
       favorites: 'Mina favoriter',
-      nonfavorites: 'Ej favoriter',
       live: 'Pågående',
       recent: 'Just startade',
       soon: 'Startar strax',
@@ -1937,7 +1930,7 @@ function tabTooltip(tab) {
 function updateProgramSortControls() {
   const isFavorites = activeTab === 'favorites' || activeTab.startsWith('shared:');
   const isShared = activeTab.startsWith('shared:');
-  const isSortable = isFavorites || activeTab === 'program' || activeTab === 'subevents' || activeTab === 'nonfavorites';
+  const isSortable = isFavorites || activeTab === 'program' || activeTab === 'subevents';
   $programSortControls.hidden = !isSortable;
   $shareFavorites.hidden = activeTab !== 'favorites';
   $programSortStart.hidden = !isSortable;
@@ -2055,7 +2048,6 @@ function setActive(tab, preserveScroll = false) {
       later: 'Evenemang som startar senare',
       live: 'Evenemang som pågår just nu',
       favorites: 'Dina favoritevenemang, betygsatta med 1–3 stjärnor. Favoritval kan tas bort via papperskorgsikonen.',
-      nonfavorites: 'Evenemang som ännu inte har markerats som favoriter.',
       unfinished: 'Evenemang som pågår eller ännu inte har startat',
     }[tab] || '';
   if (tab.startsWith('shared:')) tabInformation = `Delade favoritevenemang från ${sharedIdentity}`;
@@ -2073,8 +2065,6 @@ function setActive(tab, preserveScroll = false) {
     events = allEvents.filter((event) => event.isCancelled);
   } else if (tab === 'favorites') {
     events = favoriteEvents(favs);
-  } else if (tab === 'nonfavorites') {
-    events = sortProgramEvents(allEvents.filter((event) => !event.isCancelled && (event.type === 'event' || event.type === 'subEvent') && !Object.prototype.hasOwnProperty.call(favs, event.favoriteId)));
   } else if (tab.startsWith('shared:')) {
     const ratingFavorites = sharedSortMode === 'local' ? favs : sharedFavorites;
     events = favoriteEvents(sharedFavorites, ratingFavorites, sharedSortMode === 'start' ? 'start' : 'stars');
