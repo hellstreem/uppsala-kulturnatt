@@ -2140,11 +2140,11 @@ $shareDialog?.addEventListener('click', (event) => {
 $shareCopy?.addEventListener('click', copyFavorites);
 $shareText?.addEventListener('focus', selectShareField);
 $shareText?.addEventListener('click', selectShareField);
-$shareLinkToggle?.addEventListener('change', () => {
+$shareLinkToggle?.addEventListener('change', async () => {
   localStorage.setItem('enableSharing', String($shareLinkToggle.checked));
   $shareLinkCopy.disabled = !firebaseUser || !$shareLinkToggle.checked;
   $shareLink.textContent = $shareLinkToggle.checked ? `https://${window.location.host}/share/${firebaseUser?.uid || ''}/` : '<Aktivera delning för att visa länk här>';
-  scheduleCloudSettingsSync(true);
+  if (await ensureFirebaseAuthentication()) await scheduleCloudSettingsSync(true);
 });
 $shareLinkCopy?.addEventListener('click', copyShareLink);
 $infoButton?.addEventListener('click', () => {
