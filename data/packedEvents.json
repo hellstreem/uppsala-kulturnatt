@@ -1316,7 +1316,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 35,
-      "sortKeyUpdated": 4
+      "sortKeyUpdated": 4,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "c493f729-b624-4c9c-bee7-0bfa967ab420",
@@ -1615,7 +1618,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 43,
-      "sortKeyUpdated": 470
+      "sortKeyUpdated": 470,
+      "musicCategoryNames": [
+        "orkester"
+      ]
     },
     {
       "id": "a60c2480-6bd8-4705-b705-a9dbb0262ab1",
@@ -1895,7 +1901,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 51,
-      "sortKeyUpdated": 7
+      "sortKeyUpdated": 7,
+      "musicCategoryNames": [
+        "folkmusik"
+      ]
     },
     {
       "id": "2b6721a4-3600-46f9-80c7-de0fb97123be",
@@ -3193,7 +3202,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 85,
-      "sortKeyUpdated": 484
+      "sortKeyUpdated": 484,
+      "musicCategoryNames": [
+        "visa"
+      ]
     },
     {
       "type": "subEvent",
@@ -3233,7 +3245,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 86,
-      "sortKeyUpdated": 13
+      "sortKeyUpdated": 13,
+      "musicCategoryNames": [
+        "visa"
+      ]
     },
     {
       "id": "cc27dd8a-f2a3-4df5-b21f-4a0c24dcda8f",
@@ -3264,7 +3279,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 87,
-      "sortKeyUpdated": 485
+      "sortKeyUpdated": 485,
+      "musicCategoryNames": [
+        "samba"
+      ]
     },
     {
       "id": "04b3bad6-5b40-4164-a618-591fdd1ab449",
@@ -3333,7 +3351,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 89,
-      "sortKeyUpdated": 487
+      "sortKeyUpdated": 487,
+      "musicCategoryNames": [
+        "blues"
+      ]
     },
     {
       "id": "cf9a1aa5-541d-44b8-ab9b-68db09005049",
@@ -3798,7 +3819,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 101,
-      "sortKeyUpdated": 19
+      "sortKeyUpdated": 19,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "cc90e0ac-13b2-4749-b1e2-e6bfac3f682b",
@@ -4098,7 +4122,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 109,
-      "sortKeyUpdated": 365
+      "sortKeyUpdated": 365,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "id": "02c49a7a-5434-4bd1-8842-3efc1593a351",
@@ -4252,7 +4279,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 113,
-      "sortKeyUpdated": 368
+      "sortKeyUpdated": 368,
+      "musicCategoryNames": [
+        "orkester"
+      ]
     },
     {
       "id": "f0e580d0-222e-4ac5-83f9-ee096e743d6e",
@@ -5938,7 +5968,10 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 159,
-      "sortKeyUpdated": 248
+      "sortKeyUpdated": 248,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "id": "594c6f9b-d666-4500-ae66-58822845f5a6",
@@ -6129,7 +6162,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 164,
-      "sortKeyUpdated": 30
+      "sortKeyUpdated": 30,
+      "musicCategoryNames": [
+        "folkmusik"
+      ]
     },
     {
       "id": "eb77a485-4bf0-4a5e-bd8b-ec7d8b060ef6",
@@ -6194,7 +6230,10 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 166,
-      "sortKeyUpdated": 250
+      "sortKeyUpdated": 250,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "type": "subEvent",
@@ -6264,7 +6303,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 168,
-      "sortKeyUpdated": 377
+      "sortKeyUpdated": 377,
+      "musicCategoryNames": [
+        "dancehall"
+      ]
     },
     {
       "id": "b8633a4a-9413-45d0-ad7e-2150739da76c",
@@ -6297,7 +6339,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 169,
-      "sortKeyUpdated": 378
+      "sortKeyUpdated": 378,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "id": "365e8566-cdf9-439f-9790-4077c4ab0e5b",
@@ -7866,7 +7911,12 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 211,
-      "sortKeyUpdated": 37
+      "sortKeyUpdated": 37,
+      "musicCategoryNames": [
+        "pop",
+        "rock",
+        "blues"
+      ]
     },
     {
       "type": "subEvent",
@@ -8101,7 +8151,11 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 217,
-      "sortKeyUpdated": 389
+      "sortKeyUpdated": 389,
+      "musicCategoryNames": [
+        "rock",
+        "blues"
+      ]
     },
     {
       "id": "8b8e7392-cd73-43bc-be0c-550a3f59d834",
@@ -8174,7 +8228,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 219,
-      "sortKeyUpdated": 41
+      "sortKeyUpdated": 41,
+      "musicCategoryNames": [
+        "visa"
+      ]
     },
     {
       "id": "346927f9-8b9d-4abe-a1e6-5c77f7c0c5be",
@@ -8240,7 +8297,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 221,
-      "sortKeyUpdated": 527
+      "sortKeyUpdated": 527,
+      "musicCategoryNames": [
+        "visa"
+      ]
     },
     {
       "id": "feedfe7c-0d6a-467c-837b-c768a3995354",
@@ -8509,7 +8569,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 228,
-      "sortKeyUpdated": 43
+      "sortKeyUpdated": 43,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "type": "subEvent",
@@ -8762,7 +8825,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 235,
-      "sortKeyUpdated": 531
+      "sortKeyUpdated": 531,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -8812,7 +8878,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 236,
-      "sortKeyUpdated": 46
+      "sortKeyUpdated": 46,
+      "musicCategoryNames": [
+        "visa"
+      ]
     },
     {
       "id": "ea1a7a2e-bbed-4705-a64b-f0e86f7509db",
@@ -8844,7 +8913,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 237,
-      "sortKeyUpdated": 532
+      "sortKeyUpdated": 532,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "type": "subEvent",
@@ -8878,7 +8950,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 238,
-      "sortKeyUpdated": 47
+      "sortKeyUpdated": 47,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -8920,7 +8995,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 239,
-      "sortKeyUpdated": 48
+      "sortKeyUpdated": 48,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "7957853c-9d25-4376-9081-bb954b73037d",
@@ -9254,7 +9332,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 248,
-      "sortKeyUpdated": 49
+      "sortKeyUpdated": 49,
+      "musicCategoryNames": [
+        "orkester"
+      ]
     },
     {
       "id": "33c01753-abe5-424e-9d42-caedc4cdb0fb",
@@ -10375,7 +10456,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 278,
-      "sortKeyUpdated": 52
+      "sortKeyUpdated": 52,
+      "musicCategoryNames": [
+        "klassiskt"
+      ]
     },
     {
       "type": "subEvent",
@@ -10408,7 +10492,11 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 279,
-      "sortKeyUpdated": 53
+      "sortKeyUpdated": 53,
+      "musicCategoryNames": [
+        "pop",
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -10485,7 +10573,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 281,
-      "sortKeyUpdated": 55
+      "sortKeyUpdated": 55,
+      "musicCategoryNames": [
+        "instrumental"
+      ]
     },
     {
       "type": "subEvent",
@@ -10813,7 +10904,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 290,
-      "sortKeyUpdated": 58
+      "sortKeyUpdated": 58,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "type": "subEvent",
@@ -10847,7 +10941,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 291,
-      "sortKeyUpdated": 59
+      "sortKeyUpdated": 59,
+      "musicCategoryNames": [
+        "orkester"
+      ]
     },
     {
       "id": "ce77d7bd-e9c6-4efd-aedf-e96e28c531c5",
@@ -10882,7 +10979,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 292,
-      "sortKeyUpdated": 547
+      "sortKeyUpdated": 547,
+      "musicCategoryNames": [
+        "orkester"
+      ]
     },
     {
       "id": "f654ae1f-4d7c-47cc-9d34-9c1f1fb1c634",
@@ -10918,7 +11018,10 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 293,
-      "sortKeyUpdated": 288
+      "sortKeyUpdated": 288,
+      "musicCategoryNames": [
+        "dancehall"
+      ]
     },
     {
       "type": "subEvent",
@@ -11030,7 +11133,11 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 296,
-      "sortKeyUpdated": 549
+      "sortKeyUpdated": 549,
+      "musicCategoryNames": [
+        "pop",
+        "soul"
+      ]
     },
     {
       "type": "subEvent",
@@ -11064,7 +11171,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 297,
-      "sortKeyUpdated": 61
+      "sortKeyUpdated": 61,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "id": "abbb071c-d75f-4680-9c82-07a534616da6",
@@ -11649,7 +11759,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 312,
-      "sortKeyUpdated": 65
+      "sortKeyUpdated": 65,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "type": "subEvent",
@@ -11716,7 +11829,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 314,
-      "sortKeyUpdated": 67
+      "sortKeyUpdated": 67,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "id": "23f4e999-8145-41ec-90f1-3038806911b6",
@@ -11850,7 +11966,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 318,
-      "sortKeyUpdated": 406
+      "sortKeyUpdated": 406,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -11975,7 +12094,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 321,
-      "sortKeyUpdated": 70
+      "sortKeyUpdated": 70,
+      "musicCategoryNames": [
+        "orkester"
+      ]
     },
     {
       "id": "f4c2fda2-760f-421d-8755-7c49d411bd2d",
@@ -12163,7 +12285,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 326,
-      "sortKeyUpdated": 558
+      "sortKeyUpdated": 558,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "id": "8340457e-8f26-4a2f-8ab3-52a806be87f0",
@@ -13045,7 +13170,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 350,
-      "sortKeyUpdated": 74
+      "sortKeyUpdated": 74,
+      "musicCategoryNames": [
+        "metal"
+      ]
     },
     {
       "type": "subEvent",
@@ -13126,7 +13254,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 352,
-      "sortKeyUpdated": 76
+      "sortKeyUpdated": 76,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "type": "subEvent",
@@ -13159,7 +13290,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 353,
-      "sortKeyUpdated": 77
+      "sortKeyUpdated": 77,
+      "musicCategoryNames": [
+        "orkester"
+      ]
     },
     {
       "type": "subEvent",
@@ -13233,7 +13367,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 355,
-      "sortKeyUpdated": 79
+      "sortKeyUpdated": 79,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "b26dfa8a-d145-4e69-b1ca-8dc6643d74ec",
@@ -13261,7 +13398,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 356,
-      "sortKeyUpdated": 566
+      "sortKeyUpdated": 566,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "id": "5e14adbf-b587-4cd1-99da-80c48a252fa7",
@@ -13366,7 +13506,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 359,
-      "sortKeyUpdated": 80
+      "sortKeyUpdated": 80,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "type": "subEvent",
@@ -13825,7 +13968,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 371,
-      "sortKeyUpdated": 83
+      "sortKeyUpdated": 83,
+      "musicCategoryNames": [
+        "blues"
+      ]
     },
     {
       "type": "subEvent",
@@ -13898,7 +14044,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 373,
-      "sortKeyUpdated": 85
+      "sortKeyUpdated": 85,
+      "musicCategoryNames": [
+        "punk"
+      ]
     },
     {
       "type": "subEvent",
@@ -13973,7 +14122,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 375,
-      "sortKeyUpdated": 87
+      "sortKeyUpdated": 87,
+      "musicCategoryNames": [
+        "metal"
+      ]
     },
     {
       "id": "5dcfe001-d31e-4064-9c64-77e08cb01020",
@@ -14275,7 +14427,13 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 383,
-      "sortKeyUpdated": 298
+      "sortKeyUpdated": 298,
+      "musicCategoryNames": [
+        "reggae",
+        "ska",
+        "funk",
+        "hiphop"
+      ]
     },
     {
       "type": "subEvent",
@@ -14662,7 +14820,10 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 393,
-      "sortKeyUpdated": 300
+      "sortKeyUpdated": 300,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "id": "4c4b5f31-9528-4b16-88f8-cad26f9ed276",
@@ -14811,7 +14972,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 397,
-      "sortKeyUpdated": 420
+      "sortKeyUpdated": 420,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "id": "7abc44ef-438e-4463-bae2-eece1818866c",
@@ -14962,7 +15126,11 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 401,
-      "sortKeyUpdated": 584
+      "sortKeyUpdated": 584,
+      "musicCategoryNames": [
+        "pop",
+        "rock"
+      ]
     },
     {
       "id": "ee7249a2-ab3e-4c5b-89ac-4efd3ba9aab8",
@@ -15296,7 +15464,11 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 410,
-      "sortKeyUpdated": 95
+      "sortKeyUpdated": 95,
+      "musicCategoryNames": [
+        "pop",
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -15337,7 +15509,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 411,
-      "sortKeyUpdated": 96
+      "sortKeyUpdated": 96,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "type": "subEvent",
@@ -15412,7 +15587,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 413,
-      "sortKeyUpdated": 98
+      "sortKeyUpdated": 98,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -15452,7 +15630,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 414,
-      "sortKeyUpdated": 99
+      "sortKeyUpdated": 99,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "type": "subEvent",
@@ -15773,7 +15954,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 422,
-      "sortKeyUpdated": 104
+      "sortKeyUpdated": 104,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "e6d10d4a-519c-47e7-a9f6-b9704daeed91",
@@ -15990,7 +16174,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 428,
-      "sortKeyUpdated": 106
+      "sortKeyUpdated": 106,
+      "musicCategoryNames": [
+        "metal"
+      ]
     },
     {
       "type": "subEvent",
@@ -16023,7 +16210,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 429,
-      "sortKeyUpdated": 107
+      "sortKeyUpdated": 107,
+      "musicCategoryNames": [
+        "gitarr"
+      ]
     },
     {
       "type": "subEvent",
@@ -16057,7 +16247,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 430,
-      "sortKeyUpdated": 108
+      "sortKeyUpdated": 108,
+      "musicCategoryNames": [
+        "indie"
+      ]
     },
     {
       "type": "subEvent",
@@ -16283,7 +16476,10 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 436,
-      "sortKeyUpdated": 306
+      "sortKeyUpdated": 306,
+      "musicCategoryNames": [
+        "orkester"
+      ]
     },
     {
       "type": "subEvent",
@@ -16406,7 +16602,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 439,
-      "sortKeyUpdated": 112
+      "sortKeyUpdated": 112,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "id": "688a8b54-2b7d-4806-a597-976faecd1e91",
@@ -17043,7 +17242,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 456,
-      "sortKeyUpdated": 116
+      "sortKeyUpdated": 116,
+      "musicCategoryNames": [
+        "orkester"
+      ]
     },
     {
       "type": "subEvent",
@@ -17077,7 +17279,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 457,
-      "sortKeyUpdated": 117
+      "sortKeyUpdated": 117,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -17379,7 +17584,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 465,
-      "sortKeyUpdated": 122
+      "sortKeyUpdated": 122,
+      "musicCategoryNames": [
+        "orkester"
+      ]
     },
     {
       "id": "b98bc954-e35d-48b1-aa2d-87dda3f4c0ce",
@@ -17539,7 +17747,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 469,
-      "sortKeyUpdated": 123
+      "sortKeyUpdated": 123,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "type": "subEvent",
@@ -17573,7 +17784,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 470,
-      "sortKeyUpdated": 124
+      "sortKeyUpdated": 124,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "type": "subEvent",
@@ -17606,7 +17820,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 471,
-      "sortKeyUpdated": 125
+      "sortKeyUpdated": 125,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "type": "subEvent",
@@ -17648,7 +17865,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 472,
-      "sortKeyUpdated": 126
+      "sortKeyUpdated": 126,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "type": "subEvent",
@@ -17689,7 +17909,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 473,
-      "sortKeyUpdated": 127
+      "sortKeyUpdated": 127,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "type": "subEvent",
@@ -17765,7 +17988,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 475,
-      "sortKeyUpdated": 598
+      "sortKeyUpdated": 598,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "id": "328b45a6-2683-47ac-8107-9b8fcb99fb7d",
@@ -18040,7 +18266,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 482,
-      "sortKeyUpdated": 131
+      "sortKeyUpdated": 131,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "id": "5d67ab78-6888-458e-8cae-f83f171968b6",
@@ -18930,7 +19159,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 505,
-      "sortKeyUpdated": 137
+      "sortKeyUpdated": 137,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "type": "subEvent",
@@ -18963,7 +19195,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 506,
-      "sortKeyUpdated": 138
+      "sortKeyUpdated": 138,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "type": "subEvent",
@@ -19004,7 +19239,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 507,
-      "sortKeyUpdated": 139
+      "sortKeyUpdated": 139,
+      "musicCategoryNames": [
+        "allsång"
+      ]
     },
     {
       "type": "subEvent",
@@ -19037,7 +19275,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 508,
-      "sortKeyUpdated": 140
+      "sortKeyUpdated": 140,
+      "musicCategoryNames": [
+        "indie"
+      ]
     },
     {
       "type": "subEvent",
@@ -19071,7 +19312,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 509,
-      "sortKeyUpdated": 141
+      "sortKeyUpdated": 141,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "d18ff956-86fc-4a79-a406-5e5e085e74b0",
@@ -19180,7 +19424,13 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 512,
-      "sortKeyUpdated": 607
+      "sortKeyUpdated": 607,
+      "musicCategoryNames": [
+        "pop",
+        "jazz",
+        "funk",
+        "rock"
+      ]
     },
     {
       "id": "63a5252c-056a-49c5-bfe8-072d33b96abd",
@@ -19355,7 +19605,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 517,
-      "sortKeyUpdated": 144
+      "sortKeyUpdated": 144,
+      "musicCategoryNames": [
+        "hiphop"
+      ]
     },
     {
       "type": "subEvent",
@@ -19388,7 +19641,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 518,
-      "sortKeyUpdated": 145
+      "sortKeyUpdated": 145,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "type": "subEvent",
@@ -19544,7 +19800,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 522,
-      "sortKeyUpdated": 611
+      "sortKeyUpdated": 611,
+      "musicCategoryNames": [
+        "elektroniskt"
+      ]
     },
     {
       "type": "subEvent",
@@ -19696,7 +19955,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 526,
-      "sortKeyUpdated": 614
+      "sortKeyUpdated": 614,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "05aacaad-77fb-4c51-8627-b91ba4d26a89",
@@ -19729,7 +19991,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 527,
-      "sortKeyUpdated": 438
+      "sortKeyUpdated": 438,
+      "musicCategoryNames": [
+        "instrumental"
+      ]
     },
     {
       "type": "subEvent",
@@ -19772,7 +20037,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 528,
-      "sortKeyUpdated": 149
+      "sortKeyUpdated": 149,
+      "musicCategoryNames": [
+        "visa"
+      ]
     },
     {
       "id": "9b20bc8a-c86a-45d9-b74d-251fe30955d7",
@@ -19954,7 +20222,10 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 533,
-      "sortKeyUpdated": 322
+      "sortKeyUpdated": 322,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "5312998b-eaf4-4fbf-b20c-b339cc4a6963",
@@ -19992,7 +20263,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 534,
-      "sortKeyUpdated": 616
+      "sortKeyUpdated": 616,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "0342d7a4-3461-4e56-984e-ce9cc48c9f66",
@@ -20067,7 +20341,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 536,
-      "sortKeyUpdated": 439
+      "sortKeyUpdated": 439,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "f2cf5a59-3a58-4f39-9268-61fad9d75b7c",
@@ -20185,7 +20462,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 539,
-      "sortKeyUpdated": 150
+      "sortKeyUpdated": 150,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "id": "86ce1c07-7556-4078-8f91-378ab330a2d8",
@@ -20224,7 +20504,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 540,
-      "sortKeyUpdated": 619
+      "sortKeyUpdated": 619,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "f32328f7-d18c-444e-bf61-8e9b96bee1f5",
@@ -20329,7 +20612,10 @@
       "updated": 1788423708071,
       "updateStatus": "updated",
       "sortKeyTime": 543,
-      "sortKeyUpdated": 346
+      "sortKeyUpdated": 346,
+      "musicCategoryNames": [
+        "funk"
+      ]
     },
     {
       "id": "3e362a7e-3341-48e8-8089-113ab8f234ae",
@@ -20362,7 +20648,10 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 544,
-      "sortKeyUpdated": 325
+      "sortKeyUpdated": 325,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "56938ed3-0eaf-4738-97fb-6815fdd50ee1",
@@ -20435,7 +20724,10 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 546,
-      "sortKeyUpdated": 326
+      "sortKeyUpdated": 326,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "198bee1c-89ae-418c-b60f-9e032a643130",
@@ -20558,7 +20850,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 549,
-      "sortKeyUpdated": 152
+      "sortKeyUpdated": 152,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "type": "subEvent",
@@ -20600,7 +20895,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 550,
-      "sortKeyUpdated": 153
+      "sortKeyUpdated": 153,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "type": "subEvent",
@@ -20633,7 +20931,11 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 551,
-      "sortKeyUpdated": 154
+      "sortKeyUpdated": 154,
+      "musicCategoryNames": [
+        "funk",
+        "soul"
+      ]
     },
     {
       "type": "subEvent",
@@ -20666,7 +20968,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 552,
-      "sortKeyUpdated": 155
+      "sortKeyUpdated": 155,
+      "musicCategoryNames": [
+        "metal"
+      ]
     },
     {
       "type": "subEvent",
@@ -20700,7 +21005,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 553,
-      "sortKeyUpdated": 156
+      "sortKeyUpdated": 156,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -20771,7 +21079,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 555,
-      "sortKeyUpdated": 620
+      "sortKeyUpdated": 620,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "86d1fac2-903d-4682-99b0-e68ea09c2dba",
@@ -20841,7 +21152,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 557,
-      "sortKeyUpdated": 622
+      "sortKeyUpdated": 622,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "71093cbe-1711-45cd-9dc6-14c543be084c",
@@ -20989,7 +21303,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 561,
-      "sortKeyUpdated": 160
+      "sortKeyUpdated": 160,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -21030,7 +21347,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 562,
-      "sortKeyUpdated": 161
+      "sortKeyUpdated": 161,
+      "musicCategoryNames": [
+        "funk"
+      ]
     },
     {
       "type": "subEvent",
@@ -21063,7 +21383,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 563,
-      "sortKeyUpdated": 162
+      "sortKeyUpdated": 162,
+      "musicCategoryNames": [
+        "synth"
+      ]
     },
     {
       "type": "subEvent",
@@ -21105,7 +21428,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 564,
-      "sortKeyUpdated": 163
+      "sortKeyUpdated": 163,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "type": "subEvent",
@@ -21181,7 +21507,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 566,
-      "sortKeyUpdated": 165
+      "sortKeyUpdated": 165,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "id": "78de7ec7-e10e-4921-89b8-522b9b22d4f5",
@@ -21220,7 +21549,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 567,
-      "sortKeyUpdated": 442
+      "sortKeyUpdated": 442,
+      "musicCategoryNames": [
+        "elektroniskt"
+      ]
     },
     {
       "id": "ce57d24e-466d-4d40-967f-9b2ad04edf40",
@@ -21344,7 +21676,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 570,
-      "sortKeyUpdated": 167
+      "sortKeyUpdated": 167,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "7ad03476-cd71-428b-8f69-4a3ed1f41dca",
@@ -21414,7 +21749,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 572,
-      "sortKeyUpdated": 625
+      "sortKeyUpdated": 625,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "e2b15098-f51a-427c-836f-695c0e24dd56",
@@ -21454,7 +21792,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 573,
-      "sortKeyUpdated": 626
+      "sortKeyUpdated": 626,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "7c6d7004-798b-4b57-aa26-a1aa6e1263ee",
@@ -21532,7 +21873,10 @@
       "updated": 1788809475499,
       "updateStatus": "updated",
       "sortKeyTime": 575,
-      "sortKeyUpdated": 345
+      "sortKeyUpdated": 345,
+      "musicCategoryNames": [
+        "elektroniskt"
+      ]
     },
     {
       "id": "ca28211b-a09b-499d-b224-d6754be8c40f",
@@ -21707,7 +22051,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 580,
-      "sortKeyUpdated": 169
+      "sortKeyUpdated": 169,
+      "musicCategoryNames": [
+        "punk"
+      ]
     },
     {
       "type": "subEvent",
@@ -21781,7 +22128,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 582,
-      "sortKeyUpdated": 171
+      "sortKeyUpdated": 171,
+      "musicCategoryNames": [
+        "soul"
+      ]
     },
     {
       "type": "subEvent",
@@ -21855,7 +22205,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 584,
-      "sortKeyUpdated": 444
+      "sortKeyUpdated": 444,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -21968,7 +22321,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 587,
-      "sortKeyUpdated": 629
+      "sortKeyUpdated": 629,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "type": "subEvent",
@@ -22010,7 +22366,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 588,
-      "sortKeyUpdated": 174
+      "sortKeyUpdated": 174,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "1e703641-f5a8-4e2e-b4a5-0f4528be8300",
@@ -22193,7 +22552,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 593,
-      "sortKeyUpdated": 175
+      "sortKeyUpdated": 175,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -22226,7 +22588,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 594,
-      "sortKeyUpdated": 176
+      "sortKeyUpdated": 176,
+      "musicCategoryNames": [
+        "punk"
+      ]
     },
     {
       "type": "subEvent",
@@ -22268,7 +22633,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 595,
-      "sortKeyUpdated": 177
+      "sortKeyUpdated": 177,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "type": "subEvent",
@@ -22309,7 +22677,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 596,
-      "sortKeyUpdated": 178
+      "sortKeyUpdated": 178,
+      "musicCategoryNames": [
+        "jazz"
+      ]
     },
     {
       "type": "subEvent",
@@ -22343,7 +22714,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 597,
-      "sortKeyUpdated": 179
+      "sortKeyUpdated": 179,
+      "musicCategoryNames": [
+        "punk"
+      ]
     },
     {
       "type": "subEvent",
@@ -22376,7 +22750,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 598,
-      "sortKeyUpdated": 180
+      "sortKeyUpdated": 180,
+      "musicCategoryNames": [
+        "punk"
+      ]
     },
     {
       "type": "subEvent",
@@ -22458,7 +22835,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 600,
-      "sortKeyUpdated": 446
+      "sortKeyUpdated": 446,
+      "musicCategoryNames": [
+        "elektroniskt"
+      ]
     },
     {
       "id": "c2f03f92-d59d-4dca-8f01-3ab0cbf55f83",
@@ -22490,7 +22870,10 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 601,
-      "sortKeyUpdated": 331
+      "sortKeyUpdated": 331,
+      "musicCategoryNames": [
+        "indie"
+      ]
     },
     {
       "id": "c018311f-7489-4a0e-a341-3114a89136a4",
@@ -22560,7 +22943,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 603,
-      "sortKeyUpdated": 632
+      "sortKeyUpdated": 632,
+      "musicCategoryNames": [
+        "kör"
+      ]
     },
     {
       "id": "fac75ec1-ae87-4c2e-90a7-a18350a4c864",
@@ -22668,7 +23054,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 606,
-      "sortKeyUpdated": 448
+      "sortKeyUpdated": 448,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "type": "subEvent",
@@ -22710,7 +23099,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 607,
-      "sortKeyUpdated": 182
+      "sortKeyUpdated": 182,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "06aad66c-3150-4343-b298-66c0b2557147",
@@ -22750,7 +23142,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 608,
-      "sortKeyUpdated": 449
+      "sortKeyUpdated": 449,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "id": "f521735c-f8cd-468b-8575-f3cd03670435",
@@ -22863,7 +23258,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 611,
-      "sortKeyUpdated": 184
+      "sortKeyUpdated": 184,
+      "musicCategoryNames": [
+        "blues"
+      ]
     },
     {
       "type": "subEvent",
@@ -22904,7 +23302,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 612,
-      "sortKeyUpdated": 185
+      "sortKeyUpdated": 185,
+      "musicCategoryNames": [
+        "punk"
+      ]
     },
     {
       "type": "subEvent",
@@ -22938,7 +23339,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 613,
-      "sortKeyUpdated": 186
+      "sortKeyUpdated": 186,
+      "musicCategoryNames": [
+        "punk"
+      ]
     },
     {
       "type": "subEvent",
@@ -22971,7 +23375,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 614,
-      "sortKeyUpdated": 187
+      "sortKeyUpdated": 187,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "id": "120377a1-bc9a-4b0a-96fd-e0d0e31bb9fe",
@@ -23002,7 +23409,10 @@
       "updated": 1789041628678,
       "updateStatus": "created",
       "sortKeyTime": 615,
-      "sortKeyUpdated": 188
+      "sortKeyUpdated": 188,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "0b505751-38b4-465d-87b9-c2464245aebc",
@@ -23072,7 +23482,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 617,
-      "sortKeyUpdated": 635
+      "sortKeyUpdated": 635,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "type": "subEvent",
@@ -23106,7 +23519,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 618,
-      "sortKeyUpdated": 189
+      "sortKeyUpdated": 189,
+      "musicCategoryNames": [
+        "elektroniskt"
+      ]
     },
     {
       "type": "subEvent",
@@ -23139,7 +23555,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 619,
-      "sortKeyUpdated": 190
+      "sortKeyUpdated": 190,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "type": "subEvent",
@@ -23204,7 +23623,10 @@
       "updated": 1788276962619,
       "updateStatus": "created",
       "sortKeyTime": 621,
-      "sortKeyUpdated": 636
+      "sortKeyUpdated": 636,
+      "musicCategoryNames": [
+        "funk"
+      ]
     },
     {
       "id": "15266a19-c041-47fa-baf8-17ce0077eac7",
@@ -23312,7 +23734,11 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 624,
-      "sortKeyUpdated": 192
+      "sortKeyUpdated": 192,
+      "musicCategoryNames": [
+        "jazz",
+        "blues"
+      ]
     },
     {
       "type": "subEvent",
@@ -23345,7 +23771,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 625,
-      "sortKeyUpdated": 193
+      "sortKeyUpdated": 193,
+      "musicCategoryNames": [
+        "metal"
+      ]
     },
     {
       "type": "subEvent",
@@ -23378,7 +23807,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 626,
-      "sortKeyUpdated": 194
+      "sortKeyUpdated": 194,
+      "musicCategoryNames": [
+        "punk"
+      ]
     },
     {
       "type": "subEvent",
@@ -23412,7 +23844,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 627,
-      "sortKeyUpdated": 195
+      "sortKeyUpdated": 195,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "type": "subEvent",
@@ -23453,7 +23888,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 628,
-      "sortKeyUpdated": 196
+      "sortKeyUpdated": 196,
+      "musicCategoryNames": [
+        "övrigt"
+      ]
     },
     {
       "id": "900f867e-eb96-4b42-b085-619c9c14d918",
@@ -23552,7 +23990,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 631,
-      "sortKeyUpdated": 198
+      "sortKeyUpdated": 198,
+      "musicCategoryNames": [
+        "indie"
+      ]
     },
     {
       "type": "subEvent",
@@ -23586,7 +24027,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 632,
-      "sortKeyUpdated": 199
+      "sortKeyUpdated": 199,
+      "musicCategoryNames": [
+        "heavy metal"
+      ]
     },
     {
       "id": "2c301da0-8d7d-4713-9b46-07a1a39e062c",
@@ -23620,7 +24064,10 @@
       "updated": 1788284019971,
       "updateStatus": "updated",
       "sortKeyTime": 633,
-      "sortKeyUpdated": 451
+      "sortKeyUpdated": 451,
+      "musicCategoryNames": [
+        "pop"
+      ]
     },
     {
       "type": "subEvent",
@@ -23653,7 +24100,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 634,
-      "sortKeyUpdated": 200
+      "sortKeyUpdated": 200,
+      "musicCategoryNames": [
+        "metal"
+      ]
     },
     {
       "type": "subEvent",
@@ -23686,7 +24136,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 635,
-      "sortKeyUpdated": 201
+      "sortKeyUpdated": 201,
+      "musicCategoryNames": [
+        "rock"
+      ]
     },
     {
       "id": "fdd69884-c782-43dc-adf2-6c6be4478b44",
@@ -23717,7 +24170,10 @@
       "updated": 1788946789998,
       "updateStatus": "updated",
       "sortKeyTime": 636,
-      "sortKeyUpdated": 333
+      "sortKeyUpdated": 333,
+      "musicCategoryNames": [
+        "blues"
+      ]
     },
     {
       "type": "subEvent",
@@ -23750,7 +24206,10 @@
       "updated": 1789041628678,
       "updateStatus": "updated",
       "sortKeyTime": 637,
-      "sortKeyUpdated": 202
+      "sortKeyUpdated": 202,
+      "musicCategoryNames": [
+        "metal"
+      ]
     }
   ],
   "categories": [
@@ -23801,6 +24260,112 @@
     {
       "name": "Öppet hus och visning",
       "count": 108
+    }
+  ],
+  "musicCategories": [
+    {
+      "name": "allsång",
+      "count": 1
+    },
+    {
+      "name": "blues",
+      "count": 7
+    },
+    {
+      "name": "dancehall",
+      "count": 2
+    },
+    {
+      "name": "elektroniskt",
+      "count": 5
+    },
+    {
+      "name": "folkmusik",
+      "count": 2
+    },
+    {
+      "name": "funk",
+      "count": 6
+    },
+    {
+      "name": "gitarr",
+      "count": 1
+    },
+    {
+      "name": "heavy metal",
+      "count": 1
+    },
+    {
+      "name": "hiphop",
+      "count": 2
+    },
+    {
+      "name": "indie",
+      "count": 4
+    },
+    {
+      "name": "instrumental",
+      "count": 2
+    },
+    {
+      "name": "jazz",
+      "count": 16
+    },
+    {
+      "name": "klassiskt",
+      "count": 1
+    },
+    {
+      "name": "kör",
+      "count": 18
+    },
+    {
+      "name": "metal",
+      "count": 7
+    },
+    {
+      "name": "orkester",
+      "count": 10
+    },
+    {
+      "name": "pop",
+      "count": 17
+    },
+    {
+      "name": "punk",
+      "count": 8
+    },
+    {
+      "name": "reggae",
+      "count": 1
+    },
+    {
+      "name": "rock",
+      "count": 22
+    },
+    {
+      "name": "samba",
+      "count": 1
+    },
+    {
+      "name": "ska",
+      "count": 1
+    },
+    {
+      "name": "soul",
+      "count": 3
+    },
+    {
+      "name": "synth",
+      "count": 1
+    },
+    {
+      "name": "visa",
+      "count": 6
+    },
+    {
+      "name": "övrigt",
+      "count": 18
     }
   ],
   "languages": [

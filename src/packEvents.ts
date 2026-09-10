@@ -38,6 +38,7 @@ export function packEvents(events: any[], filters: any) {
   }
 
   const categories = countForKeys([['categoryNames', 'categoryName', 'categories', 'category', 'categoryValues', 'categoryValue']]);
+  const musicCategories = countForKeys([['musicCategoryNames']]);
   const languages = countForKeys([['languageNames', 'languageName', 'languages', 'language']]);
   const locations = countForKeys([['locationNames', 'locationName', 'locations', 'location']]);
   const accessibilities = countForKeys([['accessibilityNames', 'accessibilityName', 'accessibilityOptions', 'accessibilities', 'accessibility']]);
@@ -66,6 +67,7 @@ export function packEvents(events: any[], filters: any) {
   return {
     events: compactEvents,
     categories,
+    musicCategories,
     languages,
     locations,
     accessibilities,

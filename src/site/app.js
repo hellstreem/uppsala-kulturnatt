@@ -64,10 +64,6 @@ const $removeUserData = document.getElementById('remove-user-data');
 const $logoutButton = document.getElementById('logout-button');
 const $logoutDialog = document.getElementById('logout-dialog');
 const $logoutClose = document.getElementById('logout-close');
-const $syncAlert = document.getElementById('sync-alert');
-const $syncAlertLoggedOut = document.getElementById('sync-alert-logged-out');
-const $syncAlertLoggedIn = document.getElementById('sync-alert-logged-in');
-const $syncLoginLink = document.getElementById('sync-login-link');
 const $shareLoginLink = document.getElementById('share-login-link');
 const $shareLoginHelp = $shareLoginLink.closest('p');
 const $authDialog = document.getElementById('auth-dialog');
@@ -103,6 +99,7 @@ const tabs = {
   subevents: document.getElementById('tab-subevents'),
   cancelled: document.getElementById('tab-cancelled'),
   favorites: document.getElementById('tab-favorites'),
+  nonfavorites: document.getElementById('tab-nonfavorites'),
   live: document.getElementById('tab-live'),
   recent: document.getElementById('tab-recent'),
   soon: document.getElementById('tab-soon'),
@@ -573,7 +570,8 @@ function reportSettingsSyncError(operation, error) {
 
 function normalizeEvent(event) {
   event.favoriteId = idFor(event);
-  event.url = event.id ? `https://kulturnatten.uppsala.se/program/event/?externalId=${event.id}` : '';
+  const externalId = event.parentId || event.id;
+  event.url = externalId ? `https://kulturnatten.uppsala.se/program/event/?externalId=${externalId}` : '';
   event.categoryNames = Array.isArray(event.categoryNames) ? event.categoryNames : [];
   event.languageNames = Array.isArray(event.languageNames) ? event.languageNames : [];
   event.locationNames = Array.isArray(event.locationNames) ? event.locationNames : [];
@@ -778,9 +776,6 @@ function updateAuthenticationUi(user) {
     localStorage.setItem('displayName', displayName);
     localStorage.setItem('emailAddress', emailAddress);
   }
-  $syncAlert.hidden = false;
-  $syncAlertLoggedOut.hidden = Boolean(user);
-  $syncAlertLoggedIn.hidden = !user;
   $loginMenu.hidden = Boolean(user);
   $logoutButton.hidden = !user;
   $userMenu.hidden = true;
@@ -964,9 +959,6 @@ function showStoredAuthenticationUi() {
     const loginIdentity = storedUser.displayName || storedUser.email || 'användare';
     $loginMenu.hidden = true;
     $logoutButton.hidden = false;
-    $syncAlert.hidden = false;
-    $syncAlertLoggedOut.hidden = true;
-    $syncAlertLoggedIn.hidden = false;
     $userMenu.hidden = true;
     $loginButton.setAttribute('aria-label', `Konto: ${loginIdentity}`);
     $loginButton.title = `Inloggad som ${loginIdentity}`;
@@ -988,6 +980,7 @@ function updateTabCounts() {
   let subeventCount = 0;
   let cancelledCount = 0;
   let favoriteCount = 0;
+  let nonFavoriteCount = 0;
   let liveCount = 0;
   let recentCount = 0;
   let soonCount = 0;
@@ -1006,6 +999,7 @@ function updateTabCounts() {
     if (!isCancelled && (event.type === 'event' || event.type === 'subEvent')) eventCount += 1;
     if (!isCancelled && event.type === 'subEvent') subeventCount += 1;
     if (favoriteIds.has(event.favoriteId)) favoriteCount += 1;
+    if (!isCancelled && (event.type === 'event' || event.type === 'subEvent') && !favoriteIds.has(event.favoriteId)) nonFavoriteCount += 1;
     if (!isCancelled && Number.isFinite(event.startMs) && Number.isFinite(event.endMs) && event.startMs <= now && event.endMs >= now) liveCount += 1;
     if (!isCancelled && Number.isFinite(event.startMs) && event.startMs >= now - RECENT_EVENT_WINDOW_MS && event.startMs <= now) recentCount += 1;
     if (!isCancelled && Number.isFinite(event.startMs) && event.startMs >= now && event.startMs <= now + SOON_EVENT_WINDOW_MS) soonCount += 1;
@@ -1018,8 +1012,10 @@ function updateTabCounts() {
   tabs.subevents.title = `Delevenemang (${subeventCount} st)`;
   tabs.cancelled.textContent = `\u{1F6AB} Inställda (${cancelledCount})`;
   tabs.cancelled.title = `Inställda evenemang (${cancelledCount} st)`;
-  tabs.favorites.textContent = `\u2B50 Favoriter (${favoriteCount})`;
+  tabs.favorites.textContent = `\u{2B50} Favoriter (${favoriteCount})`;
   tabs.favorites.title = `Mina favoriter (${favoriteCount} st)`;
+  tabs.nonfavorites.textContent = `\u{2605} Ej favoriter (${nonFavoriteCount})`;
+  tabs.nonfavorites.title = `Ej favoriter (${nonFavoriteCount} st)`;
   tabs.live.textContent = `\u{1F550} Pågående (${liveCount})`;
   tabs.live.title = `Pågående evenemang (${liveCount} st)`;
   tabs.recent.textContent = `\u23EA Nu (${recentCount})`;
@@ -1609,13 +1605,6 @@ async function renderList(events, favorites = loadFavorites()) {
     card.tabIndex = 0;
     card.setAttribute('role', 'button');
 
-    if (activeTab.startsWith('shared:')) {
-      const sharedOwnerLabel = document.createElement('div');
-      sharedOwnerLabel.className = 'shared-card-owner';
-      sharedOwnerLabel.textContent = `Delad favorit (${sharedIdentity})`;
-      card.appendChild(sharedOwnerLabel);
-    }
-
     const timeLine = document.createElement('div');
     timeLine.className = 'line time-line';
 
@@ -1876,6 +1865,7 @@ function tabIcon(tab) {
       subevents: '\u{1F4DD}',
       cancelled: '\u{1F6AB}',
       favorites: '\u{2B50}',
+      nonfavorites: '\u{2605}',
       live: '\u{1F550}',
       recent: '\u{23EE}',
       soon: '\u{23ED}',
@@ -1893,6 +1883,7 @@ function tabTooltip(tab) {
       subevents: 'Delevenemang',
       cancelled: 'Inställda evenemang',
       favorites: 'Mina favoriter',
+      nonfavorites: 'Ej favoriter',
       live: 'Pågående',
       recent: 'Just startade',
       soon: 'Startar strax',
@@ -1906,7 +1897,7 @@ function tabTooltip(tab) {
 function updateProgramSortControls() {
   const isFavorites = activeTab === 'favorites' || activeTab.startsWith('shared:');
   const isShared = activeTab.startsWith('shared:');
-  const isSortable = isFavorites || activeTab === 'program' || activeTab === 'subevents';
+  const isSortable = isFavorites || activeTab === 'program' || activeTab === 'subevents' || activeTab === 'nonfavorites';
   $programSortControls.hidden = !isSortable;
   $shareFavorites.hidden = activeTab !== 'favorites';
   $programSortStart.hidden = !isSortable;
@@ -2024,6 +2015,7 @@ function setActive(tab, preserveScroll = false) {
       later: 'Evenemang som startar senare',
       live: 'Evenemang som pågår just nu',
       favorites: 'Dina favoritevenemang, betygsatta med 1–3 stjärnor. Favoritval kan tas bort via papperskorgsikonen.',
+      nonfavorites: 'Evenemang som ännu inte har markerats som favoriter.',
       unfinished: 'Evenemang som pågår eller ännu inte har startat',
     }[tab] || '';
   if (tab.startsWith('shared:')) tabInformation = `Delade favoritevenemang från ${sharedIdentity}`;
@@ -2041,6 +2033,8 @@ function setActive(tab, preserveScroll = false) {
     events = allEvents.filter((event) => event.isCancelled);
   } else if (tab === 'favorites') {
     events = favoriteEvents(favs);
+  } else if (tab === 'nonfavorites') {
+    events = sortProgramEvents(allEvents.filter((event) => !event.isCancelled && (event.type === 'event' || event.type === 'subEvent') && !Object.prototype.hasOwnProperty.call(favs, event.favoriteId)));
   } else if (tab.startsWith('shared:')) {
     const ratingFavorites = sharedSortMode === 'local' ? favs : sharedFavorites;
     events = favoriteEvents(sharedFavorites, ratingFavorites, sharedSortMode === 'start' ? 'start' : 'stars');
@@ -2203,13 +2197,6 @@ $loginButton.addEventListener('click', async () => {
     $moreMenu.hidden = true;
     $moreMenuButton.setAttribute('aria-expanded', 'false');
   }
-});
-$syncLoginLink.addEventListener('click', (event) => {
-  event.preventDefault();
-  if (firebaseUser) return;
-  ensureFirebaseAuthentication().then((isReady) => {
-    if (isReady && !firebaseUser) openAuthenticationDialog();
-  });
 });
 $shareLoginLink.addEventListener('click', (event) => {
   event.preventDefault();

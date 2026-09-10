@@ -3,6 +3,7 @@ import { GLOBAL_START_DATE } from './globals';
 export interface SubEvent {
   id: string;
   title: string;
+  about?: string;
   startTimeText: string;
   endTimeText?: string | null;
   // computed ISO timestamp (UTC) derived from global start and the text
@@ -10,7 +11,6 @@ export interface SubEvent {
   endTime?: string | null;
   aboutCopy?: string;
   aboutHeader?: string;
-  aboutTitles?: { startTime: string; endTime?: string | null; title: string }[];
   aboutSlim?: string;
   aboutSlimNoExtraInfo?: string;
   aboutSlimMyExtraInfo?: string;
@@ -306,7 +306,6 @@ export function getSubEvents(ev: any, allEvents: any[] = []): SubEvent[] {
     entry.sub.extraInfo2 = hasExtraInfo && extraInfoTitle && extraInfoText.endsWith(extraInfoTitle) ? '' : entry.sub.extraInfo;
     entry.sub.aboutCopy = aboutCopy;
     entry.sub.aboutHeader = aboutHeader;
-    entry.sub.aboutTitles = aboutTitles;
     entry.sub.aboutSlim = aboutSlim;
   }
   const aboutSlimNoExtraInfo = extraInfoBodies.reduce((text, body) => removeText(text, body), aboutSlim).trim();
@@ -338,6 +337,7 @@ export function getSubEvents(ev: any, allEvents: any[] = []): SubEvent[] {
     const subEventTitle = entry.sub.title.trim().toLocaleLowerCase();
     entry.sub.aboutCalculated2 = subEventTitle && calculatedText.endsWith(subEventTitle) ? '' : aboutCalculated;
     entry.sub.aboutSubEvent = entry.sub.aboutCalculated2 || entry.sub.extraInfo2 || entry.sub.aboutHeader || entry.sub.aboutSlimNoExtraInfo || entry.sub.aboutSlim;
+    entry.sub.about = entry.sub.aboutSubEvent;
   }
 
   return subs;

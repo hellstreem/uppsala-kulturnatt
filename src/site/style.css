@@ -14,8 +14,6 @@
   --chip-text: #b8c7cf;
   --detail-bg: rgba(255, 255, 255, 0.04);
   --filter-control-hover-bg: rgba(6, 182, 212, 0.24);
-  --sync-alert-bg: #153640;
-  --sync-alert-text: #c8e6e9;
   --card-shadow: rgba(2, 6, 23, 0.5);
   --star-active: #ffdc00;
   --star-inactive: #aaa7a7;
@@ -41,8 +39,6 @@ body[data-theme='light'] {
   --chip-text: #334155;
   --detail-bg: rgba(15, 23, 42, 0.04);
   --filter-control-hover-bg: rgba(8, 145, 178, 0.18);
-  --sync-alert-bg: #e4f1f3;
-  --sync-alert-text: #315860;
   --card-shadow: rgba(15, 23, 42, 0.12);
   --star-active: #eab900;
   --star-inactive: #969494;
@@ -97,27 +93,6 @@ main,
 
 .page-content {
   padding: 0 10px 10px 10px;
-}
-
-.sync-alert {
-  width: min(calc(100% - 20px), 940px);
-  margin-inline: auto;
-  padding-block: 3px;
-  color: var(--sync-alert-text);
-  font-size: 0.9rem;
-  background: var(--sync-alert-bg);
-  margin-top: 10px;
-  padding: 5px;
-}
-
-.sync-alert a {
-  color: var(--accent-2);
-  font-weight: 700;
-}
-
-.sync-alert a:hover,
-.sync-alert a:focus-visible {
-  color: var(--text);
 }
 
 @media (max-width: 640px) {
@@ -918,6 +893,15 @@ body[data-theme='dark'] .user-menu #remove-user-data i {
   font-weight: 600;
 }
 
+.tabs-select option[value='favorites']::first-letter {
+  color: var(--star-active);
+}
+
+.tabs-select option[value='nonfavorites']::first-letter {
+  color: #000;
+  font-size: 1.25em;
+}
+
 .view-controls {
   display: grid;
   flex-basis: 100%;
@@ -1705,28 +1689,16 @@ body.share-loading #status {
   cursor: pointer;
 }
 
+body:not([data-theme='light']) .card {
+  border: 1px solid var(--border);
+}
+
 .card.cancelled {
   background: #7f1d1d;
 }
 
 .card.finished {
   opacity: 0.75;
-}
-
-.shared-card-owner {
-  align-self: stretch;
-  padding: 2px 5px 5px;
-  margin-bottom: 5px;
-  border-bottom: 1px solid var(--border-subtle);
-  color: var(--muted);
-  background: var(--detail-bg);
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-body[data-theme='light'] .shared-card-owner {
-  border-bottom-color: var(--border-subtle);
 }
 
 body[data-theme='light'] .card.cancelled {

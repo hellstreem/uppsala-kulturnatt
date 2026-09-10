@@ -23,6 +23,7 @@ export function mergeEvents(events: any[], subEvents: any[]) {
     for (const f of PARENT_FIELDS) {
       if (parent[f] !== undefined) copy[f] = parent[f];
     }
+    if (copy.type === 'subEvent' && copy.aboutSubEvent !== undefined) copy.about = copy.aboutSubEvent;
     return copy;
   });
 
