@@ -54,6 +54,9 @@ const $reportErrorClose = document.getElementById('report-error-close');
 const $finishedVisibilityInline = document.getElementById('finished-visibility-inline');
 const $finishedVisibilityIcon = document.getElementById('finished-visibility-icon');
 const $finishedVisibilityLabel = document.getElementById('finished-visibility-label');
+const $compactViewInline = document.getElementById('compact-view-inline');
+const $compactViewIcon = document.getElementById('compact-view-icon');
+const $compactViewLabel = document.getElementById('compact-view-label');
 const $themeToggle = document.getElementById('theme-toggle');
 const $moreMenuButton = document.getElementById('more-menu-button');
 const $moreMenu = document.getElementById('more-menu');
@@ -173,6 +176,7 @@ const savedTheme = localStorage.getItem('theme');
 const initialTheme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 setTheme(initialTheme, false);
 hideFinishedEvents = localStorage.getItem('hideFinishedEvents') === 'true';
+let compactView = localStorage.getItem('compactView') === 'true';
 
 function eventCurrentTime() {
   if (typeof FAKE_TODAY_DATE !== 'string') return Date.now();
@@ -253,6 +257,24 @@ function toggleFinishedVisibility() {
   updateTabCounts();
   setActive(activeTab);
 }
+
+function updateCompactViewLink() {
+  const label = compactView ? 'Avaktivera kompakt vy' : 'Kompakt vy';
+  document.body.classList.toggle('compact-view', compactView);
+  $compactViewIcon.className = `fa-solid ${compactView ? 'fa-expand' : 'fa-compress'}`;
+  $compactViewLabel.textContent = label;
+  $compactViewInline.setAttribute('aria-label', label);
+  $compactViewInline.title = label;
+}
+
+function toggleCompactView() {
+  compactView = !compactView;
+  localStorage.setItem('compactView', String(compactView));
+  scheduleCloudSettingsSync();
+  updateCompactViewLink();
+}
+
+updateCompactViewLink();
 
 function shareTextForFavorites(events, favorites) {
   const eventText = events.map((event) => {
@@ -629,12 +651,13 @@ function localSettings() {
     displayName,
     emailAddress,
     enableSharing,
+    compactView,
   };
   return settings;
 }
 
 function settingsMergeFields(settings) {
-  return ['theme', 'favorites', 'sharedPages', 'hideFinishedEvents', 'displayName', 'emailAddress', 'enableSharing'].filter((field) => Object.prototype.hasOwnProperty.call(settings, field));
+  return ['theme', 'favorites', 'sharedPages', 'hideFinishedEvents', 'displayName', 'emailAddress', 'enableSharing', 'compactView'].filter((field) => Object.prototype.hasOwnProperty.call(settings, field));
 }
 
 function applySettings(settings) {
@@ -648,6 +671,11 @@ function applySettings(settings) {
     hideFinishedEvents = settings.hideFinishedEvents;
     localStorage.setItem('hideFinishedEvents', String(hideFinishedEvents));
   }
+  if (settings && typeof settings.compactView === 'boolean') {
+    compactView = settings.compactView;
+    localStorage.setItem('compactView', String(compactView));
+  }
+  updateCompactViewLink();
   updateFinishedVisibilityLink();
 }
 
@@ -1686,13 +1714,13 @@ async function renderList(events, favorites = loadFavorites()) {
     const showSecondaryLines = !ev.isCancelled && !isFinished;
     if (showSecondaryLines && parentTitle && !(parentTitle === eventTitle && parentTitle === (ev.locationAlias || ev.locationName || ev.location || '—'))) {
       parentLine = document.createElement('div');
-      parentLine.className = 'line secondary';
+      parentLine.className = 'line secondary parent-line';
       parentLine.textContent = parentTitle;
     }
 
     const locationAlias = ev.locationAlias || ev.locationName || ev.location || '—';
     const locationLine = document.createElement('div');
-    locationLine.className = 'line secondary';
+    locationLine.className = 'line secondary location-line';
     const hideLocationAlias = locationAlias === eventTitle || (parentLine && parentTitle === locationAlias);
     if (!hideLocationAlias) {
       locationLine.textContent = locationAlias;
@@ -1891,7 +1919,7 @@ async function renderList(events, favorites = loadFavorites()) {
     const updatedStatus = formatUpdatedStatus(ev);
     if (showSecondaryLines && programSortMode === 'updated' && updatedStatus) {
       const updatedLine = document.createElement('div');
-      updatedLine.className = 'line secondary';
+      updatedLine.className = 'line secondary updated-line';
       updatedLine.textContent = updatedStatus;
       card.appendChild(updatedLine);
     }
@@ -2061,7 +2089,6 @@ function setActive(tab, preserveScroll = false) {
       soon: 'Evenemang som startar inom de närmaste 45 minuterna',
       later: 'Evenemang som startar senare',
       live: 'Evenemang som pågår just nu',
-      favorites: 'Dina favoritevenemang, betygsatta med 1–3 stjärnor. Favoritval kan tas bort via papperskorgsikonen.',
       unfinished: 'Evenemang som pågår eller ännu inte har startat',
     }[tab] || '';
   if (tab.startsWith('shared:')) tabInformation = `Delade favoritevenemang från ${sharedIdentity}`;
@@ -2190,6 +2217,12 @@ $confirmDialog?.addEventListener('click', (event) => {
 $finishedVisibilityInline?.addEventListener('click', (event) => {
   event.preventDefault();
   toggleFinishedVisibility();
+  $moreMenu.hidden = true;
+  $moreMenuButton.setAttribute('aria-expanded', 'false');
+});
+$compactViewInline?.addEventListener('click', (event) => {
+  event.preventDefault();
+  toggleCompactView();
   $moreMenu.hidden = true;
   $moreMenuButton.setAttribute('aria-expanded', 'false');
 });

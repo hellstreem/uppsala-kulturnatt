@@ -100,6 +100,12 @@
 .fa-eye-slash {
   --fa: '\f070';
 }
+.fa-compress {
+  --fa: '\f066';
+}
+.fa-expand {
+  --fa: '\f065';
+}
 .fa-eraser {
   --fa: '\f12d';
 }
