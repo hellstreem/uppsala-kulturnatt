@@ -3609,8 +3609,8 @@
     "id": "185a18e5-9c58-487e-81dd-17307c036b51",
     "title": "Öppen trädgård hos Linné",
     "titleEnglish": "Open house at Linnaeus' home",
-    "about": "Möt Linnés trädgård i sensommarskrud. Följ med på visningar av de växter Linné odlade. Lär dig mer om Linnéträdgårdens historia. Visningar kl. 11.30 (eng), 14.30 (sv) och 15.30 (eng).",
-    "aboutEnglish": "Visit the Linnaeus Garden at its peak season. Join a guided tour of the garden to learn ore about the plants and the history of Sweden's first botanical garden. Tours in English start at 11:30 and 14:30.",
+    "about": "Möt Linnés trädgård i sensommarskrud. Följ med på visningar av de växter Linné odlade. Lär dig mer om Linnéträdgårdens historia. Visningar kl. 11.30 (eng), 14.30 (sv) och 15.30 (eng).\nÖppet hus i Linnémuseet (kl. 11–16), där föremål, möbler, tapeter och porträtt berättar om Linnés tid och liv. OBS! Begränsat antal platser. Kö kan uppstå.",
+    "aboutEnglish": "Meet Linnaeus Garden in its late-summer splendour. Join guided tours of the plants cultivated by Linnaeus and learn more about the history of Linnaeus Garden. Tours at 11:30 am (English), 2:30 pm (Swedish) and 3:30 pm (English).\n\nOpen House at the Linnaeus Museum (11 am–4 pm), where objects, furniture, wallpaper and portraits tell the story of Linnaeus’s life and times. Please note: Limited capacity. Queues may form.",
     "aboutShort": "Öppet hus med visningar kl. 11.30 (eng),  14.30 (sv) och 15.30 (eng).",
     "aboutShortEnglish": "",
     "organizer": "Uppsala linneanska trädgårdar, Uppsala universitet",
@@ -3631,29 +3631,30 @@
       "longitude": 17.6336668
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=185a18e5-9c58-487e-81dd-17307c036b51",
-    "checked": 1788276962619,
+    "checked": 1789041628678,
     "type": "event",
     "categoryNames": [
-      "Öppet hus och visning",
-      "Vandring/guidad tur"
+      "Vandring/guidad tur",
+      "Öppet hus och visning"
     ],
     "languageNames": [
-      "Svenska",
-      "Engelska"
+      "Engelska",
+      "Svenska"
     ],
     "locationNames": [
       "Inomhus"
     ],
     "accessibilityNames": [
-      "Barnvagnsvänligt",
       "Toalett tillgänglig med rullstol",
-      "Tillgänglighet anpassad för rullstol"
+      "Tillgänglighet anpassad för rullstol",
+      "Barnvagnsvänligt"
     ],
     "created": 1788276962619,
-    "updated": 1788276962619,
-    "status": "new",
+    "updated": 1789041628678,
+    "status": "updated",
+    "updateStatus": "updated",
     "sortKeyTime": 77,
-    "sortKeyUpdated": 77
+    "sortKeyUpdated": 2
   },
   {
     "id": "35d05318-f4c8-4546-bfca-6f89287d9a51",
@@ -12527,9 +12528,9 @@
     "id": "15935f0b-930c-4eea-b4e5-cfcabdc319a7",
     "title": "Gamla Uppsala Symfonic Band",
     "titleEnglish": "",
-    "about": "Välkomna till vår numer traditionsenliga medverkan på Kulturnatten!\n\"Sol Vind Och Vatten\", med Gamla Uppsala Symfonic Band. Øyvind Solheim, dirigent",
+    "about": "Välkomna till vår numer traditionsenliga medverkan på Kulturnatten!\n\"Fanfar för en ny generation\", med Gamla Uppsala Symfonic Band. Øyvind Solheim, dirigent",
     "aboutEnglish": "",
-    "aboutShort": "Välkomna till konserten \"Sol Vind Och Vatten\", med GUSB.\r\n",
+    "aboutShort": "Välkomna till konserten \"Fanfar för en ny generation\", med GUSB.",
     "aboutShortEnglish": "",
     "organizer": "Uppsala Missionskyrka",
     "startTime": "2026-09-12T12:00:00+00:00",
@@ -12549,7 +12550,7 @@
       "longitude": 17.6362656
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=15935f0b-930c-4eea-b4e5-cfcabdc319a7",
-    "checked": 1788946789998,
+    "checked": 1789041628678,
     "type": "event",
     "categoryNames": [
       "Musik"
@@ -12562,17 +12563,17 @@
     ],
     "accessibilityNames": [
       "Toalett tillgänglig med rullstol",
-      "Barnvagnsvänligt",
-      "God miljö för hörselskadade",
+      "Tillgänglighet anpassad för rullstol",
       "Tillgänglighet för synskadade",
-      "Tillgänglighet anpassad för rullstol"
+      "God miljö för hörselskadade",
+      "Barnvagnsvänligt"
     ],
     "created": 1788276962619,
-    "updated": 1788946789998,
+    "updated": 1789041628678,
     "status": "updated",
     "updateStatus": "updated",
-    "sortKeyTime": 262,
-    "sortKeyUpdated": 87
+    "sortKeyTime": 260,
+    "sortKeyUpdated": 4
   },
   {
     "id": "33c01753-abe5-424e-9d42-caedc4cdb0fb",
@@ -33663,5 +33664,148 @@
     "updateStatus": "new",
     "sortKeyTime": 615,
     "sortKeyUpdated": 21
+  },
+  {
+    "id": "e5436015-5afd-4007-a8db-2444e19e0e4e",
+    "title": "Utforska bin och biodling",
+    "titleEnglish": "Explore bees and beekeeping",
+    "about": "Välkommen till vårt tält där barn kan lära sig om bin, biodling och skapa binspirerade pyssel! Vi säljer också lokal honung från vårt lilla företag. Kom och upptäck hur viktiga bin är för naturen – kul för hela familjen!",
+    "aboutEnglish": "Visit our stand where kids can learn about bees, and beekeeping, and make bee-themed crafts! We’ll also be selling local honey from our small business. Come discover why bees are vital to nature – fun for the whole family! ",
+    "aboutShort": "Lär dig om bin & gör pyssel! Säljer lokal honung 🐝",
+    "aboutShortEnglish": "Learn about bees, and beekeeping, and make bee-themed crafts!",
+    "organizer": "Honung Ram Uppsala",
+    "startTime": "2026-09-12T09:00:00+00:00",
+    "endTime": "2026-09-12T15:00:00+00:00",
+    "webpage": "https://honungram.com/",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a001",
+    "locationAlias": "Barnområdet KulturKnatten i Odinslund",
+    "streetAddress": "",
+    "postalCode": "",
+    "city": "",
+    "isCancelled": false,
+    "isForChildren": true,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.85629900783095,
+      "longitude": 17.63221286368932
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=e5436015-5afd-4007-a8db-2444e19e0e4e",
+    "checked": 1789041628678,
+    "type": "event",
+    "categoryNames": [
+      "Workshop och prova på"
+    ],
+    "languageNames": [
+      "Spanska",
+      "Engelska",
+      "Svenska"
+    ],
+    "locationNames": [
+      "\n                    Utomhus\n                "
+    ],
+    "accessibilityNames": [
+      "Barnvagnsvänligt",
+      "God miljö för hörselskadade",
+      "Tillgänglighet för synskadade",
+      "Tillgänglighet anpassad för rullstol",
+      "Toalett tillgänglig med rullstol",
+      "Hiss anpassad för rullstol"
+    ],
+    "created": 1789041628678,
+    "updated": 1789041628678,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 70,
+    "sortKeyUpdated": 1
+  },
+  {
+    "id": "3fced0bc-14f5-40c5-9f8a-ecf4c5868e55",
+    "title": "Konst. Öppen ateljé.",
+    "titleEnglish": "",
+    "about": "Jag visar mina tavlor, från alla mina perioder.",
+    "aboutEnglish": "",
+    "aboutShort": "Konst",
+    "aboutShortEnglish": "",
+    "organizer": "Kitty Lindsten ",
+    "startTime": "2026-09-12T10:00:00+00:00",
+    "endTime": "2026-09-12T13:00:00+00:00",
+    "webpage": "",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "Ateljé Väderkvarnsgatan 11 c",
+    "streetAddress": "Väderkvarnsgatan 11c,  källarlokal",
+    "postalCode": "Uppsala",
+    "city": "75329",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.8619882,
+      "longitude": 17.6480077
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=3fced0bc-14f5-40c5-9f8a-ecf4c5868e55",
+    "checked": 1789041628678,
+    "type": "event",
+    "categoryNames": [
+      "Konst"
+    ],
+    "languageNames": [
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [],
+    "created": 1789041628678,
+    "updated": 1789041628678,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 123,
+    "sortKeyUpdated": 3
+  },
+  {
+    "id": "120377a1-bc9a-4b0a-96fd-e0d0e31bb9fe",
+    "title": "Konsert på borggården",
+    "titleEnglish": "Concert in the courtyard",
+    "about": "Välkommen till Kulturnattens avslutning på borggården – en pulserande audiovisuell helhetsupplevelse där musik och bild möts över generationer.\n\nI centrum står tonsättaren och ljudkonstnären Philippe Boix-Vives, vars elektroniska konsert tar avstamp i ett rikt konstnärligt arv. Här möter hans ljudvärld målningarna av farfadern Anselme Boix-Vives – grönsakshandlaren från södra Frankrike som sent i livet började måla och vars färgstarka verk kom att ta plats i museisamlingar.\n\nAnselmes bildvärld är fylld av starka färger, myllrande gestalter och en vision om fred – ett egenartat och livfullt kosmos där världspolitik samsas med det nära och personliga.\n\nPhilippe Boix-Vives har under mer än tre decennier utvecklat ett personligt musikaliskt språk präglat av experimentell elektronik, improvisation och samtida komposition. Inspirerad av bland andra Frank Zappa och Igor Stravinsky rör han sig obehindrat mellan instrumentala, elektroakustiska, modulära och filmiska uttryck.\n\nGenom elektroniska texturer, föränderliga klanglandskap och inslag av polyrytmiskt kaos vecklar musiken ut sig som ett levande rum tillsammans med målningarna.\nResultatet är en omslutande upplevelse där ljud och färg smälter samman – en poetisk helhet som bjuder in publiken att stiga in i ett universum av frihet, fantasi och förvandling.\n\nTid: 21:30-22:00\nPlats: Borggården, Uppsala konstmuseums fasad\n– Philippe Boix-Vives i dialog med Anselme Boix-Vives livfulla universum",
+    "aboutEnglish": "Welcome to the grand finale of Kulturnatten in the castle courtyard – a vibrant audiovisual experience where music and imagery come together across generations.\n\nAt the heart of the event is composer and sound artist Philippe Boix-Vives, whose electronic concert draws on a rich artistic heritage. His sonic world meets the paintings of his grandfather, Anselme Boix-Vives – the greengrocer from southern France who took up painting late in life, and whose colorful works eventually found their way into museum collections.\n\nAnselme’s visual universe is filled with bold colors, teeming figures, and a vision of peace – a distinctive and lively cosmos where global politics coexist with the intimate and personal.\n\nFor more than three decades, Philippe Boix-Vives has developed a unique musical language shaped by experimental electronics, improvisation, and contemporary composition. Inspired by figures such as Frank Zappa and Igor Stravinsky, he moves effortlessly between instrumental, electroacoustic, modular, and cinematic forms of expression.\n\nThrough electronic textures, ever-shifting soundscapes, and elements of polyrhythmic chaos, the music unfolds like a living space in dialogue with the paintings.\nThe result is an immersive experience where sound and color blend together – a poetic whole that invites the audience to step into a universe of freedom, imagination, and transformation.\n\nTime: 21:30–22:00\nLocation: Castle Courtyard, façade of Uppsala Art Museum\n– Philippe Boix-Vives in dialogue with the vibrant universe of Anselme Boix-Vives",
+    "aboutShort": "Upplev konserten Inherted Frequencies med Philippe Boix-Vives",
+    "aboutShortEnglish": "Experience the concert Inherted Frequencies with Philippe Boix-Vives",
+    "organizer": "Uppsala konstmuseum",
+    "startTime": "2026-09-12T19:30:00+00:00",
+    "endTime": "2026-09-12T20:00:00+00:00",
+    "webpage": "https://uppsalakonstmuseum.se",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a001",
+    "locationAlias": "Uppsala konstmuseum entré och fasad",
+    "streetAddress": "Drottning Christinas väg 1E",
+    "postalCode": "Uppsala",
+    "city": "752 37",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.85329807027393,
+      "longitude": 17.635173856686873
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=120377a1-bc9a-4b0a-96fd-e0d0e31bb9fe",
+    "checked": 1789041628678,
+    "type": "event",
+    "categoryNames": [
+      "Konst",
+      "Musik"
+    ],
+    "languageNames": [],
+    "locationNames": [
+      "\n                    Utomhus\n                "
+    ],
+    "accessibilityNames": [],
+    "created": 1789041628678,
+    "updated": 1789041628678,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 639,
+    "sortKeyUpdated": 5
   }
 ]
