@@ -2183,7 +2183,7 @@ $actionAlertClose.addEventListener('click', closeActionAlert);
 $confirmDialog.addEventListener('click', (event) => {
   if (event.target === $confirmDialog) $confirmDialog.close('cancel');
 });
-$finishedVisibilityInline.addEventListener('click', (event) => {
+$finishedVisibilityInline?.addEventListener('click', (event) => {
   event.preventDefault();
   toggleFinishedVisibility();
   $moreMenu.hidden = true;
