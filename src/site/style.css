@@ -1777,7 +1777,6 @@ body.compact-view .favorite-remove {
 body.compact-view .parent-line,
 body.compact-view .updated-line,
 body.compact-view .tag-row,
-body.compact-view .shared-owner-rating,
 body.compact-view .event-details {
   display: none;
 }
