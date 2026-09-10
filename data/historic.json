@@ -41448,7 +41448,7 @@
     "id": "ca28211b-a09b-499d-b224-d6754be8c40f",
     "title": "Uppsala Dansakademi",
     "titleEnglish": "Uppsala Dansakademi",
-    "about": "Dansuppträdande med Uppsala Dansakademis danslinjer i varierande åldrar och stilar som dansar kring begreppet Hem. Vad kan man läsa in i ordet hem egentligen? Vi bjuder på en blandning av dansstilar som tillsammans bildar en fartfylld och konstnärlig dansupplevelse för hela familjen.",
+    "about": "Dansuppträdande med Uppsala Dansakademis danslinjer i varierande åldrar och stilar som dansar kring begreppet Hem. Vad kan man läsa in i ordet hem egentligen? Vi bjuder på en blandning av dansstilar som tillsammans bildar en fartfylld och konstnärlig dansupplevelse för hela familjen. \n\nStarttider uppträdande: Klockan 20:00, 20:30, 21:00 och 21:30",
     "aboutEnglish": "Dance performance with Uppsala Dance Academy's dance lines of varying ages and styles that dance around the concept of Home. What can you really read into the word home? We offer a mix of dance styles that together form a fast-paced and artistic dance experience for the whole family.",
     "aboutShort": "Dance performance with Uppsala Dansakademi´s dance lines of varying ages. ",
     "aboutShortEnglish": "",
@@ -41470,7 +41470,7 @@
       "longitude": 17.6460285907551
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=ca28211b-a09b-499d-b224-d6754be8c40f",
-    "checked": 1788974840209,
+    "checked": 1789061519023,
     "type": "event",
     "categoryNames": [
       "Dans"
@@ -41483,11 +41483,12 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788974840209,
+    "updated": 1789061519023,
     "status": "updated",
     "updateStatus": "updated",
-    "sortKeyTime": 614,
-    "sortKeyUpdated": 20
+    "sortKeyTime": 577,
+    "sortKeyUpdated": 2,
+    "musicCategoryNames": []
   },
   {
     "type": "subEvent",
@@ -50328,5 +50329,52 @@
     "updateStatus": "new",
     "sortKeyTime": 639,
     "sortKeyUpdated": 5
+  },
+  {
+    "id": "0de02f85-04fb-4503-83d4-5ea371b06f9f",
+    "title": "Förstå din kamera bättre",
+    "titleEnglish": "Get to know your camera",
+    "about": "Kom till oss och få hjälp att förstå din kamera och utveckla din förmåga att ta ta bilder med rätt exponering och färger. Du får veta vad inställningarna i kameran betyder och hur du använder dom. På så sätt kan utveckla dittt fotograferande, ta bättre bilder och lyckas som fotograf.",
+    "aboutEnglish": "Come to us for help understanding your camera and developing your ability to capture images with the right exposure and colors. You will learn what the camera settings mean and how to use them. This way, you can improve your photography, take better pictures, and succeed as a photographer.",
+    "aboutShort": "Kom till oss och få hjälp att förstå din kamera och utveckla din förmåga att ta ta bilder.",
+    "aboutShortEnglish": "",
+    "organizer": "Uppsala fotografiska sällskap",
+    "startTime": "2026-09-12T12:00:00+00:00",
+    "endTime": "2026-09-12T14:00:00+00:00",
+    "webpage": "https://uppsalafotografiska.se",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
+    "locationAlias": "Uppsalafotografiska sällskap, Galleriet",
+    "streetAddress": "Dag Hammarsjölds plats, Övre Slottsgatan 14A ",
+    "postalCode": "",
+    "city": "75310",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.855599,
+      "longitude": 17.6317782
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=0de02f85-04fb-4503-83d4-5ea371b06f9f",
+    "checked": 1789061519023,
+    "type": "event",
+    "categoryNames": [
+      "Konst",
+      "Seminarium, föreläsning, samtal"
+    ],
+    "languageNames": [
+      "Svenska"
+    ],
+    "locationNames": [
+      "Inomhus"
+    ],
+    "accessibilityNames": [],
+    "created": 1789061519023,
+    "updated": 1789061519023,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 255,
+    "sortKeyUpdated": 1,
+    "musicCategoryNames": []
   }
 ]
