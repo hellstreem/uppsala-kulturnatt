@@ -722,7 +722,7 @@ async function syncSettingsWithFirebase() {
   for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
     let operation = 'read user settings';
     try {
-      const snapshot = await settingsDocument.get();
+      const snapshot = await settingsDocument.get({ source: 'server' });
       const local = localSettings();
       const remote = snapshot.exists ? snapshot.data() : null;
 
