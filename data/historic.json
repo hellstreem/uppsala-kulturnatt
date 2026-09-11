@@ -49396,7 +49396,7 @@
     "aboutShortEnglish": "",
     "organizer": "Uppsala fotografiska sällskap",
     "startTime": "2026-09-12T16:00:00+00:00",
-    "endTime": "2026-09-12T18:00:00+00:00",
+    "endTime": "2026-09-12T19:00:00+00:00",
     "webpage": "https://uppsalafotografiska.se/",
     "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a002",
     "locationAlias": "Uppsala fotografiska sällskap",
@@ -49412,7 +49412,7 @@
       "longitude": 17.628651171518765
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=44087274-7a1e-4cc7-b071-8633736bd057",
-    "checked": 1788815942926,
+    "checked": 1789119099879,
     "type": "event",
     "categoryNames": [
       "Konst",
@@ -49428,11 +49428,12 @@
     ],
     "accessibilityNames": [],
     "created": 1788815942926,
-    "updated": 1788815942926,
-    "status": "new",
-    "updateStatus": "new",
-    "sortKeyTime": 526,
-    "sortKeyUpdated": 5
+    "updated": 1789119099879,
+    "status": "updated",
+    "updateStatus": "updated",
+    "sortKeyTime": 499,
+    "sortKeyUpdated": 1,
+    "musicCategoryNames": []
   },
   {
     "id": "5ef50e06-70f6-474b-94ca-2ccbbdceed80",
