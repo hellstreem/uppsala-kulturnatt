@@ -17,3 +17,6 @@ add sortering to all
 add visa/dölj avslutade to main screen
 
 Se även delevenemang i menyn ovan. Dessa har identifierats i evenemangets beskrivning.
+
+SKAPAD som gul ny-färg
+UPPDATERAD som grå färg

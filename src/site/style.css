@@ -1591,6 +1591,10 @@ body.share-loading #status {
   gap: 8px;
 }
 
+.share-block[hidden] {
+  display: none;
+}
+
 .share-block + .share-block {
   padding-top: 12px;
 }

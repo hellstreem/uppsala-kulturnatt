@@ -41,6 +41,10 @@ const $shareClose = document.getElementById('share-close');
 const $shareEmpty = document.getElementById('share-empty');
 const $shareText = document.getElementById('share-text');
 const $shareCopy = document.getElementById('share-copy');
+const $shareImportBlock = document.getElementById('share-import-block');
+const $shareImportText = document.getElementById('share-import-text');
+const $shareImport = document.getElementById('share-import');
+const $shareImportMessage = document.getElementById('share-import-message');
 const $shareMessage = document.getElementById('share-message');
 const $shareToast = document.getElementById('share-toast');
 const $shareToastMessage = document.getElementById('share-toast-message');
@@ -117,6 +121,7 @@ let sharedLoadRequest = 0;
 
 function updateDebugMode() {
   debugEnabled = new URL(window.location.href).searchParams.get('debug') === 'true';
+  if ($shareImportBlock) $shareImportBlock.hidden = !debugEnabled;
 }
 
 function debugLog(...args) {
@@ -426,6 +431,58 @@ function copyFavorites() {
 function copyShareLink() {
   if ($shareLinkCopy.disabled) return;
   copyToClipboard($shareLink.textContent, 'Länken kopierades', 'Länken kunde inte kopieras.');
+}
+
+async function importFavoritesFromShareText() {
+  if (!debugEnabled || !$shareImportText) return;
+
+  const importedRatings = new Map();
+  const lines = $shareImportText.value.split(/\r?\n/);
+  const timeLinePattern = /^\s*(\d{1,2}[:.]\d{2})\s*-\s*(?:\d{1,2}[:.]\d{2}|—|-)\s*\((\*{1,3})\)\s*$/;
+  const normalizeMatchValue = (value) =>
+    String(value ?? '')
+      .trim()
+      .replace(/\s+/g, ' ')
+      .toLocaleLowerCase('sv-SE');
+  let unmatchedCount = 0;
+
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const timeMatch = lines[lineIndex].match(timeLinePattern);
+    if (!timeMatch) continue;
+
+    const startTime = formatLocalClockTime(timeMatch[1]);
+    const title = lines[lineIndex + 1]?.trim();
+    const locationAlias = lines[lineIndex + 2]?.trim();
+    const event = allEvents.find((candidate) => {
+      const candidateStartTime = formatLocalClockTime(candidate.start || candidate.startTime || candidate.startTimeText || candidate.time || '');
+      return candidateStartTime === startTime && normalizeMatchValue(candidate.title || candidate.name || candidate.displayName) === normalizeMatchValue(title) && normalizeMatchValue(candidate.locationAlias) === normalizeMatchValue(locationAlias);
+    });
+
+    if (!event) {
+      unmatchedCount += 1;
+      continue;
+    }
+
+    importedRatings.set(event.favoriteId, Math.max(importedRatings.get(event.favoriteId) || 0, timeMatch[2].length));
+  }
+
+  if (importedRatings.size === 0) {
+    $shareImportMessage.textContent = 'Inga favoritblock kunde matchas mot programmet.';
+    return;
+  }
+
+  const favorites = loadFavorites();
+  let addedCount = 0;
+  for (const [id, rating] of importedRatings) {
+    if (Object.prototype.hasOwnProperty.call(favorites, id)) continue;
+    favorites[id] = rating;
+    addedCount += 1;
+  }
+
+  await saveFavorites(favorites);
+  $shareImportMessage.textContent = `Resultat: ${addedCount} favoriter lades till (${importedRatings.size} matchade, ${unmatchedCount} kunde inte matchas).`;
+  updateTabCounts();
+  if (activeTab === 'favorites') setActive(activeTab);
 }
 
 function formatLocalClockTime(value) {
@@ -2179,6 +2236,7 @@ $shareDialog?.addEventListener('click', (event) => {
   if (event.target === $shareDialog) $shareDialog.close();
 });
 $shareCopy?.addEventListener('click', copyFavorites);
+$shareImport?.addEventListener('click', importFavoritesFromShareText);
 $shareText?.addEventListener('focus', selectShareField);
 $shareText?.addEventListener('click', selectShareField);
 $shareLinkToggle?.addEventListener('change', async () => {
