@@ -18997,8 +18997,8 @@
     "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
     "title": "Livemusik på Fyristorg",
     "titleEnglish": "Live Music at Fyristorg",
-    "about": "14:15 - Pax Vobiscum\n15:00 - Atomic Spitfire\n15:45 - Drown in time\n16:30 - Distorted Times\n17:15 - Pegasus\n18:00 - Canvas\n19:00 - Stone Brigade\n19:45 - The Bush Devil Trackers\n20:30 - Die Kristi Brüd\n21:15 - Happy Shitty Band\n22:00 - Haerdsmaelta\n22:45 - The Overthrone\n23:30 - Scent of surface",
-    "aboutEnglish": "14:15 - Pax Vobiscum\n15:00 - Atomic Spitfire\n15:45 - Drown in time\n16:30 - Distorted Times\n17:15 - Pegasus\n18:00 - Canvas\n19:00 - Stone Brigade\n19:45 - The Bush Devil Trackers\n20:30 - Die Kristi Brüd\n21:15 - Happy Shitty Band\n22:00 - Haerdsmaelta\n22:45 - The Overthrone\n23:30 - Scent of surface",
+    "about": "14:15 - Pax Vobiscum\n15:00 - Atomic Spitfire\n15:45 - Drown in time\n16:30 - Distorted Times\n17:15 - Pegasus\n18:00 - Canvas\n19:00 - Stone Brigade\n19:45 - The Bush Devil Trackers\n20:30 - Die Kristi Brüd\n21:15 - Skandalhuset\n22:00 - Haerdsmaelta\n22:45 - The Overthrone\n23:30 - Scent of surface",
+    "aboutEnglish": "14:15 - Pax Vobiscum\n15:00 - Atomic Spitfire\n15:45 - Drown in time\n16:30 - Distorted Times\n17:15 - Pegasus\n18:00 - Canvas\n19:00 - Stone Brigade\n19:45 - The Bush Devil Trackers\n20:30 - Die Kristi Brüd\n21:15 - Skandalhuset\n22:00 - Haerdsmaelta\n22:45 - The Overthrone\n23:30 - Scent of surface",
     "aboutShort": "Livemusik på Fyristorg",
     "aboutShortEnglish": "Live Music at Fyristorg",
     "organizer": "Studiefrämjandet",
@@ -19019,7 +19019,7 @@
       "longitude": 17.6361012
     },
     "url": "https://kulturnatten.uppsala.se/program/event/?externalId=092ed71d-9d17-479d-8bb3-02b2b2f71e13",
-    "checked": 1788276962619,
+    "checked": 1789198182306,
     "type": "event",
     "categoryNames": [
       "Musik"
@@ -19032,10 +19032,12 @@
     ],
     "accessibilityNames": [],
     "created": 1788276962619,
-    "updated": 1788276962619,
-    "status": "new",
-    "sortKeyTime": 302,
-    "sortKeyUpdated": 302
+    "updated": 1789198182306,
+    "status": "updated",
+    "updateStatus": "updated",
+    "sortKeyTime": 296,
+    "sortKeyUpdated": 1,
+    "musicCategoryNames": []
   },
   {
     "type": "subEvent",
@@ -51754,6 +51756,60 @@
     "updateStatus": "new",
     "sortKeyTime": 496,
     "sortKeyUpdated": 22,
+    "musicCategoryNames": []
+  },
+  {
+    "type": "subEvent",
+    "id": "092ed71d-9d17-479d-8bb3-02b2b2f71e13_Skandalhuset_1789240500000",
+    "parentEventId": "092ed71d-9d17-479d-8bb3-02b2b2f71e13",
+    "parentTitle": "Livemusik på Fyristorg",
+    "title": "Skandalhuset",
+    "about": "",
+    "aboutCopy": "14:15 Pax Vobiscum\n15:00 Atomic Spitfire\n15:45 Drown in time\n16:30 Distorted Times\n17:15 Pegasus\n18:00 Canvas\n19:00 Stone Brigade\n19:45 The Bush Devil Trackers\n20:30 Die Kristi Brüd\n21:15 Skandalhuset\n22:00 Haerdsmaelta\n22:45 The Overthrone\n23:30 Scent of surface",
+    "aboutHeader": "",
+    "aboutSlim": "",
+    "aboutSlimNoExtraInfo": "",
+    "aboutSlimMyExtraInfo": "",
+    "aboutCalculated": "21:15 Skandalhuset",
+    "aboutCalculated2": "",
+    "aboutSubEvent": "",
+    "extraInfo": "21:15 Skandalhuset",
+    "extraInfo2": "",
+    "startTimeText": "21:15",
+    "endTimeText": null,
+    "startTime": "2026-09-12T19:15:00+00:00",
+    "endTime": null,
+    "checked": 1789198182306,
+    "organizer": "Studiefrämjandet",
+    "webpage": "https://kulturnatten.uppsala.se/",
+    "locationId": "aaaaaaaa-bbbb-cccc-8732-eab39171a003",
+    "locationAlias": "Fyristorg",
+    "streetAddress": "Fyristorg",
+    "isCancelled": false,
+    "isForChildren": false,
+    "isFree": true,
+    "price": null,
+    "coordinates": {
+      "latitude": 59.8582944,
+      "longitude": 17.6361012
+    },
+    "url": "https://kulturnatten.uppsala.se/program/event/?externalId=092ed71d-9d17-479d-8bb3-02b2b2f71e13",
+    "categoryNames": [
+      "Musik"
+    ],
+    "languageNames": [
+      "Evenemanget kräver inga språkkunskaper"
+    ],
+    "locationNames": [
+      "\n                    Scen\n                "
+    ],
+    "accessibilityNames": [],
+    "created": 1789198182306,
+    "updated": 1789198182306,
+    "status": "new",
+    "updateStatus": "new",
+    "sortKeyTime": 637,
+    "sortKeyUpdated": 2,
     "musicCategoryNames": []
   }
 ]
