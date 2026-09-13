@@ -968,6 +968,28 @@ function loadScript(src) {
   });
 }
 
+async function handleFirebaseAuthenticationError(error) {
+  debugError('Firebase authentication state failed:', error);
+  const invalidCredential = ['auth/invalid-credential', 'auth/invalid-user-token', 'auth/user-token-expired'].includes(error?.code);
+  if (!invalidCredential) return;
+
+  window.clearTimeout(cloudSyncTimer);
+  firebaseSettingsReady = false;
+  settingsDocument = null;
+  try {
+    await firebaseAuth?.signOut();
+  } catch (signOutError) {
+    debugError('Firebase sign-out after authentication failure failed:', signOutError);
+  }
+  try {
+    localStorage.removeItem(`firebase:authUser:${FIREBASE_CONFIG.apiKey}:[DEFAULT]`);
+  } catch (_) {
+    // Firebase will recreate the authoritative authentication state.
+  }
+  updateAuthenticationUi(null);
+  showAuthMessage('Din inloggning har gått ut. Logga in igen.');
+}
+
 function initFirebaseAuthentication() {
   if (typeof firebase === 'undefined' || typeof FIREBASE_CONFIG === 'undefined' || !FIREBASE_CONFIG) {
     $loginButton.disabled = true;
@@ -981,7 +1003,10 @@ function initFirebaseAuthentication() {
     firebaseAuthStatePromise = new Promise((resolve) => {
       firebaseAuth.onAuthStateChanged(
         (user) => resolve(user),
-        () => resolve(null),
+        (error) => {
+          resolve(null);
+          handleFirebaseAuthenticationError(error);
+        },
       );
     });
     firebaseAuth.onAuthStateChanged(async (user) => {
@@ -1011,7 +1036,7 @@ function initFirebaseAuthentication() {
       } catch (error) {
         showError(error?.message || 'Användarinställningarna kunde inte laddas.');
       }
-    });
+    }, handleFirebaseAuthenticationError);
   } catch (error) {
     debugError('Firebase initialization failed:', error);
     $loginButton.disabled = true;
@@ -2439,11 +2464,23 @@ $googleLoginButton?.addEventListener('click', async () => {
     }
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
-    await firebaseAuth.signInWithPopup(provider);
-    await recordLastLogin(firebaseAuth.currentUser || firebaseUser);
-    openLoginDialogOnNextClick = false;
-    $authDialog.close();
+    showAuthMessage('Öppnar Google-inloggning...');
+    await firebaseAuth.signInWithRedirect(provider);
   } catch (error) {
+    if (error?.code === 'auth/invalid-credential' && !recentAuthenticationResolver) {
+      try {
+        await firebaseAuth.signOut();
+        const retryProvider = new firebase.auth.GoogleAuthProvider();
+        retryProvider.setCustomParameters({ prompt: 'consent' });
+        await firebaseAuth.signInWithPopup(retryProvider);
+        await recordLastLogin(firebaseAuth.currentUser || firebaseUser);
+        openLoginDialogOnNextClick = false;
+        $authDialog.close();
+        return;
+      } catch (retryError) {
+        error = retryError;
+      }
+    }
     debugError('Firebase Google authentication failed:', error);
     showAuthMessage(error?.message || 'Google-inloggningen misslyckades.');
   }
